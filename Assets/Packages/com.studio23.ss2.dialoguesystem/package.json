@@ -1,0 +1,31 @@
+{
+  "name": "com.studio23.ss2.dialoguesystem",
+  "version": "0.0.1",
+  "displayName": "Dialogue System",
+  "description": "Dialogue system is an authoring tool for developers to integrate dialogue from scriptwriters inside unity.",
+  "unity": "2022.3",
+  "unityRelease": "10f1",
+  "documentationUrl": "https://openupm.com/packages/com.studio23.ss2.dialoguesystem",
+  "changelogUrl": "https://openupm.com/packages/com.studio23.ss2.dialoguesystem",
+  "licensesUrl": "https://opensource.org/license/mit/",
+  "scopedRegistries": [
+    {
+      "name": "Studio 23",
+      "url": "https://package.openupm.com",
+      "scopes": [
+        "com.studio23.ss2"
+      ]
+    }
+  ],
+  "dependencies": {
+    "com.github.siccity.xnode": "1.8.0"
+  },
+  "keywords": [
+    "Dialogue System"
+  ],
+  "author": {
+    "name": "Studio-23",
+    "email": "contact@studio-23.xyz",
+    "url": "https://studio-23.xyz"
+  }
+}
