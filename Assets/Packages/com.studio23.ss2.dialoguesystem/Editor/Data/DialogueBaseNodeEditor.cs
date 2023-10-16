@@ -1,5 +1,5 @@
-using UnityEngine;
 using UnityEditor;
+using UnityEngine;
 using XNodeEditor;
 
 namespace Studio23.SS2.DialogueSystem.Data
@@ -8,7 +8,7 @@ namespace Studio23.SS2.DialogueSystem.Data
     public class DialogueBaseNodeEditor : NodeEditor
     {
 
-        public Color TextColor= Color.white;
+        public Color TextColor = Color.white;
         private DialogueBase dialogueBase;
         private static GUIStyle editorLabelStyle;
 
@@ -25,6 +25,6 @@ namespace Studio23.SS2.DialogueSystem.Data
             EditorStyles.label.normal = editorLabelStyle.normal;
         }
 
-        
+
     }
 }

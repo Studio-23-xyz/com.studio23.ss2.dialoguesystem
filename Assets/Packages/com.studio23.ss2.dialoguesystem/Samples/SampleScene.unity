@@ -180,7 +180,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Next
+  m_text: Fast
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -479,7 +479,7 @@ GameObject:
   - component: {fileID: 863860616}
   - component: {fileID: 863860618}
   m_Layer: 5
-  m_Name: NextButton
+  m_Name: FastForward
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -623,8 +623,10 @@ MonoBehaviour:
   dialogueText: {fileID: 1838186516}
   BackgroundImage: {fileID: 381729576}
   UIRoot: {fileID: 1456424668}
-  NextButton: {fileID: 863860618}
+  FastForwardButton: {fileID: 863860618}
   SkipButton: {fileID: 2107420972}
+  dialogueState: 0
+  config: {fileID: 11400000, guid: 4f48826c45e876844b20cc2554429644, type: 2}
 --- !u!114 &956320141
 MonoBehaviour:
   m_ObjectHideFlags: 0

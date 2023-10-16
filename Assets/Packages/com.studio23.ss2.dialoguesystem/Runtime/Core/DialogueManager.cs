@@ -34,7 +34,7 @@ namespace Studio23.SS2.DialogueSystem.Core
             _currentGraph.StartDialogue();
         }
 
-        
+
 
 
 

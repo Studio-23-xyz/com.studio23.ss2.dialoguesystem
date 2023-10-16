@@ -1,50 +1,51 @@
-using UnityEngine;
-using UnityEditor;
-using System.IO;
-using System.Collections.Generic;
-using System.Linq;
 using Studio23.SS2.DialogueSystem.Data;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using UnityEditor;
+using UnityEngine;
 
-namespace com.studio23.ss2.dialoguesystem.editor
+namespace Studio23.SS2.DialogueSystem.Editor
 {
-    public class CharacterTableEditorWindow : EditorWindow
+    public class CharacterTableEditorUI
     {
-        private CharacterTable characterTable;
-        private string characterID = "";
-        private string characterName = "";
-        private string csvFilePath = "";
+        private CharacterTable _characterTable;
+        private string _characterID;
+        private string _characterName;
+        private string _csvFilePath;
 
-        [MenuItem("Studio-23/Dialogue System/Character Table")]
-        public static void ShowWindow()
+
+        public void ShowWindow()
         {
-            CharacterTableEditorWindow window = GetWindow<CharacterTableEditorWindow>("Character Table");
-            window.LoadCharacterTable();
+
+            DrawGUI();
+            LoadCharacterTable();
         }
 
-        private void OnGUI()
+        private void DrawGUI()
         {
-            if (characterTable != null)
+            if (_characterTable != null)
             {
                 GUILayout.Label("Character Table", EditorStyles.boldLabel);
 
                 EditorGUILayout.BeginHorizontal();
-                characterID = EditorGUILayout.TextField(characterID);
-                characterName = EditorGUILayout.TextField(characterName);
-                if(string.IsNullOrEmpty(characterName) || string.IsNullOrEmpty(characterID))
+                _characterID = EditorGUILayout.TextField(_characterID);
+                _characterName = EditorGUILayout.TextField(_characterName);
+                if (string.IsNullOrEmpty(_characterName) || string.IsNullOrEmpty(_characterID))
                 {
-                    characterID = "New Character ID";
-                    characterName = "New Character Name";
+                    _characterID = "New Character ID";
+                    _characterName = "New Character Name";
                 }
 
 
-                if (GUILayout.Button("Add") && !string.IsNullOrEmpty(characterID) && !string.IsNullOrEmpty(characterName) && characterTable != null)
+                if (GUILayout.Button("Add") && !string.IsNullOrEmpty(_characterID) && !string.IsNullOrEmpty(_characterName) && _characterTable != null)
                 {
-                    if (IsCharacterIDUnique(characterID))
+                    if (IsCharacterIDUnique(_characterID))
                     {
-                        characterTable.characterList.Add(new CharacterTable.CharacterInfo() { characterID = characterID, characterName = characterName });
-                        EditorUtility.SetDirty(characterTable);
-                        characterID = "New Character ID";
-                        characterName = "New Character Name";
+                        _characterTable.characterList.Add(new CharacterTable.CharacterInfo() { CharacterID = _characterID, CharacterName = _characterName });
+                        EditorUtility.SetDirty(_characterTable);
+                        _characterID = "New Character ID";
+                        _characterName = "New Character Name";
                     }
                     else
                     {
@@ -54,16 +55,16 @@ namespace com.studio23.ss2.dialoguesystem.editor
                 EditorGUILayout.EndHorizontal();
 
                 EditorGUI.BeginChangeCheck();
-                EditorGUILayout.LabelField("Character Count: " + characterTable.characterList.Count);
+                EditorGUILayout.LabelField("Character Count: " + _characterTable.characterList.Count);
 
-                for (int i = 0; i < characterTable.characterList.Count; i++)
+                for (int i = 0; i < _characterTable.characterList.Count; i++)
                 {
                     EditorGUILayout.BeginHorizontal();
-                    characterTable.characterList[i].characterID = EditorGUILayout.TextField(characterTable.characterList[i].characterID);
-                    characterTable.characterList[i].characterName = EditorGUILayout.TextField(characterTable.characterList[i].characterName);
+                    _characterTable.characterList[i].CharacterID = EditorGUILayout.TextField(_characterTable.characterList[i].CharacterID);
+                    _characterTable.characterList[i].CharacterName = EditorGUILayout.TextField(_characterTable.characterList[i].CharacterName);
                     if (GUILayout.Button("Remove", GUILayout.MaxWidth(80)))
                     {
-                        characterTable.characterList.RemoveAt(i);
+                        _characterTable.characterList.RemoveAt(i);
                         GUIUtility.ExitGUI();
                     }
                     EditorGUILayout.EndHorizontal();
@@ -71,12 +72,19 @@ namespace com.studio23.ss2.dialoguesystem.editor
 
                 if (EditorGUI.EndChangeCheck())
                 {
-                    EditorUtility.SetDirty(characterTable);
+                    EditorUtility.SetDirty(_characterTable);
                 }
+
+                if (GUILayout.Button("Delete Table"))
+                {
+                    DeleteCharacterTable();
+                }
+
+
             }
             else
             {
-                EditorGUILayout.HelpBox("Character Table not found. Click 'Add Character Table' to create one.", MessageType.Warning);
+                EditorGUILayout.HelpBox("Character Table not found. Click 'Add Character Table' to create one.", MessageType.Error);
 
                 if (GUILayout.Button("Create New Character Table"))
                 {
@@ -86,8 +94,8 @@ namespace com.studio23.ss2.dialoguesystem.editor
                 // Add a Browse File button for selecting the input CSV file
                 if (GUILayout.Button("From CSV"))
                 {
-                    csvFilePath = EditorUtility.OpenFilePanel("Select CSV File", "", "csv");
-                    ReplaceCharacterTableFromCSVTemplate(csvFilePath);
+                    _csvFilePath = EditorUtility.OpenFilePanel("Select CSV File", "", "csv");
+                    ReplaceCharacterTableFromCSVTemplate(_csvFilePath);
                 }
 
                 // Add a Get Template button for saving CharacterTable as a CSV file
@@ -96,39 +104,41 @@ namespace com.studio23.ss2.dialoguesystem.editor
                     string savePath = EditorUtility.SaveFilePanel("Save CSV File", "", "CharacterTableTemplate", "csv");
                     if (!string.IsNullOrEmpty(savePath))
                     {
-                        SaveCharacterTableToCSV(characterTable, savePath);
+                        SaveCharacterTableToCSV(_characterTable, savePath);
                     }
                 }
 
             }
 
-           
+
         }
 
         private void LoadCharacterTable()
         {
-            characterTable = Resources.Load<CharacterTable>("DialogueSystem/CharacterTable");
-
+            _characterTable = Resources.Load<CharacterTable>("DialogueSystem/CharacterTable");
         }
 
         private void CreateCharacterTable()
         {
-            
-            if (characterTable == null)
+
+            if (_characterTable == null)
             {
-                characterTable = ScriptableObject.CreateInstance<CharacterTable>();
-                characterTable.characterList = new List<CharacterTable.CharacterInfo>();
+                _characterTable = ScriptableObject.CreateInstance<CharacterTable>();
+                _characterTable.characterList = new List<CharacterTable.CharacterInfo>();
 
                 string folderPath = Application.dataPath + "/Resources/DialogueSystem";
                 if (!Directory.Exists(folderPath))
                     Directory.CreateDirectory(folderPath);
 
-                AssetDatabase.CreateAsset(characterTable, "Assets/Resources/DialogueSystem/CharacterTable.asset");
+                AssetDatabase.CreateAsset(_characterTable, "Assets/Resources/DialogueSystem/CharacterTable.asset");
                 AssetDatabase.SaveAssets();
             }
         }
 
-
+        private void DeleteCharacterTable()
+        {
+            AssetDatabase.DeleteAsset("Assets/Resources/DialogueSystem/CharacterTable.asset");
+        }
 
         private void ReplaceCharacterTableFromCSVTemplate(string csvFilePath)
         {
@@ -151,16 +161,16 @@ namespace com.studio23.ss2.dialoguesystem.editor
                         {
                             string characterID = parts[0];
                             string characterName = parts[1];
-                            newCharacterList.Add(new CharacterTable.CharacterInfo() { characterID = characterID, characterName = characterName });
+                            newCharacterList.Add(new CharacterTable.CharacterInfo() { CharacterID = characterID, CharacterName = characterName });
                         }
                     }
                 }
                 CreateCharacterTable();
                 // Update the character table with the new data
-                characterTable.characterList = newCharacterList;
+                _characterTable.characterList = newCharacterList;
 
                 // Mark the asset as dirty and save it
-                EditorUtility.SetDirty(characterTable);
+                EditorUtility.SetDirty(_characterTable);
                 AssetDatabase.SaveAssets();
 
                 // Display a confirmation message
@@ -174,7 +184,7 @@ namespace com.studio23.ss2.dialoguesystem.editor
 
         private bool IsCharacterIDUnique(string id)
         {
-            return characterTable.characterList.All(c => c.characterID != id);
+            return _characterTable.characterList.All(c => c.CharacterID != id);
         }
 
 

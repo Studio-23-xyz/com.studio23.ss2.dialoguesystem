@@ -1,50 +1,38 @@
 
 using Cysharp.Threading.Tasks;
-using Studio23.SS2.DialogueSystem.Core;
 using Studio23.SS2.DialogueSystem.Data;
-using System.Threading;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-
-
 namespace Studio23.SS2.DialogueSystem.UI
 {
-
     public class DialogueUI : MonoBehaviour
     {
         [Header("UI Components")]
-        public TextMeshProUGUI dialogueText;
+        public TextMeshProUGUI DialogueText;
         public Image BackgroundImage;
         public GameObject UIRoot;
-        public Button NextButton;
+        public Button FastForwardButton;
         public Button SkipButton;
 
         private DialogueGraph _currentGraph;
-        [SerializeField]private DialogueState dialogueState;
+        [SerializeField] private DialogueState _dialogueState;
 
         [Header("Configuration")]
-        [SerializeField]private DialogueUIConfig config;
-
-
-
-      
-
-        private CancellationTokenSource CancelCurrentDialogueLineToken;
-
+        [SerializeField] private DialogueUIConfig _config;
 
         void Start()
         {
-            NextButton.onClick.AddListener(Next);
+            FastForwardButton.onClick.AddListener(FastForward);
             ApplyConfiguration();
         }
 
         private void ApplyConfiguration()
         {
-            dialogueText.fontSize = config.subtitleFontSize;
-            dialogueText.color = config.subtitleColor;
-            BackgroundImage.gameObject.SetActive(config.ShowBackground);
-            BackgroundImage.color = config.BackGroundColor;
+            DialogueText.fontSize = _config.subtitleFontSize;
+            DialogueText.color = _config.subtitleColor;
+            BackgroundImage.gameObject.SetActive(_config.ShowBackground);
+            BackgroundImage.color = _config.BackGroundColor;
         }
 
 
@@ -52,60 +40,62 @@ namespace Studio23.SS2.DialogueSystem.UI
         {
             _currentGraph = newGraph;
             _currentGraph.ClearEvents();
-            _currentGraph.OnDialogueStart += () => PlayDialogue();
+            _currentGraph.OnDialogueStart += PlayDialogue;
+
+            _currentGraph.OnDialogueNext += async (node) => await ShowDialogueTextAnimated(node.DialogueText);
+
+
             _currentGraph.OnDialogueComplete += () => EndDialogue();
-            _currentGraph.OnDialogueNext += async () => await ShowDialogueText(_currentGraph.CurrentNode.DialogueText);
         }
 
 
-        private async void PlayDialogue()
+        private async void PlayDialogue(DialogueBase node)
         {
-            if (dialogueState != DialogueState.Ended)
-            {
-                EndDialogue();
-            }
-            await ShowDialogueText(_currentGraph.CurrentNode.DialogueText);
+            ShowUI(true);
+            await ShowDialogueTextAnimated(node.DialogueText);
         }
 
         private void ShowUI(bool state)
         {
             UIRoot.SetActive(state);
-            
         }
 
-        private async UniTask ShowDialogueText(string text)
+        private async UniTask ShowDialogueTextAnimated(string text)
         {
 
-            dialogueText.text = string.Empty;
-            dialogueState = DialogueState.Started;
-            CancelCurrentDialogueLineToken = new CancellationTokenSource();
+            DialogueText.text = string.Empty;
+            _dialogueState = DialogueState.Started;
 
-            ShowUI(true);
+
+
             for (int i = 0; i < text.Length; i++)
             {
-                await UniTask.Delay((int)(config.letterDelay * 1000), cancellationToken: CancelCurrentDialogueLineToken.Token).SuppressCancellationThrow();
-                if (dialogueState == DialogueState.Skipped) break;
-                dialogueText.text += text[i];
+                DialogueText.text += text[i];
+                await UniTask.Delay((int)(_config.letterDelay * 1000));
+                if (_dialogueState == DialogueState.FastForwarded)
+                {
+                    DialogueText.text = text;
+                    break;
+                }
 
             }
-
-            await UniTask.Delay((int)(text.Length * 100 * config.nextSentenceDelayMultiplier), cancellationToken: CancelCurrentDialogueLineToken.Token).SuppressCancellationThrow();
-            dialogueText.text = string.Empty;
+            await UniTask.Delay((int)(text.Length * 100 * _config.nextSentenceDelayMultiplier));
             _currentGraph.NextNode();
 
         }
 
-        private void Next()
+
+
+        private void FastForward()
         {
-            dialogueState = DialogueState.Skipped;
-            CancelCurrentDialogueLineToken.Cancel();
+            _dialogueState = DialogueState.FastForwarded;
         }
 
         private void EndDialogue()
         {
-            dialogueState = DialogueState.Ended;
+            _dialogueState = DialogueState.Ended;
             ShowUI(false);
-           
+
         }
     }
 }

@@ -4,63 +4,58 @@ using static Studio23.SS2.DialogueSystem.Data.DialogueEvents;
 
 namespace Studio23.SS2.DialogueSystem.Data
 {
-    [CreateAssetMenu(menuName = "Studio-23/Dialogue System/New Dialogue Graph")]
+
     public class DialogueGraph : NodeGraph
     {
-        [SerializeField]private DialogueBase _startNode;
-        [SerializeField]private DialogueBase _currentNode;
 
-        public CharacterTable CharacterTable {  get; private set; }
+        public bool SkippableDialogue;
 
-        public DialogueEvent OnDialogueStart;
-        public DialogueEvent OnDialogueNext;
+        [SerializeField] private DialogueBase _startNode;
+        [SerializeField] private DialogueBase _currentNode;
+
+        private DialogueBase _lastAddedNode;
+
+        public CharacterTable CharacterTable;
+
+        public DialogueDataEvent OnDialogueStart;
+        public DialogueDataEvent OnDialogueNext;
         public DialogueEvent OnDialogueComplete;
 
         public DialogueBase CurrentNode { get { return _currentNode; } }
 
-        private void OnEnable()
+
+
+        public void AddNewNode(DialogueBase node)
         {
-            Initialize();
+            nodes.Add(node);
+            if(_startNode==null)
+            {
+                _startNode = node;  
+                _currentNode = node;
+                _lastAddedNode = node;
+                return;
+            }
+
+            _lastAddedNode.GetOutputPort("Exit").Connect(node.GetInputPort("Entry"));
+            _lastAddedNode=node;
+           
         }
 
-        
-        public void Initialize()
-        {
-            CharacterTable = Resources.Load<CharacterTable>("DialogueSystem/CharacterTable");
-        }
 
         public void StartDialogue()
         {
             _currentNode = _startNode;
-            OnDialogueStart?.Invoke();
+            OnDialogueStart?.Invoke(_currentNode);
         }
 
         public void ClearEvents()
         {
-            OnDialogueStart = null; 
-            OnDialogueNext=null;
+            OnDialogueStart = null;
+            OnDialogueNext = null;
             OnDialogueComplete = null;
         }
 
 
-
-        public DialogueBase AddDialogeNode()
-        {
-            return _startNode == null ? AddStartNode() : AddNode<DialogueBase>();
-        }
-
-        public DialogueBase AddStartNode()
-        {
-            DialogueBase node = AddNode<StartNode>();
-            _startNode=node;
-            return node;
-        }
-
-
-        public DialogueBase AddEndNode()
-        {
-            return AddNode<EndNode>();
-        }
 
         public void NextNode()
         {
@@ -74,11 +69,8 @@ namespace Studio23.SS2.DialogueSystem.Data
                 return;
             }
             _currentNode = outputPort.Connection.node as DialogueBase; ;
-            OnDialogueNext?.Invoke();
+            OnDialogueNext?.Invoke(_currentNode);
         }
-
-
-
 
     }
 }

@@ -4,7 +4,7 @@ namespace Studio23.SS2.DialogueSystem.Data
     {
         Started,
         Paused,
-        Skipped,
+        FastForwarded,
         Ended
     }
 }

@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: CharacterTable
   m_EditorClassIdentifier: 
   characterList:
-  - characterID: 1
-    characterName: a
-  - characterID: 2
-    characterName: b
-  - characterID: 3
-    characterName: c
-  - characterID: 4
-    characterName: d
+  - CharacterID: 1
+    CharacterName: Lala
+    Reactions: []
+  - CharacterID: 2
+    CharacterName: Lolo
+    Reactions: []
+  - CharacterID: 3
+    CharacterName: lele
+    Reactions: []

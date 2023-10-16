@@ -1,7 +1,7 @@
-using UnityEngine;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 namespace Studio23.SS2.DialogueSystem.Data
 {
@@ -12,8 +12,8 @@ namespace Studio23.SS2.DialogueSystem.Data
         [Serializable]
         public class CharacterInfo
         {
-            public string characterID;
-            public string characterName;
+            public string CharacterID;
+            public string CharacterName;
             public List<CharacterReactionImage> Reactions;
         }
 
@@ -28,7 +28,7 @@ namespace Studio23.SS2.DialogueSystem.Data
 
         public CharacterInfo GetCharacterInfo(string characterID)
         {
-            return characterList.FirstOrDefault<CharacterInfo>(r=>r.characterID==characterID);
+            return characterList.FirstOrDefault<CharacterInfo>(r => r.CharacterID == characterID);
         }
     }
 
