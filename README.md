@@ -1,8 +1,12 @@
-<h1 align="center">{Package_Display_Name}</h1><p align="center">
-<a href="https://openupm.com/packages/{Package_Name}/"><img src="https://img.shields.io/npm/v/com.studio23.ss2.{Package_Name}?label=openupm&amp;registry_uri=https://package.openupm.com" /></a>
+<h1 align="center">Dialogue System</h1><p align="center">
+<a href="https://openupm.com/packages/com.studio23.ss2.dialoguesystem/"><img src="https://img.shields.io/npm/v/com.studio23.ss2.dialoguesystem?label=openupm&amp;registry_uri=https://package.openupm.com" /></a>
 </p>
 
 Dialogue System is a package created for tooling Silent Scream 2 Game. However it can be used for most games. It provides a set of tools to streamline your in game dialogue system needs.
+
+![Character Table](Screenshots/1.png)
+![Dialogue Graph](Screenshots/2.png)
+![View](Screenshots/3.png)
 
 ## Table of Contents
 
