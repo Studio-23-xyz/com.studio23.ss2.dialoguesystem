@@ -25,9 +25,7 @@ https://github.com/Studio-23-xyz/com.studio23.ss2.dialoguesystem.git#upm
 
 ## Usage
 
-### Using {Your_Package}
-
-Description about the package usage goes here. 
+### Using Dialogue System
 
 1. Access the Wizard from top toolbar Studio-23 > Dialogue System > Dialogue System Wizard
 
@@ -37,7 +35,7 @@ Description about the package usage goes here.
 
 4. Implement your own Dialogue UI as per need. (Check Samples for demonstration)
 
-### Modifying the Package //Optional sub-sections
+### Modifying the Package 
 
 You can also include code snippets by using the following syntax. 
 
