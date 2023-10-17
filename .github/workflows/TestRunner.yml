@@ -1,0 +1,49 @@
+name: Test package
+on: 
+    pull_request: 
+        branches:
+            - main
+    workflow_dispatch:
+
+jobs:
+  testAllModes:
+    name: Test in ${{ matrix.testMode }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        projectPath:
+          - ./Assets/Packages/com.studio23.ss2.dialoguesystem
+        unityVersion: ['2020.3.10f1'] 
+        testMode:
+          - playmode
+          - editmode
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          lfs: true
+      - uses: game-ci/unity-test-runner@v3
+        id: tests
+        env:
+           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+           UNITY_SERIAL: ${{ secrets.UNITY_SERIAL }}
+        with:
+          packageMode: true
+          projectPath: ${{ matrix.projectPath }}
+          unityVersion: ${{ matrix.unityVersion }}
+          testMode: ${{ matrix.testMode }}
+          artifactsPath: ${{ matrix.testMode }}-artifacts
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+          checkName: ${{ matrix.testMode }} Test Results
+          coverageOptions: 'generateAdditionalMetrics;generateHtmlReport;generateBadgeReport;assemblyFilters:+my.assembly.*'
+      - uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: Test results for ${{ matrix.testMode }}
+          path: ${{ steps.tests.outputs.artifactsPath }}
+      - uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: Coverage results for ${{ matrix.testMode }}
+          path: ${{ steps.tests.outputs.coveragePath }}
