@@ -1,0 +1,4 @@
+settings:
+  enable_draft_pr_reviews: true
+  early_access_program: true
+  exclude_file_patterns: "!**.md,!**.png,!**.jpg,!**.meta,!**.asmdef,!**.json,!**.asset,!**.unity,!**.mat"
