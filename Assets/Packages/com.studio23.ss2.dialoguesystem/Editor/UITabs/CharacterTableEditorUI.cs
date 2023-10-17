@@ -104,7 +104,7 @@ namespace Studio23.SS2.DialogueSystem.Editor
                     string savePath = EditorUtility.SaveFilePanel("Save CSV File", "", "CharacterTableTemplate", "csv");
                     if (!string.IsNullOrEmpty(savePath))
                     {
-                        SaveCharacterTableToCSV(_characterTable, savePath);
+                        SaveTemplateLocally(_characterTable, savePath);
                     }
                 }
 
@@ -188,7 +188,7 @@ namespace Studio23.SS2.DialogueSystem.Editor
         }
 
 
-        private void SaveCharacterTableToCSV(CharacterTable characterTable, string filePath)
+        private void SaveTemplateLocally(CharacterTable characterTable, string filePath)
         {
             using (StreamWriter writer = new StreamWriter(filePath))
             {

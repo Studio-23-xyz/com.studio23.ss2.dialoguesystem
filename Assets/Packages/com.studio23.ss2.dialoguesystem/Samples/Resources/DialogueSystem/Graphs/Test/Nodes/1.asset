@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 1
   m_EditorClassIdentifier: 
   graph: {fileID: 0}
-  position: {x: -424, y: -56}
+  position: {x: 0, y: 0}
   ports:
     keys:
     - Exit
@@ -22,21 +22,18 @@ MonoBehaviour:
       _node: {fileID: 11400000}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: Entry
-        node: {fileID: 11400000, guid: 90210a4ff44bcb6469ec43fc432e321a, type: 2}
-        reroutePoints: []
+      connections: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
   ID: 
-  CharacterID: 1
-  CharacterReaction: Happy
+  CharacterID: 
+  CharacterReaction: 
   CharacterInfo:
-    CharacterID: 1
-    CharacterName: Lala
+    CharacterID: 
+    CharacterName: 
     Reactions: []
-  DialogueText: '"Hello there! How are you?"'
-  FMODEventPath: "Audio/HelloSound\r"
+  DialogueText: 
+  FMODEventPath: 
   Exit: 0

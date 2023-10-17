@@ -1,6 +1,6 @@
+using Studio23.SS2.DialogueSystem.Core;
 using UnityEngine;
 using XNode;
-using static Studio23.SS2.DialogueSystem.Data.DialogueEvents;
 
 namespace Studio23.SS2.DialogueSystem.Data
 {
@@ -17,9 +17,7 @@ namespace Studio23.SS2.DialogueSystem.Data
 
         public CharacterTable CharacterTable;
 
-        public DialogueDataEvent OnDialogueStart;
-        public DialogueDataEvent OnDialogueNext;
-        public DialogueEvent OnDialogueComplete;
+        
 
         public DialogueBase CurrentNode { get { return _currentNode; } }
 
@@ -28,6 +26,8 @@ namespace Studio23.SS2.DialogueSystem.Data
         public void AddNewNode(DialogueBase node)
         {
             nodes.Add(node);
+            node.position=new Vector2(250*nodes.Count,0);
+
             if(_startNode==null)
             {
                 _startNode = node;  
@@ -45,15 +45,10 @@ namespace Studio23.SS2.DialogueSystem.Data
         public void StartDialogue()
         {
             _currentNode = _startNode;
-            OnDialogueStart?.Invoke(_currentNode);
+            DialogueManager.Instance.OnDialogueStart?.Invoke(_currentNode);
         }
 
-        public void ClearEvents()
-        {
-            OnDialogueStart = null;
-            OnDialogueNext = null;
-            OnDialogueComplete = null;
-        }
+       
 
 
 
@@ -63,13 +58,13 @@ namespace Studio23.SS2.DialogueSystem.Data
             NodePort outputPort = _currentNode.GetOutputPort("Exit");
             if (outputPort == null)
             {
-                OnDialogueComplete?.Invoke();
+                DialogueManager.Instance.OnDialogueComplete?.Invoke();
                 Debug.Log("Dialogue Complete");
                 _currentNode = null;
                 return;
             }
             _currentNode = outputPort.Connection.node as DialogueBase; ;
-            OnDialogueNext?.Invoke(_currentNode);
+            DialogueManager.Instance.OnDialogueNext?.Invoke(_currentNode);
         }
 
     }

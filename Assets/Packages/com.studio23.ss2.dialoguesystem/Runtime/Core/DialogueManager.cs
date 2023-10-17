@@ -1,7 +1,7 @@
 
 using Studio23.SS2.DialogueSystem.Data;
-using Studio23.SS2.DialogueSystem.UI;
 using UnityEngine;
+using static Studio23.SS2.DialogueSystem.Data.DialogueEvents;
 
 namespace Studio23.SS2.DialogueSystem.Core
 {
@@ -10,18 +10,24 @@ namespace Studio23.SS2.DialogueSystem.Core
 
         public static DialogueManager Instance;
 
-        [Header("UI")]
-        public DialogueUI DialogueUI;
-
         [Header("Data")]
         [SerializeField] private DialogueGraph _currentGraph;
 
+        public DialogueDataEvent OnDialogueStart;
+        public DialogueDataEvent OnDialogueNext;
+        public DialogueEvent OnDialogueComplete;
 
         void Awake()
         {
             Instance = this;
         }
 
+        public void ClearEvents()
+        {
+            OnDialogueStart = null;
+            OnDialogueNext = null;
+            OnDialogueComplete = null;
+        }
 
         public void ChangeDialogueGraph(DialogueGraph newGraph)
         {
@@ -30,27 +36,12 @@ namespace Studio23.SS2.DialogueSystem.Core
 
         public void PlayDialogue()
         {
-            DialogueUI.RegisterGraph(_currentGraph);
             _currentGraph.StartDialogue();
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        public void GetNextNode()
+        {
+            _currentGraph.NextNode();
+        }
     }
 }

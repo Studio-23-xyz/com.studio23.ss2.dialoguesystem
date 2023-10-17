@@ -24,6 +24,27 @@ namespace Studio23.SS2.DialogueSystem.Data
             public Sprite Image;
         }
 
+        public bool IsValid
+        {
+            get
+            {
+                // Check if characterList is null or empty
+                if (characterList == null || characterList.Count == 0)
+                    return false;
+
+                // Check if any characterInfo in characterList has empty CharacterID or CharacterName
+                foreach (var characterInfo in characterList)
+                {
+                    if (string.IsNullOrEmpty(characterInfo.CharacterID) || string.IsNullOrEmpty(characterInfo.CharacterName))
+                        return false;
+                }
+
+                return true; // All checks passed, the CharacterTable is valid
+            }
+        }
+
+
+
         public List<CharacterInfo> characterList = new List<CharacterInfo>();
 
         public CharacterInfo GetCharacterInfo(string characterID)

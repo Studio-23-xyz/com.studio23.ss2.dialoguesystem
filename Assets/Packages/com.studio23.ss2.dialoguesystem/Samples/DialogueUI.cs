@@ -1,10 +1,12 @@
-
 using Cysharp.Threading.Tasks;
+using Studio23.SS2.DialogueSystem.Core;
 using Studio23.SS2.DialogueSystem.Data;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-namespace Studio23.SS2.DialogueSystem.UI
+
+
+namespace Studio23.SS2.DialogueSystem.Samples
 {
     public class DialogueUI : MonoBehaviour
     {
@@ -15,16 +17,22 @@ namespace Studio23.SS2.DialogueSystem.UI
         public Button FastForwardButton;
         public Button SkipButton;
 
-        private DialogueGraph _currentGraph;
+
+        public DialogueEvents.DialogueEvent OnDialoguePlayComplete;
+
         [SerializeField] private DialogueState _dialogueState;
 
         [Header("Configuration")]
         [SerializeField] private DialogueUIConfig _config;
 
+
+
+
         void Start()
         {
             FastForwardButton.onClick.AddListener(FastForward);
             ApplyConfiguration();
+            RegisterGraph();
         }
 
         private void ApplyConfiguration()
@@ -36,23 +44,20 @@ namespace Studio23.SS2.DialogueSystem.UI
         }
 
 
-        public void RegisterGraph(DialogueGraph newGraph)
+        private void RegisterGraph()
         {
-            _currentGraph = newGraph;
-            _currentGraph.ClearEvents();
-            _currentGraph.OnDialogueStart += PlayDialogue;
 
-            _currentGraph.OnDialogueNext += async (node) => await ShowDialogueTextAnimated(node.DialogueText);
-
-
-            _currentGraph.OnDialogueComplete += () => EndDialogue();
+            DialogueManager.Instance.OnDialogueStart += PlayDialogue;
+            DialogueManager.Instance.OnDialogueNext += async (node)=> await ShowDialogueTextAnimated(node);
+            DialogueManager.Instance.OnDialogueComplete += () => EndDialogue();
+            OnDialoguePlayComplete += DialogueManager.Instance.GetNextNode;
         }
 
 
         private async void PlayDialogue(DialogueBase node)
         {
             ShowUI(true);
-            await ShowDialogueTextAnimated(node.DialogueText);
+            await ShowDialogueTextAnimated(node);
         }
 
         private void ShowUI(bool state)
@@ -60,8 +65,10 @@ namespace Studio23.SS2.DialogueSystem.UI
             UIRoot.SetActive(state);
         }
 
-        private async UniTask ShowDialogueTextAnimated(string text)
+        private async UniTask ShowDialogueTextAnimated(DialogueBase node)
         {
+
+            string text = $"{node.CharacterInfo.CharacterName}:{node.DialogueText}";
 
             DialogueText.text = string.Empty;
             _dialogueState = DialogueState.Started;
@@ -80,7 +87,7 @@ namespace Studio23.SS2.DialogueSystem.UI
 
             }
             await UniTask.Delay((int)(text.Length * 100 * _config.nextSentenceDelayMultiplier));
-            _currentGraph.NextNode();
+            OnDialoguePlayComplete?.Invoke();
 
         }
 

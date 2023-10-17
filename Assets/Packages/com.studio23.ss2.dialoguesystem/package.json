@@ -18,7 +18,8 @@
     }
   ],
   "dependencies": {
-    "com.github.siccity.xnode": "1.8.0"
+    "com.github.siccity.xnode": "1.8.0",
+    "com.cysharp.unitask": "2.4.1"
   },
   "keywords": [
     "Dialogue System"

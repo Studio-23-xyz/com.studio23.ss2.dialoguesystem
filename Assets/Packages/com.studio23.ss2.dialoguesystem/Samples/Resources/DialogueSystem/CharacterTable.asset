@@ -14,11 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterList:
   - CharacterID: 1
-    CharacterName: Lala
+    CharacterName: Akkas
     Reactions: []
   - CharacterID: 2
-    CharacterName: Lolo
-    Reactions: []
-  - CharacterID: 3
-    CharacterName: lele
+    CharacterName: Tazim
     Reactions: []

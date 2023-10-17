@@ -11,13 +11,11 @@ namespace Studio23.SS2.DialogueSystem.Editor
         private CharacterTable _characterTable;
         private DialogueGraph _dialogueGraph;
 
-
-
         public string GraphName;
 
         private string folderPath = $"Assets/Resources/DialogueSystem/Graphs/";
 
-
+        #region GUI
         public void ShowWindow()
         {
             DrawGUI();
@@ -30,7 +28,12 @@ namespace Studio23.SS2.DialogueSystem.Editor
             if (_characterTable == null)
             {
                 EditorGUILayout.HelpBox("Character Table not Found! Create One First", MessageType.Error);
+                return;
+            }
 
+            if (!_characterTable.IsValid)
+            {
+                EditorGUILayout.HelpBox("Character Table invalid please check!", MessageType.Warning);
                 return;
             }
 
@@ -60,22 +63,36 @@ namespace Studio23.SS2.DialogueSystem.Editor
             GUILayout.Space(20);
 
             GUILayout.Label("Open CSV File and Populate Dialogue Graph", EditorStyles.boldLabel);
-            if (GUILayout.Button("Open CSV File"))
+            GUILayout.BeginHorizontal();
+            if (GUILayout.Button("Browse"))
             {
                 _csvFilePath = EditorUtility.OpenFilePanel("Open CSV File", "", "csv");
-
             }
+
+            if (GUILayout.Button("Get Template"))
+            {
+
+                string templatePath = EditorUtility.SaveFilePanel("Save CSV File", "", "Dialogue Template", "csv");
+                using (StreamWriter writer = new StreamWriter(templatePath))
+                {
+                    writer.WriteLine("ID,Character Reaction,Dialogue Text,FMOD Event Path");
+                }
+            }
+
+            GUILayout.EndHorizontal();
+
 
             if (!string.IsNullOrEmpty(_csvFilePath) && GUILayout.Button("Populate Dialogue Graph"))
             {
                 PopulateDialogueGraph();
             }
-        }
+        } 
+        #endregion
 
+        #region GraphCreation
         private void CreateNewDialogueGraph()
         {
             _dialogueGraph = ScriptableObject.CreateInstance<DialogueGraph>();
-            _dialogueGraph.SkippableDialogue = true;
 
             if (!Directory.Exists($"{folderPath}/{GraphName}"))
             {
@@ -85,9 +102,6 @@ namespace Studio23.SS2.DialogueSystem.Editor
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
         }
-
-
-
 
         private void PopulateDialogueGraph()
         {
@@ -101,8 +115,9 @@ namespace Studio23.SS2.DialogueSystem.Editor
             string[] lines = File.ReadAllText(_csvFilePath).Split('\n');
 
             DialogueBase node = GetNewDialogueNode(ScriptableObject.CreateInstance<StartNode>(), 1.ToString(), lines[1].Split(','));
+        
             _dialogueGraph.AddNewNode(node);
-          
+
 
             for (int i = 2; i < lines.Length - 2; i++)
             {
@@ -111,6 +126,7 @@ namespace Studio23.SS2.DialogueSystem.Editor
                 {
 
                     node = GetNewDialogueNode(ScriptableObject.CreateInstance<DialogueNode>(), i.ToString(), values);
+                 
                     _dialogueGraph.AddNewNode(node);
                 }
                 else
@@ -127,9 +143,6 @@ namespace Studio23.SS2.DialogueSystem.Editor
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
         }
-
-
-
 
         private DialogueBase GetNewDialogueNode(DialogueBase node, string nodeName, string[] values)
         {
@@ -157,7 +170,8 @@ namespace Studio23.SS2.DialogueSystem.Editor
             node.CharacterInfo = _characterTable.GetCharacterInfo(node.CharacterID);
         }
 
-
+        #endregion
     }
+
 }
 

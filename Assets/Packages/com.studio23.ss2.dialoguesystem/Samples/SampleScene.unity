@@ -620,13 +620,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc09cb0cd50138a4797efe998aeea794, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueText: {fileID: 1838186516}
+  DialogueText: {fileID: 1838186516}
   BackgroundImage: {fileID: 381729576}
   UIRoot: {fileID: 1456424668}
   FastForwardButton: {fileID: 863860618}
   SkipButton: {fileID: 2107420972}
-  dialogueState: 0
-  config: {fileID: 11400000, guid: 4f48826c45e876844b20cc2554429644, type: 2}
+  _dialogueState: 0
+  _config: {fileID: 11400000, guid: 4f48826c45e876844b20cc2554429644, type: 2}
 --- !u!114 &956320141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -639,8 +639,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4ea025ed7d24ba45bbd001f88df602b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DialogueUI: {fileID: 956320140}
-  _currentGraph: {fileID: 11400000, guid: c57329b8eb4f7cc4cbc66aaf74a35ccf, type: 2}
+  _currentGraph: {fileID: 11400000, guid: f3a8b51995186e34aa89fa1d7d6ff674, type: 2}
 --- !u!114 &956320142
 MonoBehaviour:
   m_ObjectHideFlags: 0
