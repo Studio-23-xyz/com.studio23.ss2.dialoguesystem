@@ -1,55 +1,44 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 namespace Studio23.SS2.DialogueSystem.Data
 {
-    //todo remove this
     [CreateAssetMenu(menuName = "Studio-23/Dialogue System/New Character Table")]
     public class CharacterTable : ScriptableObject
     {
-        [Serializable]
-        public class CharacterInfo
-        {
-            public string CharacterID;
-            public string CharacterName;
-            public List<CharacterReactionImage> Reactions;
-        }
-
-        [Serializable]
-        public class CharacterReactionImage
-        {
-            public string Reaction;
-            public Sprite Image;
-        }
-
         public bool IsValid
         {
             get
             {
-                // Check if characterList is null or empty
                 if (characterList == null || characterList.Count == 0)
                     return false;
 
-                // Check if any characterInfo in characterList has empty CharacterID or CharacterName
-                foreach (var characterInfo in characterList)
+                // Create a set to keep track of unique Character IDs
+                HashSet<string> uniqueCharacterIDs = new HashSet<string>();
+
+                foreach (var characterData in characterList)
                 {
-                    if (string.IsNullOrEmpty(characterInfo.CharacterID) || string.IsNullOrEmpty(characterInfo.CharacterName))
+                    if (string.IsNullOrEmpty(characterData.CharacterID) || string.IsNullOrEmpty(characterData.CharacterName))
                         return false;
+
+                    // Check if the Character ID is already in the set
+                    if (uniqueCharacterIDs.Contains(characterData.CharacterID))
+                        return false;
+
+                    // Add the Character ID to the set
+                    uniqueCharacterIDs.Add(characterData.CharacterID);
                 }
 
                 return true; // All checks passed, the CharacterTable is valid
             }
         }
 
+        public List<CharacterData> characterList = new List<CharacterData>();
 
-
-        public List<CharacterInfo> characterList = new List<CharacterInfo>();
-
-        public CharacterInfo GetCharacterInfo(string characterID)
+        public CharacterData GetCharacterData(string characterID)
         {
-            return characterList.FirstOrDefault<CharacterInfo>(r => r.CharacterID == characterID);
+            return characterList.FirstOrDefault<CharacterData>(r => r.CharacterID == characterID);
         }
     }
 

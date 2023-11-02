@@ -7,7 +7,6 @@ namespace Studio23.SS2.DialogueSystem.Editor
     {
         private int _currentTab;
 
-        private CharacterTableEditorUI _characterTableWizard;
         private DialogueGraphEditorUI _dialogueGraphEditorUI;
 
         private Texture _header;
@@ -20,30 +19,16 @@ namespace Studio23.SS2.DialogueSystem.Editor
 
         private void OnEnable()
         {
-            _characterTableWizard = new CharacterTableEditorUI();
             _dialogueGraphEditorUI = new DialogueGraphEditorUI();
-            _header = Resources.Load<Texture>("Header");
+            _header = Resources.Load<Texture>("DialogueSystemHeader");
         }
 
         private void OnGUI()
         {
 
             GUILayout.Box(_header, GUILayout.Height(200), GUILayout.ExpandWidth(true));
-
-            _currentTab = GUILayout.Toolbar(_currentTab, new string[] { "Character Table", "Dialogue Graph" });
-
-            EditorGUILayout.BeginVertical(EditorStyles.helpBox);
-
-            if (_currentTab == 0)
-            {
-                _characterTableWizard.ShowWindow();
-            }
-            else if (_currentTab == 1)
-            {
-                _dialogueGraphEditorUI.ShowWindow();
-            }
-
-            EditorGUILayout.EndVertical();
+            _dialogueGraphEditorUI.ShowWindow();
+           
         }
 
 

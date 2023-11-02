@@ -4,7 +4,6 @@
 
 Dialogue System is a package created for tooling Silent Scream 2 Game. However it can be used for most games. It provides a set of tools to streamline your in game dialogue system needs.
 
-![Character Table](Screenshots/1.png)
 ![Dialogue Graph](Screenshots/2.png)
 ![View](Screenshots/3.png)
 
@@ -35,14 +34,3 @@ https://github.com/Studio-23-xyz/com.studio23.ss2.dialoguesystem.git#upm
 
 4. Implement your own Dialogue UI as per need. (Check Samples for demonstration)
 
-### Modifying the Package 
-
-You can also include code snippets by using the following syntax. 
-
-```Csharp
-DialogueManager.Instance.ChangeDialogueGraph(newGraph); // Register a new Graphs
-
-// Subscribe to events before you play Dialogue.
-
-DialogueManager.Instance.PlayDialogue();// Start Playing dialogue
-```

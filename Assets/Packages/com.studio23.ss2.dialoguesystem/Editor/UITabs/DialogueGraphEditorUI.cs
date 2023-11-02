@@ -13,7 +13,8 @@ namespace Studio23.SS2.DialogueSystem.Editor
 
         public string GraphName;
 
-        private string folderPath = $"Assets/Resources/DialogueSystem/Graphs/";
+        private string _dialogueSystemResourcesFolder => $"Assets/Resources/DialogueSystem";
+        private string _dialogueGraphFolderPath => $"{_dialogueSystemResourcesFolder}/Graphs/";
 
         #region GUI
         public void ShowWindow()
@@ -28,6 +29,12 @@ namespace Studio23.SS2.DialogueSystem.Editor
             if (_characterTable == null)
             {
                 EditorGUILayout.HelpBox("Character Table not Found! Create One First", MessageType.Error);
+
+                if (GUILayout.Button("Create New Character Table"))
+                {
+                    CreateNewCharacterTable();
+                }
+
                 return;
             }
 
@@ -86,19 +93,35 @@ namespace Studio23.SS2.DialogueSystem.Editor
             {
                 PopulateDialogueGraph();
             }
-        } 
+        }
         #endregion
+
+
+
+        private void CreateNewCharacterTable()
+        {
+            _characterTable = ScriptableObject.CreateInstance<CharacterTable>();
+
+            if (!Directory.Exists(_dialogueSystemResourcesFolder))
+            {
+                Directory.CreateDirectory(_dialogueSystemResourcesFolder);
+            }
+            AssetDatabase.CreateAsset(_characterTable, $"{_dialogueSystemResourcesFolder}/CharacterTable.asset");
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
+        }
+
 
         #region GraphCreation
         private void CreateNewDialogueGraph()
         {
             _dialogueGraph = ScriptableObject.CreateInstance<DialogueGraph>();
 
-            if (!Directory.Exists($"{folderPath}/{GraphName}"))
+            if (!Directory.Exists($"{_dialogueGraphFolderPath}/{GraphName}"))
             {
-                Directory.CreateDirectory($"{folderPath}/{GraphName}");
+                Directory.CreateDirectory($"{_dialogueGraphFolderPath}/{GraphName}");
             }
-            AssetDatabase.CreateAsset(_dialogueGraph, $"{folderPath}/{GraphName}/{GraphName}.asset");
+            AssetDatabase.CreateAsset(_dialogueGraph, $"{_dialogueGraphFolderPath}/{GraphName}/{GraphName}.asset");
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
         }
@@ -147,7 +170,7 @@ namespace Studio23.SS2.DialogueSystem.Editor
         private DialogueBase GetNewDialogueNode(DialogueBase node, string nodeName, string[] values)
         {
 
-            string nodeDirectory = $"{folderPath}/{GraphName}/Nodes";
+            string nodeDirectory = $"{_dialogueGraphFolderPath}/{GraphName}/Nodes";
             if (!Directory.Exists(nodeDirectory))
             {
                 Directory.CreateDirectory(nodeDirectory);
@@ -167,7 +190,6 @@ namespace Studio23.SS2.DialogueSystem.Editor
             node.CharacterReaction = values[1];
             node.DialogueText = values[2];
             node.FMODEventPath = values[3];
-            node.CharacterInfo = _characterTable.GetCharacterInfo(node.CharacterID);
         }
 
         #endregion

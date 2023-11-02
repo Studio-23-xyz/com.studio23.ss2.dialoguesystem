@@ -1,7 +1,6 @@
 
 using Studio23.SS2.DialogueSystem.Data;
 using UnityEngine;
-using static Studio23.SS2.DialogueSystem.Data.DialogueEvents;
 
 namespace Studio23.SS2.DialogueSystem.Core
 {
@@ -13,8 +12,15 @@ namespace Studio23.SS2.DialogueSystem.Core
         [Header("Data")]
         [SerializeField] private DialogueGraph _currentGraph;
 
-        public DialogueDataEvent OnDialogueStart;
-        public DialogueDataEvent OnDialogueNext;
+        public delegate void DialogueEvent();
+        /// <summary>
+        /// Subscribe to this to know when dialogue started
+        /// </summary>
+        public DialogueEvent OnDialogueStart;
+
+        /// <summary>
+        /// Subscribe to this to know when dialogue completed
+        /// </summary>
         public DialogueEvent OnDialogueComplete;
 
         void Awake()
@@ -22,26 +28,37 @@ namespace Studio23.SS2.DialogueSystem.Core
             Instance = this;
         }
 
-        public void ClearEvents()
-        {
-            OnDialogueStart = null;
-            OnDialogueNext = null;
-            OnDialogueComplete = null;
-        }
-
-        public void ChangeDialogueGraph(DialogueGraph newGraph)
+        /// <summary>
+        /// Initialize A new Dialogue Graph
+        /// </summary>
+        /// <param name="newGraph"></param>
+        public void InitializeDialogueGraph(DialogueGraph newGraph)
         {
             _currentGraph = newGraph;
         }
 
+
+        /// <summary>
+        /// Start playing dialogue and it Fires the Start event
+        /// </summary>
         public void PlayDialogue()
         {
-            _currentGraph.StartDialogue();
+            OnDialogueStart?.Invoke();
         }
 
-        public void GetNextNode()
+        /// <summary>
+        /// Get the next node
+        /// </summary>
+        /// <returns>Dialogue Base. It has all the necessary data for showing a line of dialogue</returns>
+        public DialogueBase GetNextNode()
         {
-            _currentGraph.NextNode();
+            DialogueBase node=_currentGraph.GetNextNode();
+            if(node == null)
+            {
+                OnDialogueComplete?.Invoke();
+            }
+            return node;
         }
+
     }
 }

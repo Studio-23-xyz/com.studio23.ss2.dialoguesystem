@@ -15,13 +15,7 @@ namespace Studio23.SS2.DialogueSystem.Data
 
         private DialogueBase _lastAddedNode;
 
-        public CharacterTable CharacterTable;
-
-        
-
-        public DialogueBase CurrentNode { get { return _currentNode; } }
-
-
+      
 
         public void AddNewNode(DialogueBase node)
         {
@@ -31,7 +25,6 @@ namespace Studio23.SS2.DialogueSystem.Data
             if(_startNode==null)
             {
                 _startNode = node;  
-                _currentNode = node;
                 _lastAddedNode = node;
                 return;
             }
@@ -42,29 +35,26 @@ namespace Studio23.SS2.DialogueSystem.Data
         }
 
 
-        public void StartDialogue()
-        {
-            _currentNode = _startNode;
-            DialogueManager.Instance.OnDialogueStart?.Invoke(_currentNode);
-        }
-
        
 
-
-
-        public void NextNode()
+        public DialogueBase GetNextNode()
         {
-            if (_currentNode == null) return;
+            
+            if(_currentNode==null)
+            {
+                _currentNode = _startNode;
+                return _currentNode;
+            }
+
             NodePort outputPort = _currentNode.GetOutputPort("Exit");
             if (outputPort == null)
             {
-                DialogueManager.Instance.OnDialogueComplete?.Invoke();
-                Debug.Log("Dialogue Complete");
                 _currentNode = null;
-                return;
+                return _currentNode;
             }
-            _currentNode = outputPort.Connection.node as DialogueBase; ;
-            DialogueManager.Instance.OnDialogueNext?.Invoke(_currentNode);
+            _currentNode = outputPort.Connection.node as DialogueBase;
+
+            return _currentNode;
         }
 
     }

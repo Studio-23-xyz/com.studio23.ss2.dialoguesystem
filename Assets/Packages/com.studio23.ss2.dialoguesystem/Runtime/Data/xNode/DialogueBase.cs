@@ -13,14 +13,12 @@ namespace Studio23.SS2.DialogueSystem.Data
         [Header("Public Properties")]
         public string CharacterID;
         public string CharacterReaction;
-        public CharacterTable.CharacterInfo CharacterInfo;
-
 
         [TextArea(3, 10)]
         public string DialogueText;
         public string FMODEventPath;
 
-
+        
 
 
     }
