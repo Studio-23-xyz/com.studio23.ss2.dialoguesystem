@@ -137,6 +137,7 @@ namespace Studio23.SS2.DialogueSystem.Editor
 
             string[] lines = File.ReadAllText(_csvFilePath).Split('\n');
 
+
             DialogueBase node = GetNewDialogueNode(ScriptableObject.CreateInstance<StartNode>(), 1.ToString(), lines[1].Split(','));
         
             _dialogueGraph.AddNewNode(node);
@@ -179,6 +180,7 @@ namespace Studio23.SS2.DialogueSystem.Editor
 
             AssetDatabase.CreateAsset(node, $"{nodeDirectory}/{nodeName}.asset");
             PopulateDialogueNodeValues(node, values);
+            EditorUtility.SetDirty(node);
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
             return node;
