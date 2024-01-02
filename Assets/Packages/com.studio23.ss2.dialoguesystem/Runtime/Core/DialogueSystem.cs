@@ -1,27 +1,38 @@
 
+using System;
+using Cysharp.Threading.Tasks;
 using Studio23.SS2.DialogueSystem.Data;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Studio23.SS2.DialogueSystem.Core
 {
     public class DialogueSystem : MonoBehaviour
     {
-
         public static DialogueSystem Instance;
 
         [Header("Data")]
         [SerializeField] private DialogueGraph _currentGraph;
+        [FormerlySerializedAs("_lastNode")]
+        [Header("Execution Data")]
+        [SerializeField] private DialogueNodeBase nextNode;
+        [SerializeField] private bool _canAdvanceDialogue = false;
+        [SerializeField] private int _lastChoice = -1;
 
-        public delegate void DialogueEvent();
+        public event Action<DialogueGraph> OnDialogueStarted; 
+        public event Action<DialogueGraph> OnDialogueEnded; 
+        public delegate void DialogueLineEvent(DialogueLineNode dialogueLineNode);
+        
         /// <summary>
         /// Subscribe to this to know when dialogue started
         /// </summary>
-        public DialogueEvent OnDialogueStart;
+        public DialogueLineEvent DialogueLineStarted;
 
         /// <summary>
         /// Subscribe to this to know when dialogue completed
         /// </summary>
-        public DialogueEvent OnDialogueComplete;
+        public DialogueLineEvent DialogueLineCompleted;
+        
 
         void Awake()
         {
@@ -41,10 +52,51 @@ namespace Studio23.SS2.DialogueSystem.Core
         /// <summary>
         /// Start playing dialogue and it Fires the Start event
         /// </summary>
-        public void PlayDialogue()
+        public void StartDialogue()
         {
-            OnDialogueStart?.Invoke();
+            PlayDialogue();
         }
+
+        public async UniTask PlayDialogue()
+        {
+            Debug.Log("START");
+            
+            _currentGraph.HandleDialogueStarted();
+            OnDialogueStarted?.Invoke(_currentGraph);
+            
+            nextNode = _currentGraph.StartNode;
+            while (nextNode != null)
+            {
+                var dialogueLineNode = nextNode as DialogueLineNode;
+                Debug.Log("node = " + nextNode, nextNode);
+                _canAdvanceDialogue = false;
+                
+                //#TODO perhaps dialogueUI shouldn't be responsible for advancing dialogue
+                DialogueLineStarted?.Invoke(dialogueLineNode);
+                while (!_canAdvanceDialogue)
+                {
+                    await UniTask.Yield();
+                }
+                DialogueLineCompleted?.Invoke(dialogueLineNode);
+                
+                nextNode = GetNextNode();
+            }
+
+            OnDialogueEnded?.Invoke(_currentGraph);
+
+            Debug.Log("dialogue completed");
+        }
+
+        public void AdvanceDialogue()
+        {
+            _canAdvanceDialogue = true;
+        }
+
+        public void PickChoice(int choiceIndex)
+        {
+            
+        }
+         
 
         /// <summary>
         /// Get the next node
@@ -52,13 +104,11 @@ namespace Studio23.SS2.DialogueSystem.Core
         /// <returns>Dialogue Base. It has all the necessary data for showing a line of dialogue</returns>
         public DialogueNodeBase GetNextNode()
         {
-            DialogueNodeBase node=_currentGraph.GetNextNode();
-            if(node == null)
-            {
-                OnDialogueComplete?.Invoke();
-            }
-            return node;
+            nextNode= _currentGraph.GetNextNode();
+            
+            return nextNode;
         }
 
     }
 }
+

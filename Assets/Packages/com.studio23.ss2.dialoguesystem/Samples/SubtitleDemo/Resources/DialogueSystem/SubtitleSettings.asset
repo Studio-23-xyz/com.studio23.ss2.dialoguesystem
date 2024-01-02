@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 858ab00418c131e4e8b7b491884805af, type: 3}
   m_Name: SubtitleSettings
   m_EditorClassIdentifier: 
-  subtitleColor: {r: 0, g: 0, b: 0, a: 1}
-  subtitleFontSize: 24
-  dropShadow: 0
-  EnableCharacterColor: 1
+  SubtitleColor: {r: 0, g: 0, b: 0, a: 1}
+  SubtitleFontSize: 24
+  DropShadow: 0
+  EnableCharacterColor: 0
   ShowBackground: 1
   BackGroundColor: {r: 1, g: 1, b: 1, a: 1}

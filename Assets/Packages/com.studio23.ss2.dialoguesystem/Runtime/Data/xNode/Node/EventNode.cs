@@ -10,7 +10,6 @@ namespace Studio23.SS2.DialogueSystem.Data
 
         public UnityEvent Event;
 
-        
 
     }
 }

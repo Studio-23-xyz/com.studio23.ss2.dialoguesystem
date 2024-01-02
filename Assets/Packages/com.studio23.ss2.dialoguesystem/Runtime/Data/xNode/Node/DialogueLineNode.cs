@@ -8,15 +8,15 @@ namespace Studio23.SS2.DialogueSystem.Data
     [Serializable]
 
     [NodeTint("#7A009A")]
-    public class DialogueNode : DialogueNodeBase
+    public class DialogueLineNode : DialogueNodeBase
     {
         [Input]
         public int Entry;
         [Output]
         public int Exit;
 
-       
-
+        [TextArea(4, 10)]
+        public string DialogueText;
     }
 
 }

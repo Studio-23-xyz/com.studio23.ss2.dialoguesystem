@@ -23,8 +23,6 @@ public class DialogueUI : MonoBehaviour
     [SerializeField] private SubtitleSettings _config;
 
 
-
-
     void Start()
     {
         CharacterTable = Resources.Load<CharacterTable>("DialogueSystem/CharacterTable");
@@ -39,27 +37,19 @@ public class DialogueUI : MonoBehaviour
         BackgroundImage.gameObject.SetActive(_config.ShowBackground);
         BackgroundImage.color = _config.BackGroundColor;
     }
-
+    
 
     private void RegisterEvents()
     {
-        DialogueSystem.Instance.OnDialogueStart += async () => await PlayDialogueAsync();
+        DialogueSystem.Instance.OnDialogueStarted += (graph) => ShowUI(true);
+        DialogueSystem.Instance.OnDialogueEnded +=  (graph) => ShowUI(false);
+
+        DialogueSystem.Instance.DialogueLineStarted += handleDialogueLineStarted;
     }
 
-
-    private async Task PlayDialogueAsync()
+    private void handleDialogueLineStarted(DialogueLineNode dialogueLineNode)
     {
-        ShowUI(true);
-        DialogueNodeBase node = DialogueSystem.Instance.GetNextNode();
-
-        while (node != null)
-        {
-            await ShowDialogueTextAsync(node);//TODO Implement a audio playing mechanic here
-            node = DialogueSystem.Instance.GetNextNode();
-        }
-
-        ShowUI(false);
-
+        ShowDialogueTextAsync(dialogueLineNode);
     }
 
     private void ShowUI(bool state)
@@ -67,17 +57,26 @@ public class DialogueUI : MonoBehaviour
         UIRoot.SetActive(state);
     }
 
-    private async Task ShowDialogueTextAsync(DialogueNodeBase node)
+    private async UniTask ShowDialogueTextAsync(DialogueLineNode node)
     {
-        CharacterData characterData = CharacterTable.GetCharacterData(node.ID);
+        
         string text = string.Empty;
-        if (_config.EnableCharacterColor)
+
+        CharacterData characterData = CharacterTable.GetCharacterData(node.ID);
+        if (characterData != null)
         {
-            text = $"<color=#{characterData.DialogueColor.ToHexString()}>{characterData.CharacterName}</color>:{node.DialogueText}";
+            if (_config.EnableCharacterColor)
+            {
+                text = $"<color=#{characterData.DialogueColor.ToHexString()}>{characterData.CharacterName}</color>:{node.DialogueText}";
+            }
+            else
+            {
+                text = $"{characterData.CharacterName}:{node.DialogueText}";
+            }
         }
         else
         {
-            text = $"{characterData.CharacterName}:{node.DialogueText}";
+            text = node.DialogueText;
         }
 
         DialogueText.text = text;
@@ -85,4 +84,9 @@ public class DialogueUI : MonoBehaviour
 
     }
 
+
+    public void handleDialogueAdvance()
+    {
+        DialogueSystem.Instance.AdvanceDialogue();
+    }
 }

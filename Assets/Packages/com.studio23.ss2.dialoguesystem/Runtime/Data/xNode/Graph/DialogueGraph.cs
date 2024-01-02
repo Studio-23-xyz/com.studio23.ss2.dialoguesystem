@@ -10,7 +10,9 @@ namespace Studio23.SS2.DialogueSystem.Data
         public bool SkippableDialogue;
 
         [SerializeField] private DialogueNodeBase _startNode;
-        [SerializeField] private DialogueNodeBase _currentNode;
+        public DialogueNodeBase StartNode => _startNode;
+        
+        private DialogueNodeBase _currentNode;
 
         private DialogueNodeBase _lastAddedNode;
 
@@ -28,29 +30,36 @@ namespace Studio23.SS2.DialogueSystem.Data
                 return;
             }
 
-            _lastAddedNode.GetOutputPort("Exit").Connect(node.GetInputPort("Entry"));
+            var a = _lastAddedNode.GetOutputPort("Exit");
+            _lastAddedNode.GetExitPort().Connect(node.GetEntryPort());
             _lastAddedNode=node;
            
         }
 
-
-       
-
+        public void HandleDialogueStarted()
+        {
+            //this needs to be set manually 
+            //otherwise we can't have repeating dialogue
+            _currentNode = _startNode;
+        }
+        
         public DialogueNodeBase GetNextNode()
         {
-            
             if(_currentNode==null)
             {
                 _currentNode = _startNode;
                 return _currentNode;
             }
 
-            NodePort outputPort = _currentNode.GetOutputPort("Exit");
-            if (outputPort == null)
+            NodePort outputPort = _currentNode.GetExitPort();
+            if (outputPort == null || outputPort.Connection == null)
             {
                 _currentNode = null;
                 return _currentNode;
             }
+
+            Debug.Log(_currentNode + " " + outputPort.Connection);
+            Debug.Log(" node" + outputPort.Connection.node);
             _currentNode = outputPort.Connection.node as DialogueNodeBase;
 
             return _currentNode;
