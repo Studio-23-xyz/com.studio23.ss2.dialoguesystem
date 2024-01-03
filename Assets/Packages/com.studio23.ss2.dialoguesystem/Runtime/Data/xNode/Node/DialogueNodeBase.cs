@@ -1,24 +1,14 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
+using Studio23.SS2.DialogueSystem.Utility;
+using UnityEngine;
 using XNode;
-
 
 namespace Studio23.SS2.DialogueSystem.Data
 {
     [NodeWidth(333)]
-    public class DialogueNodeBase : Node
+    public abstract class DialogueNodeBase : Node
     {
-
-        [Output(dynamicPortList =true)] public int[] Events;
-
-
-        [Header("Character Data")]
-        public string ID;
-        public string Reaction;
-
-
-        public string FMODEvent;
-
-
         public NodePort GetExitPort()
         {
             return GetOutputPort("Exit");
@@ -26,7 +16,14 @@ namespace Studio23.SS2.DialogueSystem.Data
 
         public NodePort GetEntryPort()
         {
-            return GetInputPort("Entry") ;
+            return GetInputPort("Entry");
         }
+
+        public abstract void HandleDialogueAdvance();
+        public abstract void HandleChoiceSelected(int choiceIndex);
+
+        public abstract UniTask Play();
+
+        public abstract DialogueNodeBase GetNextNode();
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using XNode;
 
@@ -6,7 +7,6 @@ namespace Studio23.SS2.DialogueSystem.Data
     [CreateAssetMenu(menuName = "Studio-23/Dialogue System/New Dialogue Graph", fileName ="Dialogue Graph")]
     public class DialogueGraph : NodeGraph
     {
-
         public bool SkippableDialogue;
 
         [SerializeField] private DialogueNodeBase _startNode;
@@ -16,7 +16,6 @@ namespace Studio23.SS2.DialogueSystem.Data
 
         private DialogueNodeBase _lastAddedNode;
 
-      
 
         public void AddNewNode(DialogueNodeBase node)
         {
@@ -30,39 +29,35 @@ namespace Studio23.SS2.DialogueSystem.Data
                 return;
             }
 
-            var a = _lastAddedNode.GetOutputPort("Exit");
             _lastAddedNode.GetExitPort().Connect(node.GetEntryPort());
             _lastAddedNode=node;
-           
         }
 
         public void HandleDialogueStarted()
         {
             //this needs to be set manually 
             //otherwise we can't have repeating dialogue
+            FindStartNode();
             _currentNode = _startNode;
         }
-        
-        public DialogueNodeBase GetNextNode()
+
+        private void FindStartNode()
         {
-            if(_currentNode==null)
+            if (_startNode != null)
             {
-                _currentNode = _startNode;
-                return _currentNode;
+                return;
+            }
+            foreach (var node in nodes)
+            {
+                Debug.Log("node " , node);
+                if (node is DialogueStartNode startNode)
+                {
+                    _startNode = startNode;
+                    return;
+                }
             }
 
-            NodePort outputPort = _currentNode.GetExitPort();
-            if (outputPort == null || outputPort.Connection == null)
-            {
-                _currentNode = null;
-                return _currentNode;
-            }
-
-            Debug.Log(_currentNode + " " + outputPort.Connection);
-            Debug.Log(" node" + outputPort.Connection.node);
-            _currentNode = outputPort.Connection.node as DialogueNodeBase;
-
-            return _currentNode;
+            Debug.LogError($"NO START NODE FOR DIALOGUE GRAPH {this}");
         }
 
     }

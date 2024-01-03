@@ -47,9 +47,9 @@ public class DialogueUI : MonoBehaviour
         DialogueSystem.Instance.DialogueLineStarted += handleDialogueLineStarted;
     }
 
-    private void handleDialogueLineStarted(DialogueLineNode dialogueLineNode)
+    private void handleDialogueLineStarted(DialogueLineNodeBase dialogueLineNodeBase)
     {
-        ShowDialogueTextAsync(dialogueLineNode);
+        ShowDialogueTextAsync(dialogueLineNodeBase);
     }
 
     private void ShowUI(bool state)
@@ -57,26 +57,26 @@ public class DialogueUI : MonoBehaviour
         UIRoot.SetActive(state);
     }
 
-    private async UniTask ShowDialogueTextAsync(DialogueLineNode node)
+    private async UniTask ShowDialogueTextAsync(DialogueLineNodeBase nodeBase)
     {
         
         string text = string.Empty;
 
-        CharacterData characterData = CharacterTable.GetCharacterData(node.ID);
+        CharacterData characterData = CharacterTable.GetCharacterData(nodeBase.ID);
         if (characterData != null)
         {
             if (_config.EnableCharacterColor)
             {
-                text = $"<color=#{characterData.DialogueColor.ToHexString()}>{characterData.CharacterName}</color>:{node.DialogueText}";
+                text = $"<color=#{characterData.DialogueColor.ToHexString()}>{characterData.CharacterName}</color>:{nodeBase.DialogueText}";
             }
             else
             {
-                text = $"{characterData.CharacterName}:{node.DialogueText}";
+                text = $"{characterData.CharacterName}:{nodeBase.DialogueText}";
             }
         }
         else
         {
-            text = node.DialogueText;
+            text = nodeBase.DialogueText;
         }
 
         DialogueText.text = text;
