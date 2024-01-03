@@ -3,6 +3,7 @@
     "com.cysharp.unitask": "2.4.1",
     "com.github.siccity.xnode": "1.8.0",
     "com.studio23.ss2.upmassistant": "1.0.2",
+    "com.textus-games.serialized-reference-ui": "1.0.0",
     "com.unity.collab-proxy": "2.0.7",
     "com.unity.feature.development": "1.0.1",
     "com.unity.textmeshpro": "3.0.6",
@@ -48,7 +49,8 @@
       "scopes": [
         "com.studio23.ss2",
         "com.github.siccity.xnode",
-        "com.cysharp.unitask"
+        "com.cysharp.unitask",
+        "com.textus-games.serialized-reference-ui"
       ]
     }
   ]

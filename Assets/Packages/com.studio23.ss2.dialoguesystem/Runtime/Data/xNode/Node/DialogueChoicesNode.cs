@@ -13,7 +13,8 @@ namespace Studio23.SS2.DialogueSystem.Data
         [Input]
         public int Entry;
 
-        [Output] 
+        // [Output] 
+        [Output(dynamicPortList =true)] 
         public int Choices;
         
         private int _lastChoiceIndex = -1;
@@ -37,6 +38,12 @@ namespace Studio23.SS2.DialogueSystem.Data
             var nodePort1 = GetOutputPort("Choices 0");
             
             this.GetOutputNodesConnectedToPort("Choices", _dialogueChoices);
+
+            //trim 
+            for (int i = _dialogueChoices.Count-1; i >= 0; i--)
+            {
+                
+            }
         }
 
         public override void HandleDialogueAdvance()
@@ -63,7 +70,6 @@ namespace Studio23.SS2.DialogueSystem.Data
         public override async UniTask Play()
         {
             _lastChoiceIndex = -1;
-            Debug.Log("waaaaaaaaaa");
             GetDialogueChoices();
             Core.DialogueSystem.Instance.HandleDialogueChoiceStarted(this);
             

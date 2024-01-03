@@ -22,7 +22,7 @@ namespace Studio23.SS2.DialogueSystem.Data
         private bool _canAdvanceDialogue;
         
         [Output(dynamicPortList =true)] 
-        public int[] Events;
+        public int Events;
 
         public override void HandleDialogueAdvance()
         {

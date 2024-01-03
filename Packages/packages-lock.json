@@ -23,6 +23,13 @@
       },
       "url": "https://package.openupm.com"
     },
+    "com.textus-games.serialized-reference-ui": {
+      "version": "1.0.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://package.openupm.com"
+    },
     "com.unity.collab-proxy": {
       "version": "2.0.7",
       "depth": 0,

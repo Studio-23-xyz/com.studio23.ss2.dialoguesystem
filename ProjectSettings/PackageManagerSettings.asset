@@ -33,6 +33,7 @@ MonoBehaviour:
     - com.studio23.ss2
     - com.github.siccity.xnode
     - com.cysharp.unitask
+    - com.textus-games.serialized-reference-ui
     m_IsDefault: 0
     m_Capabilities: 0
     m_ConfigSource: 4
