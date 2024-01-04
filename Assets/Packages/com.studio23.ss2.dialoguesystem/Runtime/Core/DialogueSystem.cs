@@ -60,6 +60,7 @@ namespace Studio23.SS2.DialogueSystem.Core
         public async UniTask PlayDialogue()
         {
             Debug.Log("START");
+            _currentGraph.Initialize();
             
             _currentGraph.HandleDialogueStarted();
             OnDialogueStarted?.Invoke(_currentGraph);
@@ -96,7 +97,6 @@ namespace Studio23.SS2.DialogueSystem.Core
         
         public void HandleDialogueChoiceStarted(DialogueChoicesNode dialogueChoicesNode)
         {
-            Debug.Log(dialogueChoicesNode + " chhoices " + dialogueChoicesNode.DialogueChoices.Count);
             OnDialogueChoiceStarted?.Invoke(dialogueChoicesNode);
         }
 
@@ -105,6 +105,10 @@ namespace Studio23.SS2.DialogueSystem.Core
             OnDialogueChoiceEnded?.Invoke(dialogueChoicesNode);
         }
 
+        private void OnDestroy()
+        {
+            _currentGraph.Cleanup();
+        }
     }
 }
 

@@ -195,6 +195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _button: {fileID: 855239014452063087}
+  _image: {fileID: 8203826431401428570}
   _text: {fileID: 2068565476251727824}
   _choiceIndex: -1
 --- !u!114 &8203826431401428570

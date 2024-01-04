@@ -7,42 +7,41 @@ using XNode;
 
 namespace Studio23.SS2.DialogueSystem.Data
 {
-    [NodeTint("#AAAA00")]
+    [NodeTint("#AAAA00"), CreateNodeMenu("Dialogue Multi choice")]
     public class DialogueChoicesNode : DialogueNodeBase
     {
         [Input]
         public int Entry;
 
-        // [Output] 
-        [Output(dynamicPortList =true)] 
+        [Output] 
         public int Choices;
         
         private int _lastChoiceIndex = -1;
 
-        private List<DialogueLineNodeBase> _dialogueChoices;
-        public List<DialogueLineNodeBase> DialogueChoices=> _dialogueChoices;
+        private List<DialogueChoiceNode> _dialogueChoices;
+        public List<DialogueChoiceNode> DialogueChoices=> _dialogueChoices;
 
         void GetDialogueChoices()
         {
             if (_dialogueChoices == null)
             {
-                _dialogueChoices = new List<DialogueLineNodeBase>();
+                _dialogueChoices = new List<DialogueChoiceNode>();
             }
             else
             {
                 _dialogueChoices.Clear();
             }
 
-            Debug.Log("xvzcdcsdf");
-            var nodePort = GetOutputPort("Choices");
-            var nodePort1 = GetOutputPort("Choices 0");
-            
             this.GetOutputNodesConnectedToPort("Choices", _dialogueChoices);
 
             //trim 
             for (int i = _dialogueChoices.Count-1; i >= 0; i--)
             {
-                
+                var choice = _dialogueChoices[i];
+                if (!choice.CheckConditions())
+                {
+                    _dialogueChoices.RemoveAt(i);
+                }
             }
         }
 
@@ -65,6 +64,11 @@ namespace Studio23.SS2.DialogueSystem.Data
             //no value checks. 
             //we assume that the index is valid
             _lastChoiceIndex = choiceIndex;
+            if (_lastChoiceIndex >= 0 && _lastChoiceIndex < _dialogueChoices.Count)
+            {
+                var pickedChoice = _dialogueChoices[_lastChoiceIndex];
+                pickedChoice.HandleChoiceTaken();
+            }
         }
 
         public override async UniTask Play()
@@ -79,6 +83,11 @@ namespace Studio23.SS2.DialogueSystem.Data
             }
             
             Core.DialogueSystem.Instance.HandleDialogueChoiceEnded(this);
+        }
+
+        public override void Initialize()
+        {
+            //do nothing
         }
     }
 }

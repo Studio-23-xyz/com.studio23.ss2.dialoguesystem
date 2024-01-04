@@ -8,6 +8,7 @@ namespace Packages.com.studio23.ss2.dialoguesystem.Samples.SubtitleDemo
 {
     public class DialogueChoiceUI:MonoBehaviour
     {
+        [SerializeField] private List<DialogueChoiceNodeBase> _sortedChoices;
         [SerializeField] private Transform _buttonContainer;
         [SerializeField] private DialogueChoiceButton _buttonPrefab;
         [SerializeField] List<DialogueChoiceButton> _spawnedButtons;
@@ -39,17 +40,40 @@ namespace Packages.com.studio23.ss2.dialoguesystem.Samples.SubtitleDemo
 
         private void HandleDialogueChoiceStarted(DialogueChoicesNode choicesNode)
         {
+            SortChoices(choicesNode);
             _buttonContainer.gameObject.SetActive(true);
             NukeButtons();
-            CreateButtons(choicesNode);
+            CreateButtons();
         }
 
-        void CreateButtons(DialogueChoicesNode choicesNode)
+        private void SortChoices(DialogueChoicesNode choicesNode)
         {
-            for (int i = 0; i < choicesNode.DialogueChoices.Count; i++)
+            _sortedChoices.Clear();
+            _sortedChoices.AddRange(choicesNode.DialogueChoices);
+            
+            _sortedChoices.Sort((choice1, choice2) =>
+            {
+                if (choice1.Taken != choice2.Taken)
+                {
+                    if (choice1.Taken)
+                    {
+                        return 1;
+                    }
+                    else
+                    {
+                        return -1;
+                    }
+                }
+                return 0;
+            });
+        }
+
+        void CreateButtons()
+        {
+            for (int i = 0; i < _sortedChoices.Count; i++)
             {
                 var choiceButton = Instantiate(_buttonPrefab, _buttonContainer);
-                choiceButton.SetChoiceData(i, choicesNode.DialogueChoices[i]);
+                choiceButton.SetChoiceData(i, _sortedChoices[i]);
                 choiceButton.ChoiceSelected += HandleDialogueChoiceSelected;
                 _spawnedButtons.Add(choiceButton);
             }

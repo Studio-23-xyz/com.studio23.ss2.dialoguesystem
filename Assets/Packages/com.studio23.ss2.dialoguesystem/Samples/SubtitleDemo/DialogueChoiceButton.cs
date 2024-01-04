@@ -9,6 +9,7 @@ namespace Packages.com.studio23.ss2.dialoguesystem.Samples.SubtitleDemo
     public class DialogueChoiceButton:MonoBehaviour
     {
         [SerializeField] private Button _button;
+        [SerializeField] private Image _image;
         [SerializeField] private TextMeshProUGUI _text;
         [SerializeField] private int _choiceIndex = -1;
         public event Action<int> ChoiceSelected;
@@ -24,13 +25,12 @@ namespace Packages.com.studio23.ss2.dialoguesystem.Samples.SubtitleDemo
             _button.onClick.AddListener(()=> ChoiceSelected?.Invoke(_choiceIndex));
         }
 
-        public void SetChoiceData(int choiceIndex, DialogueLineNodeBase choiceLine)
+        public void SetChoiceData(int choiceIndex, DialogueChoiceNodeBase choice)
         {
-            _text.text = choiceLine.DialogueText;
+            _image.color = choice.Taken ? Color.gray : Color.green;
+            _text.text = choice.DialogueText;
             _choiceIndex = choiceIndex;
         }
         
-
-
     }
 }

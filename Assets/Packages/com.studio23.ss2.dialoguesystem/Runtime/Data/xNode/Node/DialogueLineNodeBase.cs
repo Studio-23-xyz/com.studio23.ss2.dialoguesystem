@@ -78,6 +78,11 @@ namespace Studio23.SS2.DialogueSystem.Data
             }
             return outputPort.Connection.node as DialogueNodeBase;
         }
+
+        public override void Initialize()
+        {
+            
+        }
     }
 
 }

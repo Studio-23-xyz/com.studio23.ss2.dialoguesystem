@@ -7,7 +7,7 @@ using XNode;
 namespace Studio23.SS2.DialogueSystem.Data
 {
     [NodeWidth(333)]
-    public abstract class DialogueNodeBase : Node
+    public abstract class DialogueNodeBase : DialogueGraphNodeBase
     {
         public NodePort GetExitPort()
         {

@@ -1,5 +1,8 @@
 using System;
+using System.Collections.Generic;
+using Packages.com.studio23.ss2.dialoguesystem.Runtime.Data;
 using UnityEngine;
+using UnityEngine.Serialization;
 using XNode;
 
 namespace Studio23.SS2.DialogueSystem.Data
@@ -13,9 +16,49 @@ namespace Studio23.SS2.DialogueSystem.Data
         public DialogueNodeBase StartNode => _startNode;
         
         private DialogueNodeBase _currentNode;
-
         private DialogueNodeBase _lastAddedNode;
 
+        //This is needed if we want to make even starting the conversation conditional
+        [SerializeReference, SerializeReferenceButton]
+        private List<IDialogueNodeCondition> _conditions = new List<IDialogueNodeCondition>();
+
+        //certain nodes need a callback to initialize when hitting playmode/at start in build
+        //ex: condition nodes
+        private bool _initialized = false;
+
+        public void Initialize()
+        {
+            if (_initialized)
+            {
+                return;
+            }
+
+            _initialized = true;
+            foreach (var node in nodes)
+            {
+                if (node is DialogueGraphNodeBase dialogueGraphNode)
+                {
+                    dialogueGraphNode.Initialize();
+                } 
+            }
+        }
+        public void Cleanup()
+        {
+            _initialized = false;
+        }
+        
+        public bool ConditionsValid()
+        {
+            foreach (var condition in _conditions)
+            {
+                if (!condition.Evaluate())
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
 
         public void AddNewNode(DialogueNodeBase node)
         {

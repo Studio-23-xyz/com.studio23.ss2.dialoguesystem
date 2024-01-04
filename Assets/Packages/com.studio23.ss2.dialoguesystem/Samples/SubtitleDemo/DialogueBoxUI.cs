@@ -10,7 +10,7 @@ using UnityEngine.UI;
 
 
 
-public class DialogueUI : MonoBehaviour
+public class DialogueBoxUI : MonoBehaviour
 {
     [Header("UI Components")]
     public TextMeshProUGUI DialogueText;
@@ -25,9 +25,16 @@ public class DialogueUI : MonoBehaviour
 
     void Start()
     {
+        //#TODO THE UI Shouldn't be responsible for loading the character table
         CharacterTable = Resources.Load<CharacterTable>("DialogueSystem/CharacterTable");
         ApplyConfiguration();
         RegisterEvents();
+    }
+
+
+    private void OnDestroy()
+    {
+        UnRegisterEvents();
     }
 
     private void ApplyConfiguration()
@@ -41,25 +48,34 @@ public class DialogueUI : MonoBehaviour
 
     private void RegisterEvents()
     {
-        DialogueSystem.Instance.OnDialogueStarted += (graph) => ShowUI(true);
-        DialogueSystem.Instance.OnDialogueEnded +=  (graph) => ShowUI(false);
-
+        DialogueSystem.Instance.OnDialogueStarted +=  ShowUI;
+        DialogueSystem.Instance.OnDialogueEnded +=  HideUI;
         DialogueSystem.Instance.DialogueLineStarted += handleDialogueLineStarted;
+
+        DialogueSystem.Instance.OnDialogueChoiceStarted += HideUI;
+        DialogueSystem.Instance.OnDialogueChoiceEnded += ShowUI;
+    }
+    
+    private void UnRegisterEvents()
+    {
+        if (DialogueSystem.Instance != null)
+        {
+            DialogueSystem.Instance.OnDialogueStarted -=  ShowUI;
+            DialogueSystem.Instance.OnDialogueEnded -=  HideUI;
+            DialogueSystem.Instance.DialogueLineStarted -= handleDialogueLineStarted;
+
+            DialogueSystem.Instance.OnDialogueChoiceStarted -= HideUI;
+            DialogueSystem.Instance.OnDialogueChoiceEnded -= ShowUI;
+        }
     }
 
+ 
     private void handleDialogueLineStarted(DialogueLineNodeBase dialogueLineNodeBase)
     {
         ShowDialogueTextAsync(dialogueLineNodeBase);
     }
-
-    private void ShowUI(bool state)
-    {
-        UIRoot.SetActive(state);
-    }
-
     private async UniTask ShowDialogueTextAsync(DialogueLineNodeBase nodeBase)
     {
-        
         string text = string.Empty;
 
         CharacterData characterData = CharacterTable.GetCharacterData(nodeBase.ID);
@@ -81,9 +97,39 @@ public class DialogueUI : MonoBehaviour
 
         DialogueText.text = text;
         await UniTask.Delay(TimeSpan.FromSeconds(5), ignoreTimeScale: false);//TODO Dynamic Wait time according to text length
-
     }
 
+    private void HideUI(DialogueChoicesNode obj)
+    {
+        HideUI();
+    }
+    
+    private void ShowUI(DialogueChoicesNode obj)
+    {
+        ShowUI();
+    }
+
+    private void ShowUI(DialogueGraph graph)
+    {
+        ShowUI();
+    }
+
+    private void ShowUI()
+    {
+        UIRoot.SetActive(true);
+    }
+
+    private void HideUI(DialogueGraph graph)
+    {
+        HideUI();
+    }
+
+    private void HideUI()
+    {
+        UIRoot.SetActive(false);
+    }
+
+   
 
     public void handleDialogueAdvance()
     {

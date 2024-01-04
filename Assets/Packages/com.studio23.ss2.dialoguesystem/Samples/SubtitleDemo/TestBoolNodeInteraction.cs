@@ -7,7 +7,6 @@ namespace Packages.com.studio23.ss2.dialoguesystem.Samples.SubtitleDemo
     public class TestBoolNodeInteraction:IDialogueNodeCondition
     {
         public TestBoolNode BoolNode;
-        public string aa = " ";
         public bool Evaluate()
         {
             return BoolNode.IsTrue;
