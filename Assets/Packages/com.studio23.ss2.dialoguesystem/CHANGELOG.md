@@ -1,11 +1,16 @@
 # Changelog
 
+## [v0.3.0] - 2023-1-4
+1. Added support for dialogue choices
+2. Dialogue conditions and dialogue graph conditions added.
+3. Refactored traversal code to not use casts
+4. Fixed sample scene.
+
 ## [v0.2.1] - 2023-10-31
 
 ### Updated
 1. Refactored codebase for a better public API
 2. Now Character table is based on Charater Data which are Scriptable Objects.
-
 
 
 ## [v0.1.9] - Initial Release

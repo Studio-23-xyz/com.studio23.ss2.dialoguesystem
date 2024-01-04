@@ -1,4 +1,4 @@
-namespace Packages.com.studio23.ss2.dialoguesystem.Runtime.Data
+namespace Studio23.SS2.DialogueSystem.Runtime.Data
 {
     public interface IDialogueNodeCondition
     {

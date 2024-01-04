@@ -23,7 +23,7 @@ jobs:
             find . -name CHANGELOG.md -exec cp {} . \;
 
             # Check if a "Screenshots" folder exists and copy it to the root
-            if [ -d "Screenshots~" ]; then
+            if [ -d "Screenshots" ]; then
               cp -r Screenshots .
             fi
 
