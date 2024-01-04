@@ -6,6 +6,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Components;
+using UnityEngine.Serialization;
 using Object = System.Object;
 
 
@@ -16,26 +17,26 @@ using Object = System.Object;
 /// </summary>
 public class TextMeshProLocalizer : MonoBehaviour
 {
-    public TMP_Text TmpTarget => tmpTarget;
-    [SerializeField] private TMP_Text tmpTarget;
-    [SerializeField] private LocalizeStringEvent localizer;
-    public LocalizeStringEvent Localizer => localizer;
-    public string Text => tmpTarget.text;
+    public TMP_Text TmpTarget => _tmpTarget;
+    [SerializeField] private TMP_Text _tmpTarget;
+    [SerializeField] private LocalizeStringEvent _localizer;
+    public LocalizeStringEvent Localizer => _localizer;
+    public string Text => _tmpTarget.text;
 
     private void Awake()
     {
-        init();
+        Init();
     }
 
-    [ContextMenu("INIT")]
-    void init()
+    void Init()
     {
-        if(tmpTarget == null)
-            tmpTarget = GetComponent<TextMeshPro>();
-        if (tmpTarget == null)
-            tmpTarget = GetComponent<TextMeshProUGUI>();
-        if (localizer == null)
-            localizer = GetComponent<LocalizeStringEvent>();
+        //made to work with both UI and non UI textmeshpro
+        if(_tmpTarget == null)
+            _tmpTarget = GetComponent<TextMeshPro>();
+        if (_tmpTarget == null)
+            _tmpTarget = GetComponent<TextMeshProUGUI>();
+        if (_localizer == null)
+            _localizer = GetComponent<LocalizeStringEvent>();
     }
     
     /// <summary>
@@ -46,9 +47,9 @@ public class TextMeshProLocalizer : MonoBehaviour
     /// <param name="localizedString"></param>
     public void SetText(LocalizedString localizedString, string tempText= "")
     {
-        tmpTarget.text = tempText;
-        localizer.StringReference = localizedString;
-        localizer.RefreshString();
+        _tmpTarget.text = tempText;
+        _localizer.StringReference = localizedString;
+        _localizer.RefreshString();
     }
     
     /// <summary>
@@ -62,25 +63,19 @@ public class TextMeshProLocalizer : MonoBehaviour
         Debug.Log("wait start " + Time.time);
         SetText(localizedString, tempText);
 
-        tmpTarget.text = await localizer.StringReference.GetLocalizedStringAsync();
+        _tmpTarget.text = await _localizer.StringReference.GetLocalizedStringAsync();
     }
     
     /// <summary>
     /// TMP immediately shows tempText.
-    /// Localization load done => show localized string
+    /// Localization load done return actual string in correct language
     /// </summary>
     /// <param name="tempText"></param>
     /// <param name="localizedString"></param>
     public async UniTask<string> LoadTextAndWait(LocalizedString localizedString, string tempText= "")
     {
         SetText(localizedString, tempText);
-        return await localizer.StringReference.GetLocalizedStringAsync();
-    }
-
-    [ContextMenu("adsda")]
-    public void foo()
-    {
-        Debug.Log(tmpTarget.text, tmpTarget);
+        return await _localizer.StringReference.GetLocalizedStringAsync();
     }
 
     /// <summary>
@@ -94,31 +89,31 @@ public class TextMeshProLocalizer : MonoBehaviour
     /// <param name="args"></param>
     public void SetText(string tempText, LocalizedString localizedString, Object[] args)
     {
-        tmpTarget.text = tempText;
-        localizer.StringReference = localizedString;
-        setArgsAndRefresh(args);
+        _tmpTarget.text = tempText;
+        _localizer.StringReference = localizedString;
+        SetArgsAndRefresh(args);
     }
     
     public void SetText(string tempText, Object[] args)
     {
-        tmpTarget.text = tempText;
-        setArgsAndRefresh(args);
+        _tmpTarget.text = tempText;
+        SetArgsAndRefresh(args);
     }
 
-    public void setArgsAndRefresh(Object[] args)
+    public void SetArgsAndRefresh(Object[] args)
     {
-        localizer.StringReference.Arguments = args;
-        localizer.RefreshString();
+        _localizer.StringReference.Arguments = args;
+        _localizer.RefreshString();
     }
     
-    public void setArgsAndRefresh(List<Object> args)
+    public void SetArgsAndRefresh(List<Object> args)
     {
-        localizer.StringReference.Arguments = args;
-        localizer.RefreshString();
+        _localizer.StringReference.Arguments = args;
+        _localizer.RefreshString();
     }
 
     public void SetTextNoLocalization(string s)
     {
-        tmpTarget.text = s;
+        _tmpTarget.text = s;
     }
 }

@@ -27,7 +27,7 @@ public class DialogueChoiceButton:MonoBehaviour
     public void SetChoiceData(DialogueChoiceNodeBase choice)
     {
         _image.color = choice.Taken ? Color.gray : Color.green;
-        //#TODO this doesn't wait for the text to be loaded. Justs sets and starts loading
+        //#TODO this doesn't wait for the text to be loaded. Just sets and starts loading
         // we should wait for all the option text to be loaded
         // or preload all option text
         // currently enough for demo I guess

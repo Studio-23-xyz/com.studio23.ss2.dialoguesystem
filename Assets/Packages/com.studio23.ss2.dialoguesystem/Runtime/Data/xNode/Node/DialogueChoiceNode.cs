@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Packages.com.studio23.ss2.dialoguesystem.Runtime.Data;
+using Studio23.SS2.DialogueSystem.Runtime.Data;
 using UnityEngine;
 namespace Studio23.SS2.DialogueSystem.Data
 {
