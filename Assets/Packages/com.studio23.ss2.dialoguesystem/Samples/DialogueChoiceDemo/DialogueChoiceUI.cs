@@ -72,7 +72,7 @@ public class DialogueChoiceUI:MonoBehaviour
         for (int i = 0; i < _sortedChoices.Count; i++)
         {
             var choiceButton = Instantiate(_buttonPrefab, _buttonContainer);
-            choiceButton.SetChoiceData(i, _sortedChoices[i]);
+            choiceButton.SetChoiceData(_sortedChoices[i]);
             choiceButton.ChoiceSelected += HandleDialogueChoiceSelected;
             _spawnedButtons.Add(choiceButton);
         }

@@ -24,7 +24,7 @@ public class DialogueChoiceButton:MonoBehaviour
         _button.onClick.AddListener(()=> ChoiceSelected?.Invoke(_choiceIndex));
     }
 
-    public void SetChoiceData(int choiceIndex, DialogueChoiceNodeBase choice)
+    public void SetChoiceData(DialogueChoiceNodeBase choice)
     {
         _image.color = choice.Taken ? Color.gray : Color.green;
         //#TODO this doesn't wait for the text to be loaded. Justs sets and starts loading
@@ -32,7 +32,7 @@ public class DialogueChoiceButton:MonoBehaviour
         // or preload all option text
         // currently enough for demo I guess
         _textLocalizer.SetText(choice.DialogueLocalizedString);
-        _choiceIndex = choiceIndex;
+        _choiceIndex = choice.DialogueChoiceIndex;
     }
     
 }

@@ -10,7 +10,8 @@ using UnityEngine.UI;
 
 public class DialogueBoxUI : MonoBehaviour
 {
-    [FormerlySerializedAs("DialogueText")] [Header("UI Components")]
+    [FormerlySerializedAs("DialogueText")] 
+    [Header("UI Components")]
     public TextMeshProUGUI DialogueTMP;
     public TextMeshProLocalizer TextLocalizer;
     public Image BackgroundImage;
