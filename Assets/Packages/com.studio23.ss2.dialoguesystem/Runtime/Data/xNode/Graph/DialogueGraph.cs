@@ -44,7 +44,10 @@ namespace Studio23.SS2.DialogueSystem.Data
         }
         public void Cleanup()
         {
-            _initialized = false;
+            if (_initialized)
+            {
+                _initialized = false;
+            }
         }
         
         public bool ConditionsValid()

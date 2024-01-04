@@ -58,12 +58,12 @@ MonoBehaviour:
   Entry: 0
   Exit: 0
   _conditions:
-  - rid: 4806151222838165507
+  - rid: 4806151239593623552
   references:
     version: 2
     RefIds:
-    - rid: 4806151222838165507
-      type: {class: TestBoolNodeInteraction, ns: Packages.com.studio23.ss2.dialoguesystem.Samples.SubtitleDemo, asm: Assembly-CSharp}
+    - rid: 4806151239593623552
+      type: {class: TestBoolNodeInteraction, ns: , asm: Assembly-CSharp}
       data:
         BoolNode: {fileID: 401710227361937087}
 --- !u!114 &-6489933969369151722

@@ -2,13 +2,10 @@ using Cysharp.Threading.Tasks;
 using Studio23.SS2.DialogueSystem.Core;
 using Studio23.SS2.DialogueSystem.Data;
 using System;
-using System.Threading.Tasks;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
-
-
 
 public class DialogueBoxUI : MonoBehaviour
 {
