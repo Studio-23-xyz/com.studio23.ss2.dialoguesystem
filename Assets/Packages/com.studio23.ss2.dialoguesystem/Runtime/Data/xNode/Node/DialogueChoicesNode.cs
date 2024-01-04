@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Cysharp.Threading.Tasks;
 using Studio23.SS2.DialogueSystem.Utility;
 using UnityEngine;
@@ -18,14 +19,14 @@ namespace Studio23.SS2.DialogueSystem.Data
         
         private int _lastChoiceIndex = -1;
 
-        private List<DialogueChoiceNode> _dialogueChoices;
-        public List<DialogueChoiceNode> DialogueChoices=> _dialogueChoices;
+        private List<DialogueChoiceNodeBase> _dialogueChoices;
+        public List<DialogueChoiceNodeBase> DialogueChoices=> _dialogueChoices;
 
         void GetDialogueChoices()
         {
             if (_dialogueChoices == null)
             {
-                _dialogueChoices = new List<DialogueChoiceNode>();
+                _dialogueChoices = new List<DialogueChoiceNodeBase>();
             }
             else
             {
@@ -33,8 +34,20 @@ namespace Studio23.SS2.DialogueSystem.Data
             }
 
             this.GetOutputNodesConnectedToPort("Choices", _dialogueChoices);
+            RemoveUnavailableChoices();
+            SetChoiceIndices();
+        }
 
-            //trim 
+        private void SetChoiceIndices()
+        {
+            for (int i = 0; i < _dialogueChoices.Count; i++)
+            {
+                _dialogueChoices[i].DialogueChoiceIndex = i;
+            }   
+        }
+
+        private void RemoveUnavailableChoices()
+        {
             for (int i = _dialogueChoices.Count-1; i >= 0; i--)
             {
                 var choice = _dialogueChoices[i];

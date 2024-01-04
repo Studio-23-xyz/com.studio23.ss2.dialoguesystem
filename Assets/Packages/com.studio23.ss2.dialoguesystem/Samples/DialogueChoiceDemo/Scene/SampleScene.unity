@@ -211,7 +211,6 @@ GameObject:
   - component: {fileID: 956320143}
   - component: {fileID: 956320142}
   - component: {fileID: 956320141}
-  - component: {fileID: 956320140}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -219,23 +218,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &956320140
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 956320139}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc09cb0cd50138a4797efe998aeea794, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DialogueText: {fileID: 1838186516}
-  BackgroundImage: {fileID: 381729576}
-  UIRoot: {fileID: 1456424668}
-  CharacterTable: {fileID: 11400000, guid: b8c5304e45a3b1c40b83014cb17fade9, type: 2}
-  _config: {fileID: 11400000, guid: af1672c5418360342a7f541ba08250ba, type: 2}
 --- !u!114 &956320141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1004,6 +986,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c008de1dc3854a46936dcfdfb971d6e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _sortedChoices: []
   _buttonContainer: {fileID: 1126433870}
   _buttonPrefab: {fileID: 8035196018851654212, guid: 8354b9d00f13f0b4ca2dcd08bcd44152, type: 3}
   _spawnedButtons: []
@@ -1017,6 +1000,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1456424671}
   - component: {fileID: 1456424670}
+  - component: {fileID: 1456424672}
   m_Layer: 5
   m_Name: DialoguePanel
   m_TagString: Untagged
@@ -1054,6 +1038,24 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 57.64894}
   m_SizeDelta: {x: 0, y: 115.29791}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1456424672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1456424668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc09cb0cd50138a4797efe998aeea794, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DialogueTMP: {fileID: 1838186516}
+  TextLocalizer: {fileID: 1838186517}
+  BackgroundImage: {fileID: 381729576}
+  UIRoot: {fileID: 1456424668}
+  CharacterTable: {fileID: 11400000, guid: b8c5304e45a3b1c40b83014cb17fade9, type: 2}
+  _config: {fileID: 11400000, guid: af1672c5418360342a7f541ba08250ba, type: 2}
 --- !u!1 &1813981465
 GameObject:
   m_ObjectHideFlags: 0
@@ -1133,6 +1135,8 @@ GameObject:
   - component: {fileID: 1838186514}
   - component: {fileID: 1838186515}
   - component: {fileID: 1838186516}
+  - component: {fileID: 1838186518}
+  - component: {fileID: 1838186517}
   m_Layer: 5
   m_Name: DialogueText
   m_TagString: Untagged
@@ -1187,7 +1191,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: dialogue text
+  m_text: bgvbbvgbb
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1256,6 +1260,48 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1838186517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838186513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d7ad9dc974fe9f47a9f4913e7ed1959, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tmpTarget: {fileID: 1838186516}
+  localizer: {fileID: 1838186518}
+--- !u!114 &1838186518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838186513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:86a08eccdabf3a24e812720793183e8e
+    m_TableEntryReference:
+      m_KeyId: 5198200614912
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &1955484839
 GameObject:
   m_ObjectHideFlags: 0
@@ -1339,8 +1385,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 956320140}
-        m_TargetAssemblyTypeName: DialogueUI, Assembly-CSharp
+      - m_Target: {fileID: 1456424672}
+        m_TargetAssemblyTypeName: DialogueBoxUI, Assembly-CSharp
         m_MethodName: handleDialogueAdvance
         m_Mode: 1
         m_Arguments:

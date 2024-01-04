@@ -1,4 +1,8 @@
 # Changelog
+## [v0.3.1] - 2023-4-1
+1. Dialogue nodes now used localized strings
+2. Sample scene updated with UI that supports localized strings
+3. Fix incorrect choicebutton index
 
 ## [v0.3.0] - 2023-1-4
 1. Added support for dialogue choices
@@ -6,7 +10,7 @@
 3. Refactored traversal code to not use casts
 4. Fixed sample scene.
 
-## [v0.2.1] - 2023-10-31
+## [v0.2.1] - 2023-4-1
 
 ### Updated
 1. Refactored codebase for a better public API

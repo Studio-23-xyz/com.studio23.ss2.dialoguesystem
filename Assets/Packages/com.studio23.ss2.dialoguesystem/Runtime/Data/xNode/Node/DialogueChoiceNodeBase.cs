@@ -6,6 +6,8 @@ namespace Studio23.SS2.DialogueSystem.Data
 {
     public abstract class DialogueChoiceNodeBase:BiWayDialogueNode
     {
+        public int DialogueChoiceIndex { get; internal set; }
+        
         bool _taken;
         public bool Taken => _taken;
         public bool LastConditionEvaluationStatus { get; private set; }

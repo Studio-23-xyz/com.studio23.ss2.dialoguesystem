@@ -5,12 +5,15 @@ using System;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class DialogueBoxUI : MonoBehaviour
 {
+    [FormerlySerializedAs("DialogueText")] 
     [Header("UI Components")]
-    public TextMeshProUGUI DialogueText;
+    public TextMeshProUGUI DialogueTMP;
+    public TextMeshProLocalizer TextLocalizer;
     public Image BackgroundImage;
     public GameObject UIRoot;
 
@@ -36,8 +39,8 @@ public class DialogueBoxUI : MonoBehaviour
 
     private void ApplyConfiguration()
     {
-        DialogueText.fontSize = _config.SubtitleFontSize;
-        DialogueText.color = _config.SubtitleColor;
+        DialogueTMP.fontSize = _config.SubtitleFontSize;
+        DialogueTMP.color = _config.SubtitleColor;
         BackgroundImage.gameObject.SetActive(_config.ShowBackground);
         BackgroundImage.color = _config.BackGroundColor;
     }
@@ -73,26 +76,22 @@ public class DialogueBoxUI : MonoBehaviour
     }
     private async UniTask ShowDialogueTextAsync(DialogueLineNodeBase nodeBase)
     {
-        string text = string.Empty;
 
         CharacterData characterData = CharacterTable.GetCharacterData(nodeBase.ID);
+        string text = await TextLocalizer.LoadTextAndWait(nodeBase.DialogueLocalizedString);
         if (characterData != null)
         {
             if (_config.EnableCharacterColor)
             {
-                text = $"<color=#{characterData.DialogueColor.ToHexString()}>{characterData.CharacterName}</color>:{nodeBase.DialogueText}";
+                text = $"<color=#{characterData.DialogueColor.ToHexString()}>{characterData.CharacterName}</color>:{DialogueTMP.text}";
             }
             else
             {
-                text = $"{characterData.CharacterName}:{nodeBase.DialogueText}";
+                text = $"{characterData.CharacterName}:{DialogueTMP.text}";
             }
         }
-        else
-        {
-            text = nodeBase.DialogueText;
-        }
-
-        DialogueText.text = text;
+        
+        DialogueTMP.text = text;
         await UniTask.Delay(TimeSpan.FromSeconds(5), ignoreTimeScale: false);//TODO Dynamic Wait time according to text length
     }
 

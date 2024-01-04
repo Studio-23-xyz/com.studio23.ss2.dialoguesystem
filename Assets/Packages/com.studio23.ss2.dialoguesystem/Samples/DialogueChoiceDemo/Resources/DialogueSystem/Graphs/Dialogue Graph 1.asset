@@ -50,7 +50,15 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-  DialogueText: BOOL IS ON
+  DialogueLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: GUID:86a08eccdabf3a24e812720793183e8e
+    m_TableEntryReference:
+      m_KeyId: 41524757180416
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   ID: 
   Reaction: 
   FMODEvent: 
@@ -79,7 +87,7 @@ MonoBehaviour:
   m_Name: Bi Way Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -88, y: 696}
+  position: {x: -120, y: 600}
   ports:
     keys:
     - Entry
@@ -119,13 +127,24 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-  DialogueText: INFINITE LOOP
+  DialogueLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: GUID:86a08eccdabf3a24e812720793183e8e
+    m_TableEntryReference:
+      m_KeyId: 41327062855680
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   ID: 
   Reaction: 
   FMODEvent: 
   Events: 0
   Entry: 558
   Exit: 0
+  references:
+    version: 2
+    RefIds: []
 --- !u!114 &-6227106332496004794
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,13 +198,24 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-  DialogueText: HOHOHOHOHO
+  DialogueLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: GUID:86a08eccdabf3a24e812720793183e8e
+    m_TableEntryReference:
+      m_KeyId: 41789728141312
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   ID: 
   Reaction: 
   FMODEvent: 
   Events: 0
   Entry: 0
   Exit: 0
+  references:
+    version: 2
+    RefIds: []
 --- !u!114 &-2988117806070830359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,7 +229,7 @@ MonoBehaviour:
   m_Name: Dialogue Choice
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -616, y: -248}
+  position: {x: -648, y: -424}
   ports:
     keys:
     - Entry
@@ -239,7 +269,15 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-  DialogueText: EHE
+  DialogueLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: GUID:86a08eccdabf3a24e812720793183e8e
+    m_TableEntryReference:
+      m_KeyId: 48421580800
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   ID: 
   Reaction: 
   FMODEvent: 
@@ -303,13 +341,24 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-  DialogueText: HEHEHEHEHEHE
+  DialogueLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: GUID:86a08eccdabf3a24e812720793183e8e
+    m_TableEntryReference:
+      m_KeyId: 41751006326784
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   ID: 
   Reaction: 
   FMODEvent: 
   Events: 0
   Entry: 0
   Exit: 0
+  references:
+    version: 2
+    RefIds: []
 --- !u!114 &-1822135301059774123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -350,12 +399,23 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-  DialogueText: START
+  DialogueLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: GUID:86a08eccdabf3a24e812720793183e8e
+    m_TableEntryReference:
+      m_KeyId: 41708056653824
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   ID: 
   Reaction: 
   FMODEvent: 
   Events: 0
   Exit: 0
+  references:
+    version: 2
+    RefIds: []
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -418,7 +478,7 @@ MonoBehaviour:
   m_Name: Dialogue Choice
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -616, y: 616}
+  position: {x: -600, y: 584}
   ports:
     keys:
     - Entry
@@ -458,7 +518,15 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-  DialogueText: TOHOO
+  DialogueLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: GUID:86a08eccdabf3a24e812720793183e8e
+    m_TableEntryReference:
+      m_KeyId: 41376861827072
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   ID: 
   Reaction: 
   FMODEvent: 
@@ -482,7 +550,7 @@ MonoBehaviour:
   m_Name: Bi Way Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -24, y: -104}
+  position: {x: -104, y: -360}
   ports:
     keys:
     - Entry
@@ -519,13 +587,24 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-  DialogueText: YAMATE KUDASTOP
+  DialogueLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: GUID:86a08eccdabf3a24e812720793183e8e
+    m_TableEntryReference:
+      m_KeyId: 5198200614912
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   ID: 
   Reaction: 
   FMODEvent: 
   Events: 0
   Entry: 0
   Exit: 0
+  references:
+    version: 2
+    RefIds: []
 --- !u!114 &7322660833987517088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -539,7 +618,7 @@ MonoBehaviour:
   m_Name: Dialogue Choice
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -616, y: 184}
+  position: {x: -648, y: 8}
   ports:
     keys:
     - Entry
@@ -579,7 +658,15 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-  DialogueText: hehe
+  DialogueLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: GUID:86a08eccdabf3a24e812720793183e8e
+    m_TableEntryReference:
+      m_KeyId: 5591559221248
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   ID: 
   Reaction: 
   FMODEvent: 
@@ -603,7 +690,7 @@ MonoBehaviour:
   m_Name: Bi Way Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -72, y: 312}
+  position: {x: -136, y: 24}
   ports:
     keys:
     - Entry
@@ -640,13 +727,24 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-  DialogueText: OH NOES
+  DialogueLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: GUID:86a08eccdabf3a24e812720793183e8e
+    m_TableEntryReference:
+      m_KeyId: 5729732177920
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   ID: 
   Reaction: 
   FMODEvent: 
   Events: 0
   Entry: 0
   Exit: 0
+  references:
+    version: 2
+    RefIds: []
 --- !u!114 &8927815714544073783
 MonoBehaviour:
   m_ObjectHideFlags: 0

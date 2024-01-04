@@ -6,7 +6,8 @@ namespace Studio23.SS2.DialogueSystem.Data
     [CreateNodeMenu("Dialogue Choice")]
     public class DialogueChoiceNode:DialogueChoiceNodeBase
     {
-        [SerializeReference, SerializeReferenceButton]private List<IDialogueNodeCondition> _conditions = new List<IDialogueNodeCondition>();
+        [SerializeReference, SerializeReferenceButton]
+        private List<IDialogueNodeCondition> _conditions = new List<IDialogueNodeCondition>();
 
         protected override bool CheckConditionsInternal()
         {
