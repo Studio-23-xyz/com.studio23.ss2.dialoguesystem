@@ -7,7 +7,6 @@ namespace Studio23.SS2.DialogueSystem.Data
     [CustomNodeEditor(typeof(DialogueNodeBase))]
     public class DialogueBaseNodeEditor : NodeEditor
     {
-
         public Color TextColor = Color.white;
         private DialogueNodeBase dialogueBase;
         private static GUIStyle editorLabelStyle;
@@ -24,7 +23,5 @@ namespace Studio23.SS2.DialogueSystem.Data
             base.OnBodyGUI();
             EditorStyles.label.normal = editorLabelStyle.normal;
         }
-
-
     }
 }

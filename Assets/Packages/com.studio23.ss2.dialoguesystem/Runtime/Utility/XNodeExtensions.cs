@@ -3,7 +3,7 @@ using Studio23.SS2.DialogueSystem.Data;
 using UnityEngine;
 using XNode;
 
-namespace  Studio23.SS2.DialogueSystem.Utility
+namespace Studio23.SS2.DialogueSystem.Utility
 {
     public static class XNodeExtensions
     {

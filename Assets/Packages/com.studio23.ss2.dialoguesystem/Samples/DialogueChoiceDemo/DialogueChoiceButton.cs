@@ -9,6 +9,7 @@ public class DialogueChoiceButton:MonoBehaviour
     [SerializeField] private Button _button;
     [SerializeField] private Image _image;
     [SerializeField] private TextMeshProUGUI _text;
+    [SerializeField] private TextMeshProLocalizer _textLocalizer;
     [SerializeField] private int _choiceIndex = -1;
     public event Action<int> ChoiceSelected;
 
@@ -26,7 +27,11 @@ public class DialogueChoiceButton:MonoBehaviour
     public void SetChoiceData(int choiceIndex, DialogueChoiceNodeBase choice)
     {
         _image.color = choice.Taken ? Color.gray : Color.green;
-        _text.text = choice.DialogueText;
+        //#TODO this doesn't wait for the text to be loaded. Justs sets and starts loading
+        // we should wait for all the option text to be loaded
+        // or preload all option text
+        // currently enough for demo I guess
+        _textLocalizer.SetText(choice.DialogueLocalizedString);
         _choiceIndex = choiceIndex;
     }
     

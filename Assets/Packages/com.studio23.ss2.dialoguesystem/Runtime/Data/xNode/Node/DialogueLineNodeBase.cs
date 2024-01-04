@@ -2,16 +2,15 @@ using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Localization;
+using UnityEngine.Serialization;
 using XNode;
 
 namespace Studio23.SS2.DialogueSystem.Data
 {
-
     public abstract class DialogueLineNodeBase : DialogueNodeBase
     {
-        [TextArea(4, 10)]
-        public string DialogueText;
-        
+        public LocalizedString DialogueLocalizedString;
         [Header("Character Data")]
         public string ID;
         public string Reaction;
