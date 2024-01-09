@@ -107,7 +107,10 @@ namespace Studio23.SS2.DialogueSystem.Core
 
         private void OnDestroy()
         {
-            _currentGraph.Cleanup();
+            if (_currentGraph != null)
+            {
+                _currentGraph.Cleanup();
+            }
         }
     }
 }
