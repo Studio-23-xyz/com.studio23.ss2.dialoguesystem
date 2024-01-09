@@ -22,11 +22,6 @@ jobs:
             find . -name README.md -exec cp {} . \;
             find . -name CHANGELOG.md -exec cp {} . \;
 
-            # Check if a "Screenshots" folder exists and copy it to the root
-            if [ -d "Screenshots" ]; then
-              cp -r Screenshots .
-            fi
-
         shell: bash
       
       - name: Build
