@@ -36,7 +36,14 @@ namespace Studio23.SS2.DialogueSystem.Core
 
         void Awake()
         {
-            Instance = this;
+            if (Instance != null)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                Instance = this;
+            }
         }
 
         /// <summary>
@@ -52,14 +59,14 @@ namespace Studio23.SS2.DialogueSystem.Core
         /// <summary>
         /// Start playing dialogue and it Fires the Start event
         /// </summary>
-        public void StartDialogue()
+        public void StartDialogue(DialogueGraph graph)
         {
-            PlayDialogue();
+            PlayDialogue(graph);
         }
 
-        public async UniTask PlayDialogue()
+        public async UniTask PlayDialogue(DialogueGraph graph)
         {
-            Debug.Log("START");
+            _currentGraph = graph;
             _currentGraph.Initialize();
             
             _currentGraph.HandleDialogueStarted();
@@ -76,7 +83,7 @@ namespace Studio23.SS2.DialogueSystem.Core
 
             OnDialogueEnded?.Invoke(_currentGraph);
 
-            Debug.Log("dialogue completed");
+            Debug.Log($"{graph} dialogue completed");
         }
 
         public void AdvanceDialogue()
