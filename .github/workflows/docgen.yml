@@ -1,0 +1,42 @@
+name: docfx-unitypackage
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          submodules: true
+      
+      - name: Find and copy specific files
+        run: |
+            # Look for LICENSE.md, README.md, and CHANGELOG.md in subdirectories
+            find . -name LICENSE.md -exec cp {} . \;
+            find . -name README.md -exec cp {} . \;
+            find . -name CHANGELOG.md -exec cp {} . \;
+
+            # Check if a "Screenshots" folder exists and copy it to the root
+            if [ -d "Screenshots" ]; then
+              cp -r Screenshots .
+            fi
+
+        shell: bash
+      
+      - name: Build
+        uses: CaseyHofland/docfx-unitypackage@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: _site
