@@ -1,0 +1,424 @@
+{
+  "sitemap": {
+    "baseUrl": "https://studio-23-xyz.github.io/com.studio23.ss2.dialoguesystem/"
+  },
+  "source_base_path": "/home/runner/work/com.studio23.ss2.dialoguesystem/com.studio23.ss2.dialoguesystem/Documentation~",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      }
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.DialogueBoxUI.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.DialogueBoxUI.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.DialogueChoiceButton.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.DialogueChoiceButton.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.DialogueChoiceUI.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.DialogueChoiceUI.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.SubtitleSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.SubtitleSettings.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.TestBoolNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.TestBoolNode.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.TestBoolNodeInteraction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.TestBoolNodeInteraction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.TextMeshProLocalizer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.TextMeshProLocalizer.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Studio23.SS2.DialogueSystem.Core.DialogueSystem.DialogueLineEvent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Studio23.SS2.DialogueSystem.Core.DialogueSystem.DialogueLineEvent.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Studio23.SS2.DialogueSystem.Core.DialogueSystem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Studio23.SS2.DialogueSystem.Core.DialogueSystem.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Studio23.SS2.DialogueSystem.Core.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Studio23.SS2.DialogueSystem.Core.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Studio23.SS2.DialogueSystem.Data.BiWayDialogueNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Studio23.SS2.DialogueSystem.Data.BiWayDialogueNode.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Studio23.SS2.DialogueSystem.Data.CharacterData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Studio23.SS2.DialogueSystem.Data.CharacterData.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Studio23.SS2.DialogueSystem.Data.CharacterExpressionImage.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Studio23.SS2.DialogueSystem.Data.CharacterExpressionImage.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Studio23.SS2.DialogueSystem.Data.CharacterTable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Studio23.SS2.DialogueSystem.Data.CharacterTable.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Studio23.SS2.DialogueSystem.Data.DialogueBaseNodeEditor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Studio23.SS2.DialogueSystem.Data.DialogueBaseNodeEditor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Studio23.SS2.DialogueSystem.Data.DialogueChoiceNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Studio23.SS2.DialogueSystem.Data.DialogueChoiceNode.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Studio23.SS2.DialogueSystem.Data.DialogueChoiceNodeBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Studio23.SS2.DialogueSystem.Data.DialogueChoiceNodeBase.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Studio23.SS2.DialogueSystem.Data.DialogueGraph.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Studio23.SS2.DialogueSystem.Data.DialogueGraph.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Studio23.SS2.DialogueSystem.Data.DialogueGraphNodeBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Studio23.SS2.DialogueSystem.Data.DialogueGraphNodeBase.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Studio23.SS2.DialogueSystem.Data.DialogueNodeBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Studio23.SS2.DialogueSystem.Data.DialogueNodeBase.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Studio23.SS2.DialogueSystem.Data.DialogueStartNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Studio23.SS2.DialogueSystem.Data.DialogueStartNode.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Studio23.SS2.DialogueSystem.Data.EventNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Studio23.SS2.DialogueSystem.Data.EventNode.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Studio23.SS2.DialogueSystem.Data.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Studio23.SS2.DialogueSystem.Data.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Studio23.SS2.DialogueSystem.Runtime.Data.IDialogueNodeCondition.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Studio23.SS2.DialogueSystem.Runtime.Data.IDialogueNodeCondition.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Studio23.SS2.DialogueSystem.Runtime.Data.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Studio23.SS2.DialogueSystem.Runtime.Data.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Studio23.SS2.DialogueSystem.Utility.XNodeExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Studio23.SS2.DialogueSystem.Utility.XNodeExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Studio23.SS2.DialogueSystem.Utility.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Studio23.SS2.DialogueSystem.Utility.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".json": {
+          "relative_path": "api/toc.json"
+        },
+        ".html": {
+          "relative_path": "api/toc.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "changelog/CHANGELOG.md",
+      "output": {
+        ".html": {
+          "relative_path": "changelog/CHANGELOG.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "changelog/toc.md",
+      "output": {
+        ".json": {
+          "relative_path": "changelog/toc.json"
+        },
+        ".html": {
+          "relative_path": "changelog/toc.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "license/LICENSE.md",
+      "output": {
+        ".html": {
+          "relative_path": "license/LICENSE.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "license/toc.md",
+      "output": {
+        ".json": {
+          "relative_path": "license/toc.json"
+        },
+        ".html": {
+          "relative_path": "license/toc.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "manual/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "manual/index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".json": {
+          "relative_path": "toc.json"
+        },
+        ".html": {
+          "relative_path": "toc.html"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

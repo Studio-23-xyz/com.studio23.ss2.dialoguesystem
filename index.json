@@ -1,0 +1,177 @@
+{
+  "api/Global.DialogueBoxUI.html": {
+    "href": "api/Global.DialogueBoxUI.html",
+    "title": "Class DialogueBoxUI | |",
+    "keywords": "Class DialogueBoxUI Namespace Global public class DialogueBoxUI : MonoBehaviour Inheritance object DialogueBoxUI Fields BackgroundImage public Image BackgroundImage Field Value Image CharacterTable public CharacterTable CharacterTable Field Value CharacterTable DialogueTMP public TextMeshProUGUI DialogueTMP Field Value TextMeshProUGUI TextLocalizer public TextMeshProLocalizer TextLocalizer Field Value TextMeshProLocalizer UIRoot public GameObject UIRoot Field Value GameObject Methods handleDialogueAdvance() public void handleDialogueAdvance()"
+  },
+  "api/Global.DialogueChoiceButton.html": {
+    "href": "api/Global.DialogueChoiceButton.html",
+    "title": "Class DialogueChoiceButton | |",
+    "keywords": "Class DialogueChoiceButton Namespace Global public class DialogueChoiceButton : MonoBehaviour Inheritance object DialogueChoiceButton Methods SetChoiceData(DialogueChoiceNodeBase) public void SetChoiceData(DialogueChoiceNodeBase choice) Parameters choice DialogueChoiceNodeBase Events ChoiceSelected public event Action<int> ChoiceSelected Event Type Action<int>"
+  },
+  "api/Global.DialogueChoiceUI.html": {
+    "href": "api/Global.DialogueChoiceUI.html",
+    "title": "Class DialogueChoiceUI | |",
+    "keywords": "Class DialogueChoiceUI Namespace Global public class DialogueChoiceUI : MonoBehaviour Inheritance object DialogueChoiceUI Methods HandleDialogueChoiceSelected(int) public void HandleDialogueChoiceSelected(int index) Parameters index int"
+  },
+  "api/Global.SubtitleSettings.html": {
+    "href": "api/Global.SubtitleSettings.html",
+    "title": "Class SubtitleSettings | |",
+    "keywords": "Class SubtitleSettings Namespace Global public class SubtitleSettings : ScriptableObject Inheritance object SubtitleSettings Fields BackGroundColor public Color BackGroundColor Field Value Color DropShadow public bool DropShadow Field Value bool EnableCharacterColor public bool EnableCharacterColor Field Value bool ShowBackground public bool ShowBackground Field Value bool SubtitleColor public Color SubtitleColor Field Value Color SubtitleFontSize public int SubtitleFontSize Field Value int"
+  },
+  "api/Global.TestBoolNode.html": {
+    "href": "api/Global.TestBoolNode.html",
+    "title": "Class TestBoolNode | |",
+    "keywords": "Class TestBoolNode Namespace Global public class TestBoolNode : Node Inheritance object TestBoolNode Fields IsTrue public bool IsTrue Field Value bool"
+  },
+  "api/Global.TestBoolNodeInteraction.html": {
+    "href": "api/Global.TestBoolNodeInteraction.html",
+    "title": "Class TestBoolNodeInteraction | |",
+    "keywords": "Class TestBoolNodeInteraction Namespace Global [Serializable] public class TestBoolNodeInteraction : IDialogueNodeCondition Inheritance object TestBoolNodeInteraction Implements IDialogueNodeCondition Inherited Members object.Equals(object) object.Equals(object, object) object.GetHashCode() object.GetType() object.MemberwiseClone() object.ReferenceEquals(object, object) object.ToString() Fields BoolNode public TestBoolNode BoolNode Field Value TestBoolNode Methods Evaluate() public bool Evaluate() Returns bool"
+  },
+  "api/Global.TextMeshProLocalizer.html": {
+    "href": "api/Global.TextMeshProLocalizer.html",
+    "title": "Class TextMeshProLocalizer | |",
+    "keywords": "Class TextMeshProLocalizer Namespace Global use for variable text that has a perpetually changing stringreference EX: UI View for item descriptions. This'll let us load a text immediately and let the localized text load in the background public class TextMeshProLocalizer : MonoBehaviour Inheritance object TextMeshProLocalizer Properties Localizer public LocalizeStringEvent Localizer { get; } Property Value LocalizeStringEvent Text public string Text { get; } Property Value string TmpTarget public TMP_Text TmpTarget { get; } Property Value TMP_Text Methods LoadTextAndWait(LocalizedString, string) TMP immediately shows tempText. Localization load done return actual string in correct language public UniTask<string> LoadTextAndWait(LocalizedString localizedString, string tempText = \"\") Parameters localizedString LocalizedString tempText string Returns UniTask<string> SetArgsAndRefresh(List<object>) public void SetArgsAndRefresh(List<object> args) Parameters args List<object> SetArgsAndRefresh(object[]) public void SetArgsAndRefresh(object[] args) Parameters args object[] SetText(LocalizedString, string) TMP immediately shows tempText. Localization load done => show localized string public void SetText(LocalizedString localizedString, string tempText = \"\") Parameters localizedString LocalizedString tempText string SetText(string, LocalizedString, object[]) Pass an args array of objects. YOU MUST SET THE SMART FIELD FOR ALL LANGUAGES TO SMART IN EDITOR FOR THE COMPONENT smart strings format would be $\"abcd{0}efg{1}...\" Sufficient for this game. public void SetText(string tempText, LocalizedString localizedString, object[] args) Parameters tempText string localizedString LocalizedString args object[] SetText(string, object[]) public void SetText(string tempText, object[] args) Parameters tempText string args object[] SetTextAndWait(LocalizedString, string) TMP immediately shows tempText. Localization load done => show localized string public UniTask SetTextAndWait(LocalizedString localizedString, string tempText = \"\") Parameters localizedString LocalizedString tempText string Returns UniTask SetTextNoLocalization(string) public void SetTextNoLocalization(string s) Parameters s string"
+  },
+  "api/Global.html": {
+    "href": "api/Global.html",
+    "title": "Namespace | |",
+    "keywords": "Namespace Classes DialogueBoxUI DialogueChoiceButton DialogueChoiceUI SubtitleSettings TestBoolNode TestBoolNodeInteraction TextMeshProLocalizer use for variable text that has a perpetually changing stringreference EX: UI View for item descriptions. This'll let us load a text immediately and let the localized text load in the background"
+  },
+  "api/Studio23.SS2.DialogueSystem.Core.DialogueSystem.DialogueLineEvent.html": {
+    "href": "api/Studio23.SS2.DialogueSystem.Core.DialogueSystem.DialogueLineEvent.html",
+    "title": "Delegate DialogueSystem.DialogueLineEvent | |",
+    "keywords": "Delegate DialogueSystem.DialogueLineEvent Namespace Studio23.SS2.DialogueSystem.Core public delegate void DialogueSystem.DialogueLineEvent(DialogueLineNodeBase dialogueLineNodeBase) Parameters dialogueLineNodeBase DialogueLineNodeBase"
+  },
+  "api/Studio23.SS2.DialogueSystem.Core.DialogueSystem.html": {
+    "href": "api/Studio23.SS2.DialogueSystem.Core.DialogueSystem.html",
+    "title": "Class DialogueSystem | |",
+    "keywords": "Class DialogueSystem Namespace Studio23.SS2.DialogueSystem.Core public class DialogueSystem : MonoBehaviour Inheritance object DialogueSystem Fields DialogueLineCompleted Subscribe to this to know when dialogue completed public DialogueSystem.DialogueLineEvent DialogueLineCompleted Field Value DialogueSystem.DialogueLineEvent DialogueLineStarted Subscribe to this to know when dialogue started public DialogueSystem.DialogueLineEvent DialogueLineStarted Field Value DialogueSystem.DialogueLineEvent Instance public static DialogueSystem Instance Field Value DialogueSystem Methods AdvanceDialogue() public void AdvanceDialogue() HandleDialogueChoiceEnded(DialogueChoicesNode) public void HandleDialogueChoiceEnded(DialogueChoicesNode dialogueChoicesNode) Parameters dialogueChoicesNode DialogueChoicesNode HandleDialogueChoiceStarted(DialogueChoicesNode) public void HandleDialogueChoiceStarted(DialogueChoicesNode dialogueChoicesNode) Parameters dialogueChoicesNode DialogueChoicesNode InitializeDialogueGraph(DialogueGraph) Initialize A new Dialogue Graph public void InitializeDialogueGraph(DialogueGraph newGraph) Parameters newGraph DialogueGraph PickChoice(int) public void PickChoice(int choiceIndex) Parameters choiceIndex int PlayDialogue() public UniTask PlayDialogue() Returns UniTask StartDialogue() Start playing dialogue and it Fires the Start event public void StartDialogue() Events OnDialogueChoiceEnded public event Action<DialogueChoicesNode> OnDialogueChoiceEnded Event Type Action<DialogueChoicesNode> OnDialogueChoiceStarted public event Action<DialogueChoicesNode> OnDialogueChoiceStarted Event Type Action<DialogueChoicesNode> OnDialogueEnded public event Action<DialogueGraph> OnDialogueEnded Event Type Action<DialogueGraph> OnDialogueStarted public event Action<DialogueGraph> OnDialogueStarted Event Type Action<DialogueGraph>"
+  },
+  "api/Studio23.SS2.DialogueSystem.Core.html": {
+    "href": "api/Studio23.SS2.DialogueSystem.Core.html",
+    "title": "Namespace Studio23.SS2.DialogueSystem.Core | |",
+    "keywords": "Namespace Studio23.SS2.DialogueSystem.Core Classes DialogueSystem Delegates DialogueSystem.DialogueLineEvent"
+  },
+  "api/Studio23.SS2.DialogueSystem.Data.BiWayDialogueNode.html": {
+    "href": "api/Studio23.SS2.DialogueSystem.Data.BiWayDialogueNode.html",
+    "title": "Class BiWayDialogueNode | |",
+    "keywords": "Class BiWayDialogueNode Namespace Studio23.SS2.DialogueSystem.Data [Serializable] public class BiWayDialogueNode : DialogueLineNodeBase Inheritance object DialogueGraphNodeBase DialogueNodeBase DialogueLineNodeBase BiWayDialogueNode Derived DialogueChoiceNodeBase Inherited Members DialogueLineNodeBase.DialogueLocalizedString DialogueLineNodeBase.ID DialogueLineNodeBase.Reaction DialogueLineNodeBase.FMODEvent DialogueLineNodeBase.Events DialogueLineNodeBase.HandleDialogueAdvance() DialogueLineNodeBase.InvokePostPlayEvents() DialogueLineNodeBase.HandleChoiceSelected(int) DialogueLineNodeBase.Play() DialogueLineNodeBase.GetNextNode() DialogueLineNodeBase.Initialize() DialogueNodeBase.GetExitPort() DialogueNodeBase.GetEntryPort() Fields Entry public int Entry Field Value int Exit public int Exit Field Value int"
+  },
+  "api/Studio23.SS2.DialogueSystem.Data.CharacterData.html": {
+    "href": "api/Studio23.SS2.DialogueSystem.Data.CharacterData.html",
+    "title": "Class CharacterData | |",
+    "keywords": "Class CharacterData Namespace Studio23.SS2.DialogueSystem.Data [Serializable] public class CharacterData : ScriptableObject Inheritance object CharacterData Fields CharacterID public string CharacterID Field Value string CharacterName public string CharacterName Field Value string DialogueColor public Color DialogueColor Field Value Color ExpressionTable public List<CharacterExpressionImage> ExpressionTable Field Value List<CharacterExpressionImage>"
+  },
+  "api/Studio23.SS2.DialogueSystem.Data.CharacterExpressionImage.html": {
+    "href": "api/Studio23.SS2.DialogueSystem.Data.CharacterExpressionImage.html",
+    "title": "Class CharacterExpressionImage | |",
+    "keywords": "Class CharacterExpressionImage Namespace Studio23.SS2.DialogueSystem.Data [Serializable] public class CharacterExpressionImage Inheritance object CharacterExpressionImage Inherited Members object.Equals(object) object.Equals(object, object) object.GetHashCode() object.GetType() object.MemberwiseClone() object.ReferenceEquals(object, object) object.ToString() Fields Image public Sprite Image Field Value Sprite Reaction public string Reaction Field Value string"
+  },
+  "api/Studio23.SS2.DialogueSystem.Data.CharacterTable.html": {
+    "href": "api/Studio23.SS2.DialogueSystem.Data.CharacterTable.html",
+    "title": "Class CharacterTable | |",
+    "keywords": "Class CharacterTable Namespace Studio23.SS2.DialogueSystem.Data public class CharacterTable : ScriptableObject Inheritance object CharacterTable Fields characterList public List<CharacterData> characterList Field Value List<CharacterData> Properties IsValid public bool IsValid { get; } Property Value bool Methods GetCharacterData(string) public CharacterData GetCharacterData(string characterID) Parameters characterID string Returns CharacterData"
+  },
+  "api/Studio23.SS2.DialogueSystem.Data.DialogueBaseNodeEditor.html": {
+    "href": "api/Studio23.SS2.DialogueSystem.Data.DialogueBaseNodeEditor.html",
+    "title": "Class DialogueBaseNodeEditor | |",
+    "keywords": "Class DialogueBaseNodeEditor Namespace Studio23.SS2.DialogueSystem.Data public class DialogueBaseNodeEditor : NodeEditor Inheritance object DialogueBaseNodeEditor Fields TextColor public Color TextColor Field Value Color Methods OnBodyGUI() public override void OnBodyGUI()"
+  },
+  "api/Studio23.SS2.DialogueSystem.Data.DialogueChoiceNode.html": {
+    "href": "api/Studio23.SS2.DialogueSystem.Data.DialogueChoiceNode.html",
+    "title": "Class DialogueChoiceNode | |",
+    "keywords": "Class DialogueChoiceNode Namespace Studio23.SS2.DialogueSystem.Data public class DialogueChoiceNode : DialogueChoiceNodeBase Inheritance object DialogueGraphNodeBase DialogueNodeBase DialogueLineNodeBase BiWayDialogueNode DialogueChoiceNodeBase DialogueChoiceNode Inherited Members DialogueChoiceNodeBase.DialogueChoiceIndex DialogueChoiceNodeBase.Taken DialogueChoiceNodeBase.LastConditionEvaluationStatus DialogueChoiceNodeBase.CheckConditions() DialogueChoiceNodeBase.HandleChoiceTaken() DialogueChoiceNodeBase.Initialize() BiWayDialogueNode.Entry BiWayDialogueNode.Exit DialogueLineNodeBase.DialogueLocalizedString DialogueLineNodeBase.ID DialogueLineNodeBase.Reaction DialogueLineNodeBase.FMODEvent DialogueLineNodeBase.Events DialogueLineNodeBase.HandleDialogueAdvance() DialogueLineNodeBase.InvokePostPlayEvents() DialogueLineNodeBase.HandleChoiceSelected(int) DialogueLineNodeBase.Play() DialogueLineNodeBase.GetNextNode() DialogueNodeBase.GetExitPort() DialogueNodeBase.GetEntryPort() Methods CheckConditionsInternal() protected override bool CheckConditionsInternal() Returns bool"
+  },
+  "api/Studio23.SS2.DialogueSystem.Data.DialogueChoiceNodeBase.html": {
+    "href": "api/Studio23.SS2.DialogueSystem.Data.DialogueChoiceNodeBase.html",
+    "title": "Class DialogueChoiceNodeBase | |",
+    "keywords": "Class DialogueChoiceNodeBase Namespace Studio23.SS2.DialogueSystem.Data public abstract class DialogueChoiceNodeBase : BiWayDialogueNode Inheritance object DialogueGraphNodeBase DialogueNodeBase DialogueLineNodeBase BiWayDialogueNode DialogueChoiceNodeBase Derived DialogueChoiceNode Inherited Members BiWayDialogueNode.Entry BiWayDialogueNode.Exit DialogueLineNodeBase.DialogueLocalizedString DialogueLineNodeBase.ID DialogueLineNodeBase.Reaction DialogueLineNodeBase.FMODEvent DialogueLineNodeBase.Events DialogueLineNodeBase.HandleDialogueAdvance() DialogueLineNodeBase.InvokePostPlayEvents() DialogueLineNodeBase.HandleChoiceSelected(int) DialogueLineNodeBase.Play() DialogueLineNodeBase.GetNextNode() DialogueNodeBase.GetExitPort() DialogueNodeBase.GetEntryPort() Properties DialogueChoiceIndex public int DialogueChoiceIndex { get; } Property Value int LastConditionEvaluationStatus public bool LastConditionEvaluationStatus { get; } Property Value bool Taken public bool Taken { get; } Property Value bool Methods CheckConditions() public bool CheckConditions() Returns bool CheckConditionsInternal() protected abstract bool CheckConditionsInternal() Returns bool HandleChoiceTaken() public void HandleChoiceTaken() Initialize() Called once before the graph is run the first time public override void Initialize()"
+  },
+  "api/Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.html": {
+    "href": "api/Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.html",
+    "title": "Class DialogueChoicesNode | |",
+    "keywords": "Class DialogueChoicesNode Namespace Studio23.SS2.DialogueSystem.Data public class DialogueChoicesNode : DialogueNodeBase Inheritance object DialogueGraphNodeBase DialogueNodeBase DialogueChoicesNode Inherited Members DialogueNodeBase.GetExitPort() DialogueNodeBase.GetEntryPort() Fields Choices public int Choices Field Value int Entry public int Entry Field Value int Properties DialogueChoices public List<DialogueChoiceNodeBase> DialogueChoices { get; } Property Value List<DialogueChoiceNodeBase> Methods GetNextNode() public override DialogueNodeBase GetNextNode() Returns DialogueNodeBase HandleChoiceSelected(int) public override void HandleChoiceSelected(int choiceIndex) Parameters choiceIndex int HandleDialogueAdvance() public override void HandleDialogueAdvance() Initialize() Called once before the graph is run the first time public override void Initialize() Play() public override UniTask Play() Returns UniTask"
+  },
+  "api/Studio23.SS2.DialogueSystem.Data.DialogueGraph.html": {
+    "href": "api/Studio23.SS2.DialogueSystem.Data.DialogueGraph.html",
+    "title": "Class DialogueGraph | |",
+    "keywords": "Class DialogueGraph Namespace Studio23.SS2.DialogueSystem.Data public class DialogueGraph : NodeGraph Inheritance object DialogueGraph Fields SkippableDialogue public bool SkippableDialogue Field Value bool Properties StartNode public DialogueNodeBase StartNode { get; } Property Value DialogueNodeBase Methods AddNewNode(DialogueNodeBase) public void AddNewNode(DialogueNodeBase node) Parameters node DialogueNodeBase Cleanup() public void Cleanup() ConditionsValid() public bool ConditionsValid() Returns bool HandleDialogueStarted() public void HandleDialogueStarted() Initialize() public void Initialize()"
+  },
+  "api/Studio23.SS2.DialogueSystem.Data.DialogueGraphNodeBase.html": {
+    "href": "api/Studio23.SS2.DialogueSystem.Data.DialogueGraphNodeBase.html",
+    "title": "Class DialogueGraphNodeBase | |",
+    "keywords": "Class DialogueGraphNodeBase Namespace Studio23.SS2.DialogueSystem.Data public abstract class DialogueGraphNodeBase : Node Inheritance object DialogueGraphNodeBase Derived DialogueNodeBase EventNode Methods Initialize() Called once before the graph is run the first time public abstract void Initialize()"
+  },
+  "api/Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase.html": {
+    "href": "api/Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase.html",
+    "title": "Class DialogueLineNodeBase | |",
+    "keywords": "Class DialogueLineNodeBase Namespace Studio23.SS2.DialogueSystem.Data public abstract class DialogueLineNodeBase : DialogueNodeBase Inheritance object DialogueGraphNodeBase DialogueNodeBase DialogueLineNodeBase Derived BiWayDialogueNode DialogueStartNode Inherited Members DialogueNodeBase.GetExitPort() DialogueNodeBase.GetEntryPort() Fields DialogueLocalizedString public LocalizedString DialogueLocalizedString Field Value LocalizedString Events public int Events Field Value int FMODEvent public string FMODEvent Field Value string ID public string ID Field Value string Reaction public string Reaction Field Value string Methods GetNextNode() public override DialogueNodeBase GetNextNode() Returns DialogueNodeBase HandleChoiceSelected(int) public override void HandleChoiceSelected(int choiceIndex) Parameters choiceIndex int HandleDialogueAdvance() public override void HandleDialogueAdvance() Initialize() Called once before the graph is run the first time public override void Initialize() InvokePostPlayEvents() public virtual void InvokePostPlayEvents() Play() public override UniTask Play() Returns UniTask"
+  },
+  "api/Studio23.SS2.DialogueSystem.Data.DialogueNodeBase.html": {
+    "href": "api/Studio23.SS2.DialogueSystem.Data.DialogueNodeBase.html",
+    "title": "Class DialogueNodeBase | |",
+    "keywords": "Class DialogueNodeBase Namespace Studio23.SS2.DialogueSystem.Data public abstract class DialogueNodeBase : DialogueGraphNodeBase Inheritance object DialogueGraphNodeBase DialogueNodeBase Derived DialogueChoicesNode DialogueLineNodeBase Inherited Members DialogueGraphNodeBase.Initialize() Methods GetEntryPort() public NodePort GetEntryPort() Returns NodePort GetExitPort() public NodePort GetExitPort() Returns NodePort GetNextNode() public abstract DialogueNodeBase GetNextNode() Returns DialogueNodeBase HandleChoiceSelected(int) public abstract void HandleChoiceSelected(int choiceIndex) Parameters choiceIndex int HandleDialogueAdvance() public abstract void HandleDialogueAdvance() Play() public abstract UniTask Play() Returns UniTask"
+  },
+  "api/Studio23.SS2.DialogueSystem.Data.DialogueStartNode.html": {
+    "href": "api/Studio23.SS2.DialogueSystem.Data.DialogueStartNode.html",
+    "title": "Class DialogueStartNode | |",
+    "keywords": "Class DialogueStartNode Namespace Studio23.SS2.DialogueSystem.Data public class DialogueStartNode : DialogueLineNodeBase Inheritance object DialogueGraphNodeBase DialogueNodeBase DialogueLineNodeBase DialogueStartNode Inherited Members DialogueLineNodeBase.DialogueLocalizedString DialogueLineNodeBase.ID DialogueLineNodeBase.Reaction DialogueLineNodeBase.FMODEvent DialogueLineNodeBase.Events DialogueLineNodeBase.HandleDialogueAdvance() DialogueLineNodeBase.InvokePostPlayEvents() DialogueLineNodeBase.HandleChoiceSelected(int) DialogueLineNodeBase.Play() DialogueLineNodeBase.GetNextNode() DialogueLineNodeBase.Initialize() DialogueNodeBase.GetExitPort() DialogueNodeBase.GetEntryPort() Fields Exit public int Exit Field Value int"
+  },
+  "api/Studio23.SS2.DialogueSystem.Data.EventNode.html": {
+    "href": "api/Studio23.SS2.DialogueSystem.Data.EventNode.html",
+    "title": "Class EventNode | |",
+    "keywords": "Class EventNode Namespace Studio23.SS2.DialogueSystem.Data public class EventNode : DialogueGraphNodeBase Inheritance object DialogueGraphNodeBase EventNode Fields Entry public int Entry Field Value int Event public UnityEvent Event Field Value UnityEvent Methods Initialize() Called once before the graph is run the first time public override void Initialize()"
+  },
+  "api/Studio23.SS2.DialogueSystem.Data.html": {
+    "href": "api/Studio23.SS2.DialogueSystem.Data.html",
+    "title": "Namespace Studio23.SS2.DialogueSystem.Data | |",
+    "keywords": "Namespace Studio23.SS2.DialogueSystem.Data Classes BiWayDialogueNode CharacterData CharacterExpressionImage CharacterTable DialogueBaseNodeEditor DialogueChoiceNode DialogueChoiceNodeBase DialogueChoicesNode DialogueGraph DialogueGraphNodeBase DialogueLineNodeBase DialogueNodeBase DialogueStartNode EventNode"
+  },
+  "api/Studio23.SS2.DialogueSystem.Runtime.Data.IDialogueNodeCondition.html": {
+    "href": "api/Studio23.SS2.DialogueSystem.Runtime.Data.IDialogueNodeCondition.html",
+    "title": "Interface IDialogueNodeCondition | |",
+    "keywords": "Interface IDialogueNodeCondition Namespace Studio23.SS2.DialogueSystem.Runtime.Data public interface IDialogueNodeCondition Methods Evaluate() bool Evaluate() Returns bool"
+  },
+  "api/Studio23.SS2.DialogueSystem.Runtime.Data.html": {
+    "href": "api/Studio23.SS2.DialogueSystem.Runtime.Data.html",
+    "title": "Namespace Studio23.SS2.DialogueSystem.Runtime.Data | |",
+    "keywords": "Namespace Studio23.SS2.DialogueSystem.Runtime.Data Interfaces IDialogueNodeCondition"
+  },
+  "api/Studio23.SS2.DialogueSystem.Utility.XNodeExtensions.html": {
+    "href": "api/Studio23.SS2.DialogueSystem.Utility.XNodeExtensions.html",
+    "title": "Class XNodeExtensions | |",
+    "keywords": "Class XNodeExtensions Namespace Studio23.SS2.DialogueSystem.Utility public static class XNodeExtensions Inheritance object XNodeExtensions Inherited Members object.Equals(object) object.Equals(object, object) object.GetHashCode() object.GetType() object.MemberwiseClone() object.ReferenceEquals(object, object) object.ToString() Methods GetFieldNameForArrIndex(string, int) public static string GetFieldNameForArrIndex(string fieldName, int index) Parameters fieldName string index int Returns string GetOutputNodesConnectedToArrayPort<T>(Node, string, int, List<T>) Given an array node, Get connected nodes NOTE: ENSURE THAT THE FIELD IS AN ARRAY. OR BE A SANE PERSON AND USE A NON ARRAY FIELD + getOutputNodesConnectedToPort() INSTEAD OF THIS MONSTROSITY public static void GetOutputNodesConnectedToArrayPort<T>(this Node node, string fieldName, int count, List<T> outputList) Parameters node Node fieldName string FIELD MUST HAVE AN ARRAY TYPE count int outputList List<T> Type Parameters T GetOutputNodesConnectedToPort<T>(Node, string, List<T>) Given an array node, Get connected nodes public static void GetOutputNodesConnectedToPort<T>(this Node node, string fieldName, List<T> outputList) Parameters node Node fieldName string DON'T PASS AN ARRAY FIELD DAMMIT outputList List<T> Type Parameters T"
+  },
+  "api/Studio23.SS2.DialogueSystem.Utility.html": {
+    "href": "api/Studio23.SS2.DialogueSystem.Utility.html",
+    "title": "Namespace Studio23.SS2.DialogueSystem.Utility | |",
+    "keywords": "Namespace Studio23.SS2.DialogueSystem.Utility Classes XNodeExtensions"
+  },
+  "api/index.html": {
+    "href": "api/index.html",
+    "title": "| |",
+    "keywords": "This is the documentation for the Scripting APIs of this package."
+  },
+  "changelog/CHANGELOG.html": {
+    "href": "changelog/CHANGELOG.html",
+    "title": "Changelog | |",
+    "keywords": "Changelog [v0.3.1] - 2023-4-1 Dialogue nodes now used localized strings Sample scene updated with UI that supports localized strings Fix incorrect choicebutton index [v0.3.0] - 2023-1-4 Added support for dialogue choices Dialogue conditions and dialogue graph conditions added. Refactored traversal code to not use casts Fixed sample scene. [v0.2.1] - 2023-4-1 Updated Refactored codebase for a better public API Now Character table is based on Charater Data which are Scriptable Objects. [v0.1.9] - Initial Release Feature List Added A Dialogue System Wizard It makes sure that you create a character table Character table CSV template Added Dialogue Graph Creator Added All dialogue can now be generated via a CSV File Added Dialogue Graph CSV template. Package Changes Added Samples Showing how to use the library & Some UI Code Code Changes Now the events are based on the Manager Class instead of Dialogue Graph Removed Coupling from the UI Code so that new UI code can be easily rewritten"
+  },
+  "index.html": {
+    "href": "index.html",
+    "title": "| |",
+    "keywords": "This page redirects to the manual."
+  },
+  "license/LICENSE.html": {
+    "href": "license/LICENSE.html",
+    "title": "| |",
+    "keywords": "MIT License Copyright (c) 2023 Studio-23 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE."
+  },
+  "manual/index.html": {
+    "href": "manual/index.html",
+    "title": "Dialogue System | |",
+    "keywords": "Dialogue System Dialogue System is a package created for tooling Silent Scream 2 Game. However it can be used for most games. It provides a set of tools to streamline your in game dialogue system needs. Table of Contents Installation Usage Installation Install via Git URL You can also use the \"Install from Git URL\" option from Unity Package Manager to install the package. https://github.com/Studio-23-xyz/com.studio23.ss2.dialoguesystem.git#upm Usage Using Dialogue System Access the Wizard from top toolbar Studio-23 > Dialogue System > Dialogue System Wizard Follow the process in the Wizard to create your Dialogue Graphs. Add the Dialogue Manager Singleton in your Scene Implement your own Dialogue UI as per need. (Check Samples for demonstration)"
+  }
+}
