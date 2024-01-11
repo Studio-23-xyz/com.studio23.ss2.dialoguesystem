@@ -16,13 +16,7 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 1040aa312d4f02443b5e508db1e56754
-  m_SerializeEntries:
-  - m_GUID: 86a08eccdabf3a24e812720793183e8e
-    m_Address: Assets/Packages/com.studio23.ss2.dialoguesystem/Samples/DialogueChoiceDemo/Configuration/Localization/String
-      Table 1 Shared Data.asset
-    m_ReadOnly: 1
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
+  m_SerializeEntries: []
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 45bcaa0f9119bdc44b426e7814210719, type: 2}
   m_SchemaSet:

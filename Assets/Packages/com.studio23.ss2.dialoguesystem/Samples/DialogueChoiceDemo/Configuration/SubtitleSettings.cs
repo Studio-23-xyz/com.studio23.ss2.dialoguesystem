@@ -3,9 +3,8 @@ using UnityEngine;
 public class SubtitleSettings : ScriptableObject
 {
     public Color SubtitleColor = Color.black;
-    public int SubtitleFontSize = 24;
+    public int SubtitleFontSize = 25;
     public bool DropShadow = false;
-
     public bool EnableCharacterColor = true;
     public bool ShowBackground;
     public Color BackGroundColor = Color.white;
