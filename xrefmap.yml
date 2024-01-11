@@ -459,12 +459,12 @@ references:
   isSpec: "True"
   fullName: Studio23.SS2.DialogueSystem.Core.DialogueSystem.PickChoice
   nameWithType: DialogueSystem.PickChoice
-- uid: Studio23.SS2.DialogueSystem.Core.DialogueSystem.PlayDialogue
-  name: PlayDialogue()
-  href: api/Studio23.SS2.DialogueSystem.Core.DialogueSystem.html#Studio23_SS2_DialogueSystem_Core_DialogueSystem_PlayDialogue
-  commentId: M:Studio23.SS2.DialogueSystem.Core.DialogueSystem.PlayDialogue
-  fullName: Studio23.SS2.DialogueSystem.Core.DialogueSystem.PlayDialogue()
-  nameWithType: DialogueSystem.PlayDialogue()
+- uid: Studio23.SS2.DialogueSystem.Core.DialogueSystem.PlayDialogue(Studio23.SS2.DialogueSystem.Data.DialogueGraph)
+  name: PlayDialogue(DialogueGraph)
+  href: api/Studio23.SS2.DialogueSystem.Core.DialogueSystem.html#Studio23_SS2_DialogueSystem_Core_DialogueSystem_PlayDialogue_Studio23_SS2_DialogueSystem_Data_DialogueGraph_
+  commentId: M:Studio23.SS2.DialogueSystem.Core.DialogueSystem.PlayDialogue(Studio23.SS2.DialogueSystem.Data.DialogueGraph)
+  fullName: Studio23.SS2.DialogueSystem.Core.DialogueSystem.PlayDialogue(Studio23.SS2.DialogueSystem.Data.DialogueGraph)
+  nameWithType: DialogueSystem.PlayDialogue(DialogueGraph)
 - uid: Studio23.SS2.DialogueSystem.Core.DialogueSystem.PlayDialogue*
   name: PlayDialogue
   href: api/Studio23.SS2.DialogueSystem.Core.DialogueSystem.html#Studio23_SS2_DialogueSystem_Core_DialogueSystem_PlayDialogue_
@@ -472,12 +472,12 @@ references:
   isSpec: "True"
   fullName: Studio23.SS2.DialogueSystem.Core.DialogueSystem.PlayDialogue
   nameWithType: DialogueSystem.PlayDialogue
-- uid: Studio23.SS2.DialogueSystem.Core.DialogueSystem.StartDialogue
-  name: StartDialogue()
-  href: api/Studio23.SS2.DialogueSystem.Core.DialogueSystem.html#Studio23_SS2_DialogueSystem_Core_DialogueSystem_StartDialogue
-  commentId: M:Studio23.SS2.DialogueSystem.Core.DialogueSystem.StartDialogue
-  fullName: Studio23.SS2.DialogueSystem.Core.DialogueSystem.StartDialogue()
-  nameWithType: DialogueSystem.StartDialogue()
+- uid: Studio23.SS2.DialogueSystem.Core.DialogueSystem.StartDialogue(Studio23.SS2.DialogueSystem.Data.DialogueGraph)
+  name: StartDialogue(DialogueGraph)
+  href: api/Studio23.SS2.DialogueSystem.Core.DialogueSystem.html#Studio23_SS2_DialogueSystem_Core_DialogueSystem_StartDialogue_Studio23_SS2_DialogueSystem_Data_DialogueGraph_
+  commentId: M:Studio23.SS2.DialogueSystem.Core.DialogueSystem.StartDialogue(Studio23.SS2.DialogueSystem.Data.DialogueGraph)
+  fullName: Studio23.SS2.DialogueSystem.Core.DialogueSystem.StartDialogue(Studio23.SS2.DialogueSystem.Data.DialogueGraph)
+  nameWithType: DialogueSystem.StartDialogue(DialogueGraph)
 - uid: Studio23.SS2.DialogueSystem.Core.DialogueSystem.StartDialogue*
   name: StartDialogue
   href: api/Studio23.SS2.DialogueSystem.Core.DialogueSystem.html#Studio23_SS2_DialogueSystem_Core_DialogueSystem_StartDialogue_
