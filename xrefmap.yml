@@ -883,6 +883,19 @@ references:
   isSpec: "True"
   fullName: Studio23.SS2.DialogueSystem.Data.DialogueGraph.ConditionsValid
   nameWithType: DialogueGraph.ConditionsValid
+- uid: Studio23.SS2.DialogueSystem.Data.DialogueGraph.HandleDialogueEnded
+  name: HandleDialogueEnded()
+  href: api/Studio23.SS2.DialogueSystem.Data.DialogueGraph.html#Studio23_SS2_DialogueSystem_Data_DialogueGraph_HandleDialogueEnded
+  commentId: M:Studio23.SS2.DialogueSystem.Data.DialogueGraph.HandleDialogueEnded
+  fullName: Studio23.SS2.DialogueSystem.Data.DialogueGraph.HandleDialogueEnded()
+  nameWithType: DialogueGraph.HandleDialogueEnded()
+- uid: Studio23.SS2.DialogueSystem.Data.DialogueGraph.HandleDialogueEnded*
+  name: HandleDialogueEnded
+  href: api/Studio23.SS2.DialogueSystem.Data.DialogueGraph.html#Studio23_SS2_DialogueSystem_Data_DialogueGraph_HandleDialogueEnded_
+  commentId: Overload:Studio23.SS2.DialogueSystem.Data.DialogueGraph.HandleDialogueEnded
+  isSpec: "True"
+  fullName: Studio23.SS2.DialogueSystem.Data.DialogueGraph.HandleDialogueEnded
+  nameWithType: DialogueGraph.HandleDialogueEnded
 - uid: Studio23.SS2.DialogueSystem.Data.DialogueGraph.HandleDialogueStarted
   name: HandleDialogueStarted()
   href: api/Studio23.SS2.DialogueSystem.Data.DialogueGraph.html#Studio23_SS2_DialogueSystem_Data_DialogueGraph_HandleDialogueStarted
@@ -909,6 +922,18 @@ references:
   isSpec: "True"
   fullName: Studio23.SS2.DialogueSystem.Data.DialogueGraph.Initialize
   nameWithType: DialogueGraph.Initialize
+- uid: Studio23.SS2.DialogueSystem.Data.DialogueGraph.OnDialogueEnded
+  name: OnDialogueEnded
+  href: api/Studio23.SS2.DialogueSystem.Data.DialogueGraph.html#Studio23_SS2_DialogueSystem_Data_DialogueGraph_OnDialogueEnded
+  commentId: E:Studio23.SS2.DialogueSystem.Data.DialogueGraph.OnDialogueEnded
+  fullName: Studio23.SS2.DialogueSystem.Data.DialogueGraph.OnDialogueEnded
+  nameWithType: DialogueGraph.OnDialogueEnded
+- uid: Studio23.SS2.DialogueSystem.Data.DialogueGraph.OnDialogueStarted
+  name: OnDialogueStarted
+  href: api/Studio23.SS2.DialogueSystem.Data.DialogueGraph.html#Studio23_SS2_DialogueSystem_Data_DialogueGraph_OnDialogueStarted
+  commentId: E:Studio23.SS2.DialogueSystem.Data.DialogueGraph.OnDialogueStarted
+  fullName: Studio23.SS2.DialogueSystem.Data.DialogueGraph.OnDialogueStarted
+  nameWithType: DialogueGraph.OnDialogueStarted
 - uid: Studio23.SS2.DialogueSystem.Data.DialogueGraph.SkippableDialogue
   name: SkippableDialogue
   href: api/Studio23.SS2.DialogueSystem.Data.DialogueGraph.html#Studio23_SS2_DialogueSystem_Data_DialogueGraph_SkippableDialogue
