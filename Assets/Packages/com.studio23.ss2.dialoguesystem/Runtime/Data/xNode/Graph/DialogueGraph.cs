@@ -25,6 +25,8 @@ namespace Studio23.SS2.DialogueSystem.Data
         //certain nodes need a callback to initialize when hitting playmode/at start in build
         //ex: condition nodes
         private bool _initialized = false;
+        public event Action<DialogueGraph> OnDialogueStarted;
+        public event Action<DialogueGraph> OnDialogueEnded;
 
         public void Initialize()
         {
@@ -85,6 +87,12 @@ namespace Studio23.SS2.DialogueSystem.Data
             //otherwise we can't have repeating dialogue
             FindStartNode();
             _currentNode = _startNode;
+            OnDialogueStarted?.Invoke(this);
+        }
+
+        public void HandleDialogueEnded()
+        {
+            OnDialogueEnded?.Invoke(this);
         }
 
         private void FindStartNode()
