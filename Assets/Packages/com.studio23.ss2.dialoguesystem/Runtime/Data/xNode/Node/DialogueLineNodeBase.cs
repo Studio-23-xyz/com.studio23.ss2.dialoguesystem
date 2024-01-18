@@ -45,6 +45,10 @@ namespace Studio23.SS2.DialogueSystem.Data
                         Debug.LogWarning($"{this} Events port no {i} is connected to {eventNodeConnection.node} but it's not an event node");
                     }
                 }
+                else
+                {
+                    Debug.LogWarning($"{this} Events port no {i} is connected to {eventNodeConnection} but connection null");
+                }
             }
         }
 

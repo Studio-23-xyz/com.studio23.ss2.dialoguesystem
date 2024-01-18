@@ -81,7 +81,8 @@ namespace Studio23.SS2.DialogueSystem.Core
                 _curNode = _curNode.GetNextNode();
             }
 
-            OnDialogueEnded?.Invoke(_currentGraph);
+            _currentGraph.HandleDialogueEnded();
+        OnDialogueEnded?.Invoke(_currentGraph);
 
             Debug.Log($"{graph} dialogue completed");
         }
