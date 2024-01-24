@@ -38,16 +38,17 @@ namespace Studio23.SS2.DialogueSystem.Data
                 {
                     if (eventNodeConnection.node is EventNode eventNode)
                     {
-                        eventNode.Event.Invoke();
+                        Debug.Log($"Invoke event {eventNode} on {this}", this);
+                        eventNode.Invoke();
                     }
                     else
                     {
-                        Debug.LogWarning($"{this} Events port no {i} is connected to {eventNodeConnection.node} but it's not an event node");
+                        Debug.LogWarning($"{this} Events port no {i} is connected to {eventNodeConnection.node} but it's not an event node", this);
                     }
                 }
                 else
                 {
-                    Debug.LogWarning($"{this} Events port no {i} is connected to {eventNodeConnection} but connection null");
+                    Debug.LogWarning($"{this} Events port no {i} is connected to {eventNodeConnection} but connection null", this);
                 }
             }
         }

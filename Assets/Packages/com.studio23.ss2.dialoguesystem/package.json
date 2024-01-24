@@ -29,7 +29,7 @@
         {
             "displayName": "Subtitle Demo",
             "description": "A small sample to demonstrate how to use the library for showing subtitiles",
-            "path": "Samples/SubtitleDemo"
+            "path": "Samples~/SubtitleDemo"
         }
 
     ],
