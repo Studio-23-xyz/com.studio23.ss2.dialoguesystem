@@ -2,211 +2,211 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://studio-23-xyz.github.io/com.studio23.ss2.dialoguesystem/api/Global.DialogueBoxUI.html</loc>
-    <lastmod>2024-01-18T08:09:25+00:00</lastmod>
+    <lastmod>2024-01-24T05:25:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://studio-23-xyz.github.io/com.studio23.ss2.dialoguesystem/api/Global.DialogueChoiceButton.html</loc>
-    <lastmod>2024-01-18T08:09:25+00:00</lastmod>
+    <lastmod>2024-01-24T05:25:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://studio-23-xyz.github.io/com.studio23.ss2.dialoguesystem/api/Global.DialogueChoiceUI.html</loc>
-    <lastmod>2024-01-18T08:09:25+00:00</lastmod>
+    <lastmod>2024-01-24T05:25:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://studio-23-xyz.github.io/com.studio23.ss2.dialoguesystem/api/Global.SubtitleSettings.html</loc>
-    <lastmod>2024-01-18T08:09:25+00:00</lastmod>
+    <lastmod>2024-01-24T05:25:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://studio-23-xyz.github.io/com.studio23.ss2.dialoguesystem/api/Global.TestBoolNode.html</loc>
-    <lastmod>2024-01-18T08:09:25+00:00</lastmod>
+    <lastmod>2024-01-24T05:25:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://studio-23-xyz.github.io/com.studio23.ss2.dialoguesystem/api/Global.TestBoolNodeInteraction.html</loc>
-    <lastmod>2024-01-18T08:09:25+00:00</lastmod>
+    <lastmod>2024-01-24T05:25:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://studio-23-xyz.github.io/com.studio23.ss2.dialoguesystem/api/Global.TextMeshProLocalizer.html</loc>
-    <lastmod>2024-01-18T08:09:25+00:00</lastmod>
+    <lastmod>2024-01-24T05:25:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://studio-23-xyz.github.io/com.studio23.ss2.dialoguesystem/api/Global.html</loc>
-    <lastmod>2024-01-18T08:09:25+00:00</lastmod>
+    <lastmod>2024-01-24T05:25:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://studio-23-xyz.github.io/com.studio23.ss2.dialoguesystem/api/Studio23.SS2.DialogueSystem.Core.DialogueSystem.DialogueLineEvent.html</loc>
-    <lastmod>2024-01-18T08:09:25+00:00</lastmod>
+    <lastmod>2024-01-24T05:25:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://studio-23-xyz.github.io/com.studio23.ss2.dialoguesystem/api/Studio23.SS2.DialogueSystem.Core.DialogueSystem.html</loc>
-    <lastmod>2024-01-18T08:09:25+00:00</lastmod>
+    <lastmod>2024-01-24T05:25:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://studio-23-xyz.github.io/com.studio23.ss2.dialoguesystem/api/Studio23.SS2.DialogueSystem.Core.html</loc>
-    <lastmod>2024-01-18T08:09:25+00:00</lastmod>
+    <lastmod>2024-01-24T05:25:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://studio-23-xyz.github.io/com.studio23.ss2.dialoguesystem/api/Studio23.SS2.DialogueSystem.Data.BiWayDialogueNode.html</loc>
-    <lastmod>2024-01-18T08:09:25+00:00</lastmod>
+    <lastmod>2024-01-24T05:25:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://studio-23-xyz.github.io/com.studio23.ss2.dialoguesystem/api/Studio23.SS2.DialogueSystem.Data.CharacterData.html</loc>
-    <lastmod>2024-01-18T08:09:25+00:00</lastmod>
+    <lastmod>2024-01-24T05:25:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://studio-23-xyz.github.io/com.studio23.ss2.dialoguesystem/api/Studio23.SS2.DialogueSystem.Data.CharacterExpressionImage.html</loc>
-    <lastmod>2024-01-18T08:09:25+00:00</lastmod>
+    <lastmod>2024-01-24T05:25:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://studio-23-xyz.github.io/com.studio23.ss2.dialoguesystem/api/Studio23.SS2.DialogueSystem.Data.CharacterTable.html</loc>
-    <lastmod>2024-01-18T08:09:25+00:00</lastmod>
+    <lastmod>2024-01-24T05:25:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://studio-23-xyz.github.io/com.studio23.ss2.dialoguesystem/api/Studio23.SS2.DialogueSystem.Data.DialogueBaseNodeEditor.html</loc>
-    <lastmod>2024-01-18T08:09:25+00:00</lastmod>
+    <lastmod>2024-01-24T05:25:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://studio-23-xyz.github.io/com.studio23.ss2.dialoguesystem/api/Studio23.SS2.DialogueSystem.Data.DialogueChoiceNode.html</loc>
-    <lastmod>2024-01-18T08:09:25+00:00</lastmod>
+    <lastmod>2024-01-24T05:25:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://studio-23-xyz.github.io/com.studio23.ss2.dialoguesystem/api/Studio23.SS2.DialogueSystem.Data.DialogueChoiceNodeBase.html</loc>
-    <lastmod>2024-01-18T08:09:25+00:00</lastmod>
+    <lastmod>2024-01-24T05:25:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://studio-23-xyz.github.io/com.studio23.ss2.dialoguesystem/api/Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.html</loc>
-    <lastmod>2024-01-18T08:09:25+00:00</lastmod>
+    <lastmod>2024-01-24T05:25:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://studio-23-xyz.github.io/com.studio23.ss2.dialoguesystem/api/Studio23.SS2.DialogueSystem.Data.DialogueGraph.html</loc>
-    <lastmod>2024-01-18T08:09:25+00:00</lastmod>
+    <lastmod>2024-01-24T05:25:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://studio-23-xyz.github.io/com.studio23.ss2.dialoguesystem/api/Studio23.SS2.DialogueSystem.Data.DialogueGraphNodeBase.html</loc>
-    <lastmod>2024-01-18T08:09:25+00:00</lastmod>
+    <lastmod>2024-01-24T05:25:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://studio-23-xyz.github.io/com.studio23.ss2.dialoguesystem/api/Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase.html</loc>
-    <lastmod>2024-01-18T08:09:25+00:00</lastmod>
+    <lastmod>2024-01-24T05:25:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://studio-23-xyz.github.io/com.studio23.ss2.dialoguesystem/api/Studio23.SS2.DialogueSystem.Data.DialogueNodeBase.html</loc>
-    <lastmod>2024-01-18T08:09:25+00:00</lastmod>
+    <lastmod>2024-01-24T05:25:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://studio-23-xyz.github.io/com.studio23.ss2.dialoguesystem/api/Studio23.SS2.DialogueSystem.Data.DialogueStartNode.html</loc>
-    <lastmod>2024-01-18T08:09:25+00:00</lastmod>
+    <lastmod>2024-01-24T05:25:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://studio-23-xyz.github.io/com.studio23.ss2.dialoguesystem/api/Studio23.SS2.DialogueSystem.Data.EventNode.html</loc>
-    <lastmod>2024-01-18T08:09:25+00:00</lastmod>
+    <lastmod>2024-01-24T05:25:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://studio-23-xyz.github.io/com.studio23.ss2.dialoguesystem/api/Studio23.SS2.DialogueSystem.Data.html</loc>
-    <lastmod>2024-01-18T08:09:25+00:00</lastmod>
+    <lastmod>2024-01-24T05:25:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://studio-23-xyz.github.io/com.studio23.ss2.dialoguesystem/api/Studio23.SS2.DialogueSystem.Runtime.Data.IDialogueNodeCondition.html</loc>
-    <lastmod>2024-01-18T08:09:25+00:00</lastmod>
+    <lastmod>2024-01-24T05:25:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://studio-23-xyz.github.io/com.studio23.ss2.dialoguesystem/api/Studio23.SS2.DialogueSystem.Runtime.Data.html</loc>
-    <lastmod>2024-01-18T08:09:25+00:00</lastmod>
+    <lastmod>2024-01-24T05:25:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://studio-23-xyz.github.io/com.studio23.ss2.dialoguesystem/api/Studio23.SS2.DialogueSystem.Utility.XNodeExtensions.html</loc>
-    <lastmod>2024-01-18T08:09:25+00:00</lastmod>
+    <lastmod>2024-01-24T05:25:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://studio-23-xyz.github.io/com.studio23.ss2.dialoguesystem/api/Studio23.SS2.DialogueSystem.Utility.html</loc>
-    <lastmod>2024-01-18T08:09:25+00:00</lastmod>
+    <lastmod>2024-01-24T05:25:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://studio-23-xyz.github.io/com.studio23.ss2.dialoguesystem/api/index.html</loc>
-    <lastmod>2024-01-18T08:09:25+00:00</lastmod>
+    <lastmod>2024-01-24T05:25:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://studio-23-xyz.github.io/com.studio23.ss2.dialoguesystem/changelog/CHANGELOG.html</loc>
-    <lastmod>2024-01-18T08:09:25+00:00</lastmod>
+    <lastmod>2024-01-24T05:25:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://studio-23-xyz.github.io/com.studio23.ss2.dialoguesystem/index.html</loc>
-    <lastmod>2024-01-18T08:09:25+00:00</lastmod>
+    <lastmod>2024-01-24T05:25:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://studio-23-xyz.github.io/com.studio23.ss2.dialoguesystem/license/LICENSE.html</loc>
-    <lastmod>2024-01-18T08:09:25+00:00</lastmod>
+    <lastmod>2024-01-24T05:25:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://studio-23-xyz.github.io/com.studio23.ss2.dialoguesystem/manual/index.html</loc>
-    <lastmod>2024-01-18T08:09:25+00:00</lastmod>
+    <lastmod>2024-01-24T05:25:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>

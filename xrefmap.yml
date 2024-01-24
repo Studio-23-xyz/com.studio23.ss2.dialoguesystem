@@ -472,6 +472,12 @@ references:
   isSpec: "True"
   fullName: Studio23.SS2.DialogueSystem.Core.DialogueSystem.PlayDialogue
   nameWithType: DialogueSystem.PlayDialogue
+- uid: Studio23.SS2.DialogueSystem.Core.DialogueSystem.StartDialogue
+  name: StartDialogue()
+  href: api/Studio23.SS2.DialogueSystem.Core.DialogueSystem.html#Studio23_SS2_DialogueSystem_Core_DialogueSystem_StartDialogue
+  commentId: M:Studio23.SS2.DialogueSystem.Core.DialogueSystem.StartDialogue
+  fullName: Studio23.SS2.DialogueSystem.Core.DialogueSystem.StartDialogue()
+  nameWithType: DialogueSystem.StartDialogue()
 - uid: Studio23.SS2.DialogueSystem.Core.DialogueSystem.StartDialogue(Studio23.SS2.DialogueSystem.Data.DialogueGraph)
   name: StartDialogue(DialogueGraph)
   href: api/Studio23.SS2.DialogueSystem.Core.DialogueSystem.html#Studio23_SS2_DialogueSystem_Core_DialogueSystem_StartDialogue_Studio23_SS2_DialogueSystem_Data_DialogueGraph_
@@ -1200,12 +1206,6 @@ references:
   commentId: F:Studio23.SS2.DialogueSystem.Data.EventNode.Entry
   fullName: Studio23.SS2.DialogueSystem.Data.EventNode.Entry
   nameWithType: EventNode.Entry
-- uid: Studio23.SS2.DialogueSystem.Data.EventNode.Event
-  name: Event
-  href: api/Studio23.SS2.DialogueSystem.Data.EventNode.html#Studio23_SS2_DialogueSystem_Data_EventNode_Event
-  commentId: F:Studio23.SS2.DialogueSystem.Data.EventNode.Event
-  fullName: Studio23.SS2.DialogueSystem.Data.EventNode.Event
-  nameWithType: EventNode.Event
 - uid: Studio23.SS2.DialogueSystem.Data.EventNode.Initialize
   name: Initialize()
   href: api/Studio23.SS2.DialogueSystem.Data.EventNode.html#Studio23_SS2_DialogueSystem_Data_EventNode_Initialize
@@ -1219,6 +1219,19 @@ references:
   isSpec: "True"
   fullName: Studio23.SS2.DialogueSystem.Data.EventNode.Initialize
   nameWithType: EventNode.Initialize
+- uid: Studio23.SS2.DialogueSystem.Data.EventNode.Invoke
+  name: Invoke()
+  href: api/Studio23.SS2.DialogueSystem.Data.EventNode.html#Studio23_SS2_DialogueSystem_Data_EventNode_Invoke
+  commentId: M:Studio23.SS2.DialogueSystem.Data.EventNode.Invoke
+  fullName: Studio23.SS2.DialogueSystem.Data.EventNode.Invoke()
+  nameWithType: EventNode.Invoke()
+- uid: Studio23.SS2.DialogueSystem.Data.EventNode.Invoke*
+  name: Invoke
+  href: api/Studio23.SS2.DialogueSystem.Data.EventNode.html#Studio23_SS2_DialogueSystem_Data_EventNode_Invoke_
+  commentId: Overload:Studio23.SS2.DialogueSystem.Data.EventNode.Invoke
+  isSpec: "True"
+  fullName: Studio23.SS2.DialogueSystem.Data.EventNode.Invoke
+  nameWithType: EventNode.Invoke
 - uid: Studio23.SS2.DialogueSystem.Runtime.Data
   name: Studio23.SS2.DialogueSystem.Runtime.Data
   href: api/Studio23.SS2.DialogueSystem.Runtime.Data.html
