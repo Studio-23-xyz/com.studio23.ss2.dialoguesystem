@@ -64,6 +64,11 @@ namespace Studio23.SS2.DialogueSystem.Core
             PlayDialogue(graph);
         }
 
+        public void StartDialogue()
+        {
+            PlayDialogue(_currentGraph);
+        }
+
         public async UniTask PlayDialogue(DialogueGraph graph)
         {
             _currentGraph = graph;
@@ -82,7 +87,7 @@ namespace Studio23.SS2.DialogueSystem.Core
             }
 
             _currentGraph.HandleDialogueEnded();
-        OnDialogueEnded?.Invoke(_currentGraph);
+            OnDialogueEnded?.Invoke(_currentGraph);
 
             Debug.Log($"{graph} dialogue completed");
         }

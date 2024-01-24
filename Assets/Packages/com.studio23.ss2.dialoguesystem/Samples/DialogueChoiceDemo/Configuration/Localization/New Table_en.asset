@@ -10,52 +10,52 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
-  m_Name: String Table 1_ja
+  m_Name: New Table_en
   m_EditorClassIdentifier: 
   m_LocaleId:
-    m_Code: ja
-  m_SharedData: {fileID: 11400000, guid: 86a08eccdabf3a24e812720793183e8e, type: 2}
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 2fefaa175576a0e48bf5b28cb5260137, type: 2}
   m_Metadata:
     m_Items: []
   m_TableData:
-  - m_Id: 48421580800
+  - m_Id: 57598717952
+    m_Localized: Start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 162359848960
+    m_Localized: next line
+    m_Metadata:
+      m_Items: []
+  - m_Id: 297877811200
+    m_Localized: before choice
+    m_Metadata:
+      m_Items: []
+  - m_Id: 379343777792
+    m_Localized: Choice 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 714133123072
+    m_Localized: YAMETEKUDASTOP
+    m_Metadata:
+      m_Items: []
+  - m_Id: 819397570560
+    m_Localized: Choice 2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000310484992
     m_Localized: Ehe
     m_Metadata:
       m_Items: []
-  - m_Id: 5198200614912
-    m_Localized: YAMATE KUDASTOP
+  - m_Id: 1087413596160
+    m_Localized: Shown if bool is on
     m_Metadata:
       m_Items: []
-  - m_Id: 5591559221248
-    m_Localized: hehe
+  - m_Id: 1245450776576
+    m_Localized: Loop convesation
     m_Metadata:
       m_Items: []
-  - m_Id: 5729732177920
-    m_Localized: OH NOES
-    m_Metadata:
-      m_Items: []
-  - m_Id: 41327062855680
-    m_Localized: INFINITE LOOP
-    m_Metadata:
-      m_Items: []
-  - m_Id: 41376861827072
-    m_Localized: TOHOO
-    m_Metadata:
-      m_Items: []
-  - m_Id: 41524757180416
-    m_Localized: BOOL IS ON
-    m_Metadata:
-      m_Items: []
-  - m_Id: 41708056653824
-    m_Localized: START
-    m_Metadata:
-      m_Items: []
-  - m_Id: 41751006326784
-    m_Localized: HEHEHEHEHEHE
-    m_Metadata:
-      m_Items: []
-  - m_Id: 41789728141312
-    m_Localized: HOHOHO
+  - m_Id: 1312790327296
+    m_Localized: STAND BACK I'M ABOUT TO LOOP
     m_Metadata:
       m_Items: []
   references:

@@ -230,7 +230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4ea025ed7d24ba45bbd001f88df602b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentGraph: {fileID: 11400000, guid: 3febf9daccac3fa4a81a0212ac8e782c, type: 2}
+  _currentGraph: {fileID: 11400000, guid: a52bd472061ea824089a21ac012b405b, type: 2}
   _curNode: {fileID: 0}
 --- !u!114 &956320142
 MonoBehaviour:
@@ -986,10 +986,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c008de1dc3854a46936dcfdfb971d6e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sortedChoices: []
-  _buttonContainer: {fileID: 1126433870}
-  _buttonPrefab: {fileID: 8035196018851654212, guid: 8354b9d00f13f0b4ca2dcd08bcd44152, type: 3}
-  _spawnedButtons: []
 --- !u!1 &1456424668
 GameObject:
   m_ObjectHideFlags: 0
@@ -1050,12 +1046,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc09cb0cd50138a4797efe998aeea794, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DialogueTMP: {fileID: 1838186516}
-  TextLocalizer: {fileID: 1838186517}
-  BackgroundImage: {fileID: 381729576}
-  UIRoot: {fileID: 1456424668}
-  CharacterTable: {fileID: 11400000, guid: b8c5304e45a3b1c40b83014cb17fade9, type: 2}
-  _config: {fileID: 11400000, guid: af1672c5418360342a7f541ba08250ba, type: 2}
 --- !u!1 &1813981465
 GameObject:
   m_ObjectHideFlags: 0
@@ -1272,8 +1262,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d7ad9dc974fe9f47a9f4913e7ed1959, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tmpTarget: {fileID: 1838186516}
-  localizer: {fileID: 1838186518}
 --- !u!114 &1838186518
 MonoBehaviour:
   m_ObjectHideFlags: 0
