@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
+using Studio23.SS2.DialogueSystem.Utility;
 using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.Serialization;
@@ -20,7 +21,7 @@ namespace Studio23.SS2.DialogueSystem.Data
         
         private bool _canAdvanceDialogue;
         
-        [Output(dynamicPortList =true)] 
+        [Output()] 
         public int Events;
 
         public override void HandleDialogueAdvance()
@@ -36,9 +37,8 @@ namespace Studio23.SS2.DialogueSystem.Data
                 var eventNodeConnection = eventNodePort.GetConnection(i);
                 if (eventNodeConnection != null)
                 {
-                    if (eventNodeConnection.node is EventNode eventNode)
+                    if (eventNodeConnection.node is EventNodeBase eventNode)
                     {
-                        Debug.Log($"Invoke event {eventNode} on {this}", this);
                         eventNode.Invoke();
                     }
                     else

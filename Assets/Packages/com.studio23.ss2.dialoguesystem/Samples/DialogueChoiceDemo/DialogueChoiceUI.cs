@@ -87,7 +87,6 @@ public class DialogueChoiceUI:MonoBehaviour
     {
         for (int i = 0; i < _spawnedButtons.Count; i++)
         {
-            Debug.Log(_spawnedButtons[i].gameObject);
             Destroy(_spawnedButtons[i].gameObject);
         }
         _spawnedButtons.Clear();
