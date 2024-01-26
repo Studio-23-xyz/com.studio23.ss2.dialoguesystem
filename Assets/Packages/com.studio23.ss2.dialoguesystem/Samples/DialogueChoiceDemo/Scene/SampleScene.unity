@@ -353,7 +353,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_BackGroundColor: {r: 0.4811321, g: 0.4811321, b: 0.4811321, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -983,9 +983,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1344663831}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c008de1dc3854a46936dcfdfb971d6e8, type: 3}
+  m_Script: {fileID: 11500000, guid: de5cbd887ed5dbc4781a4aaa98b90fe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _sortedChoices: []
+  _buttonContainer: {fileID: 1126433870}
+  _buttonPrefab: {fileID: 8035196018851654212, guid: af9bf8cc40254224d85a2c9c750ce48a, type: 3}
+  _spawnedButtons: []
 --- !u!1 &1456424668
 GameObject:
   m_ObjectHideFlags: 0
@@ -1043,9 +1047,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1456424668}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc09cb0cd50138a4797efe998aeea794, type: 3}
+  m_Script: {fileID: 11500000, guid: 39891d0bfdc636f4b9a2c7baa8b8f148, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DialogueTMP: {fileID: 1838186516}
+  TextLocalizer: {fileID: 1838186517}
+  BackgroundImage: {fileID: 381729576}
+  UIRoot: {fileID: 1456424668}
+  CharacterTable: {fileID: 11400000, guid: d475c9e2546e17e4bb37441da01467e0, type: 2}
+  _config: {fileID: 11400000, guid: 2984fcedb51c3614cbb95f385ebe07b7, type: 2}
 --- !u!1 &1813981465
 GameObject:
   m_ObjectHideFlags: 0
@@ -1259,9 +1269,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1838186513}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d7ad9dc974fe9f47a9f4913e7ed1959, type: 3}
+  m_Script: {fileID: 11500000, guid: 7e40592e2649edc4a9608e4bcedd13b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _tmpTarget: {fileID: 1838186516}
+  _localizer: {fileID: 1838186518}
 --- !u!114 &1838186518
 MonoBehaviour:
   m_ObjectHideFlags: 0

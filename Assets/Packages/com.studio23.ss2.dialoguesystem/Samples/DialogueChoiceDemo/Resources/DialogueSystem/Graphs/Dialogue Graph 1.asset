@@ -306,6 +306,7 @@ MonoBehaviour:
     keys:
     - Entry
     - Exit
+    - Events 0
     - Events
     values:
     - _fieldName: Entry
@@ -332,11 +333,23 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-    - _fieldName: Events
+    - _fieldName: Events 0
       _node: {fileID: -2976715106930901999}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 1
+    - _fieldName: Events
+      _node: {fileID: -2976715106930901999}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: Entry
+        node: {fileID: 5592580153945411639}
+        reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
@@ -376,8 +389,8 @@ MonoBehaviour:
   ports:
     keys:
     - Exit
-    - Events
     - Events 0
+    - Events
     values:
     - _fieldName: Exit
       _node: {fileID: -1822135301059774123}
@@ -391,7 +404,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-    - _fieldName: Events
+    - _fieldName: Events 0
       _node: {fileID: -1822135301059774123}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
@@ -399,8 +412,8 @@ MonoBehaviour:
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: Events 0
+      _dynamic: 1
+    - _fieldName: Events
       _node: {fileID: -1822135301059774123}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
@@ -411,7 +424,7 @@ MonoBehaviour:
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
-      _dynamic: 1
+      _dynamic: 0
   DialogueLocalizedString:
     m_TableReference:
       m_TableCollectionName: GUID:2fefaa175576a0e48bf5b28cb5260137
@@ -454,6 +467,7 @@ MonoBehaviour:
   - {fileID: 7322660833987517088}
   - {fileID: -2988117806070830359}
   - {fileID: 5592580153945411639}
+  - {fileID: 401710227361937087}
   SkippableDialogue: 0
   _startNode: {fileID: -1822135301059774123}
   _conditions: []
@@ -641,8 +655,11 @@ MonoBehaviour:
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
-      - fieldName: Events 0
+      - fieldName: Events
         node: {fileID: -1822135301059774123}
+        reroutePoints: []
+      - fieldName: Events
+        node: {fileID: -2976715106930901999}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -651,7 +668,19 @@ MonoBehaviour:
   Entry: 0
   Event:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5592580153945411639}
+        m_TargetAssemblyTypeName: Studio23.SS2.DialogueSystem.Data.EventNode, com.studio23.ss2.dialoguesystem
+        m_MethodName: Debug
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &7322660833987517088
 MonoBehaviour:
   m_ObjectHideFlags: 0
