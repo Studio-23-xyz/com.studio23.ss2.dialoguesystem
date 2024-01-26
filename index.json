@@ -102,7 +102,7 @@
   "api/Studio23.SS2.DialogueSystem.Data.DialogueGraphNodeBase.html": {
     "href": "api/Studio23.SS2.DialogueSystem.Data.DialogueGraphNodeBase.html",
     "title": "Class DialogueGraphNodeBase | |",
-    "keywords": "Class DialogueGraphNodeBase Namespace Studio23.SS2.DialogueSystem.Data public abstract class DialogueGraphNodeBase : Node Inheritance object DialogueGraphNodeBase Derived DialogueNodeBase EventNode Methods Initialize() Called once before the graph is run the first time public abstract void Initialize()"
+    "keywords": "Class DialogueGraphNodeBase Namespace Studio23.SS2.DialogueSystem.Data public abstract class DialogueGraphNodeBase : Node Inheritance object DialogueGraphNodeBase Derived DialogueNodeBase EventNodeBase Methods Initialize() Called once before the graph is run the first time public abstract void Initialize()"
   },
   "api/Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase.html": {
     "href": "api/Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase.html",
@@ -122,12 +122,17 @@
   "api/Studio23.SS2.DialogueSystem.Data.EventNode.html": {
     "href": "api/Studio23.SS2.DialogueSystem.Data.EventNode.html",
     "title": "Class EventNode | |",
-    "keywords": "Class EventNode Namespace Studio23.SS2.DialogueSystem.Data public class EventNode : DialogueGraphNodeBase Inheritance object DialogueGraphNodeBase EventNode Fields Entry public int Entry Field Value int Methods Initialize() Called once before the graph is run the first time public override void Initialize() Invoke() public void Invoke()"
+    "keywords": "Class EventNode Namespace Studio23.SS2.DialogueSystem.Data public class EventNode : EventNodeBase Inheritance object DialogueGraphNodeBase EventNodeBase EventNode Inherited Members EventNodeBase.Entry EventNodeBase.Initialize() Fields Event public UnityEvent Event Field Value UnityEvent Methods Invoke() public override void Invoke()"
+  },
+  "api/Studio23.SS2.DialogueSystem.Data.EventNodeBase.html": {
+    "href": "api/Studio23.SS2.DialogueSystem.Data.EventNodeBase.html",
+    "title": "Class EventNodeBase | |",
+    "keywords": "Class EventNodeBase Namespace Studio23.SS2.DialogueSystem.Data public abstract class EventNodeBase : DialogueGraphNodeBase Inheritance object DialogueGraphNodeBase EventNodeBase Derived EventNode Fields Entry public int Entry Field Value int Methods Initialize() Called once before the graph is run the first time public override void Initialize() Invoke() public abstract void Invoke()"
   },
   "api/Studio23.SS2.DialogueSystem.Data.html": {
     "href": "api/Studio23.SS2.DialogueSystem.Data.html",
     "title": "Namespace Studio23.SS2.DialogueSystem.Data | |",
-    "keywords": "Namespace Studio23.SS2.DialogueSystem.Data Classes BiWayDialogueNode CharacterData CharacterExpressionImage CharacterTable DialogueBaseNodeEditor DialogueChoiceNode DialogueChoiceNodeBase DialogueChoicesNode DialogueGraph DialogueGraphNodeBase DialogueLineNodeBase DialogueNodeBase DialogueStartNode EventNode"
+    "keywords": "Namespace Studio23.SS2.DialogueSystem.Data Classes BiWayDialogueNode CharacterData CharacterExpressionImage CharacterTable DialogueBaseNodeEditor DialogueChoiceNode DialogueChoiceNodeBase DialogueChoicesNode DialogueGraph DialogueGraphNodeBase DialogueLineNodeBase DialogueNodeBase DialogueStartNode EventNode EventNodeBase"
   },
   "api/Studio23.SS2.DialogueSystem.Runtime.Data.IDialogueNodeCondition.html": {
     "href": "api/Studio23.SS2.DialogueSystem.Runtime.Data.IDialogueNodeCondition.html",
