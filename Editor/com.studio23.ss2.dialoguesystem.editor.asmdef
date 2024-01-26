@@ -1,0 +1,20 @@
+{
+    "name": "com.studio23.ss2.dialoguesystem.editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:3e1deda3cfa83394e827391555d95b6f",
+        "GUID:b8e24fd1eb19b4226afebb2810e3c19b",
+        "GUID:002c1bbed08fa44d282ef34fd5edb138"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
