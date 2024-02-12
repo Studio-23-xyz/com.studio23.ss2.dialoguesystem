@@ -1,6 +1,6 @@
 {
     "name": "com.studio23.ss2.dialoguesystem",
-    "version": "0.3.6",
+    "version": "0.3.7",
     "displayName": "Dialogue System",
     "description": "Dialogue system is an authoring tool for developers to integrate dialogue from scriptwriters inside unity.",
     "unity": "2022.3",
@@ -19,7 +19,9 @@
     ],
     "dependencies": {
         "com.github.siccity.xnode": "1.8.0",
-        "com.cysharp.unitask": "2.4.1"
+        "com.cysharp.unitask": "2.4.1",
+        "com.unity.localization": "1.4.5",
+        "com.textus-games.serialized-reference-ui": "1.0.0"
     },
     "keywords": [
         "Dialogue System"
