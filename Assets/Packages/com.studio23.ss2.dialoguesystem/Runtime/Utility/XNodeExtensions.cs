@@ -19,6 +19,10 @@ namespace Studio23.SS2.DialogueSystem.Utility
         {
             //if the port is not an array, we can actually use connections.count
             var port = node.GetOutputPort(fieldName);
+            if (port == null)
+            {
+                Debug.LogError($"{fieldName}no port" );
+            }
             for (int i = 0; i < port.ConnectionCount; i++)
             {
                 var connection = port.GetConnection(i);

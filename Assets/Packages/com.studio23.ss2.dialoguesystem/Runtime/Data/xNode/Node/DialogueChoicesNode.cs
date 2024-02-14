@@ -13,47 +13,57 @@ namespace Studio23.SS2.DialogueSystem.Data
     {
         [Input]
         public int Entry;
-
-        [Output] 
+        [Output]
         public int Choices;
         
         private int _lastChoiceIndex = -1;
 
-        private List<DialogueChoiceNodeBase> _dialogueChoices;
-        public List<DialogueChoiceNodeBase> DialogueChoices=> _dialogueChoices;
+        protected List<DialogueChoiceNodeBase> _availableDialogueChoices;
+        public List<DialogueChoiceNodeBase> AvailableDialogueChoices => _availableDialogueChoices;
 
-        void GetDialogueChoices()
+        protected virtual void PrepareDialogueChoices()
         {
-            if (_dialogueChoices == null)
+            GetAvailableChoices();
+            SetChoiceIndices();
+        }
+
+        protected virtual void GetAvailableChoices()
+        {
+            GetAllConnectedChoiceNodes();
+            RemoveUnavailableChoices();
+        }
+
+
+        protected virtual void GetAllConnectedChoiceNodes()
+        {
+            if (_availableDialogueChoices == null)
             {
-                _dialogueChoices = new List<DialogueChoiceNodeBase>();
+                _availableDialogueChoices = new List<DialogueChoiceNodeBase>();
             }
             else
             {
-                _dialogueChoices.Clear();
+                _availableDialogueChoices.Clear();
             }
 
-            this.GetOutputNodesConnectedToPort("Choices", _dialogueChoices);
-            RemoveUnavailableChoices();
-            SetChoiceIndices();
+            this.GetOutputNodesConnectedToPort("Choices", _availableDialogueChoices);
         }
 
         private void SetChoiceIndices()
         {
-            for (int i = 0; i < _dialogueChoices.Count; i++)
+            for (int i = 0; i < _availableDialogueChoices.Count; i++)
             {
-                _dialogueChoices[i].DialogueChoiceIndex = i;
+                _availableDialogueChoices[i].DialogueChoiceIndex = i;
             }   
         }
 
-        private void RemoveUnavailableChoices()
+        protected void RemoveUnavailableChoices()
         {
-            for (int i = _dialogueChoices.Count-1; i >= 0; i--)
+            for (int i = _availableDialogueChoices.Count-1; i >= 0; i--)
             {
-                var choice = _dialogueChoices[i];
+                var choice = _availableDialogueChoices[i];
                 if (!choice.CheckConditions())
                 {
-                    _dialogueChoices.RemoveAt(i);
+                    _availableDialogueChoices.RemoveAt(i);
                 }
             }
         }
@@ -65,11 +75,11 @@ namespace Studio23.SS2.DialogueSystem.Data
 
         public override DialogueNodeBase GetNextNode()
         {
-            if (_lastChoiceIndex < 0 || _lastChoiceIndex >= _dialogueChoices.Count)
+            if (_lastChoiceIndex < 0 || _lastChoiceIndex >= _availableDialogueChoices.Count)
             {
                 Debug.LogError($"INDEX {_lastChoiceIndex} OUT OF RANGE for dialogue choices {this}", this);
             }
-            return _dialogueChoices[_lastChoiceIndex];
+            return _availableDialogueChoices[_lastChoiceIndex];
         }
 
         public override void HandleChoiceSelected(int choiceIndex)
@@ -77,9 +87,9 @@ namespace Studio23.SS2.DialogueSystem.Data
             //no value checks. 
             //we assume that the index is valid
             _lastChoiceIndex = choiceIndex;
-            if (_lastChoiceIndex >= 0 && _lastChoiceIndex < _dialogueChoices.Count)
+            if (_lastChoiceIndex >= 0 && _lastChoiceIndex < _availableDialogueChoices.Count)
             {
-                var pickedChoice = _dialogueChoices[_lastChoiceIndex];
+                var pickedChoice = _availableDialogueChoices[_lastChoiceIndex];
                 pickedChoice.HandleChoiceTaken();
             }
         }
@@ -87,7 +97,7 @@ namespace Studio23.SS2.DialogueSystem.Data
         public override async UniTask Play()
         {
             _lastChoiceIndex = -1;
-            GetDialogueChoices();
+            PrepareDialogueChoices();
             Core.DialogueSystem.Instance.HandleDialogueChoiceStarted(this);
             
             while (_lastChoiceIndex < 0)
