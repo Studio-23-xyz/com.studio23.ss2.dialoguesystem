@@ -275,6 +275,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Studio23.SS2.DialogueSystem.Data.ForceTakeAllChoiceNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Studio23.SS2.DialogueSystem.Data.ForceTakeAllChoiceNode.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Studio23.SS2.DialogueSystem.Data.yml",
       "output": {
         ".html": {

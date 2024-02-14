@@ -751,31 +751,57 @@ references:
   commentId: T:Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode
   fullName: Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode
   nameWithType: DialogueChoicesNode
+- uid: Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.AvailableDialogueChoices
+  name: AvailableDialogueChoices
+  href: api/Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.html#Studio23_SS2_DialogueSystem_Data_DialogueChoicesNode_AvailableDialogueChoices
+  commentId: P:Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.AvailableDialogueChoices
+  fullName: Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.AvailableDialogueChoices
+  nameWithType: DialogueChoicesNode.AvailableDialogueChoices
+- uid: Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.AvailableDialogueChoices*
+  name: AvailableDialogueChoices
+  href: api/Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.html#Studio23_SS2_DialogueSystem_Data_DialogueChoicesNode_AvailableDialogueChoices_
+  commentId: Overload:Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.AvailableDialogueChoices
+  isSpec: "True"
+  fullName: Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.AvailableDialogueChoices
+  nameWithType: DialogueChoicesNode.AvailableDialogueChoices
 - uid: Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.Choices
   name: Choices
   href: api/Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.html#Studio23_SS2_DialogueSystem_Data_DialogueChoicesNode_Choices
   commentId: F:Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.Choices
   fullName: Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.Choices
   nameWithType: DialogueChoicesNode.Choices
-- uid: Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.DialogueChoices
-  name: DialogueChoices
-  href: api/Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.html#Studio23_SS2_DialogueSystem_Data_DialogueChoicesNode_DialogueChoices
-  commentId: P:Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.DialogueChoices
-  fullName: Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.DialogueChoices
-  nameWithType: DialogueChoicesNode.DialogueChoices
-- uid: Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.DialogueChoices*
-  name: DialogueChoices
-  href: api/Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.html#Studio23_SS2_DialogueSystem_Data_DialogueChoicesNode_DialogueChoices_
-  commentId: Overload:Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.DialogueChoices
-  isSpec: "True"
-  fullName: Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.DialogueChoices
-  nameWithType: DialogueChoicesNode.DialogueChoices
 - uid: Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.Entry
   name: Entry
   href: api/Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.html#Studio23_SS2_DialogueSystem_Data_DialogueChoicesNode_Entry
   commentId: F:Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.Entry
   fullName: Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.Entry
   nameWithType: DialogueChoicesNode.Entry
+- uid: Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.GetAllConnectedChoiceNodes
+  name: GetAllConnectedChoiceNodes()
+  href: api/Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.html#Studio23_SS2_DialogueSystem_Data_DialogueChoicesNode_GetAllConnectedChoiceNodes
+  commentId: M:Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.GetAllConnectedChoiceNodes
+  fullName: Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.GetAllConnectedChoiceNodes()
+  nameWithType: DialogueChoicesNode.GetAllConnectedChoiceNodes()
+- uid: Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.GetAllConnectedChoiceNodes*
+  name: GetAllConnectedChoiceNodes
+  href: api/Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.html#Studio23_SS2_DialogueSystem_Data_DialogueChoicesNode_GetAllConnectedChoiceNodes_
+  commentId: Overload:Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.GetAllConnectedChoiceNodes
+  isSpec: "True"
+  fullName: Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.GetAllConnectedChoiceNodes
+  nameWithType: DialogueChoicesNode.GetAllConnectedChoiceNodes
+- uid: Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.GetAvailableChoices
+  name: GetAvailableChoices()
+  href: api/Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.html#Studio23_SS2_DialogueSystem_Data_DialogueChoicesNode_GetAvailableChoices
+  commentId: M:Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.GetAvailableChoices
+  fullName: Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.GetAvailableChoices()
+  nameWithType: DialogueChoicesNode.GetAvailableChoices()
+- uid: Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.GetAvailableChoices*
+  name: GetAvailableChoices
+  href: api/Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.html#Studio23_SS2_DialogueSystem_Data_DialogueChoicesNode_GetAvailableChoices_
+  commentId: Overload:Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.GetAvailableChoices
+  isSpec: "True"
+  fullName: Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.GetAvailableChoices
+  nameWithType: DialogueChoicesNode.GetAvailableChoices
 - uid: Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.GetNextNode
   name: GetNextNode()
   href: api/Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.html#Studio23_SS2_DialogueSystem_Data_DialogueChoicesNode_GetNextNode
@@ -844,6 +870,38 @@ references:
   isSpec: "True"
   fullName: Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.Play
   nameWithType: DialogueChoicesNode.Play
+- uid: Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.PrepareDialogueChoices
+  name: PrepareDialogueChoices()
+  href: api/Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.html#Studio23_SS2_DialogueSystem_Data_DialogueChoicesNode_PrepareDialogueChoices
+  commentId: M:Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.PrepareDialogueChoices
+  fullName: Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.PrepareDialogueChoices()
+  nameWithType: DialogueChoicesNode.PrepareDialogueChoices()
+- uid: Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.PrepareDialogueChoices*
+  name: PrepareDialogueChoices
+  href: api/Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.html#Studio23_SS2_DialogueSystem_Data_DialogueChoicesNode_PrepareDialogueChoices_
+  commentId: Overload:Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.PrepareDialogueChoices
+  isSpec: "True"
+  fullName: Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.PrepareDialogueChoices
+  nameWithType: DialogueChoicesNode.PrepareDialogueChoices
+- uid: Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.RemoveUnavailableChoices
+  name: RemoveUnavailableChoices()
+  href: api/Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.html#Studio23_SS2_DialogueSystem_Data_DialogueChoicesNode_RemoveUnavailableChoices
+  commentId: M:Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.RemoveUnavailableChoices
+  fullName: Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.RemoveUnavailableChoices()
+  nameWithType: DialogueChoicesNode.RemoveUnavailableChoices()
+- uid: Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.RemoveUnavailableChoices*
+  name: RemoveUnavailableChoices
+  href: api/Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.html#Studio23_SS2_DialogueSystem_Data_DialogueChoicesNode_RemoveUnavailableChoices_
+  commentId: Overload:Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.RemoveUnavailableChoices
+  isSpec: "True"
+  fullName: Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.RemoveUnavailableChoices
+  nameWithType: DialogueChoicesNode.RemoveUnavailableChoices
+- uid: Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode._availableDialogueChoices
+  name: _availableDialogueChoices
+  href: api/Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.html#Studio23_SS2_DialogueSystem_Data_DialogueChoicesNode__availableDialogueChoices
+  commentId: F:Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode._availableDialogueChoices
+  fullName: Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode._availableDialogueChoices
+  nameWithType: DialogueChoicesNode._availableDialogueChoices
 - uid: Studio23.SS2.DialogueSystem.Data.DialogueGraph
   name: DialogueGraph
   href: api/Studio23.SS2.DialogueSystem.Data.DialogueGraph.html
@@ -1257,6 +1315,31 @@ references:
   isSpec: "True"
   fullName: Studio23.SS2.DialogueSystem.Data.EventNodeBase.Invoke
   nameWithType: EventNodeBase.Invoke
+- uid: Studio23.SS2.DialogueSystem.Data.ForceTakeAllChoiceNode
+  name: ForceTakeAllChoiceNode
+  href: api/Studio23.SS2.DialogueSystem.Data.ForceTakeAllChoiceNode.html
+  commentId: T:Studio23.SS2.DialogueSystem.Data.ForceTakeAllChoiceNode
+  fullName: Studio23.SS2.DialogueSystem.Data.ForceTakeAllChoiceNode
+  nameWithType: ForceTakeAllChoiceNode
+- uid: Studio23.SS2.DialogueSystem.Data.ForceTakeAllChoiceNode.FinalChoice
+  name: FinalChoice
+  href: api/Studio23.SS2.DialogueSystem.Data.ForceTakeAllChoiceNode.html#Studio23_SS2_DialogueSystem_Data_ForceTakeAllChoiceNode_FinalChoice
+  commentId: F:Studio23.SS2.DialogueSystem.Data.ForceTakeAllChoiceNode.FinalChoice
+  fullName: Studio23.SS2.DialogueSystem.Data.ForceTakeAllChoiceNode.FinalChoice
+  nameWithType: ForceTakeAllChoiceNode.FinalChoice
+- uid: Studio23.SS2.DialogueSystem.Data.ForceTakeAllChoiceNode.GetAvailableChoices
+  name: GetAvailableChoices()
+  href: api/Studio23.SS2.DialogueSystem.Data.ForceTakeAllChoiceNode.html#Studio23_SS2_DialogueSystem_Data_ForceTakeAllChoiceNode_GetAvailableChoices
+  commentId: M:Studio23.SS2.DialogueSystem.Data.ForceTakeAllChoiceNode.GetAvailableChoices
+  fullName: Studio23.SS2.DialogueSystem.Data.ForceTakeAllChoiceNode.GetAvailableChoices()
+  nameWithType: ForceTakeAllChoiceNode.GetAvailableChoices()
+- uid: Studio23.SS2.DialogueSystem.Data.ForceTakeAllChoiceNode.GetAvailableChoices*
+  name: GetAvailableChoices
+  href: api/Studio23.SS2.DialogueSystem.Data.ForceTakeAllChoiceNode.html#Studio23_SS2_DialogueSystem_Data_ForceTakeAllChoiceNode_GetAvailableChoices_
+  commentId: Overload:Studio23.SS2.DialogueSystem.Data.ForceTakeAllChoiceNode.GetAvailableChoices
+  isSpec: "True"
+  fullName: Studio23.SS2.DialogueSystem.Data.ForceTakeAllChoiceNode.GetAvailableChoices
+  nameWithType: ForceTakeAllChoiceNode.GetAvailableChoices
 - uid: Studio23.SS2.DialogueSystem.Runtime.Data
   name: Studio23.SS2.DialogueSystem.Runtime.Data
   href: api/Studio23.SS2.DialogueSystem.Runtime.Data.html

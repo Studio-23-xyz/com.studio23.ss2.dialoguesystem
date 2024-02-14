@@ -118,6 +118,12 @@ Class DialogueChoicesNode  <a class="header-action link-secondary" title="View s
   </dl>
 
 
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="Studio23.SS2.DialogueSystem.Data.ForceTakeAllChoiceNode.html">ForceTakeAllChoiceNode</a></div>
+    </dd>
+  </dl>
 
   <dl class="typelist inheritedMembers">
     <dt>Inherited Members</dt>
@@ -142,7 +148,7 @@ Class DialogueChoicesNode  <a class="header-action link-secondary" title="View s
 
   <h3 id="Studio23_SS2_DialogueSystem_Data_DialogueChoicesNode_Choices" data-uid="Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.Choices">
   Choices
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.dialoguesystem/blob/main/Assets/Packages/com.studio23.ss2.dialoguesystem/Runtime/Data/xNode/Node/DialogueChoicesNode.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.dialoguesystem/blob/main/Assets/Packages/com.studio23.ss2.dialoguesystem/Runtime/Data/xNode/Node/DialogueChoicesNode.cs/#L17"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -199,22 +205,52 @@ Class DialogueChoicesNode  <a class="header-action link-secondary" title="View s
 
 
 
-  <h2 class="section" id="properties">Properties
-</h2>
 
-
-  <a id="Studio23_SS2_DialogueSystem_Data_DialogueChoicesNode_DialogueChoices_" data-uid="Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.DialogueChoices*"></a>
-
-  <h3 id="Studio23_SS2_DialogueSystem_Data_DialogueChoicesNode_DialogueChoices" data-uid="Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.DialogueChoices">
-  DialogueChoices
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.dialoguesystem/blob/main/Assets/Packages/com.studio23.ss2.dialoguesystem/Runtime/Data/xNode/Node/DialogueChoicesNode.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Studio23_SS2_DialogueSystem_Data_DialogueChoicesNode__availableDialogueChoices" data-uid="Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode._availableDialogueChoices">
+  _availableDialogueChoices
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.dialoguesystem/blob/main/Assets/Packages/com.studio23.ss2.dialoguesystem/Runtime/Data/xNode/Node/DialogueChoicesNode.cs/#L21"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public List&lt;DialogueChoiceNodeBase&gt; DialogueChoices { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">protected List&lt;DialogueChoiceNodeBase&gt; _availableDialogueChoices</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="Studio23.SS2.DialogueSystem.Data.DialogueChoiceNodeBase.html">DialogueChoiceNodeBase</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Studio23_SS2_DialogueSystem_Data_DialogueChoicesNode_AvailableDialogueChoices_" data-uid="Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.AvailableDialogueChoices*"></a>
+
+  <h3 id="Studio23_SS2_DialogueSystem_Data_DialogueChoicesNode_AvailableDialogueChoices" data-uid="Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.AvailableDialogueChoices">
+  AvailableDialogueChoices
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.dialoguesystem/blob/main/Assets/Packages/com.studio23.ss2.dialoguesystem/Runtime/Data/xNode/Node/DialogueChoicesNode.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;DialogueChoiceNodeBase&gt; AvailableDialogueChoices { get; }</code></pre>
   </div>
 
 
@@ -238,11 +274,63 @@ Class DialogueChoicesNode  <a class="header-action link-secondary" title="View s
 </h2>
 
 
+  <a id="Studio23_SS2_DialogueSystem_Data_DialogueChoicesNode_GetAllConnectedChoiceNodes_" data-uid="Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.GetAllConnectedChoiceNodes*"></a>
+
+  <h3 id="Studio23_SS2_DialogueSystem_Data_DialogueChoicesNode_GetAllConnectedChoiceNodes" data-uid="Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.GetAllConnectedChoiceNodes">
+  GetAllConnectedChoiceNodes()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.dialoguesystem/blob/main/Assets/Packages/com.studio23.ss2.dialoguesystem/Runtime/Data/xNode/Node/DialogueChoicesNode.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void GetAllConnectedChoiceNodes()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Studio23_SS2_DialogueSystem_Data_DialogueChoicesNode_GetAvailableChoices_" data-uid="Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.GetAvailableChoices*"></a>
+
+  <h3 id="Studio23_SS2_DialogueSystem_Data_DialogueChoicesNode_GetAvailableChoices" data-uid="Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.GetAvailableChoices">
+  GetAvailableChoices()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.dialoguesystem/blob/main/Assets/Packages/com.studio23.ss2.dialoguesystem/Runtime/Data/xNode/Node/DialogueChoicesNode.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void GetAvailableChoices()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="Studio23_SS2_DialogueSystem_Data_DialogueChoicesNode_GetNextNode_" data-uid="Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.GetNextNode*"></a>
 
   <h3 id="Studio23_SS2_DialogueSystem_Data_DialogueChoicesNode_GetNextNode" data-uid="Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.GetNextNode">
   GetNextNode()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.dialoguesystem/blob/main/Assets/Packages/com.studio23.ss2.dialoguesystem/Runtime/Data/xNode/Node/DialogueChoicesNode.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.dialoguesystem/blob/main/Assets/Packages/com.studio23.ss2.dialoguesystem/Runtime/Data/xNode/Node/DialogueChoicesNode.cs/#L76"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -273,7 +361,7 @@ Class DialogueChoicesNode  <a class="header-action link-secondary" title="View s
 
   <h3 id="Studio23_SS2_DialogueSystem_Data_DialogueChoicesNode_HandleChoiceSelected_System_Int32_" data-uid="Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.HandleChoiceSelected(System.Int32)">
   HandleChoiceSelected(int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.dialoguesystem/blob/main/Assets/Packages/com.studio23.ss2.dialoguesystem/Runtime/Data/xNode/Node/DialogueChoicesNode.cs/#L75"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.dialoguesystem/blob/main/Assets/Packages/com.studio23.ss2.dialoguesystem/Runtime/Data/xNode/Node/DialogueChoicesNode.cs/#L85"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -304,7 +392,7 @@ Class DialogueChoicesNode  <a class="header-action link-secondary" title="View s
 
   <h3 id="Studio23_SS2_DialogueSystem_Data_DialogueChoicesNode_HandleDialogueAdvance" data-uid="Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.HandleDialogueAdvance">
   HandleDialogueAdvance()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.dialoguesystem/blob/main/Assets/Packages/com.studio23.ss2.dialoguesystem/Runtime/Data/xNode/Node/DialogueChoicesNode.cs/#L61"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.dialoguesystem/blob/main/Assets/Packages/com.studio23.ss2.dialoguesystem/Runtime/Data/xNode/Node/DialogueChoicesNode.cs/#L71"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -330,7 +418,7 @@ Class DialogueChoicesNode  <a class="header-action link-secondary" title="View s
 
   <h3 id="Studio23_SS2_DialogueSystem_Data_DialogueChoicesNode_Initialize" data-uid="Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.Initialize">
   Initialize()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.dialoguesystem/blob/main/Assets/Packages/com.studio23.ss2.dialoguesystem/Runtime/Data/xNode/Node/DialogueChoicesNode.cs/#L101"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.dialoguesystem/blob/main/Assets/Packages/com.studio23.ss2.dialoguesystem/Runtime/Data/xNode/Node/DialogueChoicesNode.cs/#L111"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Called once before the graph is run the first time</p>
@@ -357,7 +445,7 @@ Class DialogueChoicesNode  <a class="header-action link-secondary" title="View s
 
   <h3 id="Studio23_SS2_DialogueSystem_Data_DialogueChoicesNode_Play" data-uid="Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.Play">
   Play()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.dialoguesystem/blob/main/Assets/Packages/com.studio23.ss2.dialoguesystem/Runtime/Data/xNode/Node/DialogueChoicesNode.cs/#L87"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.dialoguesystem/blob/main/Assets/Packages/com.studio23.ss2.dialoguesystem/Runtime/Data/xNode/Node/DialogueChoicesNode.cs/#L97"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -373,6 +461,58 @@ Class DialogueChoicesNode  <a class="header-action link-secondary" title="View s
     <dt><span class="xref">UniTask</span></dt>
     <dd></dd>
   </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Studio23_SS2_DialogueSystem_Data_DialogueChoicesNode_PrepareDialogueChoices_" data-uid="Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.PrepareDialogueChoices*"></a>
+
+  <h3 id="Studio23_SS2_DialogueSystem_Data_DialogueChoicesNode_PrepareDialogueChoices" data-uid="Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.PrepareDialogueChoices">
+  PrepareDialogueChoices()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.dialoguesystem/blob/main/Assets/Packages/com.studio23.ss2.dialoguesystem/Runtime/Data/xNode/Node/DialogueChoicesNode.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void PrepareDialogueChoices()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Studio23_SS2_DialogueSystem_Data_DialogueChoicesNode_RemoveUnavailableChoices_" data-uid="Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.RemoveUnavailableChoices*"></a>
+
+  <h3 id="Studio23_SS2_DialogueSystem_Data_DialogueChoicesNode_RemoveUnavailableChoices" data-uid="Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode.RemoveUnavailableChoices">
+  RemoveUnavailableChoices()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.dialoguesystem/blob/main/Assets/Packages/com.studio23.ss2.dialoguesystem/Runtime/Data/xNode/Node/DialogueChoicesNode.cs/#L59"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void RemoveUnavailableChoices()</code></pre>
+  </div>
+
+
 
 
 
