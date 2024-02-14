@@ -48,7 +48,7 @@ public class DialogueChoiceUI:MonoBehaviour
     private void SortChoices(DialogueChoicesNode choicesNode)
     {
         _sortedChoices.Clear();
-        _sortedChoices.AddRange(choicesNode.DialogueChoices);
+        _sortedChoices.AddRange(choicesNode.AvailableDialogueChoices);
         
         _sortedChoices.Sort((choice1, choice2) =>
         {
