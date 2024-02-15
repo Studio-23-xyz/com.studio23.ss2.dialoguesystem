@@ -8,18 +8,27 @@ using XNode;
 
 namespace Studio23.SS2.DialogueSystem.Data
 {
-    [NodeTint("#AAAA00"), CreateNodeMenu("Dialogue Multi choice")]
+    [NodeTint("#AAAA00"), CreateNodeMenu("Dialogue Choice Branch")]
     public class DialogueChoicesNode : DialogueNodeBase
     {
         [Input]
-        public int Entry;
+        public DialogueLineNodeBase Entry;
         [Output]
-        public int Choices;
+        public DialogueChoicesNode Choices;
         
         private int _lastChoiceIndex = -1;
 
         protected List<DialogueChoiceNodeBase> _availableDialogueChoices;
         public List<DialogueChoiceNodeBase> AvailableDialogueChoices => _availableDialogueChoices;
+
+        public override object GetValue(NodePort port)
+        {
+            if (port.fieldName == "Choices")
+            {
+                return this;
+            }
+            return base.GetValue(port);
+        }
 
         protected virtual void PrepareDialogueChoices()
         {

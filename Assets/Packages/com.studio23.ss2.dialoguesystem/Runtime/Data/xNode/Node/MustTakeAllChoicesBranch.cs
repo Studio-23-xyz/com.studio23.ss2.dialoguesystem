@@ -8,20 +8,17 @@ namespace Studio23.SS2.DialogueSystem.Data
     /// This is useful for dialogue trees that the player needs to fully exhaust
     /// before being allowed to continue
     /// </summary>
-    [CreateNodeMenu("Force Take All Choice Node"), NodeTint("#996600")]
-    public class ForceTakeAllChoiceNode:DialogueChoicesNode
+    [CreateNodeMenu("Must Take All Choices Branch Node"), NodeTint("#996600")]
+    public class MustTakeAllChoicesBranch:DialogueChoicesNode
     {
-        [Output] 
-        public int FinalChoice;
+        [Output(typeConstraint = TypeConstraint.Strict, connectionType = ConnectionType.Override)] 
+        public DialogueChoicesNode FinalChoice;
         
         protected override void GetAvailableChoices()
         {
             GetAllConnectedChoiceNodes();
-            Debug.Log(_availableDialogueChoices.Count);
             AddFinalChoiceIfAvailable();
-            Debug.Log(_availableDialogueChoices.Count);
             RemoveUnavailableChoices();
-            Debug.Log("RemoveUnavailableChoices " + _availableDialogueChoices.Count);
         }
 
         private void AddFinalChoiceIfAvailable()

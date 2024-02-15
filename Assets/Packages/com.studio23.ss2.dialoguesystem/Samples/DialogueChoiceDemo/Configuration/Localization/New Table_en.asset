@@ -58,6 +58,10 @@ MonoBehaviour:
     m_Localized: STAND BACK I'M ABOUT TO LOOP
     m_Metadata:
       m_Items: []
+  - m_Id: 9827534877667328
+    m_Localized: FINAL CHOICE
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

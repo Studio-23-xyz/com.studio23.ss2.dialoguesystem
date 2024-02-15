@@ -1,12 +1,19 @@
 ﻿using Cysharp.Threading.Tasks;
+using XNode;
 
 namespace Studio23.SS2.DialogueSystem.Data
 {
     [NodeTint("#006600"), CreateNodeMenu("DialogueStartNode")]
     public class DialogueStartNode : DialogueLineNodeBase
     {
-        
-        [Output] public int Exit;
-        
+        public override object GetValue(NodePort port)
+        {
+            if (port.fieldName == "Exit")
+            {
+                return this;
+                
+            }
+            return base.GetValue(port);
+        }
     }
 }
