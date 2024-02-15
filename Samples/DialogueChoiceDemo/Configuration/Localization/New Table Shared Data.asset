@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: New Table Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: New Table
+  m_TableCollectionNameGuidString: 2fefaa175576a0e48bf5b28cb5260137
+  m_Entries:
+  - m_Id: 57598717952
+    m_Key: Start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 162359848960
+    m_Key: next line
+    m_Metadata:
+      m_Items: []
+  - m_Id: 297877811200
+    m_Key: before choice
+    m_Metadata:
+      m_Items: []
+  - m_Id: 379343777792
+    m_Key: Choice 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 714133123072
+    m_Key: YAMETEKUDASTOP
+    m_Metadata:
+      m_Items: []
+  - m_Id: 819397570560
+    m_Key: Choice 2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000310484992
+    m_Key: Ehe
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1087413596160
+    m_Key: Bool test
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1245450776576
+    m_Key: Loop convesation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1312790327296
+    m_Key: STAND BACK
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9827534877667328
+    m_Key: FINAL CHOICE
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 4806151557843517450
+  references:
+    version: 2
+    RefIds:
+    - rid: 4806151557843517450
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1705566415762
