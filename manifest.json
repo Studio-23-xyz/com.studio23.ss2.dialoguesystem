@@ -275,10 +275,10 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Studio23.SS2.DialogueSystem.Data.ForceTakeAllChoiceNode.yml",
+      "source_relative_path": "api/Studio23.SS2.DialogueSystem.Data.MustTakeAllChoicesBranch.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Studio23.SS2.DialogueSystem.Data.ForceTakeAllChoiceNode.html"
+          "relative_path": "api/Studio23.SS2.DialogueSystem.Data.MustTakeAllChoicesBranch.html"
         }
       },
       "version": ""

@@ -122,6 +122,7 @@ Class DialogueLineNodeBase  <a class="header-action link-secondary" title="View 
     <dt>Derived</dt>
     <dd>
       <div><a class="xref" href="Studio23.SS2.DialogueSystem.Data.BiWayDialogueNode.html">BiWayDialogueNode</a></div>
+      <div><a class="xref" href="Studio23.SS2.DialogueSystem.Data.DialogueChoiceNodeBase.html">DialogueChoiceNodeBase</a></div>
       <div><a class="xref" href="Studio23.SS2.DialogueSystem.Data.DialogueStartNode.html">DialogueStartNode</a></div>
     </dd>
   </dl>
@@ -179,14 +180,14 @@ Class DialogueLineNodeBase  <a class="header-action link-secondary" title="View 
 
   <h3 id="Studio23_SS2_DialogueSystem_Data_DialogueLineNodeBase_Events" data-uid="Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase.Events">
   Events
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.dialoguesystem/blob/main/Assets/Packages/com.studio23.ss2.dialoguesystem/Runtime/Data/xNode/Node/DialogueLineNodeBase.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.dialoguesystem/blob/main/Assets/Packages/com.studio23.ss2.dialoguesystem/Runtime/Data/xNode/Node/DialogueLineNodeBase.cs/#L28"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int Events</code></pre>
+    <pre><code class="lang-csharp hljs">public EventNodeBase Events</code></pre>
   </div>
 
 
@@ -194,7 +195,37 @@ Class DialogueLineNodeBase  <a class="header-action link-secondary" title="View 
 
   <h4 class="section">Field Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dt><a class="xref" href="Studio23.SS2.DialogueSystem.Data.EventNodeBase.html">EventNodeBase</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="Studio23_SS2_DialogueSystem_Data_DialogueLineNodeBase_Exit" data-uid="Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase.Exit">
+  Exit
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.dialoguesystem/blob/main/Assets/Packages/com.studio23.ss2.dialoguesystem/Runtime/Data/xNode/Node/DialogueLineNodeBase.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DialogueLineNodeBase Exit</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase.html">DialogueLineNodeBase</a></dt>
     <dd></dd>
   </dl>
 
@@ -304,7 +335,7 @@ Class DialogueLineNodeBase  <a class="header-action link-secondary" title="View 
 
   <h3 id="Studio23_SS2_DialogueSystem_Data_DialogueLineNodeBase_GetNextNode" data-uid="Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase.GetNextNode">
   GetNextNode()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.dialoguesystem/blob/main/Assets/Packages/com.studio23.ss2.dialoguesystem/Runtime/Data/xNode/Node/DialogueLineNodeBase.cs/#L76"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.dialoguesystem/blob/main/Assets/Packages/com.studio23.ss2.dialoguesystem/Runtime/Data/xNode/Node/DialogueLineNodeBase.cs/#L79"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -331,11 +362,47 @@ Class DialogueLineNodeBase  <a class="header-action link-secondary" title="View 
 
 
 
+  <a id="Studio23_SS2_DialogueSystem_Data_DialogueLineNodeBase_GetValue_" data-uid="Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase.GetValue*"></a>
+
+  <h3 id="Studio23_SS2_DialogueSystem_Data_DialogueLineNodeBase_GetValue_NodePort_" data-uid="Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase.GetValue(NodePort)">
+  GetValue(NodePort)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.dialoguesystem/blob/main/Assets/Packages/com.studio23.ss2.dialoguesystem/Runtime/Data/xNode/Node/DialogueLineNodeBase.cs/#L89"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override object GetValue(NodePort port)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>port</code> <span class="xref">NodePort</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="Studio23_SS2_DialogueSystem_Data_DialogueLineNodeBase_HandleChoiceSelected_" data-uid="Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase.HandleChoiceSelected*"></a>
 
   <h3 id="Studio23_SS2_DialogueSystem_Data_DialogueLineNodeBase_HandleChoiceSelected_System_Int32_" data-uid="Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase.HandleChoiceSelected(System.Int32)">
   HandleChoiceSelected(int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.dialoguesystem/blob/main/Assets/Packages/com.studio23.ss2.dialoguesystem/Runtime/Data/xNode/Node/DialogueLineNodeBase.cs/#L57"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.dialoguesystem/blob/main/Assets/Packages/com.studio23.ss2.dialoguesystem/Runtime/Data/xNode/Node/DialogueLineNodeBase.cs/#L60"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -366,7 +433,7 @@ Class DialogueLineNodeBase  <a class="header-action link-secondary" title="View 
 
   <h3 id="Studio23_SS2_DialogueSystem_Data_DialogueLineNodeBase_HandleDialogueAdvance" data-uid="Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase.HandleDialogueAdvance">
   HandleDialogueAdvance()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.dialoguesystem/blob/main/Assets/Packages/com.studio23.ss2.dialoguesystem/Runtime/Data/xNode/Node/DialogueLineNodeBase.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.dialoguesystem/blob/main/Assets/Packages/com.studio23.ss2.dialoguesystem/Runtime/Data/xNode/Node/DialogueLineNodeBase.cs/#L30"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -392,7 +459,7 @@ Class DialogueLineNodeBase  <a class="header-action link-secondary" title="View 
 
   <h3 id="Studio23_SS2_DialogueSystem_Data_DialogueLineNodeBase_Initialize" data-uid="Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase.Initialize">
   Initialize()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.dialoguesystem/blob/main/Assets/Packages/com.studio23.ss2.dialoguesystem/Runtime/Data/xNode/Node/DialogueLineNodeBase.cs/#L86"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.dialoguesystem/blob/main/Assets/Packages/com.studio23.ss2.dialoguesystem/Runtime/Data/xNode/Node/DialogueLineNodeBase.cs/#L101"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Called once before the graph is run the first time</p>
@@ -419,7 +486,7 @@ Class DialogueLineNodeBase  <a class="header-action link-secondary" title="View 
 
   <h3 id="Studio23_SS2_DialogueSystem_Data_DialogueLineNodeBase_InvokePostPlayEvents" data-uid="Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase.InvokePostPlayEvents">
   InvokePostPlayEvents()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.dialoguesystem/blob/main/Assets/Packages/com.studio23.ss2.dialoguesystem/Runtime/Data/xNode/Node/DialogueLineNodeBase.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.dialoguesystem/blob/main/Assets/Packages/com.studio23.ss2.dialoguesystem/Runtime/Data/xNode/Node/DialogueLineNodeBase.cs/#L35"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -445,7 +512,7 @@ Class DialogueLineNodeBase  <a class="header-action link-secondary" title="View 
 
   <h3 id="Studio23_SS2_DialogueSystem_Data_DialogueLineNodeBase_Play" data-uid="Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase.Play">
   Play()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.dialoguesystem/blob/main/Assets/Packages/com.studio23.ss2.dialoguesystem/Runtime/Data/xNode/Node/DialogueLineNodeBase.cs/#L62"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.dialoguesystem/blob/main/Assets/Packages/com.studio23.ss2.dialoguesystem/Runtime/Data/xNode/Node/DialogueLineNodeBase.cs/#L65"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>

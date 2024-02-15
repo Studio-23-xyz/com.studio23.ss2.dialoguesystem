@@ -89,7 +89,7 @@
 
 
   <h1 id="Studio23_SS2_DialogueSystem_Data_DialogueStartNode" data-uid="Studio23.SS2.DialogueSystem.Data.DialogueStartNode" class="text-break">
-Class DialogueStartNode  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.dialoguesystem/blob/main/Assets/Packages/com.studio23.ss2.dialoguesystem/Runtime/Data/xNode/Node/DialogueStartNode.cs/#L5"><i class="bi bi-code-slash"></i></a>
+Class DialogueStartNode  <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.dialoguesystem/blob/main/Assets/Packages/com.studio23.ss2.dialoguesystem/Runtime/Data/xNode/Node/DialogueStartNode.cs/#L6"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -136,6 +136,9 @@ Class DialogueStartNode  <a class="header-action link-secondary" title="View sou
       <a class="xref" href="Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase.html#Studio23_SS2_DialogueSystem_Data_DialogueLineNodeBase_FMODEvent">DialogueLineNodeBase.FMODEvent</a>
     </div>
     <div>
+      <a class="xref" href="Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase.html#Studio23_SS2_DialogueSystem_Data_DialogueLineNodeBase_Exit">DialogueLineNodeBase.Exit</a>
+    </div>
+    <div>
       <a class="xref" href="Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase.html#Studio23_SS2_DialogueSystem_Data_DialogueLineNodeBase_Events">DialogueLineNodeBase.Events</a>
     </div>
     <div>
@@ -169,13 +172,14 @@ Class DialogueStartNode  <a class="header-action link-secondary" title="View sou
 
 
 
-  <h2 class="section" id="fields">Fields
+  <h2 class="section" id="methods">Methods
 </h2>
 
 
+  <a id="Studio23_SS2_DialogueSystem_Data_DialogueStartNode_GetValue_" data-uid="Studio23.SS2.DialogueSystem.Data.DialogueStartNode.GetValue*"></a>
 
-  <h3 id="Studio23_SS2_DialogueSystem_Data_DialogueStartNode_Exit" data-uid="Studio23.SS2.DialogueSystem.Data.DialogueStartNode.Exit">
-  Exit
+  <h3 id="Studio23_SS2_DialogueSystem_Data_DialogueStartNode_GetValue_NodePort_" data-uid="Studio23.SS2.DialogueSystem.Data.DialogueStartNode.GetValue(NodePort)">
+  GetValue(NodePort)
   <a class="header-action link-secondary" title="View source" href="https://github.com/Studio-23-xyz/com.studio23.ss2.dialoguesystem/blob/main/Assets/Packages/com.studio23.ss2.dialoguesystem/Runtime/Data/xNode/Node/DialogueStartNode.cs/#L9"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -183,17 +187,22 @@ Class DialogueStartNode  <a class="header-action link-secondary" title="View sou
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int Exit</code></pre>
+    <pre><code class="lang-csharp hljs">public override object GetValue(NodePort port)</code></pre>
   </div>
 
-
-
-
-  <h4 class="section">Field Value</h4>
+  <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dt><code>port</code> <span class="xref">NodePort</span></dt>
     <dd></dd>
   </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+
 
 
 
