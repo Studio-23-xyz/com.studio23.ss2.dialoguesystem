@@ -230,7 +230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4ea025ed7d24ba45bbd001f88df602b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentGraph: {fileID: 11400000, guid: 16881f750c7cfb14d9b348fc8b3008e6, type: 2}
+  _currentGraph: {fileID: 11400000, guid: a52bd472061ea824089a21ac012b405b, type: 2}
   _curNode: {fileID: 0}
 --- !u!114 &956320142
 MonoBehaviour:
@@ -352,7 +352,7 @@ Camera:
   m_GameObject: {fileID: 963194225}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 2
+  m_ClearFlags: 1
   m_BackGroundColor: {r: 0.4811321, g: 0.4811321, b: 0.4811321, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -1288,9 +1288,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_StringReference:
     m_TableReference:
-      m_TableCollectionName: GUID:86a08eccdabf3a24e812720793183e8e
+      m_TableCollectionName: GUID:2fefaa175576a0e48bf5b28cb5260137
     m_TableEntryReference:
-      m_KeyId: 5198200614912
+      m_KeyId: 57598717952
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0

@@ -16,14 +16,14 @@ MonoBehaviour:
   position: {x: -600, y: 1064}
   ports:
     keys:
-    - Entry
+    - ParentChoice
     - Exit
     - Events
     values:
-    - _fieldName: Entry
+    - _fieldName: ParentChoice
       _node: {fileID: -7258830810515598621}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
+      _typeQualifiedName: Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode, com.studio23.ss2.dialoguesystem,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: Choices
         node: {fileID: 8927815714544073783}
@@ -34,21 +34,21 @@ MonoBehaviour:
       _dynamic: 0
     - _fieldName: Exit
       _node: {fileID: -7258830810515598621}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
+      _typeQualifiedName: Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase,
+        com.studio23.ss2.dialoguesystem, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections: []
       _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
+      _connectionType: 1
+      _typeConstraint: 2
       _dynamic: 0
     - _fieldName: Events
       _node: {fileID: -7258830810515598621}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
+      _typeQualifiedName: Studio23.SS2.DialogueSystem.Data.EventNodeBase, com.studio23.ss2.dialoguesystem,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections: []
       _direction: 1
       _connectionType: 0
-      _typeConstraint: 0
+      _typeConstraint: 3
       _dynamic: 0
   DialogueLocalizedString:
     m_TableReference:
@@ -62,9 +62,9 @@ MonoBehaviour:
   ID: 
   Reaction: 
   FMODEvent: 
-  Events: 0
-  Entry: 0
-  Exit: 0
+  Exit: {fileID: 0}
+  Events: {fileID: 0}
+  ParentChoice: {fileID: 0}
   _conditions:
   - rid: 4806151239593623552
   references:
@@ -96,9 +96,12 @@ MonoBehaviour:
     values:
     - _fieldName: Entry
       _node: {fileID: -6489933969369151722}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
+      _typeQualifiedName: Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase,
+        com.studio23.ss2.dialoguesystem, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
+      - fieldName: Exit
+        node: {fileID: -7258830810515598621}
+        reroutePoints: []
       - fieldName: Exit
         node: {fileID: 1247732052999767825}
         reroutePoints: []
@@ -108,24 +111,24 @@ MonoBehaviour:
       _dynamic: 0
     - _fieldName: Exit
       _node: {fileID: -6489933969369151722}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
+      _typeQualifiedName: Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase,
+        com.studio23.ss2.dialoguesystem, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: Entry
         node: {fileID: 8927815714544073783}
         reroutePoints: []
       _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
+      _connectionType: 1
+      _typeConstraint: 2
       _dynamic: 0
     - _fieldName: Events
       _node: {fileID: -6489933969369151722}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
+      _typeQualifiedName: Studio23.SS2.DialogueSystem.Data.EventNodeBase, com.studio23.ss2.dialoguesystem,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections: []
       _direction: 1
       _connectionType: 0
-      _typeConstraint: 0
+      _typeConstraint: 3
       _dynamic: 0
   DialogueLocalizedString:
     m_TableReference:
@@ -139,9 +142,9 @@ MonoBehaviour:
   ID: 
   Reaction: 
   FMODEvent: 
-  Events: 0
-  Entry: 558
-  Exit: 0
+  Exit: {fileID: 0}
+  Events: {fileID: 0}
+  Entry: {fileID: 0}
   references:
     version: 2
     RefIds: []
@@ -167,8 +170,8 @@ MonoBehaviour:
     values:
     - _fieldName: Entry
       _node: {fileID: -6227106332496004794}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
+      _typeQualifiedName: Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase,
+        com.studio23.ss2.dialoguesystem, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: Exit
         node: {fileID: -2976715106930901999}
@@ -179,24 +182,24 @@ MonoBehaviour:
       _dynamic: 0
     - _fieldName: Exit
       _node: {fileID: -6227106332496004794}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
+      _typeQualifiedName: Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase,
+        com.studio23.ss2.dialoguesystem, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: Entry
         node: {fileID: 8927815714544073783}
         reroutePoints: []
       _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
+      _connectionType: 1
+      _typeConstraint: 2
       _dynamic: 0
     - _fieldName: Events
       _node: {fileID: -6227106332496004794}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
+      _typeQualifiedName: Studio23.SS2.DialogueSystem.Data.EventNodeBase, com.studio23.ss2.dialoguesystem,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections: []
       _direction: 1
       _connectionType: 0
-      _typeConstraint: 0
+      _typeConstraint: 3
       _dynamic: 0
   DialogueLocalizedString:
     m_TableReference:
@@ -210,9 +213,9 @@ MonoBehaviour:
   ID: 
   Reaction: 
   FMODEvent: 
-  Events: 0
-  Entry: 0
-  Exit: 0
+  Exit: {fileID: 0}
+  Events: {fileID: 0}
+  Entry: {fileID: 0}
   references:
     version: 2
     RefIds: []
@@ -232,14 +235,14 @@ MonoBehaviour:
   position: {x: -648, y: -424}
   ports:
     keys:
-    - Entry
+    - ParentChoice
     - Exit
     - Events
     values:
-    - _fieldName: Entry
+    - _fieldName: ParentChoice
       _node: {fileID: -2988117806070830359}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
+      _typeQualifiedName: Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode, com.studio23.ss2.dialoguesystem,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: Choices
         node: {fileID: 8927815714544073783}
@@ -250,24 +253,24 @@ MonoBehaviour:
       _dynamic: 0
     - _fieldName: Exit
       _node: {fileID: -2988117806070830359}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
+      _typeQualifiedName: Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase,
+        com.studio23.ss2.dialoguesystem, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: Entry
         node: {fileID: 5124243875242287576}
         reroutePoints: []
       _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
+      _connectionType: 1
+      _typeConstraint: 2
       _dynamic: 0
     - _fieldName: Events
       _node: {fileID: -2988117806070830359}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
+      _typeQualifiedName: Studio23.SS2.DialogueSystem.Data.EventNodeBase, com.studio23.ss2.dialoguesystem,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections: []
       _direction: 1
       _connectionType: 0
-      _typeConstraint: 0
+      _typeConstraint: 3
       _dynamic: 0
   DialogueLocalizedString:
     m_TableReference:
@@ -281,9 +284,9 @@ MonoBehaviour:
   ID: 
   Reaction: 
   FMODEvent: 
-  Events: 0
-  Entry: 0
-  Exit: 0
+  Exit: {fileID: 0}
+  Events: {fileID: 0}
+  ParentChoice: {fileID: 0}
   _conditions: []
   references:
     version: 2
@@ -306,13 +309,12 @@ MonoBehaviour:
     keys:
     - Entry
     - Exit
-    - Events 0
     - Events
     values:
     - _fieldName: Entry
       _node: {fileID: -2976715106930901999}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
+      _typeQualifiedName: Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase,
+        com.studio23.ss2.dialoguesystem, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: Exit
         node: {fileID: -1822135301059774123}
@@ -323,33 +325,27 @@ MonoBehaviour:
       _dynamic: 0
     - _fieldName: Exit
       _node: {fileID: -2976715106930901999}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
+      _typeQualifiedName: Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase,
+        com.studio23.ss2.dialoguesystem, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: Entry
         node: {fileID: -6227106332496004794}
         reroutePoints: []
       _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
+      _connectionType: 1
+      _typeConstraint: 2
       _dynamic: 0
-    - _fieldName: Events 0
-      _node: {fileID: -2976715106930901999}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 1
     - _fieldName: Events
       _node: {fileID: -2976715106930901999}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
+      _typeQualifiedName: Studio23.SS2.DialogueSystem.Data.EventNodeBase, com.studio23.ss2.dialoguesystem,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: TriggeringNode
+        node: {fileID: -1304441183474376835}
+        reroutePoints: []
       _direction: 1
       _connectionType: 0
-      _typeConstraint: 0
+      _typeConstraint: 3
       _dynamic: 0
   DialogueLocalizedString:
     m_TableReference:
@@ -363,9 +359,9 @@ MonoBehaviour:
   ID: 
   Reaction: 
   FMODEvent: 
-  Events: 0
-  Entry: 0
-  Exit: 0
+  Exit: {fileID: 0}
+  Events: {fileID: 0}
+  Entry: {fileID: 0}
   references:
     version: 2
     RefIds: []
@@ -382,42 +378,32 @@ MonoBehaviour:
   m_Name: Dialogue Start
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -2376, y: -216}
+  position: {x: -2536, y: -392}
   ports:
     keys:
     - Exit
-    - Events 0
     - Events
     values:
     - _fieldName: Exit
       _node: {fileID: -1822135301059774123}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
+      _typeQualifiedName: Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase,
+        com.studio23.ss2.dialoguesystem, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: Entry
         node: {fileID: -2976715106930901999}
         reroutePoints: []
       _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
+      _connectionType: 1
+      _typeConstraint: 2
       _dynamic: 0
-    - _fieldName: Events 0
-      _node: {fileID: -1822135301059774123}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 1
     - _fieldName: Events
       _node: {fileID: -1822135301059774123}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
+      _typeQualifiedName: Studio23.SS2.DialogueSystem.Data.EventNodeBase, com.studio23.ss2.dialoguesystem,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections: []
       _direction: 1
       _connectionType: 0
-      _typeConstraint: 0
+      _typeConstraint: 3
       _dynamic: 0
   DialogueLocalizedString:
     m_TableReference:
@@ -431,11 +417,45 @@ MonoBehaviour:
   ID: 
   Reaction: 
   FMODEvent: 
-  Events: 0
-  Exit: 0
+  Exit: {fileID: 0}
+  Events: {fileID: 0}
   references:
     version: 2
     RefIds: []
+--- !u!114 &-1304441183474376835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15f374202db79ae42ac267b0047a95ef, type: 3}
+  m_Name: Event
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -1704, y: 312}
+  ports:
+    keys:
+    - TriggeringNode
+    values:
+    - _fieldName: TriggeringNode
+      _node: {fileID: -1304441183474376835}
+      _typeQualifiedName: Studio23.SS2.DialogueSystem.Data.EventNodeBase, com.studio23.ss2.dialoguesystem,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Events
+        node: {fileID: -2976715106930901999}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 2
+      _dynamic: 0
+  TriggeringNode: {fileID: 0}
+  Event:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -461,6 +481,7 @@ MonoBehaviour:
   - {fileID: 7322660833987517088}
   - {fileID: -2988117806070830359}
   - {fileID: 401710227361937087}
+  - {fileID: -1304441183474376835}
   SkippableDialogue: 0
   _startNode: {fileID: -1822135301059774123}
   _conditions: []
@@ -480,7 +501,7 @@ MonoBehaviour:
   m_Name: Test Bool
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 0, y: 0}
+  position: {x: 264, y: -24}
   ports:
     keys: []
     values: []
@@ -501,14 +522,14 @@ MonoBehaviour:
   position: {x: -600, y: 584}
   ports:
     keys:
-    - Entry
+    - ParentChoice
     - Exit
     - Events
     values:
-    - _fieldName: Entry
+    - _fieldName: ParentChoice
       _node: {fileID: 1247732052999767825}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
+      _typeQualifiedName: Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode, com.studio23.ss2.dialoguesystem,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: Choices
         node: {fileID: 8927815714544073783}
@@ -519,24 +540,24 @@ MonoBehaviour:
       _dynamic: 0
     - _fieldName: Exit
       _node: {fileID: 1247732052999767825}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
+      _typeQualifiedName: Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase,
+        com.studio23.ss2.dialoguesystem, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: Entry
         node: {fileID: -6489933969369151722}
         reroutePoints: []
       _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
+      _connectionType: 1
+      _typeConstraint: 2
       _dynamic: 0
     - _fieldName: Events
       _node: {fileID: 1247732052999767825}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
+      _typeQualifiedName: Studio23.SS2.DialogueSystem.Data.EventNodeBase, com.studio23.ss2.dialoguesystem,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections: []
       _direction: 1
       _connectionType: 0
-      _typeConstraint: 0
+      _typeConstraint: 3
       _dynamic: 0
   DialogueLocalizedString:
     m_TableReference:
@@ -550,9 +571,9 @@ MonoBehaviour:
   ID: 
   Reaction: 
   FMODEvent: 
-  Events: 0
-  Entry: 0
-  Exit: 0
+  Exit: {fileID: 0}
+  Events: {fileID: 0}
+  ParentChoice: {fileID: 0}
   _conditions: []
   references:
     version: 2
@@ -579,8 +600,8 @@ MonoBehaviour:
     values:
     - _fieldName: Entry
       _node: {fileID: 5124243875242287576}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
+      _typeQualifiedName: Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase,
+        com.studio23.ss2.dialoguesystem, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: Exit
         node: {fileID: -2988117806070830359}
@@ -591,21 +612,21 @@ MonoBehaviour:
       _dynamic: 0
     - _fieldName: Exit
       _node: {fileID: 5124243875242287576}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
+      _typeQualifiedName: Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase,
+        com.studio23.ss2.dialoguesystem, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections: []
       _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
+      _connectionType: 1
+      _typeConstraint: 2
       _dynamic: 0
     - _fieldName: Events
       _node: {fileID: 5124243875242287576}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
+      _typeQualifiedName: Studio23.SS2.DialogueSystem.Data.EventNodeBase, com.studio23.ss2.dialoguesystem,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections: []
       _direction: 1
       _connectionType: 0
-      _typeConstraint: 0
+      _typeConstraint: 3
       _dynamic: 0
   DialogueLocalizedString:
     m_TableReference:
@@ -619,9 +640,9 @@ MonoBehaviour:
   ID: 
   Reaction: 
   FMODEvent: 
-  Events: 0
-  Entry: 0
-  Exit: 0
+  Exit: {fileID: 0}
+  Events: {fileID: 0}
+  Entry: {fileID: 0}
   references:
     version: 2
     RefIds: []
@@ -641,14 +662,14 @@ MonoBehaviour:
   position: {x: -520, y: 40}
   ports:
     keys:
-    - Entry
+    - ParentChoice
     - Exit
     - Events
     values:
-    - _fieldName: Entry
+    - _fieldName: ParentChoice
       _node: {fileID: 7322660833987517088}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
+      _typeQualifiedName: Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode, com.studio23.ss2.dialoguesystem,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: Choices
         node: {fileID: 8927815714544073783}
@@ -659,24 +680,24 @@ MonoBehaviour:
       _dynamic: 0
     - _fieldName: Exit
       _node: {fileID: 7322660833987517088}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
+      _typeQualifiedName: Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase,
+        com.studio23.ss2.dialoguesystem, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: Entry
         node: {fileID: 8111244045218751293}
         reroutePoints: []
       _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
+      _connectionType: 1
+      _typeConstraint: 2
       _dynamic: 0
     - _fieldName: Events
       _node: {fileID: 7322660833987517088}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
+      _typeQualifiedName: Studio23.SS2.DialogueSystem.Data.EventNodeBase, com.studio23.ss2.dialoguesystem,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections: []
       _direction: 1
       _connectionType: 0
-      _typeConstraint: 0
+      _typeConstraint: 3
       _dynamic: 0
   DialogueLocalizedString:
     m_TableReference:
@@ -690,9 +711,9 @@ MonoBehaviour:
   ID: 
   Reaction: 
   FMODEvent: 
-  Events: 0
-  Entry: 0
-  Exit: 0
+  Exit: {fileID: 0}
+  Events: {fileID: 0}
+  ParentChoice: {fileID: 0}
   _conditions: []
   references:
     version: 2
@@ -719,8 +740,8 @@ MonoBehaviour:
     values:
     - _fieldName: Entry
       _node: {fileID: 8111244045218751293}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
+      _typeQualifiedName: Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase,
+        com.studio23.ss2.dialoguesystem, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: Exit
         node: {fileID: 7322660833987517088}
@@ -731,21 +752,21 @@ MonoBehaviour:
       _dynamic: 0
     - _fieldName: Exit
       _node: {fileID: 8111244045218751293}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
+      _typeQualifiedName: Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase,
+        com.studio23.ss2.dialoguesystem, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections: []
       _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
+      _connectionType: 1
+      _typeConstraint: 2
       _dynamic: 0
     - _fieldName: Events
       _node: {fileID: 8111244045218751293}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
+      _typeQualifiedName: Studio23.SS2.DialogueSystem.Data.EventNodeBase, com.studio23.ss2.dialoguesystem,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections: []
       _direction: 1
       _connectionType: 0
-      _typeConstraint: 0
+      _typeConstraint: 3
       _dynamic: 0
   DialogueLocalizedString:
     m_TableReference:
@@ -759,9 +780,9 @@ MonoBehaviour:
   ID: 
   Reaction: 
   FMODEvent: 
-  Events: 0
-  Entry: 0
-  Exit: 0
+  Exit: {fileID: 0}
+  Events: {fileID: 0}
+  Entry: {fileID: 0}
   references:
     version: 2
     RefIds: []
@@ -786,14 +807,14 @@ MonoBehaviour:
     values:
     - _fieldName: Entry
       _node: {fileID: 8927815714544073783}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
+      _typeQualifiedName: Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase,
+        com.studio23.ss2.dialoguesystem, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: Exit
-        node: {fileID: -6227106332496004794}
+        node: {fileID: -6489933969369151722}
         reroutePoints: []
       - fieldName: Exit
-        node: {fileID: -6489933969369151722}
+        node: {fileID: -6227106332496004794}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -801,24 +822,24 @@ MonoBehaviour:
       _dynamic: 0
     - _fieldName: Choices
       _node: {fileID: 8927815714544073783}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
+      _typeQualifiedName: Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode, com.studio23.ss2.dialoguesystem,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
-      - fieldName: Entry
-        node: {fileID: 1247732052999767825}
+      - fieldName: ParentChoice
+        node: {fileID: 7322660833987517088}
         reroutePoints: []
-      - fieldName: Entry
-        node: {fileID: -7258830810515598621}
-        reroutePoints: []
-      - fieldName: Entry
+      - fieldName: ParentChoice
         node: {fileID: -2988117806070830359}
         reroutePoints: []
-      - fieldName: Entry
-        node: {fileID: 7322660833987517088}
+      - fieldName: ParentChoice
+        node: {fileID: 1247732052999767825}
+        reroutePoints: []
+      - fieldName: ParentChoice
+        node: {fileID: -7258830810515598621}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-  Entry: 0
-  Choices: 0
+  Entry: {fileID: 0}
+  Choices: {fileID: 0}

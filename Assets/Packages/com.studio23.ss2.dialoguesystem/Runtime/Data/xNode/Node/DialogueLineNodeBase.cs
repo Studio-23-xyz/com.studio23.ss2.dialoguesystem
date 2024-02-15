@@ -21,8 +21,11 @@ namespace Studio23.SS2.DialogueSystem.Data
         
         private bool _canAdvanceDialogue;
         
-        [Output()] 
-        public int Events;
+        [Node.Output(typeConstraint = TypeConstraint.Strict, connectionType = ConnectionType.Override)]
+        public DialogueLineNodeBase Exit;
+        
+        [Output(typeConstraint =  TypeConstraint.InheritedInverse)] 
+        public EventNodeBase Events;
 
         public override void HandleDialogueAdvance()
         {
@@ -81,6 +84,18 @@ namespace Studio23.SS2.DialogueSystem.Data
                 return null;
             }
             return outputPort.Connection.node as DialogueNodeBase;
+        }
+        
+        public override object GetValue(NodePort port)
+        {
+            if (port.fieldName == "Exit")
+            {
+                return this;
+            }else if (port.fieldName == "Events")
+            {
+                return null;
+            }
+            return base.GetValue(port);
         }
 
         public override void Initialize()

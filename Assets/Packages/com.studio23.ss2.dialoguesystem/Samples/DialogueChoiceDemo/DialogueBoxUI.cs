@@ -28,6 +28,7 @@ public class DialogueBoxUI : MonoBehaviour
         //#TODO THE UI Shouldn't be responsible for loading the character table
         CharacterTable = Resources.Load<CharacterTable>("DialogueSystem/CharacterTable");
         ApplyConfiguration();
+        HideUI();
         RegisterEvents();
     }
 
@@ -113,6 +114,7 @@ public class DialogueBoxUI : MonoBehaviour
     private void ShowUI()
     {
         UIRoot.SetActive(true);
+        BackgroundImage.gameObject.SetActive(true);
     }
 
     private void HideUI(DialogueGraph graph)
@@ -123,6 +125,7 @@ public class DialogueBoxUI : MonoBehaviour
     private void HideUI()
     {
         UIRoot.SetActive(false);
+        BackgroundImage.gameObject.SetActive(false);
     }
 
    
