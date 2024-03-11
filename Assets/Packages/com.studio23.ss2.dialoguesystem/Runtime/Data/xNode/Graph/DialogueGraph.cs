@@ -62,8 +62,9 @@ namespace Studio23.SS2.DialogueSystem.Data
             {
                 if (node is DialogueLineNodeBase dialogueLineNodeBase)
                 {
-                    if (string.IsNullOrEmpty(table.TableCollectionName))
+                    if (string.IsNullOrEmpty(dialogueLineNodeBase.GetLocalizationTable().TableCollectionName))
                     {
+                        Debug.LogWarning($"{dialogueLineNodeBase} replace table to {table}");
                         dialogueLineNodeBase.SetLocalizationTable(table);
                     }
                 }
