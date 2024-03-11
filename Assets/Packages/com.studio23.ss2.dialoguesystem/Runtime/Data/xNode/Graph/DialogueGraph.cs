@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Studio23.SS2.DialogueSystem.Runtime.Data;
 using UnityEngine;
+using UnityEngine.Localization.Tables;
 using UnityEngine.Serialization;
 using XNode;
 
@@ -27,6 +28,47 @@ namespace Studio23.SS2.DialogueSystem.Data
         private bool _initialized = false;
         public event Action<DialogueGraph> OnDialogueStarted;
         public event Action<DialogueGraph> OnDialogueEnded;
+        [SerializeField] private TableReference _defaultTable;
+
+        public override Node AddNode(Type type)
+        {
+            var node = base.AddNode(type);
+            
+            if (node is DialogueLineNodeBase dialogueNodeBase)
+            {
+                dialogueNodeBase.SetLocalizationTable(GetDefaultTable());
+            }
+            
+            return node;
+        }
+
+        public TableReference GetDefaultTable()
+        {
+            var firstNode = FindStartNode() as DialogueLineNodeBase;
+            if (firstNode != null)
+            {
+                firstNode.GetLocalizationTable();
+            }
+
+            return default;
+        }
+
+        [ContextMenu("SET ALL DIALOGUE TABLES")]
+        public void SetAllDialogueTables()
+        {
+            var table = GetDefaultTable();
+            
+            foreach (var node in nodes)
+            {
+                if (node is DialogueLineNodeBase dialogueLineNodeBase)
+                {
+                    if (string.IsNullOrEmpty(table.TableCollectionName))
+                    {
+                        dialogueLineNodeBase.SetLocalizationTable(table);
+                    }
+                }
+            }
+        }
 
         public void Initialize()
         {
@@ -95,11 +137,16 @@ namespace Studio23.SS2.DialogueSystem.Data
             OnDialogueEnded?.Invoke(this);
         }
 
-        private void FindStartNode()
+        public void SetAllTablesToDefault()
+        {
+            
+        }
+
+        private DialogueNodeBase FindStartNode()
         {
             if (_startNode != null)
             {
-                return;
+                return _startNode;
             }
             foreach (var node in nodes)
             {
@@ -107,11 +154,12 @@ namespace Studio23.SS2.DialogueSystem.Data
                 if (node is DialogueStartNode startNode)
                 {
                     _startNode = startNode;
-                    return;
+                    return _startNode;
                 }
             }
 
             Debug.LogError($"NO START NODE FOR DIALOGUE GRAPH {this}");
+            return null;
         }
 
     }

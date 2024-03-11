@@ -23,5 +23,6 @@ namespace Studio23.SS2.DialogueSystem.Data
             base.OnBodyGUI();
             EditorStyles.label.normal = editorLabelStyle.normal;
         }
+        
     }
 }

@@ -4,6 +4,7 @@ using Cysharp.Threading.Tasks;
 using Studio23.SS2.DialogueSystem.Utility;
 using UnityEngine;
 using UnityEngine.Localization;
+using UnityEngine.Localization.Tables;
 using UnityEngine.Serialization;
 using XNode;
 
@@ -98,6 +99,17 @@ namespace Studio23.SS2.DialogueSystem.Data
             return base.GetValue(port);
         }
 
+        public void SetLocalizationTable(TableReference table)
+        {
+            DialogueLocalizedString = new LocalizedString();
+            DialogueLocalizedString.TableReference = table;
+        }
+        
+        public TableReference GetLocalizationTable()
+        {
+            return DialogueLocalizedString.TableReference;
+        }
+        
         public override void Initialize()
         {
             
