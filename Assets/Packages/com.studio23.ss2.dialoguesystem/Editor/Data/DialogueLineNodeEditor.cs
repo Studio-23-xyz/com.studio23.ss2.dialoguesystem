@@ -2,6 +2,7 @@ using Studio23.SS2.DialogueSystem.Utility;
 using UnityEditor;
 using UnityEditor.Localization;
 using UnityEngine;
+using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
 using UnityEngine.Localization.Tables;
 using XNodeEditor;
@@ -17,6 +18,9 @@ namespace Studio23.SS2.DialogueSystem.Data
 
         public override void OnBodyGUI()
         {
+            // Update serialized object's representation
+            serializedObject.Update();
+            
             var dialogueLineNode = target as DialogueLineNodeBase;
             
             var collection = LocalizationEditorSettings.GetStringTableCollection(dialogueLineNode.DialogueLocalizedString.TableReference);
@@ -33,10 +37,17 @@ namespace Studio23.SS2.DialogueSystem.Data
                 {
                     if (GUILayout.Button("Create localized line"))
                     {
-                        var key = collection.SharedData.KeyGenerator.GetNextKey();
-                        englishTable.AddEntry(key, _prevText);
+                        // var key = collection.SharedData.KeyGenerator.GetNextKey();
+                        var key = _prevText.Substring(0, Mathf.Min(10, _prevText.Length));
+                        collection.SharedData.AddKey(key);
+                        entry = englishTable.AddEntry(key, _prevText);
                         Debug.Log($"new dialogue line entry {_prevText}");
                         englishTable.SaveChanges();
+
+                        dialogueLineNode.DialogueLocalizedString =
+                            new LocalizedString(collection.SharedData.TableCollectionNameGuid, entry.KeyId);
+                        
+                        EditorUtility.SetDirty(dialogueLineNode);
                     }
                 }
                 
@@ -51,6 +62,7 @@ namespace Studio23.SS2.DialogueSystem.Data
                     if (GUILayout.Button("SAVE"))
                     {
                         Debug.Log($"{_prevText} -> {text}");
+                        _prevText = text;
                         englishTable.SetEntry(dialogueLineNode.DialogueLocalizedString, text);
                         englishTable.SaveChanges();
                     }
@@ -61,8 +73,7 @@ namespace Studio23.SS2.DialogueSystem.Data
                 }
             }
             
-            // Update serialized object's representation
-            serializedObject.Update();
+
             base.OnBodyGUI();
         }
         

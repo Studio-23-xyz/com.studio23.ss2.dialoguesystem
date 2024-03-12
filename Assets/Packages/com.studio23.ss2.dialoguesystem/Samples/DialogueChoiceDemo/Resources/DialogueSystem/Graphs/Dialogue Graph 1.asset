@@ -36,7 +36,10 @@ MonoBehaviour:
       _node: {fileID: -7258830810515598621}
       _typeQualifiedName: Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase,
         com.studio23.ss2.dialoguesystem, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: Entry
+        node: {fileID: 6022568079002662684}
+        reroutePoints: []
       _direction: 1
       _connectionType: 1
       _typeConstraint: 2
@@ -365,6 +368,74 @@ MonoBehaviour:
   references:
     version: 2
     RefIds: []
+--- !u!114 &-1934156710639609602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48d06dc387b74e7488469df7255a04c5, type: 3}
+  m_Name: Bi Way Dialogue
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 278.29416, y: 1606.5487}
+  ports:
+    keys:
+    - Entry
+    - Exit
+    - Events
+    values:
+    - _fieldName: Entry
+      _node: {fileID: -1934156710639609602}
+      _typeQualifiedName: Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase,
+        com.studio23.ss2.dialoguesystem, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Exit
+        node: {fileID: 6022568079002662684}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Exit
+      _node: {fileID: -1934156710639609602}
+      _typeQualifiedName: Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase,
+        com.studio23.ss2.dialoguesystem, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: Events
+      _node: {fileID: -1934156710639609602}
+      _typeQualifiedName: Studio23.SS2.DialogueSystem.Data.EventNodeBase, com.studio23.ss2.dialoguesystem,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 3
+      _dynamic: 0
+  DialogueLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: GUID:2fefaa175576a0e48bf5b28cb5260137
+    m_TableEntryReference:
+      m_KeyId: 19495451646930944
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  ID: 
+  Reaction: 
+  FMODEvent: 
+  Exit: {fileID: 0}
+  Events: {fileID: 0}
+  Entry: {fileID: 0}
+  references:
+    version: 2
+    RefIds: []
 --- !u!114 &-1822135301059774123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -482,6 +553,8 @@ MonoBehaviour:
   - {fileID: -2988117806070830359}
   - {fileID: 401710227361937087}
   - {fileID: -1304441183474376835}
+  - {fileID: 6022568079002662684}
+  - {fileID: -1934156710639609602}
   SkippableDialogue: 0
   _startNode: {fileID: -1822135301059774123}
   _conditions: []
@@ -633,6 +706,77 @@ MonoBehaviour:
       m_TableCollectionName: GUID:2fefaa175576a0e48bf5b28cb5260137
     m_TableEntryReference:
       m_KeyId: 714133123072
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  ID: 
+  Reaction: 
+  FMODEvent: 
+  Exit: {fileID: 0}
+  Events: {fileID: 0}
+  Entry: {fileID: 0}
+  references:
+    version: 2
+    RefIds: []
+--- !u!114 &6022568079002662684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48d06dc387b74e7488469df7255a04c5, type: 3}
+  m_Name: Bi Way Dialogue
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -118.94623, y: 1414.0902}
+  ports:
+    keys:
+    - Entry
+    - Exit
+    - Events
+    values:
+    - _fieldName: Entry
+      _node: {fileID: 6022568079002662684}
+      _typeQualifiedName: Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase,
+        com.studio23.ss2.dialoguesystem, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Exit
+        node: {fileID: -7258830810515598621}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Exit
+      _node: {fileID: 6022568079002662684}
+      _typeQualifiedName: Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase,
+        com.studio23.ss2.dialoguesystem, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Entry
+        node: {fileID: -1934156710639609602}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: Events
+      _node: {fileID: 6022568079002662684}
+      _typeQualifiedName: Studio23.SS2.DialogueSystem.Data.EventNodeBase, com.studio23.ss2.dialoguesystem,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 3
+      _dynamic: 0
+  DialogueLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: GUID:2fefaa175576a0e48bf5b28cb5260137
+    m_TableEntryReference:
+      m_KeyId: 19494905775042560
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
