@@ -14,7 +14,7 @@ namespace Studio23.SS2.DialogueSystem.Data
     {
 
         public static string DEFAULT_LOCALE = "en";
-        private string _prevText;
+        private string _text;
 
         public override void OnBodyGUI()
         {
@@ -28,8 +28,9 @@ namespace Studio23.SS2.DialogueSystem.Data
             var entry = englishTable.GetEntry(dialogueLineNode.DialogueLocalizedString.TableEntryReference.KeyId);
             if (entry == null)
             {
-                _prevText = EditorGUILayout.TextArea(_prevText);
-                if(string.IsNullOrEmpty(_prevText))
+                _text = EditorGUILayout.TextArea(_text);
+                
+                if(string.IsNullOrEmpty(_text))
                 {
                     EditorGUILayout.HelpBox("Write something", MessageType.Warning);
                 }
@@ -38,15 +39,16 @@ namespace Studio23.SS2.DialogueSystem.Data
                     if (GUILayout.Button("Create localized line"))
                     {
                         // var key = collection.SharedData.KeyGenerator.GetNextKey();
-                        var key = _prevText.Substring(0, Mathf.Min(10, _prevText.Length));
+                        var key = _text.Substring(0, Mathf.Min(10, _text.Length));
                         collection.SharedData.AddKey(key);
-                        entry = englishTable.AddEntry(key, _prevText);
-                        Debug.Log($"new dialogue line entry {_prevText}");
+                        entry = englishTable.AddEntry(key, _text);
+                        
+                        Debug.Log($"new dialogue line entry {_text}");
+                        
                         englishTable.SaveChanges();
-
+                        
                         dialogueLineNode.DialogueLocalizedString =
                             new LocalizedString(collection.SharedData.TableCollectionNameGuid, entry.KeyId);
-                        
                         EditorUtility.SetDirty(dialogueLineNode);
                     }
                 }
@@ -54,22 +56,26 @@ namespace Studio23.SS2.DialogueSystem.Data
             }
             else
             {
-                _prevText = entry.Value;
-                var text = EditorGUILayout.TextArea(_prevText);
-                if (_prevText != text)
+                var localizedText = entry.Value;
+                if (string.IsNullOrEmpty(_text))
+                {
+                    _text = localizedText;
+                }
+                _text = EditorGUILayout.TextArea(_text);
+                if (_text != localizedText)
                 {
                     EditorGUILayout.HelpBox("Localized string doesn't match. PLEASE SAVE", MessageType.Warning);
                     if (GUILayout.Button("SAVE"))
                     {
-                        Debug.Log($"{_prevText} -> {text}");
-                        _prevText = text;
-                        englishTable.SetEntry(dialogueLineNode.DialogueLocalizedString, text);
+                        Debug.Log($"{localizedText} -> {_text}");
+                        englishTable.SetEntry(dialogueLineNode.DialogueLocalizedString, _text);
                         englishTable.SaveChanges();
+                        dialogueLineNode.DialogueLocalizedString.RefreshString();
+                        EditorUtility.SetDirty(dialogueLineNode);
+                    }else if (GUILayout.Button("RESET"))
+                    {
+                        _text = localizedText;
                     }
-
-                    // prevText = e.Value
-                    // dialogueLineNode.DialogueLocalizedString.se
-                    // dialogueLineNode.DialogueLocalizedString
                 }
             }
             
