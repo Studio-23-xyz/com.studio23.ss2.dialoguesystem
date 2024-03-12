@@ -28,7 +28,7 @@ namespace Studio23.SS2.DialogueSystem.Data
         private bool _initialized = false;
         public event Action<DialogueGraph> OnDialogueStarted;
         public event Action<DialogueGraph> OnDialogueEnded;
-        [SerializeField] private TableReference _defaultTable;
+
 
         public override Node AddNode(Type type)
         {
@@ -47,7 +47,7 @@ namespace Studio23.SS2.DialogueSystem.Data
             var firstNode = FindStartNode() as DialogueLineNodeBase;
             if (firstNode != null)
             {
-                firstNode.GetLocalizationTable();
+                return firstNode.GetLocalizationTable();
             }
 
             return default;

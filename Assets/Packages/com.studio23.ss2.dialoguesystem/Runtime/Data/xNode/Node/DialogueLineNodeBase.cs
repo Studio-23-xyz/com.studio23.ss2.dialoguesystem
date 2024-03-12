@@ -109,7 +109,8 @@ namespace Studio23.SS2.DialogueSystem.Data
         {
             return DialogueLocalizedString.TableReference;
         }
-        
+
+        public string GetLocalizedLineTextInstant() => DialogueLocalizedString.GetLocalizedString();
         public override void Initialize()
         {
             
