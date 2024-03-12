@@ -621,6 +621,7 @@ MonoBehaviour:
   - {fileID: 6022568079002662684}
   - {fileID: -1934156710639609602}
   - {fileID: -2134849642463621259}
+  - {fileID: 4547693736577939076}
   SkippableDialogue: 0
   _startNode: {fileID: -1822135301059774123}
   _conditions: []
@@ -714,6 +715,60 @@ MonoBehaviour:
   Events: {fileID: 0}
   ParentChoice: {fileID: 0}
   _conditions: []
+  references:
+    version: 2
+    RefIds: []
+--- !u!114 &4547693736577939076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 355a0d9d6b03be74a88929f9896d76d4, type: 3}
+  m_Name: Dialogue Start
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -2536, y: 296}
+  ports:
+    keys:
+    - Exit
+    - Events
+    values:
+    - _fieldName: Exit
+      _node: {fileID: 4547693736577939076}
+      _typeQualifiedName: Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase,
+        com.studio23.ss2.dialoguesystem, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: Events
+      _node: {fileID: 4547693736577939076}
+      _typeQualifiedName: Studio23.SS2.DialogueSystem.Data.EventNodeBase, com.studio23.ss2.dialoguesystem,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 3
+      _dynamic: 0
+  DialogueLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: GUID:2fefaa175576a0e48bf5b28cb5260137
+    m_TableEntryReference:
+      m_KeyId: 19520054658248704
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  ID: 
+  Reaction: 
+  FMODEvent: 
+  Exit: {fileID: 0}
+  Events: {fileID: 0}
   references:
     version: 2
     RefIds: []

@@ -39,17 +39,7 @@ namespace Studio23.SS2.DialogueSystem.Data
                     if (GUILayout.Button("Create localized line"))
                     {
                         // var key = collection.SharedData.KeyGenerator.GetNextKey();
-                        var key = _text.Substring(0, Mathf.Min(10, _text.Length));
-                        collection.SharedData.AddKey(key);
-                        entry = englishTable.AddEntry(key, _text);
-                        
-                        Debug.Log($"new dialogue line entry {_text}");
-                        
-                        englishTable.SaveChanges();
-                        
-                        dialogueLineNode.DialogueLocalizedString =
-                            new LocalizedString(collection.SharedData.TableCollectionNameGuid, entry.KeyId);
-                        EditorUtility.SetDirty(dialogueLineNode);
+                        CreateNewEntry(collection, englishTable, dialogueLineNode);
                     }
                 }
                 
@@ -77,11 +67,31 @@ namespace Studio23.SS2.DialogueSystem.Data
                         _text = localizedText;
                     }
                 }
+                if (GUILayout.Button("Replace with new Entry"))
+                {
+                    CreateNewEntry(collection, englishTable, dialogueLineNode);
+                }
             }
             
 
             base.OnBodyGUI();
         }
-        
+
+        private void CreateNewEntry(StringTableCollection collection, StringTable englishTable,
+            DialogueLineNodeBase dialogueLineNode)
+        {
+            StringTableEntry entry;
+            var key = _text.Substring(0, Mathf.Min(10, _text.Length));
+            collection.SharedData.AddKey(key);
+            entry = englishTable.AddEntry(key, _text);
+                        
+            Debug.Log($"new dialogue line entry {_text}");
+                        
+            englishTable.SaveChanges();
+                        
+            dialogueLineNode.DialogueLocalizedString =
+                new LocalizedString(collection.SharedData.TableCollectionNameGuid, entry.KeyId);
+            EditorUtility.SetDirty(dialogueLineNode);
+        }
     }
 }
