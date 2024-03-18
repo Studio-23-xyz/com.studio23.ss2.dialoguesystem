@@ -22,7 +22,13 @@ namespace Studio23.SS2.DialogueSystem.Data
             serializedObject.Update();
             
             var dialogueLineNode = target as DialogueLineNodeBase;
-            
+            DrawLocalizationStringHelperGUI(dialogueLineNode);
+
+            base.OnBodyGUI();
+        }
+
+        private void DrawLocalizationStringHelperGUI(DialogueLineNodeBase dialogueLineNode)
+        {
             var collection = LocalizationEditorSettings.GetStringTableCollection(dialogueLineNode.DialogueLocalizedString.TableReference);
             var englishTable = collection.GetTable(DEFAULT_LOCALE) as StringTable;
             var entry = englishTable.GetEntry(dialogueLineNode.DialogueLocalizedString.TableEntryReference.KeyId);
@@ -42,7 +48,6 @@ namespace Studio23.SS2.DialogueSystem.Data
                         CreateNewEntry(collection, englishTable, dialogueLineNode);
                     }
                 }
-                
             }
             else
             {
@@ -72,9 +77,6 @@ namespace Studio23.SS2.DialogueSystem.Data
                     CreateNewEntry(collection, englishTable, dialogueLineNode);
                 }
             }
-            
-
-            base.OnBodyGUI();
         }
 
         private void CreateNewEntry(StringTableCollection collection, StringTable englishTable,

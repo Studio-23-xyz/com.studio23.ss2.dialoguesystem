@@ -17,16 +17,12 @@ public class DialogueBoxUI : MonoBehaviour
     public Image BackgroundImage;
     public GameObject UIRoot;
 
-    public CharacterTable CharacterTable;
-
     [Header("Configuration")]
     [SerializeField] private SubtitleSettings _config;
 
 
     void Start()
     {
-        //#TODO THE UI Shouldn't be responsible for loading the character table
-        CharacterTable = Resources.Load<CharacterTable>("DialogueSystem/CharacterTable");
         ApplyConfiguration();
         HideUI();
         RegisterEvents();
@@ -78,21 +74,21 @@ public class DialogueBoxUI : MonoBehaviour
     private async UniTask ShowDialogueTextAsync(DialogueLineNodeBase nodeBase)
     {
 
-        CharacterData characterData = CharacterTable.GetCharacterData(nodeBase.ID);
-        string text = await TextLocalizer.LoadTextAndWait(nodeBase.DialogueLocalizedString);
-        if (characterData != null)
-        {
-            if (_config.EnableCharacterColor)
-            {
-                text = $"<color=#{characterData.DialogueColor.ToHexString()}>{characterData.CharacterName}</color>:{DialogueTMP.text}";
-            }
-            else
-            {
-                text = $"{characterData.CharacterName}:{DialogueTMP.text}";
-            }
-        }
+        // CharacterData characterData = CharacterTable.GetCharacterData(nodeBase.ID);
+        // string text = await TextLocalizer.LoadTextAndWait(nodeBase.DialogueLocalizedString);
+        // if (characterData != null)
+        // {
+        //     if (_config.EnableCharacterColor)
+        //     {
+        //         text = $"<color=#{characterData.DialogueColor.ToHexString()}>{characterData.CharacterName}</color>:{DialogueTMP.text}";
+        //     }
+        //     else
+        //     {
+        //         text = $"{characterData.CharacterName}:{DialogueTMP.text}";
+        //     }
+        // }
         
-        DialogueTMP.text = text;
+        // DialogueTMP.text = text;
         await UniTask.Delay(TimeSpan.FromSeconds(5), ignoreTimeScale: false);//TODO Dynamic Wait time according to text length
     }
 

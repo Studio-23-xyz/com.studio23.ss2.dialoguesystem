@@ -1,7 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
-
+using UnityEngine.Serialization;
 
 namespace Studio23.SS2.DialogueSystem.Data
 {
@@ -9,16 +10,18 @@ namespace Studio23.SS2.DialogueSystem.Data
     [Serializable]
     public class CharacterData : ScriptableObject
     {
-        public string CharacterID;
         public string CharacterName;
         public Color DialogueColor;
-        public List<CharacterExpressionImage> ExpressionTable;
-    }
+        public List<CharacterExpressionData> Expressions;
 
-    [Serializable]
-    public class CharacterExpressionImage
-    {
-        public string Reaction;
-        public Sprite Image;
+        public CharacterExpressionData GetExpressionByName(string expressionName)
+        {
+            return Expressions.FirstOrDefault(e => e.ExpressionName == expressionName);
+        }
+        
+        public int GetExpressionIndexByName(CharacterExpressionData expressionData)
+        {
+            return Expressions.IndexOf(expressionData);
+        }
     }
 }

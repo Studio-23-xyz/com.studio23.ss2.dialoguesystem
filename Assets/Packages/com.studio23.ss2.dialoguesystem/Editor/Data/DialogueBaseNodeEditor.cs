@@ -10,6 +10,8 @@ namespace Studio23.SS2.DialogueSystem.Data
         public Color TextColor = Color.white;
         private DialogueNodeBase dialogueBase;
         private static GUIStyle editorLabelStyle;
+        
+        
 
         public override void OnBodyGUI()
         {
@@ -22,7 +24,6 @@ namespace Studio23.SS2.DialogueSystem.Data
             EditorStyles.label.normal.textColor = TextColor;
             base.OnBodyGUI();
             EditorStyles.label.normal = editorLabelStyle.normal;
-
         }
         
     }
