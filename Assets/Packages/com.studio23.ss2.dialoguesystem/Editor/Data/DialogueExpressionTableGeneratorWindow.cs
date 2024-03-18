@@ -40,8 +40,8 @@ namespace Studio23.SS2.DialogueSystem.Editor
 
         private void LoadExpressionsTable()
         {
-            var expressions = GetExpressionsTable();
-            properties = expressions.Select(e => new Property(){ name = e }).ToList();
+            FetchExpressionsList();
+            properties = CurrentExpressionsList.Select(e => new Property(){ name = e }).ToList();
         }
 
         private void OnGUI()
@@ -124,8 +124,16 @@ namespace Studio23.SS2.DialogueSystem.Editor
             File.WriteAllText(scriptPath, scriptContent);
             AssetDatabase.Refresh();
         }
-        
-        private List<string> GetExpressionsTable()
+
+        public static List<string> FetchExpressionsList()
+        {
+            CurrentExpressionsList = GetExpressionsTable();
+            return CurrentExpressionsList;
+        }
+
+        public static List<string> CurrentExpressionsList { get; set; }
+
+        static List<string> GetExpressionsTable()
         {
             List<string> list = new List<string>();
             Assembly[] assemblies = AppDomain.CurrentDomain.GetAssemblies();
