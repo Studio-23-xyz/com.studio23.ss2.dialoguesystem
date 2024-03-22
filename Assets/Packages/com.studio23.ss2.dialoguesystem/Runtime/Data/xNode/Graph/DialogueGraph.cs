@@ -64,8 +64,6 @@ namespace Studio23.SS2.DialogueSystem.Data
             return false;
         }
 
-
-
         public void Initialize()
         {
             if (_initialized)
