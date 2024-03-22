@@ -64,25 +64,7 @@ namespace Studio23.SS2.DialogueSystem.Data
             return false;
         }
 
-        [ContextMenu("SET ALL DIALOGUE TABLES")]
-        public void SetAllDialogueTables()
-        {
-            if (!TryGetDefaultTable(out var table))
-            {
-                return;
-            }
-            foreach (var node in nodes)
-            {
-                if (node is DialogueLineNodeBase dialogueLineNodeBase)
-                {
-                    if (string.IsNullOrEmpty(dialogueLineNodeBase.GetLocalizationTable().TableCollectionName))
-                    {
-                        Debug.LogWarning($"{dialogueLineNodeBase} replace table to {table}");
-                        dialogueLineNodeBase.SetLocalizationTable(table);
-                    }
-                }
-            }
-        }
+
 
         public void Initialize()
         {
@@ -160,12 +142,35 @@ namespace Studio23.SS2.DialogueSystem.Data
             }
             foreach (var node in nodes)
             {
-                if (node is DialogueLineNodeBase dialogueNodeBase)
+                if (node is DialogueLineNodeBase dialogueLineNodeBase)
                 {
-                    dialogueNodeBase.SetLocalizationTable(defaultTable);
+                    dialogueLineNodeBase.SetLocalizationTable(defaultTable);
                     # if UNITY_EDITOR
-                    EditorUtility.SetDirty(dialogueNodeBase);
+                    EditorUtility.SetDirty(dialogueLineNodeBase);
                     #endif
+                }
+            }
+        }
+        
+        [ContextMenu("SET ALL Empty  DIALOGUE TABLES to DEFAULT")]
+        public void SetEmptyDialogueTablesToDefault()
+        {
+            if (!TryGetDefaultTable(out var table))
+            {
+                return;
+            }
+            foreach (var node in nodes)
+            {
+                if (node is DialogueLineNodeBase dialogueLineNodeBase)
+                {
+                    if (string.IsNullOrEmpty(dialogueLineNodeBase.GetLocalizationTable().TableCollectionName))
+                    {
+                        Debug.LogWarning($"{dialogueLineNodeBase} replace table to {table}");
+                        dialogueLineNodeBase.SetLocalizationTable(table);
+# if UNITY_EDITOR
+                        EditorUtility.SetDirty(dialogueLineNodeBase);
+#endif
+                    }
                 }
             }
         }
@@ -178,7 +183,6 @@ namespace Studio23.SS2.DialogueSystem.Data
             }
             foreach (var node in nodes)
             {
-                Debug.Log("node " , node);
                 if (node is DialogueStartNode startNode)
                 {
                     _startNode = startNode;
