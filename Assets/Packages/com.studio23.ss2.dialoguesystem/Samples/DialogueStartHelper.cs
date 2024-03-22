@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Studio23.SS2.DialogueSystem.Core;
 using Studio23.SS2.DialogueSystem.Data;
 using UnityEngine;
@@ -21,5 +20,4 @@ namespace Samples
             DialogueSystem.Instance.StartDialogue(_graph);
         }
     }
-    
 }

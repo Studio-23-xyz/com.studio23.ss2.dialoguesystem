@@ -5,7 +5,9 @@ using UnityEngine;
 using UnityEngine.Localization.Tables;
 using UnityEngine.Serialization;
 using XNode;
-
+# if UNITY_EDITOR
+using UnityEditor;
+#endif
 namespace Studio23.SS2.DialogueSystem.Data
 {
     [CreateAssetMenu(menuName = "Studio-23/Dialogue System/New Dialogue Graph", fileName ="Dialogue Graph")]
@@ -29,35 +31,46 @@ namespace Studio23.SS2.DialogueSystem.Data
         public event Action<DialogueGraph> OnDialogueStarted;
         public event Action<DialogueGraph> OnDialogueEnded;
 
-
         public override Node AddNode(Type type)
         {
             var node = base.AddNode(type);
             
-            if (node is DialogueLineNodeBase dialogueNodeBase)
+            if (TryGetDefaultTable(out var defaultTable))
             {
-                dialogueNodeBase.SetLocalizationTable(GetDefaultTable());
+                if (node is DialogueLineNodeBase dialogueNodeBase)
+                {
+                    dialogueNodeBase.SetLocalizationTable(defaultTable);
+                }
             }
             
             return node;
         }
 
-        public TableReference GetDefaultTable()
+        public bool TryGetDefaultTable(out TableReference defaultTableReference)
         {
-            var firstNode = FindStartNode() as DialogueLineNodeBase;
+            defaultTableReference = default;
+            var startNode = FindStartNode();
+            if (startNode == null)
+            {
+                return false;
+            }
+            var firstNode = startNode as DialogueLineNodeBase;
             if (firstNode != null)
             {
-                return firstNode.GetLocalizationTable();
+                defaultTableReference =  firstNode.GetLocalizationTable();
+                return true;
             }
 
-            return default;
+            return false;
         }
 
         [ContextMenu("SET ALL DIALOGUE TABLES")]
         public void SetAllDialogueTables()
         {
-            var table = GetDefaultTable();
-            
+            if (!TryGetDefaultTable(out var table))
+            {
+                return;
+            }
             foreach (var node in nodes)
             {
                 if (node is DialogueLineNodeBase dialogueLineNodeBase)
@@ -138,9 +151,23 @@ namespace Studio23.SS2.DialogueSystem.Data
             OnDialogueEnded?.Invoke(this);
         }
 
+        [ContextMenu("SetAllLanguageTablesToDefault")]
         public void SetAllTablesToDefault()
         {
-            
+            if (!TryGetDefaultTable(out var defaultTable))
+            {
+                return;
+            }
+            foreach (var node in nodes)
+            {
+                if (node is DialogueLineNodeBase dialogueNodeBase)
+                {
+                    dialogueNodeBase.SetLocalizationTable(defaultTable);
+                    # if UNITY_EDITOR
+                    EditorUtility.SetDirty(dialogueNodeBase);
+                    #endif
+                }
+            }
         }
 
         private DialogueNodeBase FindStartNode()

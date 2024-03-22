@@ -22,8 +22,6 @@ namespace Studio23.SS2.DialogueSystem.Data
             EditorStyles.label.normal.textColor = TextColor;
             base.OnBodyGUI();
             EditorStyles.label.normal = editorLabelStyle.normal;
-
         }
-        
     }
 }
