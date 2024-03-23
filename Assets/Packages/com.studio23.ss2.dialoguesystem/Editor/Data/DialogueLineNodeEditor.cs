@@ -25,7 +25,7 @@ namespace Studio23.SS2.DialogueSystem.Data
             var defaultLocaleTable = collection.GetTable(DEFAULT_LOCALE) as StringTable;
             if (defaultLocaleTable == null)
             {
-                EditorGUILayout.HelpBox("No language Table", MessageType.Error);
+                EditorGUILayout.HelpBox("No Table for default locale", MessageType.Error);
                 return;
             }
             DrawCustomDialogueTextbox(defaultLocaleTable, dialogueLineNode, collection);
