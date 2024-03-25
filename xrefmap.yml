@@ -344,6 +344,88 @@ references:
   isSpec: "True"
   fullName: TextMeshProLocalizer.TmpTarget
   nameWithType: TextMeshProLocalizer.TmpTarget
+- uid: Samples
+  name: Samples
+  href: api/Samples.html
+  commentId: N:Samples
+  fullName: Samples
+  nameWithType: Samples
+- uid: Samples.DialogueChoiceDemo.Editor
+  name: Samples.DialogueChoiceDemo.Editor
+  href: api/Samples.DialogueChoiceDemo.Editor.html
+  commentId: N:Samples.DialogueChoiceDemo.Editor
+  fullName: Samples.DialogueChoiceDemo.Editor
+  nameWithType: Samples.DialogueChoiceDemo.Editor
+- uid: Samples.DialogueChoiceDemo.Editor.DialogueStartHelperEditor
+  name: DialogueStartHelperEditor
+  href: api/Samples.DialogueChoiceDemo.Editor.DialogueStartHelperEditor.html
+  commentId: T:Samples.DialogueChoiceDemo.Editor.DialogueStartHelperEditor
+  fullName: Samples.DialogueChoiceDemo.Editor.DialogueStartHelperEditor
+  nameWithType: DialogueStartHelperEditor
+- uid: Samples.DialogueChoiceDemo.Editor.DialogueStartHelperEditor.OnInspectorGUI
+  name: OnInspectorGUI()
+  href: api/Samples.DialogueChoiceDemo.Editor.DialogueStartHelperEditor.html#Samples_DialogueChoiceDemo_Editor_DialogueStartHelperEditor_OnInspectorGUI
+  commentId: M:Samples.DialogueChoiceDemo.Editor.DialogueStartHelperEditor.OnInspectorGUI
+  fullName: Samples.DialogueChoiceDemo.Editor.DialogueStartHelperEditor.OnInspectorGUI()
+  nameWithType: DialogueStartHelperEditor.OnInspectorGUI()
+- uid: Samples.DialogueChoiceDemo.Editor.DialogueStartHelperEditor.OnInspectorGUI*
+  name: OnInspectorGUI
+  href: api/Samples.DialogueChoiceDemo.Editor.DialogueStartHelperEditor.html#Samples_DialogueChoiceDemo_Editor_DialogueStartHelperEditor_OnInspectorGUI_
+  commentId: Overload:Samples.DialogueChoiceDemo.Editor.DialogueStartHelperEditor.OnInspectorGUI
+  isSpec: "True"
+  fullName: Samples.DialogueChoiceDemo.Editor.DialogueStartHelperEditor.OnInspectorGUI
+  nameWithType: DialogueStartHelperEditor.OnInspectorGUI
+- uid: Samples.DialogueStartHelper
+  name: DialogueStartHelper
+  href: api/Samples.DialogueStartHelper.html
+  commentId: T:Samples.DialogueStartHelper
+  fullName: Samples.DialogueStartHelper
+  nameWithType: DialogueStartHelper
+- uid: Samples.DialogueStartHelper.Graph
+  name: Graph
+  href: api/Samples.DialogueStartHelper.html#Samples_DialogueStartHelper_Graph
+  commentId: P:Samples.DialogueStartHelper.Graph
+  fullName: Samples.DialogueStartHelper.Graph
+  nameWithType: DialogueStartHelper.Graph
+- uid: Samples.DialogueStartHelper.Graph*
+  name: Graph
+  href: api/Samples.DialogueStartHelper.html#Samples_DialogueStartHelper_Graph_
+  commentId: Overload:Samples.DialogueStartHelper.Graph
+  isSpec: "True"
+  fullName: Samples.DialogueStartHelper.Graph
+  nameWithType: DialogueStartHelper.Graph
+- uid: Samples.DialogueStartHelper.StartDialogueFromDefaultStartNode
+  name: StartDialogueFromDefaultStartNode()
+  href: api/Samples.DialogueStartHelper.html#Samples_DialogueStartHelper_StartDialogueFromDefaultStartNode
+  commentId: M:Samples.DialogueStartHelper.StartDialogueFromDefaultStartNode
+  fullName: Samples.DialogueStartHelper.StartDialogueFromDefaultStartNode()
+  nameWithType: DialogueStartHelper.StartDialogueFromDefaultStartNode()
+- uid: Samples.DialogueStartHelper.StartDialogueFromDefaultStartNode*
+  name: StartDialogueFromDefaultStartNode
+  href: api/Samples.DialogueStartHelper.html#Samples_DialogueStartHelper_StartDialogueFromDefaultStartNode_
+  commentId: Overload:Samples.DialogueStartHelper.StartDialogueFromDefaultStartNode
+  isSpec: "True"
+  fullName: Samples.DialogueStartHelper.StartDialogueFromDefaultStartNode
+  nameWithType: DialogueStartHelper.StartDialogueFromDefaultStartNode
+- uid: Samples.DialogueStartHelper.StartDialogueFromNode
+  name: StartDialogueFromNode()
+  href: api/Samples.DialogueStartHelper.html#Samples_DialogueStartHelper_StartDialogueFromNode
+  commentId: M:Samples.DialogueStartHelper.StartDialogueFromNode
+  fullName: Samples.DialogueStartHelper.StartDialogueFromNode()
+  nameWithType: DialogueStartHelper.StartDialogueFromNode()
+- uid: Samples.DialogueStartHelper.StartDialogueFromNode*
+  name: StartDialogueFromNode
+  href: api/Samples.DialogueStartHelper.html#Samples_DialogueStartHelper_StartDialogueFromNode_
+  commentId: Overload:Samples.DialogueStartHelper.StartDialogueFromNode
+  isSpec: "True"
+  fullName: Samples.DialogueStartHelper.StartDialogueFromNode
+  nameWithType: DialogueStartHelper.StartDialogueFromNode
+- uid: Samples.DialogueStartHelper.StartNode
+  name: StartNode
+  href: api/Samples.DialogueStartHelper.html#Samples_DialogueStartHelper_StartNode
+  commentId: F:Samples.DialogueStartHelper.StartNode
+  fullName: Samples.DialogueStartHelper.StartNode
+  nameWithType: DialogueStartHelper.StartNode
 - uid: Studio23.SS2.DialogueSystem.Core
   name: Studio23.SS2.DialogueSystem.Core
   href: api/Studio23.SS2.DialogueSystem.Core.html
@@ -478,6 +560,12 @@ references:
   commentId: M:Studio23.SS2.DialogueSystem.Core.DialogueSystem.PlayDialogue(Studio23.SS2.DialogueSystem.Data.DialogueGraph)
   fullName: Studio23.SS2.DialogueSystem.Core.DialogueSystem.PlayDialogue(Studio23.SS2.DialogueSystem.Data.DialogueGraph)
   nameWithType: DialogueSystem.PlayDialogue(DialogueGraph)
+- uid: Studio23.SS2.DialogueSystem.Core.DialogueSystem.PlayDialogue(Studio23.SS2.DialogueSystem.Data.DialogueGraph,Studio23.SS2.DialogueSystem.Data.DialogueNodeBase)
+  name: PlayDialogue(DialogueGraph, DialogueNodeBase)
+  href: api/Studio23.SS2.DialogueSystem.Core.DialogueSystem.html#Studio23_SS2_DialogueSystem_Core_DialogueSystem_PlayDialogue_Studio23_SS2_DialogueSystem_Data_DialogueGraph_Studio23_SS2_DialogueSystem_Data_DialogueNodeBase_
+  commentId: M:Studio23.SS2.DialogueSystem.Core.DialogueSystem.PlayDialogue(Studio23.SS2.DialogueSystem.Data.DialogueGraph,Studio23.SS2.DialogueSystem.Data.DialogueNodeBase)
+  fullName: Studio23.SS2.DialogueSystem.Core.DialogueSystem.PlayDialogue(Studio23.SS2.DialogueSystem.Data.DialogueGraph, Studio23.SS2.DialogueSystem.Data.DialogueNodeBase)
+  nameWithType: DialogueSystem.PlayDialogue(DialogueGraph, DialogueNodeBase)
 - uid: Studio23.SS2.DialogueSystem.Core.DialogueSystem.PlayDialogue*
   name: PlayDialogue
   href: api/Studio23.SS2.DialogueSystem.Core.DialogueSystem.html#Studio23_SS2_DialogueSystem_Core_DialogueSystem_PlayDialogue_
@@ -497,6 +585,12 @@ references:
   commentId: M:Studio23.SS2.DialogueSystem.Core.DialogueSystem.StartDialogue(Studio23.SS2.DialogueSystem.Data.DialogueGraph)
   fullName: Studio23.SS2.DialogueSystem.Core.DialogueSystem.StartDialogue(Studio23.SS2.DialogueSystem.Data.DialogueGraph)
   nameWithType: DialogueSystem.StartDialogue(DialogueGraph)
+- uid: Studio23.SS2.DialogueSystem.Core.DialogueSystem.StartDialogue(Studio23.SS2.DialogueSystem.Data.DialogueGraph,Studio23.SS2.DialogueSystem.Data.DialogueNodeBase)
+  name: StartDialogue(DialogueGraph, DialogueNodeBase)
+  href: api/Studio23.SS2.DialogueSystem.Core.DialogueSystem.html#Studio23_SS2_DialogueSystem_Core_DialogueSystem_StartDialogue_Studio23_SS2_DialogueSystem_Data_DialogueGraph_Studio23_SS2_DialogueSystem_Data_DialogueNodeBase_
+  commentId: M:Studio23.SS2.DialogueSystem.Core.DialogueSystem.StartDialogue(Studio23.SS2.DialogueSystem.Data.DialogueGraph,Studio23.SS2.DialogueSystem.Data.DialogueNodeBase)
+  fullName: Studio23.SS2.DialogueSystem.Core.DialogueSystem.StartDialogue(Studio23.SS2.DialogueSystem.Data.DialogueGraph, Studio23.SS2.DialogueSystem.Data.DialogueNodeBase)
+  nameWithType: DialogueSystem.StartDialogue(DialogueGraph, DialogueNodeBase)
 - uid: Studio23.SS2.DialogueSystem.Core.DialogueSystem.StartDialogue*
   name: StartDialogue
   href: api/Studio23.SS2.DialogueSystem.Core.DialogueSystem.html#Studio23_SS2_DialogueSystem_Core_DialogueSystem_StartDialogue_
@@ -960,6 +1054,19 @@ references:
   isSpec: "True"
   fullName: Studio23.SS2.DialogueSystem.Data.DialogueGraph.AddNewNode
   nameWithType: DialogueGraph.AddNewNode
+- uid: Studio23.SS2.DialogueSystem.Data.DialogueGraph.AddNode(System.Type)
+  name: AddNode(Type)
+  href: api/Studio23.SS2.DialogueSystem.Data.DialogueGraph.html#Studio23_SS2_DialogueSystem_Data_DialogueGraph_AddNode_System_Type_
+  commentId: M:Studio23.SS2.DialogueSystem.Data.DialogueGraph.AddNode(System.Type)
+  fullName: Studio23.SS2.DialogueSystem.Data.DialogueGraph.AddNode(System.Type)
+  nameWithType: DialogueGraph.AddNode(Type)
+- uid: Studio23.SS2.DialogueSystem.Data.DialogueGraph.AddNode*
+  name: AddNode
+  href: api/Studio23.SS2.DialogueSystem.Data.DialogueGraph.html#Studio23_SS2_DialogueSystem_Data_DialogueGraph_AddNode_
+  commentId: Overload:Studio23.SS2.DialogueSystem.Data.DialogueGraph.AddNode
+  isSpec: "True"
+  fullName: Studio23.SS2.DialogueSystem.Data.DialogueGraph.AddNode
+  nameWithType: DialogueGraph.AddNode
 - uid: Studio23.SS2.DialogueSystem.Data.DialogueGraph.Cleanup
   name: Cleanup()
   href: api/Studio23.SS2.DialogueSystem.Data.DialogueGraph.html#Studio23_SS2_DialogueSystem_Data_DialogueGraph_Cleanup
@@ -1037,6 +1144,32 @@ references:
   commentId: E:Studio23.SS2.DialogueSystem.Data.DialogueGraph.OnDialogueStarted
   fullName: Studio23.SS2.DialogueSystem.Data.DialogueGraph.OnDialogueStarted
   nameWithType: DialogueGraph.OnDialogueStarted
+- uid: Studio23.SS2.DialogueSystem.Data.DialogueGraph.SetAllTablesToDefault
+  name: SetAllTablesToDefault()
+  href: api/Studio23.SS2.DialogueSystem.Data.DialogueGraph.html#Studio23_SS2_DialogueSystem_Data_DialogueGraph_SetAllTablesToDefault
+  commentId: M:Studio23.SS2.DialogueSystem.Data.DialogueGraph.SetAllTablesToDefault
+  fullName: Studio23.SS2.DialogueSystem.Data.DialogueGraph.SetAllTablesToDefault()
+  nameWithType: DialogueGraph.SetAllTablesToDefault()
+- uid: Studio23.SS2.DialogueSystem.Data.DialogueGraph.SetAllTablesToDefault*
+  name: SetAllTablesToDefault
+  href: api/Studio23.SS2.DialogueSystem.Data.DialogueGraph.html#Studio23_SS2_DialogueSystem_Data_DialogueGraph_SetAllTablesToDefault_
+  commentId: Overload:Studio23.SS2.DialogueSystem.Data.DialogueGraph.SetAllTablesToDefault
+  isSpec: "True"
+  fullName: Studio23.SS2.DialogueSystem.Data.DialogueGraph.SetAllTablesToDefault
+  nameWithType: DialogueGraph.SetAllTablesToDefault
+- uid: Studio23.SS2.DialogueSystem.Data.DialogueGraph.SetEmptyDialogueTablesToDefault
+  name: SetEmptyDialogueTablesToDefault()
+  href: api/Studio23.SS2.DialogueSystem.Data.DialogueGraph.html#Studio23_SS2_DialogueSystem_Data_DialogueGraph_SetEmptyDialogueTablesToDefault
+  commentId: M:Studio23.SS2.DialogueSystem.Data.DialogueGraph.SetEmptyDialogueTablesToDefault
+  fullName: Studio23.SS2.DialogueSystem.Data.DialogueGraph.SetEmptyDialogueTablesToDefault()
+  nameWithType: DialogueGraph.SetEmptyDialogueTablesToDefault()
+- uid: Studio23.SS2.DialogueSystem.Data.DialogueGraph.SetEmptyDialogueTablesToDefault*
+  name: SetEmptyDialogueTablesToDefault
+  href: api/Studio23.SS2.DialogueSystem.Data.DialogueGraph.html#Studio23_SS2_DialogueSystem_Data_DialogueGraph_SetEmptyDialogueTablesToDefault_
+  commentId: Overload:Studio23.SS2.DialogueSystem.Data.DialogueGraph.SetEmptyDialogueTablesToDefault
+  isSpec: "True"
+  fullName: Studio23.SS2.DialogueSystem.Data.DialogueGraph.SetEmptyDialogueTablesToDefault
+  nameWithType: DialogueGraph.SetEmptyDialogueTablesToDefault
 - uid: Studio23.SS2.DialogueSystem.Data.DialogueGraph.SkippableDialogue
   name: SkippableDialogue
   href: api/Studio23.SS2.DialogueSystem.Data.DialogueGraph.html#Studio23_SS2_DialogueSystem_Data_DialogueGraph_SkippableDialogue
@@ -1056,6 +1189,22 @@ references:
   isSpec: "True"
   fullName: Studio23.SS2.DialogueSystem.Data.DialogueGraph.StartNode
   nameWithType: DialogueGraph.StartNode
+- uid: Studio23.SS2.DialogueSystem.Data.DialogueGraph.TryGetDefaultTable(TableReference@)
+  name: TryGetDefaultTable(out TableReference)
+  href: api/Studio23.SS2.DialogueSystem.Data.DialogueGraph.html#Studio23_SS2_DialogueSystem_Data_DialogueGraph_TryGetDefaultTable_TableReference__
+  commentId: M:Studio23.SS2.DialogueSystem.Data.DialogueGraph.TryGetDefaultTable(TableReference@)
+  name.vb: TryGetDefaultTable(TableReference)
+  fullName: Studio23.SS2.DialogueSystem.Data.DialogueGraph.TryGetDefaultTable(out TableReference)
+  fullName.vb: Studio23.SS2.DialogueSystem.Data.DialogueGraph.TryGetDefaultTable(TableReference)
+  nameWithType: DialogueGraph.TryGetDefaultTable(out TableReference)
+  nameWithType.vb: DialogueGraph.TryGetDefaultTable(TableReference)
+- uid: Studio23.SS2.DialogueSystem.Data.DialogueGraph.TryGetDefaultTable*
+  name: TryGetDefaultTable
+  href: api/Studio23.SS2.DialogueSystem.Data.DialogueGraph.html#Studio23_SS2_DialogueSystem_Data_DialogueGraph_TryGetDefaultTable_
+  commentId: Overload:Studio23.SS2.DialogueSystem.Data.DialogueGraph.TryGetDefaultTable
+  isSpec: "True"
+  fullName: Studio23.SS2.DialogueSystem.Data.DialogueGraph.TryGetDefaultTable
+  nameWithType: DialogueGraph.TryGetDefaultTable
 - uid: Studio23.SS2.DialogueSystem.Data.DialogueGraphNodeBase
   name: DialogueGraphNodeBase
   href: api/Studio23.SS2.DialogueSystem.Data.DialogueGraphNodeBase.html
@@ -1105,6 +1254,32 @@ references:
   commentId: F:Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase.FMODEvent
   fullName: Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase.FMODEvent
   nameWithType: DialogueLineNodeBase.FMODEvent
+- uid: Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase.GetLocalizationTable
+  name: GetLocalizationTable()
+  href: api/Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase.html#Studio23_SS2_DialogueSystem_Data_DialogueLineNodeBase_GetLocalizationTable
+  commentId: M:Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase.GetLocalizationTable
+  fullName: Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase.GetLocalizationTable()
+  nameWithType: DialogueLineNodeBase.GetLocalizationTable()
+- uid: Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase.GetLocalizationTable*
+  name: GetLocalizationTable
+  href: api/Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase.html#Studio23_SS2_DialogueSystem_Data_DialogueLineNodeBase_GetLocalizationTable_
+  commentId: Overload:Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase.GetLocalizationTable
+  isSpec: "True"
+  fullName: Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase.GetLocalizationTable
+  nameWithType: DialogueLineNodeBase.GetLocalizationTable
+- uid: Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase.GetLocalizedLineTextInstant
+  name: GetLocalizedLineTextInstant()
+  href: api/Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase.html#Studio23_SS2_DialogueSystem_Data_DialogueLineNodeBase_GetLocalizedLineTextInstant
+  commentId: M:Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase.GetLocalizedLineTextInstant
+  fullName: Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase.GetLocalizedLineTextInstant()
+  nameWithType: DialogueLineNodeBase.GetLocalizedLineTextInstant()
+- uid: Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase.GetLocalizedLineTextInstant*
+  name: GetLocalizedLineTextInstant
+  href: api/Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase.html#Studio23_SS2_DialogueSystem_Data_DialogueLineNodeBase_GetLocalizedLineTextInstant_
+  commentId: Overload:Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase.GetLocalizedLineTextInstant
+  isSpec: "True"
+  fullName: Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase.GetLocalizedLineTextInstant
+  nameWithType: DialogueLineNodeBase.GetLocalizedLineTextInstant
 - uid: Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase.GetNextNode
   name: GetNextNode()
   href: api/Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase.html#Studio23_SS2_DialogueSystem_Data_DialogueLineNodeBase_GetNextNode
@@ -1211,6 +1386,44 @@ references:
   commentId: F:Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase.Reaction
   fullName: Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase.Reaction
   nameWithType: DialogueLineNodeBase.Reaction
+- uid: Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase.SetLocalizationTable(TableReference)
+  name: SetLocalizationTable(TableReference)
+  href: api/Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase.html#Studio23_SS2_DialogueSystem_Data_DialogueLineNodeBase_SetLocalizationTable_TableReference_
+  commentId: M:Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase.SetLocalizationTable(TableReference)
+  fullName: Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase.SetLocalizationTable(TableReference)
+  nameWithType: DialogueLineNodeBase.SetLocalizationTable(TableReference)
+- uid: Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase.SetLocalizationTable*
+  name: SetLocalizationTable
+  href: api/Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase.html#Studio23_SS2_DialogueSystem_Data_DialogueLineNodeBase_SetLocalizationTable_
+  commentId: Overload:Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase.SetLocalizationTable
+  isSpec: "True"
+  fullName: Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase.SetLocalizationTable
+  nameWithType: DialogueLineNodeBase.SetLocalizationTable
+- uid: Studio23.SS2.DialogueSystem.Data.DialogueLineNodeEditor
+  name: DialogueLineNodeEditor
+  href: api/Studio23.SS2.DialogueSystem.Data.DialogueLineNodeEditor.html
+  commentId: T:Studio23.SS2.DialogueSystem.Data.DialogueLineNodeEditor
+  fullName: Studio23.SS2.DialogueSystem.Data.DialogueLineNodeEditor
+  nameWithType: DialogueLineNodeEditor
+- uid: Studio23.SS2.DialogueSystem.Data.DialogueLineNodeEditor.DEFAULT_LOCALE
+  name: DEFAULT_LOCALE
+  href: api/Studio23.SS2.DialogueSystem.Data.DialogueLineNodeEditor.html#Studio23_SS2_DialogueSystem_Data_DialogueLineNodeEditor_DEFAULT_LOCALE
+  commentId: F:Studio23.SS2.DialogueSystem.Data.DialogueLineNodeEditor.DEFAULT_LOCALE
+  fullName: Studio23.SS2.DialogueSystem.Data.DialogueLineNodeEditor.DEFAULT_LOCALE
+  nameWithType: DialogueLineNodeEditor.DEFAULT_LOCALE
+- uid: Studio23.SS2.DialogueSystem.Data.DialogueLineNodeEditor.OnBodyGUI
+  name: OnBodyGUI()
+  href: api/Studio23.SS2.DialogueSystem.Data.DialogueLineNodeEditor.html#Studio23_SS2_DialogueSystem_Data_DialogueLineNodeEditor_OnBodyGUI
+  commentId: M:Studio23.SS2.DialogueSystem.Data.DialogueLineNodeEditor.OnBodyGUI
+  fullName: Studio23.SS2.DialogueSystem.Data.DialogueLineNodeEditor.OnBodyGUI()
+  nameWithType: DialogueLineNodeEditor.OnBodyGUI()
+- uid: Studio23.SS2.DialogueSystem.Data.DialogueLineNodeEditor.OnBodyGUI*
+  name: OnBodyGUI
+  href: api/Studio23.SS2.DialogueSystem.Data.DialogueLineNodeEditor.html#Studio23_SS2_DialogueSystem_Data_DialogueLineNodeEditor_OnBodyGUI_
+  commentId: Overload:Studio23.SS2.DialogueSystem.Data.DialogueLineNodeEditor.OnBodyGUI
+  isSpec: "True"
+  fullName: Studio23.SS2.DialogueSystem.Data.DialogueLineNodeEditor.OnBodyGUI
+  nameWithType: DialogueLineNodeEditor.OnBodyGUI
 - uid: Studio23.SS2.DialogueSystem.Data.DialogueNodeBase
   name: DialogueNodeBase
   href: api/Studio23.SS2.DialogueSystem.Data.DialogueNodeBase.html
@@ -1436,6 +1649,57 @@ references:
   commentId: N:Studio23.SS2.DialogueSystem.Utility
   fullName: Studio23.SS2.DialogueSystem.Utility
   nameWithType: Studio23.SS2.DialogueSystem.Utility
+- uid: Studio23.SS2.DialogueSystem.Utility.LocalizationExtensions
+  name: LocalizationExtensions
+  href: api/Studio23.SS2.DialogueSystem.Utility.LocalizationExtensions.html
+  commentId: T:Studio23.SS2.DialogueSystem.Utility.LocalizationExtensions
+  fullName: Studio23.SS2.DialogueSystem.Utility.LocalizationExtensions
+  nameWithType: LocalizationExtensions
+- uid: Studio23.SS2.DialogueSystem.Utility.LocalizationExtensions.GetLocalizedStringInEditor(LocalizedString,System.String)
+  name: GetLocalizedStringInEditor(LocalizedString, string)
+  href: api/Studio23.SS2.DialogueSystem.Utility.LocalizationExtensions.html#Studio23_SS2_DialogueSystem_Utility_LocalizationExtensions_GetLocalizedStringInEditor_LocalizedString_System_String_
+  commentId: M:Studio23.SS2.DialogueSystem.Utility.LocalizationExtensions.GetLocalizedStringInEditor(LocalizedString,System.String)
+  name.vb: GetLocalizedStringInEditor(LocalizedString, String)
+  fullName: Studio23.SS2.DialogueSystem.Utility.LocalizationExtensions.GetLocalizedStringInEditor(LocalizedString, string)
+  fullName.vb: Studio23.SS2.DialogueSystem.Utility.LocalizationExtensions.GetLocalizedStringInEditor(LocalizedString, String)
+  nameWithType: LocalizationExtensions.GetLocalizedStringInEditor(LocalizedString, string)
+  nameWithType.vb: LocalizationExtensions.GetLocalizedStringInEditor(LocalizedString, String)
+- uid: Studio23.SS2.DialogueSystem.Utility.LocalizationExtensions.GetLocalizedStringInEditor*
+  name: GetLocalizedStringInEditor
+  href: api/Studio23.SS2.DialogueSystem.Utility.LocalizationExtensions.html#Studio23_SS2_DialogueSystem_Utility_LocalizationExtensions_GetLocalizedStringInEditor_
+  commentId: Overload:Studio23.SS2.DialogueSystem.Utility.LocalizationExtensions.GetLocalizedStringInEditor
+  isSpec: "True"
+  fullName: Studio23.SS2.DialogueSystem.Utility.LocalizationExtensions.GetLocalizedStringInEditor
+  nameWithType: LocalizationExtensions.GetLocalizedStringInEditor
+- uid: Studio23.SS2.DialogueSystem.Utility.LocalizationExtensions.SaveChanges(StringTable)
+  name: SaveChanges(StringTable)
+  href: api/Studio23.SS2.DialogueSystem.Utility.LocalizationExtensions.html#Studio23_SS2_DialogueSystem_Utility_LocalizationExtensions_SaveChanges_StringTable_
+  commentId: M:Studio23.SS2.DialogueSystem.Utility.LocalizationExtensions.SaveChanges(StringTable)
+  fullName: Studio23.SS2.DialogueSystem.Utility.LocalizationExtensions.SaveChanges(StringTable)
+  nameWithType: LocalizationExtensions.SaveChanges(StringTable)
+- uid: Studio23.SS2.DialogueSystem.Utility.LocalizationExtensions.SaveChanges*
+  name: SaveChanges
+  href: api/Studio23.SS2.DialogueSystem.Utility.LocalizationExtensions.html#Studio23_SS2_DialogueSystem_Utility_LocalizationExtensions_SaveChanges_
+  commentId: Overload:Studio23.SS2.DialogueSystem.Utility.LocalizationExtensions.SaveChanges
+  isSpec: "True"
+  fullName: Studio23.SS2.DialogueSystem.Utility.LocalizationExtensions.SaveChanges
+  nameWithType: LocalizationExtensions.SaveChanges
+- uid: Studio23.SS2.DialogueSystem.Utility.LocalizationExtensions.SetEntry(StringTable,LocalizedString,System.String)
+  name: SetEntry(StringTable, LocalizedString, string)
+  href: api/Studio23.SS2.DialogueSystem.Utility.LocalizationExtensions.html#Studio23_SS2_DialogueSystem_Utility_LocalizationExtensions_SetEntry_StringTable_LocalizedString_System_String_
+  commentId: M:Studio23.SS2.DialogueSystem.Utility.LocalizationExtensions.SetEntry(StringTable,LocalizedString,System.String)
+  name.vb: SetEntry(StringTable, LocalizedString, String)
+  fullName: Studio23.SS2.DialogueSystem.Utility.LocalizationExtensions.SetEntry(StringTable, LocalizedString, string)
+  fullName.vb: Studio23.SS2.DialogueSystem.Utility.LocalizationExtensions.SetEntry(StringTable, LocalizedString, String)
+  nameWithType: LocalizationExtensions.SetEntry(StringTable, LocalizedString, string)
+  nameWithType.vb: LocalizationExtensions.SetEntry(StringTable, LocalizedString, String)
+- uid: Studio23.SS2.DialogueSystem.Utility.LocalizationExtensions.SetEntry*
+  name: SetEntry
+  href: api/Studio23.SS2.DialogueSystem.Utility.LocalizationExtensions.html#Studio23_SS2_DialogueSystem_Utility_LocalizationExtensions_SetEntry_
+  commentId: Overload:Studio23.SS2.DialogueSystem.Utility.LocalizationExtensions.SetEntry
+  isSpec: "True"
+  fullName: Studio23.SS2.DialogueSystem.Utility.LocalizationExtensions.SetEntry
+  nameWithType: LocalizationExtensions.SetEntry
 - uid: Studio23.SS2.DialogueSystem.Utility.XNodeExtensions
   name: XNodeExtensions
   href: api/Studio23.SS2.DialogueSystem.Utility.XNodeExtensions.html
