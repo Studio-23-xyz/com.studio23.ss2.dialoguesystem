@@ -12,7 +12,6 @@ namespace Studio23.SS2.DialogueSystem.Data
     [CustomNodeEditor(typeof(DialogueLineNodeBase))]
     public class DialogueLineNodeEditor : NodeEditor
     {
-
         public static string DEFAULT_LOCALE = "en";
         private string _text;
 
@@ -20,7 +19,6 @@ namespace Studio23.SS2.DialogueSystem.Data
         {
             // Update serialized object's representation
             serializedObject.Update();
-            
             var dialogueLineNode = target as DialogueLineNodeBase;
             DrawLocalizationStringHelperGUI(dialogueLineNode);
 
@@ -30,8 +28,20 @@ namespace Studio23.SS2.DialogueSystem.Data
         private void DrawLocalizationStringHelperGUI(DialogueLineNodeBase dialogueLineNode)
         {
             var collection = LocalizationEditorSettings.GetStringTableCollection(dialogueLineNode.DialogueLocalizedString.TableReference);
-            var englishTable = collection.GetTable(DEFAULT_LOCALE) as StringTable;
-            var entry = englishTable.GetEntry(dialogueLineNode.DialogueLocalizedString.TableEntryReference.KeyId);
+            var defaultLocaleTable = collection.GetTable(DEFAULT_LOCALE) as StringTable;
+            if (defaultLocaleTable == null)
+            {
+                EditorGUILayout.HelpBox("No language Table", MessageType.Error);
+                return;
+            }
+            DrawCustomDialogueTextbox(defaultLocaleTable, dialogueLineNode, collection);
+            base.OnBodyGUI();
+        }
+
+        private void DrawCustomDialogueTextbox(StringTable defaultTable, DialogueLineNodeBase dialogueLineNode,
+            StringTableCollection collection)
+        {
+            var entry = defaultTable.GetEntry(dialogueLineNode.DialogueLocalizedString.TableEntryReference.KeyId);
             if (entry == null)
             {
                 _text = EditorGUILayout.TextArea(_text);
@@ -44,8 +54,7 @@ namespace Studio23.SS2.DialogueSystem.Data
                 {
                     if (GUILayout.Button("Create localized line"))
                     {
-                        // var key = collection.SharedData.KeyGenerator.GetNextKey();
-                        CreateNewEntry(collection, englishTable, dialogueLineNode);
+                        CreateNewEntry(collection, defaultTable, dialogueLineNode);
                     }
                 }
             }
@@ -63,8 +72,8 @@ namespace Studio23.SS2.DialogueSystem.Data
                     if (GUILayout.Button("SAVE"))
                     {
                         Debug.Log($"{localizedText} -> {_text}");
-                        englishTable.SetEntry(dialogueLineNode.DialogueLocalizedString, _text);
-                        englishTable.SaveChanges();
+                        defaultTable.SetEntry(dialogueLineNode.DialogueLocalizedString, _text);
+                        defaultTable.SaveChanges();
                         dialogueLineNode.DialogueLocalizedString.RefreshString();
                         EditorUtility.SetDirty(dialogueLineNode);
                     }else if (GUILayout.Button("RESET"))
@@ -74,7 +83,7 @@ namespace Studio23.SS2.DialogueSystem.Data
                 }
                 if (GUILayout.Button("Replace with new Entry"))
                 {
-                    CreateNewEntry(collection, englishTable, dialogueLineNode);
+                    CreateNewEntry(collection, defaultTable, dialogueLineNode);
                 }
             }
         }

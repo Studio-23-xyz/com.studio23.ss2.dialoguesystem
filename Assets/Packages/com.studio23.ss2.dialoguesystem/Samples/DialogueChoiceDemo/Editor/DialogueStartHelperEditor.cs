@@ -40,7 +40,6 @@ namespace Samples.DialogueChoiceDemo.Editor
                         EditorUtility.SetDirty(startHelper);
                     }
                 }
-                
             }
         }
     }
