@@ -1,4 +1,10 @@
 # Changelog
+## [v0.3.10] - 2023-3-22
+1. Can write dialogue without needing to setup/open localized string
+1. Dialogue is synced with localized string.
+1. Custom dialogue node Editor class added.
+1. Multiple start nodes for dialogue
+1. Dialogue Start Helper class with custom editor that shows all start nodes and allows selecting one of them.
 ## [v0.3.1] - 2023-4-1
 1. Dialogue nodes now used localized strings
 2. Sample scene updated with UI that supports localized strings

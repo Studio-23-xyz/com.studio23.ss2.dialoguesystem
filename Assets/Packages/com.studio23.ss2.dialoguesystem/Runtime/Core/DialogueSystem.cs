@@ -63,6 +63,11 @@ namespace Studio23.SS2.DialogueSystem.Core
         {
             PlayDialogue(graph);
         }
+        
+        public void StartDialogue(DialogueGraph graph, DialogueNodeBase startNode)
+        {
+            PlayDialogue(graph, startNode);
+        }
 
         public void StartDialogue()
         {
@@ -71,16 +76,20 @@ namespace Studio23.SS2.DialogueSystem.Core
 
         public async UniTask PlayDialogue(DialogueGraph graph)
         {
+            PlayDialogue(graph, graph.StartNode);
+        }
+        
+        public async UniTask PlayDialogue(DialogueGraph graph, DialogueNodeBase startNode)
+        {
             _currentGraph = graph;
             _currentGraph.Initialize();
-            
             _currentGraph.HandleDialogueStarted();
-            OnDialogueStarted?.Invoke(_currentGraph);
             
-            _curNode = _currentGraph.StartNode;
+            _curNode = startNode;
+            OnDialogueStarted?.Invoke(_currentGraph);
             while (_curNode != null)
             {
-                Debug.Log("node = " + _curNode, _curNode);
+                Debug.Log("Play = " + _curNode, _curNode);
                 await _curNode.Play();
                 
                 _curNode = _curNode.GetNextNode();

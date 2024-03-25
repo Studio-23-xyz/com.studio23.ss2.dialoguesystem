@@ -62,6 +62,26 @@ MonoBehaviour:
     m_Localized: FINAL CHOICE
     m_Metadata:
       m_Items: []
+  - m_Id: 19494905775042560
+    m_Localized: zzzzzz
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19495451646930944
+    m_Localized: no wei
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19497894644461568
+    m_Localized: no just no bu also yes  I  mean yesn't
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19520054658248704
+    m_Localized: Start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23257417221206016
+    m_Localized: aaaaa
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
