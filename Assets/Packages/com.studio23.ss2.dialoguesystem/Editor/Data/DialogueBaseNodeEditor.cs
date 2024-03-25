@@ -10,9 +10,6 @@ namespace Studio23.SS2.DialogueSystem.Data
         public Color TextColor = Color.white;
         private DialogueNodeBase dialogueBase;
         private static GUIStyle editorLabelStyle;
-        
-        
-
         public override void OnBodyGUI()
         {
             if (dialogueBase == null) dialogueBase = target as DialogueNodeBase;
