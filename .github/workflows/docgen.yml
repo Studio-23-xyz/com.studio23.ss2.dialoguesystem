@@ -28,23 +28,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-
       - name: Remove csproj files
         run: find . -name "*.csproj" -type f -delete
-        shell: bash
-      
-      - name: Build
-        uses: CaseyHofland/docfx-unitypackage@v1
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-
 
       - name: Deploy with DocFX
         uses: sator-imaging/docfx-pages@v1
         id: deployment
         with:
-          app_name: 'Dialoguesystem'
-          site_title: 'Dialoguesystem'
+          app_name: 'Dialogue System For Unity'
+          site_title: 'Dialogue System For Unity'
           site_footer: '<big>&times; Is HTML accepted?</big>'
           class_members: 'separatePages'
           google_analytics: ''
@@ -64,7 +56,3 @@ jobs:
                 ],
             }
           main_css: |
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: gh-pages
-          publish_dir: _site
-
