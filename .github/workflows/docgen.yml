@@ -22,14 +22,22 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest.
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
+
       - name: Remove csproj files
         run: find . -name "*.csproj" -type f -delete
+        shell: bash
+      
+      - name: Build
+        uses: CaseyHofland/docfx-unitypackage@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
 
       - name: Deploy with DocFX
         uses: sator-imaging/docfx-pages@v1
@@ -56,3 +64,7 @@ jobs:
                 ],
             }
           main_css: |
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: _site
+
