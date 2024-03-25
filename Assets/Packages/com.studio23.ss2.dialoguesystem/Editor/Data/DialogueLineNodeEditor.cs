@@ -20,7 +20,13 @@ namespace Studio23.SS2.DialogueSystem.Data
             // Update serialized object's representation
             serializedObject.Update();
             var dialogueLineNode = target as DialogueLineNodeBase;
-            
+            DrawLocalizationStringHelperGUI(dialogueLineNode);
+
+            base.OnBodyGUI();
+        }
+
+        private void DrawLocalizationStringHelperGUI(DialogueLineNodeBase dialogueLineNode)
+        {
             var collection = LocalizationEditorSettings.GetStringTableCollection(dialogueLineNode.DialogueLocalizedString.TableReference);
             var defaultLocaleTable = collection.GetTable(DEFAULT_LOCALE) as StringTable;
             if (defaultLocaleTable == null)
