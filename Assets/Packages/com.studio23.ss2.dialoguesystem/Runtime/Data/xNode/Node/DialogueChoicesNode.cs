@@ -38,12 +38,12 @@ namespace Studio23.SS2.DialogueSystem.Data
 
         protected virtual void GetAvailableChoices()
         {
-            GetAllConnectedChoiceNodes();
+            FetchAllConnectedChoiceNodes();
             RemoveUnavailableChoices();
         }
 
 
-        protected virtual void GetAllConnectedChoiceNodes()
+        public List<DialogueChoiceNodeBase> FetchAllConnectedChoiceNodes()
         {
             if (_availableDialogueChoices == null)
             {
@@ -55,6 +55,7 @@ namespace Studio23.SS2.DialogueSystem.Data
             }
 
             this.GetOutputNodesConnectedToPort("Choices", _availableDialogueChoices);
+            return _availableDialogueChoices;
         }
 
         private void SetChoiceIndices()
