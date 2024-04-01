@@ -230,7 +230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4ea025ed7d24ba45bbd001f88df602b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentGraph: {fileID: 11400000, guid: a52bd472061ea824089a21ac012b405b, type: 2}
+  _currentGraph: {fileID: 0}
   _curNode: {fileID: 0}
 --- !u!114 &956320142
 MonoBehaviour:
@@ -877,10 +877,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 956320141}
-        m_TargetAssemblyTypeName: Studio23.SS2.DialogueSystem.Core.DialogueSystem,
-          com.studio23.ss2.dialoguesystem
-        m_MethodName: StartDialogue
+      - m_Target: {fileID: 1984308714}
+        m_TargetAssemblyTypeName: Samples.DialogueStartHelper, Assembly-CSharp
+        m_MethodName: StartDialogueFromNode
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1446,7 +1445,7 @@ GameObject:
   - component: {fileID: 1984308715}
   - component: {fileID: 1984308714}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Dialogue Starter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1465,7 +1464,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _graph: {fileID: 11400000, guid: a52bd472061ea824089a21ac012b405b, type: 2}
-  StartNode: {fileID: 4547693736577939076, guid: a52bd472061ea824089a21ac012b405b, type: 2}
+  StartNode: {fileID: -1822135301059774123, guid: a52bd472061ea824089a21ac012b405b, type: 2}
 --- !u!4 &1984308715
 Transform:
   m_ObjectHideFlags: 0
@@ -1486,6 +1485,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 963194228}
+  - {fileID: 1984308715}
   - {fileID: 956320145}
   - {fileID: 1813981468}
-  - {fileID: 1984308715}

@@ -16,7 +16,7 @@ namespace Studio23.SS2.DialogueSystem.Data
         
         protected override void GetAvailableChoices()
         {
-            GetAllConnectedChoiceNodes();
+            FetchAllConnectedChoiceNodes();
             AddFinalChoiceIfAvailable();
             RemoveUnavailableChoices();
         }
