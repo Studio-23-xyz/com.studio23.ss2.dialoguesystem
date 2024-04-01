@@ -1,42 +1,58 @@
-name: docfx-unitypackage
+name: docfx for GitHub Pages
 
 on:
-  workflow_dispatch:
   push:
     branches:
-      - main
+      - 'main'
+  release:
+    types: [published]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
-  build-and-deploy:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
-        with:
-          submodules: true
-      
-      - name: Find and copy specific files
-        run: |
-            # Look for LICENSE.md, README.md, and CHANGELOG.md in subdirectories
-            find . -name LICENSE.md -exec cp {} . \;
-            find . -name README.md -exec cp {} . \;
-            find . -name CHANGELOG.md -exec cp {} . \;
+        uses: actions/checkout@v4
 
-            # Check if a "Screenshots" folder exists and copy it to the root
-            if [ -d "Screenshots" ]; then
-              cp -r Screenshots .
-            fi
+      - name: Remove csproj files
+        run: find . -name "*.csproj" -type f -delete
 
-        shell: bash
-      
-      - name: Build
-        uses: CaseyHofland/docfx-unitypackage@v1
+      - name: Deploy with DocFX
+        uses: sator-imaging/docfx-pages@v1
+        id: deployment
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: gh-pages
-          publish_dir: _site
+          app_name: 'Dialogue System For Unity'
+          site_title: 'Dialogue System For Unity'
+          site_footer: '<big>&times; Is HTML accepted?</big>'
+          class_members: 'separatePages'
+          google_analytics: ''
+          define_symbols: ''
+          site_logo: '<logo>.svg'
+          site_favicon: '<favicon>.svg'
+          main_js: |
+            export default {
+                defaultTheme: 'light',
+                showLightbox: (img) => true,
+                iconLinks: [
+                    {
+                        icon: 'github',
+                        href: 'https://github.com/sator-imaging',
+                        title: 'GitHub'
+                    },
+                ],
+            }
+          main_css: |

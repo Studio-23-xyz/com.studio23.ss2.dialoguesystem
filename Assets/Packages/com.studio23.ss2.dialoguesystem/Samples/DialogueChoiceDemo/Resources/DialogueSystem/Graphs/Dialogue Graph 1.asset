@@ -62,8 +62,9 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  ID: 
-  Reaction: 
+  SpeakerData:
+    Character: {fileID: 0}
+    Expression: {fileID: 0}
   FMODEvent: 
   Exit: {fileID: 0}
   Events: {fileID: 0}
@@ -142,8 +143,9 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  ID: 
-  Reaction: 
+  SpeakerData:
+    Character: {fileID: 0}
+    Expression: {fileID: 0}
   FMODEvent: 
   Exit: {fileID: 0}
   Events: {fileID: 0}
@@ -281,8 +283,9 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  ID: 
-  Reaction: 
+  SpeakerData:
+    Character: {fileID: 0}
+    Expression: {fileID: 0}
   FMODEvent: 
   Exit: {fileID: 0}
   Events: {fileID: 0}
@@ -347,8 +350,9 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  ID: 
-  Reaction: 
+  SpeakerData:
+    Character: {fileID: 0}
+    Expression: {fileID: 0}
   FMODEvent: 
   Exit: {fileID: 0}
   Events: {fileID: 0}
@@ -415,8 +419,9 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  ID: 
-  Reaction: 
+  SpeakerData:
+    Character: {fileID: 0}
+    Expression: {fileID: 0}
   FMODEvent: 
   Exit: {fileID: 0}
   Events: {fileID: 0}
@@ -569,8 +574,9 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  ID: 
-  Reaction: 
+  SpeakerData:
+    Character: {fileID: 0}
+    Expression: {fileID: 0}
   FMODEvent: 
   Exit: {fileID: 0}
   Events: {fileID: 0}
@@ -669,8 +675,9 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  ID: 
-  Reaction: 
+  SpeakerData:
+    Character: {fileID: 11400000, guid: 3ecb18f9a8ab9554394b051ec2918aa1, type: 2}
+    Expression: {fileID: -6522073147610097109, guid: 3ecb18f9a8ab9554394b051ec2918aa1, type: 2}
   FMODEvent: 
   Exit: {fileID: 0}
   Events: {fileID: 0}
@@ -743,8 +750,9 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  ID: 
-  Reaction: 
+  SpeakerData:
+    Character: {fileID: 0}
+    Expression: {fileID: 0}
   FMODEvent: 
   Exit: {fileID: 0}
   Events: {fileID: 0}
@@ -809,13 +817,14 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:2fefaa175576a0e48bf5b28cb5260137
     m_TableEntryReference:
-      m_KeyId: 819397570560
+      m_KeyId: 21712402020478976
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  ID: 
-  Reaction: 
+  SpeakerData:
+    Character: {fileID: 0}
+    Expression: {fileID: 0}
   FMODEvent: 
   Exit: {fileID: 0}
   Events: {fileID: 0}
@@ -886,8 +895,9 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  ID: 
-  Reaction: 
+  SpeakerData:
+    Character: {fileID: 0}
+    Expression: {fileID: 0}
   FMODEvent: 
   Exit: {fileID: 0}
   Events: {fileID: 0}
