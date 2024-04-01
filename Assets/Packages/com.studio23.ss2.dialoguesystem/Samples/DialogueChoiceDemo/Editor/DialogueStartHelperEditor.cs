@@ -36,7 +36,6 @@ namespace Samples.DialogueChoiceDemo.Editor
                 if (node is DialogueStartNode startNode)
                 {
                     //draw button
-
                     var buttonGroup = EditorGUILayout.BeginVertical();
                     var buttonColor = startNode == startHelper.StartNode? Color.green: Color.grey;
                     GUI.color = buttonColor;
@@ -74,10 +73,8 @@ namespace Samples.DialogueChoiceDemo.Editor
                             GUI.color = Color.yellow;
                             foreach (var dialogueChoiceNodeBase in choiceNodes)
                             {
-                                 
                                 GUILayout.Label(dialogueChoiceNodeBase.DialogueLocalizedString.GetLocalizedStringInEditor());
                             }
-           
                         }
                         else
                         {
@@ -88,7 +85,6 @@ namespace Samples.DialogueChoiceDemo.Editor
                         }
                     }
                     EditorGUILayout.EndVertical();
-
 
                     GUI.color = prevColor;
                     //handle what happens when pressed
