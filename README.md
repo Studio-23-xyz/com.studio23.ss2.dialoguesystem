@@ -34,3 +34,7 @@ https://github.com/Studio-23-xyz/com.studio23.ss2.dialoguesystem.git#upm
 
 4. Implement your own Dialogue UI as per need. (Check Samples for demonstration)
 
+# Contribution
+https://github.com/Studio-23-xyz/com.studio23.ss2.dialoguesystem/blob/main/CONTRIBUTING.md
+
+
