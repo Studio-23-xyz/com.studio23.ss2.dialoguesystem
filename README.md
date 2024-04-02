@@ -2,7 +2,11 @@
 <a href="https://openupm.com/packages/com.studio23.ss2.dialoguesystem/"><img src="https://img.shields.io/npm/v/com.studio23.ss2.dialoguesystem?label=openupm&amp;registry_uri=https://package.openupm.com" /></a>
 </p>
 
-Dialogue System is a package created for tooling Silent Scream 2 Game. However it can be used for most games. It provides a set of tools to streamline your in game dialogue system needs.
+Dialogue System is an open source package for dialogue in your game. It supports:
+1. Dialogue Choices
+2. Unity localization support
+3. Custoom editor
+4. Node based UI
 
 ![Dialogue Graph](Screenshots/2.png)
 ![View](Screenshots/3.png)
