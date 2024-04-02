@@ -1,6 +1,18 @@
 # Changelog
+## [0.3.10] 
+1. Start from choice nodes allowed
+2. Enhanced the dialogue system to support a more dynamic flow, including handling of dialogue advancement and choices.
+3. Improved user interface for dialogue editing, providing clearer visuals for different node types and better error messaging.
 
-## [v0.2.1] - 2023-10-31
+## [0.3.2]
+1. Start from choice nodes allowed
+
+## [0.3.1] 
+1. Dialogue choices added.
+2. Conditions added.
+3. Graph traversal refactored
+   
+## [v0.2.1] - Character expressions
 
 ### Updated
 1. Refactored codebase for a better public API
