@@ -13,7 +13,9 @@ namespace Studio23.SS2.DialogueSystem.Data
     public abstract class DialogueLineNodeBase : DialogueNodeBase
     {
         public LocalizedString DialogueLocalizedString;
-        [Header("Character Data")] public LineSpeakerData SpeakerData;
+        [Header("Character Data")]
+        public string ID;
+        public string Reaction;
 
         [Header("Sound")]
         public string FMODEvent;
@@ -105,6 +107,10 @@ namespace Studio23.SS2.DialogueSystem.Data
         
         public TableReference GetLocalizationTable()
         {
+            if (DialogueLocalizedString == null)
+            {
+                return default;
+            }
             return DialogueLocalizedString.TableReference;
         }
 

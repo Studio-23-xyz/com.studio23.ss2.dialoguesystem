@@ -1,22 +1,25 @@
 # Changelog
-## [v0.3.10] - 2023-3-22
+## [v0.3.13]
+1. Node Editor errors fixed 
+
+## [v0.3.10] 
 1. Can write dialogue without needing to setup/open localized string
 1. Dialogue is synced with localized string.
 1. Custom dialogue node Editor class added.
 1. Multiple start nodes for dialogue
 1. Dialogue Start Helper class with custom editor that shows all start nodes and allows selecting one of them.
-## [v0.3.1] - 2023-4-1
+## [v0.3.1] 
 1. Dialogue nodes now used localized strings
 2. Sample scene updated with UI that supports localized strings
 3. Fix incorrect choicebutton index
 
-## [v0.3.0] - 2023-1-4
+## [v0.3.0] 
 1. Added support for dialogue choices
 2. Dialogue conditions and dialogue graph conditions added.
 3. Refactored traversal code to not use casts
 4. Fixed sample scene.
 
-## [v0.2.1] - 2023-4-1
+## [v0.2.1] 
 
 ### Updated
 1. Refactored codebase for a better public API
