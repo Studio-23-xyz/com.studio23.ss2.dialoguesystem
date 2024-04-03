@@ -40,7 +40,7 @@ namespace Studio23.SS2.DialogueSystem.Data
         public override  UniTask Play()
         {
             return UniTask.CompletedTask;
-        }p
+        }
         
         public override void Initialize()
         {
