@@ -75,7 +75,7 @@ public class DialogueBoxUI : MonoBehaviour
     {
 
         // CharacterData characterData = CharacterTable.GetCharacterData(nodeBase.ID);
-        // string text = await TextLocalizer.LoadTextAndWait(nodeBase.DialogueLocalizedString);
+        // 
         // if (characterData != null)
         // {
         //     if (_config.EnableCharacterColor)
@@ -87,8 +87,7 @@ public class DialogueBoxUI : MonoBehaviour
         //         text = $"{characterData.CharacterName}:{DialogueTMP.text}";
         //     }
         // }
-        
-        // DialogueTMP.text = text;
+        DialogueTMP.text =  await TextLocalizer.LoadTextAndWait(nodeBase.DialogueLocalizedString);
         await UniTask.Delay(TimeSpan.FromSeconds(5), ignoreTimeScale: false);//TODO Dynamic Wait time according to text length
     }
 
