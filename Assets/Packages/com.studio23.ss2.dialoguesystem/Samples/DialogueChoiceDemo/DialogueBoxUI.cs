@@ -77,9 +77,6 @@ public class DialogueBoxUI : MonoBehaviour
     }
     public async UniTask ShowDialogueTextAsync(DialogueLineNodeBase nodeBase)
     {
-        Debug.Log(DialogueTMP == null);
-        Debug.Log(nodeBase.DialogueLocalizedString == null);
-        Debug.Log(LocalizationSettings.SelectedLocale == null);
         // DialogueTMP.text =  await TextLocalizer.LoadTextAndWait(nodeBase.DialogueLocalizedString);
         DialogueTMP.text =  await nodeBase.DialogueLocalizedString.GetLocalizedStringAsync();
         await UniTask.Delay(TimeSpan.FromSeconds(5), ignoreTimeScale: false);//TODO Dynamic Wait time according to text length

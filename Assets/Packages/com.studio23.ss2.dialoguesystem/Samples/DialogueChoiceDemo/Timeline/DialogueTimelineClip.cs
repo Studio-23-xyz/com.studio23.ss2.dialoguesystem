@@ -11,11 +11,16 @@ namespace Samples
     public class DialogueTimelineClip: PlayableAsset, ITimelineClipAsset
     {
         public DialogueLineNodeBase Node;
+        public double StartTime;
+        [SerializeField] public double EndTime;
+
         public override Playable CreatePlayable(PlayableGraph graph, GameObject owner)
         {
             var playable = ScriptPlayable<DialogueNodePlayableBehavior>.Create(graph);
             var dialogueBehavior = playable.GetBehaviour();
             dialogueBehavior.Node = Node;
+            dialogueBehavior.StartTime = StartTime;
+            dialogueBehavior.EndTime = EndTime;
             return playable;
         }
 

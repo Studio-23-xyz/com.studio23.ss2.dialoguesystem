@@ -1,15 +1,19 @@
 using Studio23.SS2.DialogueSystem.Data;
+using UnityEngine;
 using UnityEngine.Playables;
 
 namespace Samples
 {
     public class DialogueTrackMixer:PlayableBehaviour
     {
-        private DialogueNodeBase CurNode;
+        private DialogueNodeBase CurNode = null;
+
+     
+
         public override void ProcessFrame(Playable playable, FrameData info, object playerData)
         {
             base.ProcessFrame(playable, info, playerData);
-            DialogueLineNodeBase node = null;
+            DialogueNodePlayableBehavior targetPlayableBehavior = null;
 
             int numInputs = playable.GetInputCount();
             for (int i = 0; i < numInputs; i++)
@@ -18,33 +22,32 @@ namespace Samples
                 if (inputWeight > 0)
                 {
                     var inputPlayable = (ScriptPlayable<DialogueNodePlayableBehavior>)playable.GetInput(i);
-
-                    var input = inputPlayable.GetBehaviour();
-                    node = input.Node;
+                    targetPlayableBehavior = inputPlayable.GetBehaviour();
                 }
             }
 
             if (playerData is DialogueBoxUI ui)
             {
-                if (node != null)
+                if (targetPlayableBehavior != null)
                 {
                     //honestly,
                     //timeline is also a dialogue view.
                     if (CurNode == null)
                     {
+                        Debug.Log("SHOW BECAUSE CURNODE NULL");
                         ui.ShowUI(); 
                     }
 
-                    CurNode = node;
-                    ui.handleDialogueLineStarted(node);
+                    CurNode = targetPlayableBehavior.Node;
+                    Debug.Log($"show {targetPlayableBehavior.Node}");
+                    
+                    targetPlayableBehavior.Show(ui);
+                    // ui.handleDialogueLineStarted(node);
                 }
                 else
                 {
-                    CurNode = node;
-                    if (CurNode == null)
-                    {
-                        ui.HideUI(); 
-                    }
+                    CurNode = null;
+                    ui.HideUI(); 
                 }
             }
             
