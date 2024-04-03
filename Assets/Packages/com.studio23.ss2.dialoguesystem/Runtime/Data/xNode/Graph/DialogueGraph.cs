@@ -47,12 +47,6 @@ namespace Studio23.SS2.DialogueSystem.Data
         public bool TryGetDefaultTable(out TableReference defaultTableReference)
         {
             defaultTableReference = default;
-            var startNode = FindStartNode();
-            if (startNode == null)
-            {
-                return false;
-            }
-
             foreach (var node in nodes)
             {
                 if (node is DialogueLineNodeBase dialogueLineNodeBase)
@@ -133,11 +127,11 @@ namespace Studio23.SS2.DialogueSystem.Data
             OnDialogueEnded?.Invoke(this);
         }
 
-        private void FindStartNode()
+        private DialogueStartNode FindStartNode()
         {
             if (_startNode != null)
             {
-                return;
+                return null;
             }
             foreach (var node in nodes)
             {
@@ -145,10 +139,11 @@ namespace Studio23.SS2.DialogueSystem.Data
                 if (node is DialogueStartNode startNode)
                 {
                     _startNode = startNode;
-                    return;
+                    return startNode;
                 }
             }
 
+            return null;
             Debug.LogError($"NO START NODE FOR DIALOGUE GRAPH {this}");
         }
 
