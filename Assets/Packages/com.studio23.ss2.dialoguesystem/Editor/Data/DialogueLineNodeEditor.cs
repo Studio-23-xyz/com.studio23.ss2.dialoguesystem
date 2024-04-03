@@ -27,7 +27,19 @@ namespace Studio23.SS2.DialogueSystem.Data
 
         private void DrawLocalizationStringHelperGUI(DialogueLineNodeBase dialogueLineNode)
         {
+            if (dialogueLineNode.graph is DialogueGraph graph)
+            {
+                if (!graph.TryGetDefaultTable(out var tableRef))
+                {
+                    EditorGUILayout.HelpBox($"No default table for graph", MessageType.Error);
+                }
+            }
             var collection = LocalizationEditorSettings.GetStringTableCollection(dialogueLineNode.DialogueLocalizedString.TableReference);
+            if (collection == null)
+            {
+                EditorGUILayout.HelpBox($"invalid table reference", MessageType.Error);
+                return;
+            }
             var defaultLocaleTable = collection.GetTable(DEFAULT_LOCALE) as StringTable;
             if (defaultLocaleTable == null)
             {
@@ -35,7 +47,6 @@ namespace Studio23.SS2.DialogueSystem.Data
                 return;
             }
             DrawCustomDialogueTextbox(defaultLocaleTable, dialogueLineNode, collection);
-            base.OnBodyGUI();
         }
 
         private void DrawCustomDialogueTextbox(StringTable defaultTable, DialogueLineNodeBase dialogueLineNode,
