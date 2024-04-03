@@ -212,8 +212,9 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  ID: 
-  Reaction: 
+  SpeakerData:
+    Character: {fileID: 0}
+    Expression: {fileID: 0}
   FMODEvent: 
   Exit: {fileID: 0}
   Events: {fileID: 0}
