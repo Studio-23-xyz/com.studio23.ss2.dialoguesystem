@@ -135,7 +135,6 @@ namespace Studio23.SS2.DialogueSystem.Data
             }
             foreach (var node in nodes)
             {
-                Debug.Log("node " , node);
                 if (node is DialogueStartNode startNode)
                 {
                     _startNode = startNode;
@@ -144,7 +143,6 @@ namespace Studio23.SS2.DialogueSystem.Data
             }
 
             return null;
-            Debug.LogError($"NO START NODE FOR DIALOGUE GRAPH {this}");
         }
 
     }

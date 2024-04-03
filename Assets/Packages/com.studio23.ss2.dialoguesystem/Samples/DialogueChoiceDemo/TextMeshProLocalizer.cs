@@ -99,6 +99,12 @@ public class TextMeshProLocalizer : MonoBehaviour
         _tmpTarget.text = tempText;
         SetArgsAndRefresh(args);
     }
+    
+    public void SetText(string tempText)
+    {
+        _tmpTarget.text = tempText;
+    }
+    
 
     public void SetArgsAndRefresh(Object[] args)
     {

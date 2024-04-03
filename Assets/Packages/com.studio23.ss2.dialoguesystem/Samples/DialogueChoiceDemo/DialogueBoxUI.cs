@@ -5,6 +5,7 @@ using System;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Localization.Settings;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
@@ -20,6 +21,7 @@ public class DialogueBoxUI : MonoBehaviour
     [Header("Configuration")]
     [SerializeField] private SubtitleSettings _config;
 
+    public event Action OnDialogueAdvanced;
 
     void Start()
     {
@@ -45,6 +47,7 @@ public class DialogueBoxUI : MonoBehaviour
 
     private void RegisterEvents()
     {
+        OnDialogueAdvanced += DialogueSystem.Instance.AdvanceDialogue;
         DialogueSystem.Instance.OnDialogueStarted +=  ShowUI;
         DialogueSystem.Instance.OnDialogueEnded +=  HideUI;
         DialogueSystem.Instance.DialogueLineStarted += handleDialogueLineStarted;
@@ -57,6 +60,7 @@ public class DialogueBoxUI : MonoBehaviour
     {
         if (DialogueSystem.Instance != null)
         {
+            OnDialogueAdvanced -= DialogueSystem.Instance.AdvanceDialogue;
             DialogueSystem.Instance.OnDialogueStarted -=  ShowUI;
             DialogueSystem.Instance.OnDialogueEnded -=  HideUI;
             DialogueSystem.Instance.DialogueLineStarted -= handleDialogueLineStarted;
@@ -67,27 +71,17 @@ public class DialogueBoxUI : MonoBehaviour
     }
 
  
-    private void handleDialogueLineStarted(DialogueLineNodeBase dialogueLineNodeBase)
+    public void handleDialogueLineStarted(DialogueLineNodeBase dialogueLineNodeBase)
     {
         ShowDialogueTextAsync(dialogueLineNodeBase);
     }
-    private async UniTask ShowDialogueTextAsync(DialogueLineNodeBase nodeBase)
+    public async UniTask ShowDialogueTextAsync(DialogueLineNodeBase nodeBase)
     {
-
-        // CharacterData characterData = CharacterTable.GetCharacterData(nodeBase.ID);
-        // 
-        // if (characterData != null)
-        // {
-        //     if (_config.EnableCharacterColor)
-        //     {
-        //         text = $"<color=#{characterData.DialogueColor.ToHexString()}>{characterData.CharacterName}</color>:{DialogueTMP.text}";
-        //     }
-        //     else
-        //     {
-        //         text = $"{characterData.CharacterName}:{DialogueTMP.text}";
-        //     }
-        // }
-        DialogueTMP.text =  await TextLocalizer.LoadTextAndWait(nodeBase.DialogueLocalizedString);
+        Debug.Log(DialogueTMP == null);
+        Debug.Log(nodeBase.DialogueLocalizedString == null);
+        Debug.Log(LocalizationSettings.SelectedLocale == null);
+        // DialogueTMP.text =  await TextLocalizer.LoadTextAndWait(nodeBase.DialogueLocalizedString);
+        DialogueTMP.text =  await nodeBase.DialogueLocalizedString.GetLocalizedStringAsync();
         await UniTask.Delay(TimeSpan.FromSeconds(5), ignoreTimeScale: false);//TODO Dynamic Wait time according to text length
     }
 
@@ -106,18 +100,18 @@ public class DialogueBoxUI : MonoBehaviour
         ShowUI();
     }
 
-    private void ShowUI()
+    public void ShowUI()
     {
         UIRoot.SetActive(true);
         BackgroundImage.gameObject.SetActive(true);
     }
 
-    private void HideUI(DialogueGraph graph)
+    public void HideUI(DialogueGraph graph)
     {
         HideUI();
     }
 
-    private void HideUI()
+    public void HideUI()
     {
         UIRoot.SetActive(false);
         BackgroundImage.gameObject.SetActive(false);
@@ -127,6 +121,6 @@ public class DialogueBoxUI : MonoBehaviour
 
     public void handleDialogueAdvance()
     {
-        DialogueSystem.Instance.AdvanceDialogue();
+        OnDialogueAdvanced?.Invoke();
     }
 }

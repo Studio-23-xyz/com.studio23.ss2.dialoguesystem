@@ -140,7 +140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &381729574
 RectTransform:
   m_ObjectHideFlags: 0
@@ -198,6 +198,59 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &633500133
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 633500135}
+  - component: {fileID: 633500134}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!320 &633500134
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 633500133}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 344adcae900372441bb5a5bacf638eb9, type: 2}
+  m_InitialState: 1
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 2320714018436729584, guid: 344adcae900372441bb5a5bacf638eb9, type: 2}
+    value: {fileID: 1456424672}
+  - key: {fileID: 5157487587387936933, guid: 344adcae900372441bb5a5bacf638eb9, type: 2}
+    value: {fileID: 0}
+  m_ExposedReferences:
+    m_References: []
+--- !u!4 &633500135
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 633500133}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 482.53006, y: 219.4584, z: -257.73752}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &956320139
 GameObject:
   m_ObjectHideFlags: 0
@@ -1006,7 +1059,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!222 &1456424670
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1053,7 +1106,6 @@ MonoBehaviour:
   TextLocalizer: {fileID: 1838186517}
   BackgroundImage: {fileID: 381729576}
   UIRoot: {fileID: 1456424668}
-  CharacterTable: {fileID: 11400000, guid: d475c9e2546e17e4bb37441da01467e0, type: 2}
   _config: {fileID: 11400000, guid: 2984fcedb51c3614cbb95f385ebe07b7, type: 2}
 --- !u!1 &1813981465
 GameObject:
@@ -1488,3 +1540,4 @@ SceneRoots:
   - {fileID: 1984308715}
   - {fileID: 956320145}
   - {fileID: 1813981468}
+  - {fileID: 633500135}
