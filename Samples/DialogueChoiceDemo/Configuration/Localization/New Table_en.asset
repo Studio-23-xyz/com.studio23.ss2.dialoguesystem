@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: New Table_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 2fefaa175576a0e48bf5b28cb5260137, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 57598717952
+    m_Localized: Start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 162359848960
+    m_Localized: next line
+    m_Metadata:
+      m_Items: []
+  - m_Id: 297877811200
+    m_Localized: before choice
+    m_Metadata:
+      m_Items: []
+  - m_Id: 379343777792
+    m_Localized: Choice 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 714133123072
+    m_Localized: YAMETEKUDASTOP
+    m_Metadata:
+      m_Items: []
+  - m_Id: 819397570560
+    m_Localized: Choice 2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1000310484992
+    m_Localized: Ehe
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1087413596160
+    m_Localized: Shown if bool is on
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1245450776576
+    m_Localized: Loop convesation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1312790327296
+    m_Localized: STAND BACK I'M ABOUT TO LOOP
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9827534877667328
+    m_Localized: FINAL CHOICE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19494905775042560
+    m_Localized: zzzzzz
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19495451646930944
+    m_Localized: no wei
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19497894644461568
+    m_Localized: no just no bu also yes  I  mean yesn't
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19520054658248704
+    m_Localized: Start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23257417221206016
+    m_Localized: aaaaa
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []
