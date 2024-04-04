@@ -1,4 +1,5 @@
 using Studio23.SS2.DialogueSystem.Data;
+using Studio23.SS2.DialogueSystem.View;
 using UnityEngine;
 using UnityEngine.Playables;
 
@@ -38,7 +39,7 @@ namespace Samples
         private void UpdateDialogueEditor(object playerData, DialogueNodePlayableBehavior targetPlayableBehavior,
             PlayableDirector director)
         {
-            if (playerData is DialogueBoxUI ui)
+            if (playerData is DialogueUIBase ui)
             {
                 if (targetPlayableBehavior != null && 
                     director.time < director.duration)//this can retrigger if dialogue clip is the last clip. Hence check

@@ -6,7 +6,7 @@ namespace Studio23.SS2.DialogueSystem.View
     public abstract class DialogueUIBase : MonoBehaviour
     {
         public abstract void ShowUI();
-        protected abstract void HideUI();
+        public abstract void HideUI();
         protected abstract void HandleDialogueChoiceEnded(DialogueChoicesNode obj);
         protected abstract void HandleDialogueChoiceStarted(DialogueChoicesNode obj);
         public abstract void ShowDialogueLineImmediate(DialogueLineNodeBase node);

@@ -1,6 +1,7 @@
 using Studio23.SS2.DialogueSystem.Core;
 using Studio23.SS2.DialogueSystem.Data;
 using Studio23.SS2.DialogueSystem.View;
+using UnityEngine;
 
 namespace Samples
 {
@@ -32,6 +33,7 @@ namespace Samples
         
         public override void ShowDialogueLineImmediate(DialogueLineNodeBase node)
         {
+            DialogueBox.ShowUI();
             DialogueBox.ShowDialogueLineImmediate(node);
         }
 
@@ -77,11 +79,12 @@ namespace Samples
 
         protected override void HandleDialogueLineStarted(DialogueLineNodeBase dialogueLineNodeBase)
         {
+            DialogueBox.ShowUI();
             DialogueBox.ShowDialogueLine(dialogueLineNodeBase);
         }
         private void HideUI(DialogueChoicesNode obj) => HideUI();
 
-        protected override void HideUI()
+        public override void HideUI()
         {
             DialogueBox.HideUI();
             ChoiceUI.HideUI();

@@ -24,19 +24,13 @@ public class DialogueBoxUI : MonoBehaviour
 
     public event Action OnDialogueAdvanced;
 
-    private void Awake()
-    {
-        HideUI();
-    }
-
     public void ShowDialogueLine(DialogueLineNodeBase dialogueLineNodeBase)
     {
-        ShowDialogueTextAsync(dialogueLineNodeBase);
+        ShowDialogueTextAsync(dialogueLineNodeBase).Forget();
     }
     public async UniTask ShowDialogueTextAsync(DialogueLineNodeBase nodeBase)
     {
         DialogueTMP.text =  await nodeBase.DialogueLocalizedString.GetLocalizedStringAsync();
-        await UniTask.Delay(TimeSpan.FromSeconds(5), ignoreTimeScale: false);//TODO Dynamic Wait time according to text length
     }
 
     public void ShowDialogueLineImmediate(DialogueLineNodeBase nodeBase)

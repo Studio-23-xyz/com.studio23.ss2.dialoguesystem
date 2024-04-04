@@ -245,9 +245,7 @@ PlayableDirector:
   m_InitialTime: 0
   m_SceneBindings:
   - key: {fileID: 2320714018436729584, guid: 344adcae900372441bb5a5bacf638eb9, type: 2}
-    value: {fileID: 1825521399}
-  - key: {fileID: 5157487587387936933, guid: 344adcae900372441bb5a5bacf638eb9, type: 2}
-    value: {fileID: 0}
+    value: {fileID: 765181513}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &633500135
@@ -826,7 +824,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1126433870
 RectTransform:
   m_ObjectHideFlags: 0
@@ -844,7 +842,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 237.8}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: -75.29791}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1126433871
 MonoBehaviour:
@@ -1129,6 +1127,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1456424671}
   - component: {fileID: 1456424670}
+  - component: {fileID: 1456424672}
   m_Layer: 5
   m_Name: DialoguePanel
   m_TagString: Untagged
@@ -1166,6 +1165,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 57.648956}
   m_SizeDelta: {x: 800, y: 115.29791}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1456424672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1456424668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47bddf9c7fd549ad983401c387f7f249, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1813981465
 GameObject:
   m_ObjectHideFlags: 0

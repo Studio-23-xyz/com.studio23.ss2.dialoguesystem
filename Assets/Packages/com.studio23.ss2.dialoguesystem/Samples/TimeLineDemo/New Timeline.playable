@@ -27,7 +27,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68a3b5327e0a421ebe2b8450c305affc, type: 3}
   m_Name: DialogueTimelineClip(Clone)
   m_EditorClassIdentifier: 
-  Node: {fileID: -2988117806070830359, guid: 16881f750c7cfb14d9b348fc8b3008e6, type: 2}
+  Node: {fileID: 7322660833987517088, guid: 16881f750c7cfb14d9b348fc8b3008e6, type: 2}
   StartTime: 3.466666666666667
   EndTime: 4.466666666666667
 --- !u!114 &-1329794939284975702
@@ -51,7 +51,6 @@ MonoBehaviour:
   m_Parent: {fileID: 11400000}
   m_Children:
   - {fileID: 2320714018436729584}
-  - {fileID: 5157487587387936933}
   m_Clips: []
   m_Markers:
     m_Objects: []
@@ -344,27 +343,3 @@ MonoBehaviour:
   Node: {fileID: 5124243875242287576, guid: a52bd472061ea824089a21ac012b405b, type: 2}
   StartTime: 0.5166666666666667
   EndTime: 1.5166666666666666
---- !u!114 &5157487587387936933
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21bf7f712d84d26478ebe6a299f21738, type: 3}
-  m_Name: Activation Track
-  m_EditorClassIdentifier: 
-  m_Version: 3
-  m_AnimClip: {fileID: 0}
-  m_Locked: 0
-  m_Muted: 0
-  m_CustomPlayableFullTypename: 
-  m_Curves: {fileID: 0}
-  m_Parent: {fileID: -1329794939284975702}
-  m_Children: []
-  m_Clips: []
-  m_Markers:
-    m_Objects: []
-  m_PostPlaybackState: 3
