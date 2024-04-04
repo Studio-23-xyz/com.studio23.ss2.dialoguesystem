@@ -22,40 +22,12 @@ public class DialogueBoxUI : MonoBehaviour
     [Header("Configuration")]
     [SerializeField] private SubtitleSettings _config;
 
-    public static DialogueBoxUI Instance;
-
     public event Action OnDialogueAdvanced;
 
-    private void Awake()
-    {
-        Instance = this;
-        director = GameObject.FindObjectOfType<PlayableDirector>();
-    }
 
     void Start()
     {
         RegisterEvents();
-    }
-    public PlayableDirector director;
-
-    public void testTimelineResume()
-    {
-        // director.Pause();
-        director.time = EndTime;
-        rootPlayable.SetSpeed(1);
-        Debug.Log($"resume director.time {director.time}: -> {EndTime}");
-
-    }
-
-    private Playable rootPlayable;
-    [SerializeField] private double EndTime;
-
-    public void Pause(Playable playable, double endTime)
-    {
-        rootPlayable = playable;
-        EndTime = endTime;
-        Debug.Log($"pause director.time {director.time}: -> {EndTime}");
-        rootPlayable.SetSpeed(0);
     }
 
     private void OnDestroy()
@@ -96,7 +68,6 @@ public class DialogueBoxUI : MonoBehaviour
     }
     public async UniTask ShowDialogueTextAsync(DialogueLineNodeBase nodeBase)
     {
-        // DialogueTMP.text =  await TextLocalizer.LoadTextAndWait(nodeBase.DialogueLocalizedString);
         DialogueTMP.text =  await nodeBase.DialogueLocalizedString.GetLocalizedStringAsync();
         await UniTask.Delay(TimeSpan.FromSeconds(5), ignoreTimeScale: false);//TODO Dynamic Wait time according to text length
     }
@@ -131,7 +102,6 @@ public class DialogueBoxUI : MonoBehaviour
 
     public void HandleDialogueEnded(DialogueGraph graph)
     {
-        testTimelineResume();
         HideUI();
     }
 

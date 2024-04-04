@@ -1,4 +1,5 @@
 using System;
+using Cysharp.Threading.Tasks;
 using Studio23.SS2.DialogueSystem.Core;
 using Studio23.SS2.DialogueSystem.Data;
 using UnityEngine;
@@ -10,15 +11,15 @@ namespace Samples
     public class DialogueNodePlayableBehavior:PlayableBehaviour
     {
         public DialogueLineNodeBase Node;
-        private PlayableDirector director;
-        private Playable RootPlayable;
+        private PlayableDirector _director;
+        private Playable _rootPlayable;
         public double StartTime;
         public double EndTime;
 
         public override void OnPlayableCreate(Playable playable)
         {
-            RootPlayable = playable.GetGraph().GetRootPlayable(0);
-            director = (playable.GetGraph().GetResolver() as PlayableDirector);
+            _rootPlayable = playable.GetGraph().GetRootPlayable(0);
+            _director = (playable.GetGraph().GetResolver() as PlayableDirector);
             // DialogueSystem.Instance.DialogueLineCompleted += HandleDialogueLineCompleted;
         }
 
@@ -35,32 +36,36 @@ namespace Samples
         }
 
 
-        // public void Pause()
-        // {
-        //     Debug.Log($"pause director.time {director.time}: {StartTime} -> {EndTime}");
-        //     RootPlayable.SetSpeed(0);
-        // }
-        
-        // public void Resume()
-        // {
-        //     // director.Pause();
-        //     RootPlayable.SetSpeed(1);
-        //     director.time = EndTime;
-        //     Debug.Log($"resume director.time {director.time}: {StartTime} -> {EndTime}");
-        // }
-
-        public void Show(DialogueBoxUI defaultUI)
+        public void Pause()
         {
-            if (Application.isPlaying)
-            {
-                DialogueBoxUI.Instance.Pause(RootPlayable, EndTime);
-                DialogueSystem.Instance.StartDialogue(Node);
-            }
-            else
-            {
-                //editor preview of first line
-                defaultUI.handleDialogueLineStarted(Node);
-            }
+            Debug.Log($"pause director.time {_director.time}: {StartTime} -> {EndTime}");
+            _rootPlayable.SetSpeed(0);
         }
+        
+        public void Resume()
+        {
+            // director.Pause();
+            _rootPlayable.SetSpeed(1);
+            _director.time = EndTime;
+            Debug.Log($"resume director.time {_director.time}: {StartTime} -> {EndTime}");
+        }
+
+        public void ShowInPlayMode()
+        {
+            PauseTimelineUntilAdvance(Node, _rootPlayable, _director, EndTime).Forget();
+        }
+        
+        public static async UniTask PauseTimelineUntilAdvance(DialogueNodeBase node, Playable rootPlayable, PlayableDirector director, double endTime)
+        {
+            Debug.Log($"pause director.time {director.time}: -> {endTime}");
+            rootPlayable.SetSpeed(0);
+            
+            await DialogueSystem.Instance.PlayDialogue(node);
+            
+            director.time = endTime;
+            rootPlayable.SetSpeed(1);   
+            Debug.Log($"resume director.time {director.time}: -> {endTime}");
+        }
+
     }
 }

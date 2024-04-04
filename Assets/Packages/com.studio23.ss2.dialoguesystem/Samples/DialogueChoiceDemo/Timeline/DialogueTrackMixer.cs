@@ -23,9 +23,21 @@ namespace Samples
                     targetPlayableBehavior = inputPlayable.GetBehaviour();
                 }
             }
-
             var director = playable.GetGraph().GetResolver() as PlayableDirector;
            
+            if (Application.isPlaying)
+            {
+                UpdateDialogueRuntime(targetPlayableBehavior, director);
+            }
+            else
+            {
+                UpdateDialogueEditor(playerData, targetPlayableBehavior, director);
+            }
+        }
+
+        private void UpdateDialogueEditor(object playerData, DialogueNodePlayableBehavior targetPlayableBehavior,
+            PlayableDirector director)
+        {
             if (playerData is DialogueBoxUI ui)
             {
                 if (targetPlayableBehavior != null && 
@@ -42,17 +54,9 @@ namespace Samples
                         
                         Debug.Log($"show {CurNode} -> {targetPlayableBehavior.Node}");
                         CurNode = targetPlayableBehavior.Node;
-                    
-                        if (Application.isPlaying)
+                        if (CurNode is DialogueLineNodeBase dialogueLineNodeBase)
                         {
-                            targetPlayableBehavior.Show(ui);
-                        }
-                        else
-                        {
-                            if (CurNode is DialogueLineNodeBase dialogueLineNodeBase)
-                            {
-                                ui.ShowDialogueLineImmediate(dialogueLineNodeBase);
-                            }
+                            ui.ShowDialogueLineImmediate(dialogueLineNodeBase);
                         }
                     }
                 }
@@ -60,6 +64,20 @@ namespace Samples
                 {
                     CurNode = null;
                     ui.HideUI(); 
+                }
+            }
+        }
+
+        private void UpdateDialogueRuntime(DialogueNodePlayableBehavior targetPlayableBehavior, PlayableDirector director)
+        {
+            if (targetPlayableBehavior != null && 
+                director.time < director.duration)//this can retrigger if dialogue clip is the last clip. Hence check
+            {
+                if (CurNode != targetPlayableBehavior.Node)
+                {
+                    Debug.Log($"show {CurNode} -> {targetPlayableBehavior.Node}");
+                    CurNode = targetPlayableBehavior.Node;
+                    targetPlayableBehavior.ShowInPlayMode();
                 }
             }
         }
