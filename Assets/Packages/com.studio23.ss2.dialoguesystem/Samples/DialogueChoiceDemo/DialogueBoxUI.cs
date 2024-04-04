@@ -24,45 +24,12 @@ public class DialogueBoxUI : MonoBehaviour
 
     public event Action OnDialogueAdvanced;
 
-
-    void Start()
+    private void Awake()
     {
-        RegisterEvents();
+        HideUI();
     }
 
-    private void OnDestroy()
-    {
-        UnRegisterEvents();
-    }
-
-
-    private void RegisterEvents()
-    {
-        OnDialogueAdvanced += DialogueSystem.Instance.AdvanceDialogue;
-        DialogueSystem.Instance.OnDialogueStarted +=  ShowUI;
-        DialogueSystem.Instance.OnDialogueEnded +=  HandleDialogueEnded;
-        DialogueSystem.Instance.DialogueLineStarted += handleDialogueLineStarted;
-
-        DialogueSystem.Instance.OnDialogueChoiceStarted += HideUI;
-        DialogueSystem.Instance.OnDialogueChoiceEnded += ShowUI;
-    }
-    
-    private void UnRegisterEvents()
-    {
-        if (DialogueSystem.Instance != null)
-        {
-            OnDialogueAdvanced -= DialogueSystem.Instance.AdvanceDialogue;
-            DialogueSystem.Instance.OnDialogueStarted -=  ShowUI;
-            DialogueSystem.Instance.OnDialogueEnded -=  HandleDialogueEnded;
-            DialogueSystem.Instance.DialogueLineStarted -= handleDialogueLineStarted;
-
-            DialogueSystem.Instance.OnDialogueChoiceStarted -= HideUI;
-            DialogueSystem.Instance.OnDialogueChoiceEnded -= ShowUI;
-        }
-    }
-
- 
-    public void handleDialogueLineStarted(DialogueLineNodeBase dialogueLineNodeBase)
+    public void ShowDialogueLine(DialogueLineNodeBase dialogueLineNodeBase)
     {
         ShowDialogueTextAsync(dialogueLineNodeBase);
     }
@@ -77,37 +44,15 @@ public class DialogueBoxUI : MonoBehaviour
         DialogueTMP.text =  nodeBase.DialogueLocalizedString.GetLocalizedString();
     }
 
-    private void HideUI(DialogueChoicesNode obj)
-    {
-        HideUI();
-    }
-    
-    private void ShowUI(DialogueChoicesNode obj)
-    {
-        ShowUI();
-    }
-
-    private void ShowUI(DialogueGraph graph)
-    {
-        ShowUI();
-    }
-
     public void ShowUI()
     {
         UIRoot.SetActive(true);
         BackgroundImage.gameObject.SetActive(true);
-        Debug.Log($"ShowUI {BackgroundImage.gameObject.activeSelf}");
-
     }
 
-    public void HandleDialogueEnded(DialogueGraph graph)
-    {
-        HideUI();
-    }
 
     public void HideUI()
     {
-        Debug.Log("hideUI");
         UIRoot.SetActive(false);
         BackgroundImage.gameObject.SetActive(false);
     }

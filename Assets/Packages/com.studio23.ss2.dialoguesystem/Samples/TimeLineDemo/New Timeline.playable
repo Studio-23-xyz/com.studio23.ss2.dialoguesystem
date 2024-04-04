@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: DialogueTimelineClip
   m_EditorClassIdentifier: 
   Node: {fileID: 8111244045218751293, guid: d7ca1a761fd7a19479665f8281909c5e, type: 2}
-  StartTime: 1.5166666666666666
-  EndTime: 2.5166666666666666
+  StartTime: 1.9666666666666666
+  EndTime: 2.966666666666667
 --- !u!114 &-4407425814392227277
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -28,8 +28,8 @@ MonoBehaviour:
   m_Name: DialogueTimelineClip(Clone)
   m_EditorClassIdentifier: 
   Node: {fileID: -2988117806070830359, guid: 16881f750c7cfb14d9b348fc8b3008e6, type: 2}
-  StartTime: 2.5166666666666657
-  EndTime: 3.5166666666666657
+  StartTime: 3.466666666666667
+  EndTime: 4.466666666666667
 --- !u!114 &-1329794939284975702
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -190,7 +190,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: DialogueTimelineClip
   - m_Version: 1
-    m_Start: 1.5166666666666666
+    m_Start: 1.9666666666666666
     m_ClipIn: 0
     m_Asset: {fileID: -7055151722277702101}
     m_Duration: 1
@@ -259,7 +259,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: DialogueTimelineClip
   - m_Version: 1
-    m_Start: 2.5166666666666657
+    m_Start: 3.466666666666667
     m_ClipIn: 0
     m_Asset: {fileID: -4407425814392227277}
     m_Duration: 1

@@ -12,7 +12,7 @@ namespace Samples
     {
         public DialogueLineNodeBase Node;
         public double StartTime;
-        [SerializeField] public double EndTime;
+        public double EndTime;
 
         public override Playable CreatePlayable(PlayableGraph graph, GameObject owner)
         {

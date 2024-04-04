@@ -71,7 +71,7 @@ namespace Samples
         private void UpdateDialogueRuntime(DialogueNodePlayableBehavior targetPlayableBehavior, PlayableDirector director)
         {
             if (targetPlayableBehavior != null && 
-                director.time < director.duration)//this can retrigger if dialogue clip is the last clip. Hence check
+                director.time < director.duration)//this can retrigger if dialogue clip is the last clip. Hence prevent it by checking if time < duration
             {
                 if (CurNode != targetPlayableBehavior.Node)
                 {
@@ -80,6 +80,7 @@ namespace Samples
                     targetPlayableBehavior.ShowInPlayMode();
                 }
             }
+            //we assume that dialogueManager itself will handle disabling UI after end
         }
     }
 }
