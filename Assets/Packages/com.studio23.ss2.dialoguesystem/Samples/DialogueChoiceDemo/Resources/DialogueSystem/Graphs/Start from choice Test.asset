@@ -62,8 +62,9 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  ID: 
-  Reaction: 
+  SpeakerData:
+    Character: {fileID: 0}
+    Expression: {fileID: 0}
   FMODEvent: 
   Exit: {fileID: 0}
   Events: {fileID: 0}
@@ -142,8 +143,9 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  ID: 
-  Reaction: 
+  SpeakerData:
+    Character: {fileID: 0}
+    Expression: {fileID: 0}
   FMODEvent: 
   Exit: {fileID: 0}
   Events: {fileID: 0}
@@ -213,8 +215,9 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  ID: 
-  Reaction: 
+  SpeakerData:
+    Character: {fileID: 0}
+    Expression: {fileID: 0}
   FMODEvent: 
   Exit: {fileID: 0}
   Events: {fileID: 0}
@@ -281,8 +284,9 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  ID: 
-  Reaction: 
+  SpeakerData:
+    Character: {fileID: 0}
+    Expression: {fileID: 0}
   FMODEvent: 
   Exit: {fileID: 0}
   Events: {fileID: 0}
@@ -352,8 +356,9 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  ID: 
-  Reaction: 
+  SpeakerData:
+    Character: {fileID: 11400000, guid: 0480fe1505a2908449d82e07dffcbca0, type: 2}
+    Expression: {fileID: -3622527576907991339, guid: 0480fe1505a2908449d82e07dffcbca0, type: 2}
   FMODEvent: 
   Exit: {fileID: 0}
   Events: {fileID: 0}
@@ -427,8 +432,9 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  ID: 
-  Reaction: 
+  SpeakerData:
+    Character: {fileID: 0}
+    Expression: {fileID: 0}
   FMODEvent: 
   Exit: {fileID: 0}
   Events: {fileID: 0}
@@ -492,8 +498,9 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  ID: 
-  Reaction: 
+  SpeakerData:
+    Character: {fileID: 0}
+    Expression: {fileID: 0}
   FMODEvent: 
   Exit: {fileID: 0}
   Events: {fileID: 0}
@@ -560,8 +567,9 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  ID: 
-  Reaction: 
+  SpeakerData:
+    Character: {fileID: 0}
+    Expression: {fileID: 0}
   FMODEvent: 
   Exit: {fileID: 0}
   Events: {fileID: 0}
@@ -586,7 +594,6 @@ MonoBehaviour:
   ports:
     keys:
     - Exit
-    - Events
     values:
     - _fieldName: Exit
       _node: {fileID: -1822135301059774123}
@@ -600,32 +607,7 @@ MonoBehaviour:
       _connectionType: 1
       _typeConstraint: 2
       _dynamic: 0
-    - _fieldName: Events
-      _node: {fileID: -1822135301059774123}
-      _typeQualifiedName: Studio23.SS2.DialogueSystem.Data.EventNodeBase, com.studio23.ss2.dialoguesystem,
-        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      connections: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 3
-      _dynamic: 0
-  DialogueLocalizedString:
-    m_TableReference:
-      m_TableCollectionName: GUID:2fefaa175576a0e48bf5b28cb5260137
-    m_TableEntryReference:
-      m_KeyId: 57598717952
-      m_Key: 
-    m_FallbackState: 0
-    m_WaitForCompletion: 0
-    m_LocalVariables: []
-  ID: 
-  Reaction: 
-  FMODEvent: 
   Exit: {fileID: 0}
-  Events: {fileID: 0}
-  references:
-    version: 2
-    RefIds: []
 --- !u!114 &-1304441183474376835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -777,8 +759,9 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  ID: 
-  Reaction: 
+  SpeakerData:
+    Character: {fileID: 0}
+    Expression: {fileID: 0}
   FMODEvent: 
   Exit: {fileID: 0}
   Events: {fileID: 0}
@@ -804,7 +787,6 @@ MonoBehaviour:
   ports:
     keys:
     - Exit
-    - Events
     values:
     - _fieldName: Exit
       _node: {fileID: 4547693736577939076}
@@ -815,32 +797,7 @@ MonoBehaviour:
       _connectionType: 1
       _typeConstraint: 2
       _dynamic: 0
-    - _fieldName: Events
-      _node: {fileID: 4547693736577939076}
-      _typeQualifiedName: Studio23.SS2.DialogueSystem.Data.EventNodeBase, com.studio23.ss2.dialoguesystem,
-        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      connections: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 3
-      _dynamic: 0
-  DialogueLocalizedString:
-    m_TableReference:
-      m_TableCollectionName: GUID:2fefaa175576a0e48bf5b28cb5260137
-    m_TableEntryReference:
-      m_KeyId: 19520054658248704
-      m_Key: 
-    m_FallbackState: 0
-    m_WaitForCompletion: 0
-    m_LocalVariables: []
-  ID: 
-  Reaction: 
-  FMODEvent: 
   Exit: {fileID: 0}
-  Events: {fileID: 0}
-  references:
-    version: 2
-    RefIds: []
 --- !u!114 &5124243875242287576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -900,8 +857,9 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  ID: 
-  Reaction: 
+  SpeakerData:
+    Character: {fileID: 11400000, guid: 13798c7c3f9c2f64fb676eec810993af, type: 2}
+    Expression: {fileID: -4949462842663688464, guid: 13798c7c3f9c2f64fb676eec810993af, type: 2}
   FMODEvent: 
   Exit: {fileID: 0}
   Events: {fileID: 0}
@@ -971,8 +929,9 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  ID: 
-  Reaction: 
+  SpeakerData:
+    Character: {fileID: 0}
+    Expression: {fileID: 0}
   FMODEvent: 
   Exit: {fileID: 0}
   Events: {fileID: 0}
@@ -1042,8 +1001,9 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  ID: 
-  Reaction: 
+  SpeakerData:
+    Character: {fileID: 0}
+    Expression: {fileID: 0}
   FMODEvent: 
   Exit: {fileID: 0}
   Events: {fileID: 0}
@@ -1114,8 +1074,9 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  ID: 
-  Reaction: 
+  SpeakerData:
+    Character: {fileID: 11400000, guid: 57762ef8203344c4780d48c658dd0f60, type: 2}
+    Expression: {fileID: 0}
   FMODEvent: 
   Exit: {fileID: 0}
   Events: {fileID: 0}

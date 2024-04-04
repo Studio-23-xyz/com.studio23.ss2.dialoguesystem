@@ -1,4 +1,7 @@
 # Changelog
+## [v0.3.15]
+1. Line Speaker Data added.
+
 ## [v0.3.13]
 1. Node Editor errors fixed 
 

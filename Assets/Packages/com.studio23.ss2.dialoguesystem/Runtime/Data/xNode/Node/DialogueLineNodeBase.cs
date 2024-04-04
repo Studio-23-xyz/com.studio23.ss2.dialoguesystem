@@ -13,9 +13,8 @@ namespace Studio23.SS2.DialogueSystem.Data
     public abstract class DialogueLineNodeBase : DialogueNodeBase
     {
         public LocalizedString DialogueLocalizedString;
-        [Header("Character Data")]
-        public string ID;
-        public string Reaction;
+        [Header("Character Data")] 
+        public LineSpeakerData SpeakerData;
 
         [Header("Sound")]
         public string FMODEvent;
