@@ -13,6 +13,7 @@ namespace Samples
         public DialogueLineNodeBase Node;
         public double StartTime;
         public double EndTime;
+        
 
         public override Playable CreatePlayable(PlayableGraph graph, GameObject owner)
         {

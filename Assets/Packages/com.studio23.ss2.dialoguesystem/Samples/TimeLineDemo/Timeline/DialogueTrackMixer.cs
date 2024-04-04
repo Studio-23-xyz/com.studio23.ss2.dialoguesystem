@@ -53,7 +53,7 @@ namespace Samples
                             ui.ShowUI(); 
                         }
                         
-                        Debug.Log($"show {CurNode} -> {targetPlayableBehavior.Node}");
+                        // Debug.Log($"show {CurNode} -> {targetPlayableBehavior.Node}");
                         CurNode = targetPlayableBehavior.Node;
                         if (CurNode is DialogueLineNodeBase dialogueLineNodeBase)
                         {
@@ -76,7 +76,7 @@ namespace Samples
             {
                 if (CurNode != targetPlayableBehavior.Node)
                 {
-                    Debug.Log($"show {CurNode} -> {targetPlayableBehavior.Node}");
+                    // Debug.Log($"show {CurNode} -> {targetPlayableBehavior.Node}");
                     CurNode = targetPlayableBehavior.Node;
                     targetPlayableBehavior.ShowInPlayMode();
                 }

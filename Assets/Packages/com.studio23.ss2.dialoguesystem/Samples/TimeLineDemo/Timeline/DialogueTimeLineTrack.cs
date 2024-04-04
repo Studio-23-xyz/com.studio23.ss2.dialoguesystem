@@ -13,7 +13,6 @@ namespace Samples
     {
         public override Playable CreateTrackMixer(PlayableGraph graph, GameObject go, int inputCount)
         {
-
             foreach (var clip in GetClips())
             {
                 if (clip.asset is DialogueTimelineClip dialogueTimelineClip)
