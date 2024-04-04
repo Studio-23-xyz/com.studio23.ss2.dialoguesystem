@@ -101,6 +101,11 @@ public class DialogueBoxUI : MonoBehaviour
         await UniTask.Delay(TimeSpan.FromSeconds(5), ignoreTimeScale: false);//TODO Dynamic Wait time according to text length
     }
 
+    public void ShowDialogueLineImmediate(DialogueLineNodeBase nodeBase)
+    {
+        DialogueTMP.text =  nodeBase.DialogueLocalizedString.GetLocalizedString();
+    }
+
     private void HideUI(DialogueChoicesNode obj)
     {
         HideUI();

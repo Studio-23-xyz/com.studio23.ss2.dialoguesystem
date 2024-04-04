@@ -25,9 +25,11 @@ namespace Samples
             }
 
             var director = playable.GetGraph().GetResolver() as PlayableDirector;
+           
             if (playerData is DialogueBoxUI ui)
             {
-                if (targetPlayableBehavior != null && director.time < director.duration)
+                if (targetPlayableBehavior != null && 
+                    director.time < director.duration)//this can retrigger if dialogue clip is the last clip. Hence check
                 {
                     if (CurNode != targetPlayableBehavior.Node)
                     {
@@ -35,17 +37,24 @@ namespace Samples
                         //timeline is also a dialogue view.
                         if (CurNode == null)
                         {
-                            Debug.Log("SHOW BECAUSE CURNODE NULL");
                             ui.ShowUI(); 
                         }
                         
                         Debug.Log($"show {CurNode} -> {targetPlayableBehavior.Node}");
                         CurNode = targetPlayableBehavior.Node;
                     
-                        targetPlayableBehavior.Show(ui);
-                        // ui.handleDialogueLineStarted(node);
+                        if (Application.isPlaying)
+                        {
+                            targetPlayableBehavior.Show(ui);
+                        }
+                        else
+                        {
+                            if (CurNode is DialogueLineNodeBase dialogueLineNodeBase)
+                            {
+                                ui.ShowDialogueLineImmediate(dialogueLineNodeBase);
+                            }
+                        }
                     }
-
                 }
                 else
                 {
@@ -53,7 +62,6 @@ namespace Samples
                     ui.HideUI(); 
                 }
             }
-            
         }
     }
 }
