@@ -79,7 +79,6 @@ namespace Samples.DialogueChoiceDemo.Editor
                             //if next node is dialogueLineNode, simply line text
                             buttonText = dialogueLineNodeBase.DialogueLocalizedString.GetLocalizedStringInEditor();
                             buttonPressed = GUILayout.Button(buttonText);
-
                         }else if(nextNode is DialogueChoicesNode dialogueChoicesNodeBase)
                         {
                             //if next node is a choice node
