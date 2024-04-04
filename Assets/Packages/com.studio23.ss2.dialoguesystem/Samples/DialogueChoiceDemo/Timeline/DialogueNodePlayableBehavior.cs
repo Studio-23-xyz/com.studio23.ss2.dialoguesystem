@@ -37,13 +37,14 @@ namespace Samples
 
         public void Pause()
         {
-            // director.Pause();
+            Debug.Log("PAUSE ");
             RootPlayable.SetSpeed(0);
         }
         
         public void Resume()
         {
             // director.Pause();
+            Debug.Log("RESUME ");
             RootPlayable.SetSpeed(1);
         }
 
@@ -53,7 +54,6 @@ namespace Samples
             {
                 Pause();
                 DialogueSystem.Instance.StartDialogue(Node);
-
             }
             else
             {
@@ -63,19 +63,19 @@ namespace Samples
         }
         
 
-        public override void ProcessFrame(Playable playable, FrameData info, object playerData)
-        {
-            base.ProcessFrame(playable, info, playerData);
-            Pause();
-            playable.GetDuration();
-            
-            //honestly,
-            //timeline is also a dialogue view.
-            var ui = playerData as DialogueBoxUI;
-            if (ui != null)
-            {
-                ui.handleDialogueLineStarted(Node);
-            }
-        }
+        // public override void ProcessFrame(Playable playable, FrameData info, object playerData)
+        // {
+        //     base.ProcessFrame(playable, info, playerData);
+        //     Pause();
+        //     playable.GetDuration();
+        //     
+        //     //honestly,
+        //     //timeline is also a dialogue view.
+        //     var ui = playerData as DialogueBoxUI;
+        //     if (ui != null)
+        //     {
+        //         ui.handleDialogueLineStarted(Node);
+        //     }
+        // }
     }
 }

@@ -23,10 +23,9 @@ public class DialogueBoxUI : MonoBehaviour
 
     public event Action OnDialogueAdvanced;
 
+
     void Start()
     {
-        ApplyConfiguration();
-        HideUI();
         RegisterEvents();
     }
 
@@ -36,14 +35,6 @@ public class DialogueBoxUI : MonoBehaviour
         UnRegisterEvents();
     }
 
-    private void ApplyConfiguration()
-    {
-        DialogueTMP.fontSize = _config.SubtitleFontSize;
-        DialogueTMP.color = _config.SubtitleColor;
-        BackgroundImage.gameObject.SetActive(_config.ShowBackground);
-        BackgroundImage.color = _config.BackGroundColor;
-    }
-    
 
     private void RegisterEvents()
     {
@@ -101,6 +92,8 @@ public class DialogueBoxUI : MonoBehaviour
     {
         UIRoot.SetActive(true);
         BackgroundImage.gameObject.SetActive(true);
+        Debug.Log($"ShowUI {BackgroundImage.gameObject.activeSelf}");
+
     }
 
     public void HideUI(DialogueGraph graph)
@@ -110,6 +103,7 @@ public class DialogueBoxUI : MonoBehaviour
 
     public void HideUI()
     {
+        Debug.Log("hideUI");
         UIRoot.SetActive(false);
         BackgroundImage.gameObject.SetActive(false);
     }

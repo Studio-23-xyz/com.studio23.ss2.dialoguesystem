@@ -8,8 +8,6 @@ namespace Samples
     {
         private DialogueNodeBase CurNode = null;
 
-     
-
         public override void ProcessFrame(Playable playable, FrameData info, object playerData)
         {
             base.ProcessFrame(playable, info, playerData);
@@ -30,19 +28,23 @@ namespace Samples
             {
                 if (targetPlayableBehavior != null)
                 {
-                    //honestly,
-                    //timeline is also a dialogue view.
-                    if (CurNode == null)
+                    if (CurNode != targetPlayableBehavior.Node)
                     {
-                        Debug.Log("SHOW BECAUSE CURNODE NULL");
-                        ui.ShowUI(); 
+                        //honestly,
+                        //timeline is also a dialogue view.
+                        if (CurNode == null)
+                        {
+                            Debug.Log("SHOW BECAUSE CURNODE NULL");
+                            ui.ShowUI(); 
+                        }
+                        
+                        Debug.Log($"show {CurNode} -> {targetPlayableBehavior.Node}");
+                        CurNode = targetPlayableBehavior.Node;
+                    
+                        targetPlayableBehavior.Show(ui);
+                        // ui.handleDialogueLineStarted(node);
                     }
 
-                    CurNode = targetPlayableBehavior.Node;
-                    Debug.Log($"show {targetPlayableBehavior.Node}");
-                    
-                    targetPlayableBehavior.Show(ui);
-                    // ui.handleDialogueLineStarted(node);
                 }
                 else
                 {

@@ -55,7 +55,6 @@ namespace Studio23.SS2.DialogueSystem.Data
                     return true;
                 }
             }
-            
 
             return false;
         }
