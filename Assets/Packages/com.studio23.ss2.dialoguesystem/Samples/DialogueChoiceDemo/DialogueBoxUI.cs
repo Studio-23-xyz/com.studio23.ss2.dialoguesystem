@@ -6,6 +6,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Localization.Settings;
+using UnityEngine.Playables;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
@@ -21,14 +22,41 @@ public class DialogueBoxUI : MonoBehaviour
     [Header("Configuration")]
     [SerializeField] private SubtitleSettings _config;
 
+    public static DialogueBoxUI Instance;
+
     public event Action OnDialogueAdvanced;
 
+    private void Awake()
+    {
+        Instance = this;
+        director = GameObject.FindObjectOfType<PlayableDirector>();
+    }
 
     void Start()
     {
         RegisterEvents();
     }
+    public PlayableDirector director;
 
+    public void testTimelineResume()
+    {
+        // director.Pause();
+        director.time = EndTime;
+        rootPlayable.SetSpeed(1);
+        Debug.Log($"resume director.time {director.time}: -> {EndTime}");
+
+    }
+
+    private Playable rootPlayable;
+    [SerializeField] private double EndTime;
+
+    public void Pause(Playable playable, double endTime)
+    {
+        rootPlayable = playable;
+        EndTime = endTime;
+        Debug.Log($"pause director.time {director.time}: -> {EndTime}");
+        rootPlayable.SetSpeed(0);
+    }
 
     private void OnDestroy()
     {
@@ -40,7 +68,7 @@ public class DialogueBoxUI : MonoBehaviour
     {
         OnDialogueAdvanced += DialogueSystem.Instance.AdvanceDialogue;
         DialogueSystem.Instance.OnDialogueStarted +=  ShowUI;
-        DialogueSystem.Instance.OnDialogueEnded +=  HideUI;
+        DialogueSystem.Instance.OnDialogueEnded +=  HandleDialogueEnded;
         DialogueSystem.Instance.DialogueLineStarted += handleDialogueLineStarted;
 
         DialogueSystem.Instance.OnDialogueChoiceStarted += HideUI;
@@ -53,7 +81,7 @@ public class DialogueBoxUI : MonoBehaviour
         {
             OnDialogueAdvanced -= DialogueSystem.Instance.AdvanceDialogue;
             DialogueSystem.Instance.OnDialogueStarted -=  ShowUI;
-            DialogueSystem.Instance.OnDialogueEnded -=  HideUI;
+            DialogueSystem.Instance.OnDialogueEnded -=  HandleDialogueEnded;
             DialogueSystem.Instance.DialogueLineStarted -= handleDialogueLineStarted;
 
             DialogueSystem.Instance.OnDialogueChoiceStarted -= HideUI;
@@ -96,8 +124,9 @@ public class DialogueBoxUI : MonoBehaviour
 
     }
 
-    public void HideUI(DialogueGraph graph)
+    public void HandleDialogueEnded(DialogueGraph graph)
     {
+        testTimelineResume();
         HideUI();
     }
 

@@ -19,40 +19,41 @@ namespace Samples
         {
             RootPlayable = playable.GetGraph().GetRootPlayable(0);
             director = (playable.GetGraph().GetResolver() as PlayableDirector);
-            DialogueSystem.Instance.DialogueLineCompleted += HandleDialogueLineCompleted;
+            // DialogueSystem.Instance.DialogueLineCompleted += HandleDialogueLineCompleted;
         }
 
-        private void HandleDialogueLineCompleted(DialogueLineNodeBase dialoguelinenodebase)
-        {
-            //idk if subbing to events and calling resume here is a good idea
-            Resume();
-        }
+        // private void HandleDialogueLineCompleted(DialogueLineNodeBase dialoguelinenodebase)
+        // {
+        //     //idk if subbing to events and calling resume here is a good idea
+        //     Resume();
+        // }
 
         public override void OnPlayableDestroy(Playable playable)
         {
             base.OnPlayableDestroy(playable);
-            DialogueSystem.Instance.DialogueLineCompleted -= HandleDialogueLineCompleted;
+            // DialogueSystem.Instance.DialogueLineCompleted -= HandleDialogueLineCompleted;
         }
 
 
-        public void Pause()
-        {
-            Debug.Log("PAUSE ");
-            RootPlayable.SetSpeed(0);
-        }
+        // public void Pause()
+        // {
+        //     Debug.Log($"pause director.time {director.time}: {StartTime} -> {EndTime}");
+        //     RootPlayable.SetSpeed(0);
+        // }
         
-        public void Resume()
-        {
-            // director.Pause();
-            Debug.Log("RESUME ");
-            RootPlayable.SetSpeed(1);
-        }
+        // public void Resume()
+        // {
+        //     // director.Pause();
+        //     RootPlayable.SetSpeed(1);
+        //     director.time = EndTime;
+        //     Debug.Log($"resume director.time {director.time}: {StartTime} -> {EndTime}");
+        // }
 
         public void Show(DialogueBoxUI defaultUI)
         {
             if (Application.isPlaying)
             {
-                Pause();
+                DialogueBoxUI.Instance.Pause(RootPlayable, EndTime);
                 DialogueSystem.Instance.StartDialogue(Node);
             }
             else
@@ -61,21 +62,5 @@ namespace Samples
                 defaultUI.handleDialogueLineStarted(Node);
             }
         }
-        
-
-        // public override void ProcessFrame(Playable playable, FrameData info, object playerData)
-        // {
-        //     base.ProcessFrame(playable, info, playerData);
-        //     Pause();
-        //     playable.GetDuration();
-        //     
-        //     //honestly,
-        //     //timeline is also a dialogue view.
-        //     var ui = playerData as DialogueBoxUI;
-        //     if (ui != null)
-        //     {
-        //         ui.handleDialogueLineStarted(Node);
-        //     }
-        // }
     }
 }

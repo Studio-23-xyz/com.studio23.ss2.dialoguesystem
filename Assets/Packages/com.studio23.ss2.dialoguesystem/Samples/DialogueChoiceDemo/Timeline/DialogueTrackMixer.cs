@@ -24,9 +24,10 @@ namespace Samples
                 }
             }
 
+            var director = playable.GetGraph().GetResolver() as PlayableDirector;
             if (playerData is DialogueBoxUI ui)
             {
-                if (targetPlayableBehavior != null)
+                if (targetPlayableBehavior != null && director.time < director.duration)
                 {
                     if (CurNode != targetPlayableBehavior.Node)
                     {
