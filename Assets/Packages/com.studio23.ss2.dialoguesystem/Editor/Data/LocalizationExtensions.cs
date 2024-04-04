@@ -45,6 +45,5 @@ namespace Studio23.SS2.DialogueSystem.Utility
             return entry.Value;
         }
 # endif
-
     }
 }

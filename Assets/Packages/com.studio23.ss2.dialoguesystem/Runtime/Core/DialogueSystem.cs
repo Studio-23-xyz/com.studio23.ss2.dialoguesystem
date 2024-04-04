@@ -97,7 +97,6 @@ namespace Studio23.SS2.DialogueSystem.Core
 
             _currentGraph.HandleDialogueEnded();
             OnDialogueEnded?.Invoke(_currentGraph);
-
         }
 
         public void AdvanceDialogue()

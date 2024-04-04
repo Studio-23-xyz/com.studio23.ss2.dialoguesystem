@@ -40,6 +40,5 @@ namespace Samples
             rootPlayable.SetSpeed(1);   
             // Debug.Log($"resume director.time {director.time}: -> {endTime}");
         }
-
     }
 }

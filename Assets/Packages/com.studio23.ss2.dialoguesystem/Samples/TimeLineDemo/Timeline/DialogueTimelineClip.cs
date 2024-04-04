@@ -14,7 +14,6 @@ namespace Samples
         public double StartTime;
         public double EndTime;
         
-
         public override Playable CreatePlayable(PlayableGraph graph, GameObject owner)
         {
             var playable = ScriptPlayable<DialogueNodePlayableBehavior>.Create(graph);

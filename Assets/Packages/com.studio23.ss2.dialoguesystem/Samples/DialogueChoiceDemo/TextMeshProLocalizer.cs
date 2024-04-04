@@ -105,7 +105,6 @@ public class TextMeshProLocalizer : MonoBehaviour
         _tmpTarget.text = tempText;
     }
     
-
     public void SetArgsAndRefresh(Object[] args)
     {
         _localizer.StringReference.Arguments = args;
