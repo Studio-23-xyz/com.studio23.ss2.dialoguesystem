@@ -19,7 +19,7 @@ public class DialogueChoiceUI:MonoBehaviour
 
     private void Start()
     {
-        DialogueSystem.Instance.OnDialogueChoiceStarted += HandleDialogueChoiceStarted;
+        DialogueSystem.Instance.OnDialogueChoiceStarted += ShowChoices;
         DialogueSystem.Instance.OnDialogueChoiceEnded += HandleDialogueChoiceEnded;
     }
 
@@ -27,17 +27,22 @@ public class DialogueChoiceUI:MonoBehaviour
     {
         if (DialogueSystem.Instance != null)
         {
-            DialogueSystem.Instance.OnDialogueChoiceStarted -= HandleDialogueChoiceStarted;
+            DialogueSystem.Instance.OnDialogueChoiceStarted -= ShowChoices;
             DialogueSystem.Instance.OnDialogueChoiceEnded -= HandleDialogueChoiceEnded;
         }
     }
 
     private void HandleDialogueChoiceEnded(DialogueChoicesNode choicesNode)
     {
+        HideUI();
+    }
+
+    public void HideUI()
+    {
         _buttonContainer.gameObject.SetActive(false);
     }
 
-    private void HandleDialogueChoiceStarted(DialogueChoicesNode choicesNode)
+    public void ShowChoices(DialogueChoicesNode choicesNode)
     {
         SortChoices(choicesNode);
         _buttonContainer.gameObject.SetActive(true);

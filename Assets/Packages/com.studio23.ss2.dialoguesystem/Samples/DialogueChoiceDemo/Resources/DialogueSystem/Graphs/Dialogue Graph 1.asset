@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Dialogue Choice
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -600, y: 1064}
+  position: {x: -536, y: 1112}
   ports:
     keys:
     - ParentChoice
@@ -62,9 +62,8 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  SpeakerData:
-    Character: {fileID: 0}
-    Expression: {fileID: 0}
+  ID: 
+  Reaction: 
   FMODEvent: 
   Exit: {fileID: 0}
   Events: {fileID: 0}
@@ -91,7 +90,7 @@ MonoBehaviour:
   m_Name: Bi Way Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -120, y: 600}
+  position: {x: -56, y: 648}
   ports:
     keys:
     - Entry
@@ -143,9 +142,8 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  SpeakerData:
-    Character: {fileID: 0}
-    Expression: {fileID: 0}
+  ID: 
+  Reaction: 
   FMODEvent: 
   Exit: {fileID: 0}
   Events: {fileID: 0}
@@ -166,7 +164,7 @@ MonoBehaviour:
   m_Name: Bi Way Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 342.01712, y: 253.08244}
+  position: {x: 408, y: 296}
   ports:
     keys:
     - Entry
@@ -212,9 +210,8 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  SpeakerData:
-    Character: {fileID: 0}
-    Expression: {fileID: 0}
+  ID: 
+  Reaction: 
   FMODEvent: 
   Exit: {fileID: 0}
   Events: {fileID: 0}
@@ -235,7 +232,7 @@ MonoBehaviour:
   m_Name: Dialogue Choice
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -648, y: -424}
+  position: {x: -584, y: -376}
   ports:
     keys:
     - ParentChoice
@@ -284,9 +281,8 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  SpeakerData:
-    Character: {fileID: 0}
-    Expression: {fileID: 0}
+  ID: 
+  Reaction: 
   FMODEvent: 
   Exit: {fileID: 0}
   Events: {fileID: 0}
@@ -308,7 +304,7 @@ MonoBehaviour:
   m_Name: Bi Way Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 617.2541, y: 1142.8558}
+  position: {x: 680, y: 1192}
   ports:
     keys:
     - Entry
@@ -351,9 +347,8 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  SpeakerData:
-    Character: {fileID: 0}
-    Expression: {fileID: 0}
+  ID: 
+  Reaction: 
   FMODEvent: 
   Exit: {fileID: 0}
   Events: {fileID: 0}
@@ -374,7 +369,7 @@ MonoBehaviour:
   m_Name: Bi Way Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 278.29416, y: 1606.5487}
+  position: {x: 344, y: 1656}
   ports:
     keys:
     - Entry
@@ -420,9 +415,8 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  SpeakerData:
-    Character: {fileID: 0}
-    Expression: {fileID: 0}
+  ID: 
+  Reaction: 
   FMODEvent: 
   Exit: {fileID: 0}
   Events: {fileID: 0}
@@ -443,7 +437,7 @@ MonoBehaviour:
   m_Name: Dialogue Start
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -1576, y: 120}
+  position: {x: -1512, y: 168}
   ports:
     keys:
     - Exit
@@ -508,7 +502,7 @@ MonoBehaviour:
   m_Name: Test Bool
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 264, y: -24}
+  position: {x: 328, y: 24}
   ports:
     keys: []
     values: []
@@ -526,7 +520,7 @@ MonoBehaviour:
   m_Name: Dialogue Choice
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -600, y: 584}
+  position: {x: -536, y: 632}
   ports:
     keys:
     - ParentChoice
@@ -575,9 +569,8 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  SpeakerData:
-    Character: {fileID: 0}
-    Expression: {fileID: 0}
+  ID: 
+  Reaction: 
   FMODEvent: 
   Exit: {fileID: 0}
   Events: {fileID: 0}
@@ -599,7 +592,7 @@ MonoBehaviour:
   m_Name: Dialogue Start
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -888, y: 1848}
+  position: {x: -824, y: 1896}
   ports:
     keys:
     - Exit
@@ -630,7 +623,7 @@ MonoBehaviour:
   m_Name: Bi Way Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -104, y: -360}
+  position: {x: -40, y: -312}
   ports:
     keys:
     - Entry
@@ -676,9 +669,8 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  SpeakerData:
-    Character: {fileID: 11400000, guid: 3ecb18f9a8ab9554394b051ec2918aa1, type: 2}
-    Expression: {fileID: -6522073147610097109, guid: 3ecb18f9a8ab9554394b051ec2918aa1, type: 2}
+  ID: 
+  Reaction: 
   FMODEvent: 
   Exit: {fileID: 0}
   Events: {fileID: 0}
@@ -699,7 +691,7 @@ MonoBehaviour:
   m_Name: Bi Way Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -118.94623, y: 1414.0902}
+  position: {x: -56, y: 1464}
   ports:
     keys:
     - Entry
@@ -751,9 +743,8 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  SpeakerData:
-    Character: {fileID: 0}
-    Expression: {fileID: 0}
+  ID: 
+  Reaction: 
   FMODEvent: 
   Exit: {fileID: 0}
   Events: {fileID: 0}
@@ -774,7 +765,7 @@ MonoBehaviour:
   m_Name: Dialogue Choice
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -520, y: 40}
+  position: {x: -456, y: 88}
   ports:
     keys:
     - ParentChoice
@@ -847,7 +838,7 @@ MonoBehaviour:
   m_Name: Bi Way Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -120, y: 56}
+  position: {x: -56, y: 104}
   ports:
     keys:
     - Entry
@@ -919,7 +910,7 @@ MonoBehaviour:
   m_Name: Dialogue Choices
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -1080, y: 136}
+  position: {x: -1016, y: 184}
   ports:
     keys:
     - Entry

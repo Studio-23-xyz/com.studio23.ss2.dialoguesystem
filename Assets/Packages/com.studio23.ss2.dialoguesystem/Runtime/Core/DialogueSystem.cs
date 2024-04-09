@@ -61,27 +61,27 @@ namespace Studio23.SS2.DialogueSystem.Core
         /// </summary>
         public void StartDialogue(DialogueGraph graph)
         {
-            PlayDialogue(graph);
+            PlayDialogue(graph).Forget();
         }
         
-        public void StartDialogue(DialogueGraph graph, DialogueNodeBase startNode)
+        public void StartDialogue(DialogueNodeBase node)
         {
-            PlayDialogue(graph, startNode);
+            PlayDialogue(node).Forget();
         }
-
+        
         public void StartDialogue()
         {
-            PlayDialogue(_currentGraph);
+            PlayDialogue(_currentGraph).Forget();
         }
 
         public async UniTask PlayDialogue(DialogueGraph graph)
         {
-            PlayDialogue(graph, graph.StartNode);
+            await PlayDialogue(graph.StartNode);
         }
         
-        public async UniTask PlayDialogue(DialogueGraph graph, DialogueNodeBase startNode)
+        public async UniTask PlayDialogue(DialogueNodeBase startNode)
         {
-            _currentGraph = graph;
+            _currentGraph = startNode.graph as DialogueGraph;
             _currentGraph.Initialize();
             _currentGraph.HandleDialogueStarted();
             
@@ -97,8 +97,6 @@ namespace Studio23.SS2.DialogueSystem.Core
 
             _currentGraph.HandleDialogueEnded();
             OnDialogueEnded?.Invoke(_currentGraph);
-
-            Debug.Log($"{graph} dialogue completed");
         }
 
         public void AdvanceDialogue()

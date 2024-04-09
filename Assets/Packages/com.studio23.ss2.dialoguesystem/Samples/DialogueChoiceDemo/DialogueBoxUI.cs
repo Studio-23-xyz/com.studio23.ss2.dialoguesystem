@@ -5,6 +5,8 @@ using System;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Localization.Settings;
+using UnityEngine.Playables;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
@@ -20,105 +22,30 @@ public class DialogueBoxUI : MonoBehaviour
     [Header("Configuration")]
     [SerializeField] private SubtitleSettings _config;
 
+    public event Action OnDialogueAdvanced;
 
-    void Start()
+    public void ShowDialogueLine(DialogueLineNodeBase dialogueLineNodeBase)
     {
-        ApplyConfiguration();
-        HideUI();
-        RegisterEvents();
+        ShowDialogueTextAsync(dialogueLineNodeBase).Forget();
+    }
+    public async UniTask ShowDialogueTextAsync(DialogueLineNodeBase nodeBase)
+    {
+        DialogueTMP.text =  await nodeBase.DialogueLocalizedString.GetLocalizedStringAsync();
     }
 
-
-    private void OnDestroy()
+    public void ShowDialogueLineImmediate(DialogueLineNodeBase nodeBase)
     {
-        UnRegisterEvents();
+        DialogueTMP.text =  nodeBase.DialogueLocalizedString.GetLocalizedString();
     }
 
-    private void ApplyConfiguration()
-    {
-        DialogueTMP.fontSize = _config.SubtitleFontSize;
-        DialogueTMP.color = _config.SubtitleColor;
-        BackgroundImage.gameObject.SetActive(_config.ShowBackground);
-        BackgroundImage.color = _config.BackGroundColor;
-    }
-    
-
-    private void RegisterEvents()
-    {
-        DialogueSystem.Instance.OnDialogueStarted +=  ShowUI;
-        DialogueSystem.Instance.OnDialogueEnded +=  HideUI;
-        DialogueSystem.Instance.DialogueLineStarted += handleDialogueLineStarted;
-
-        DialogueSystem.Instance.OnDialogueChoiceStarted += HideUI;
-        DialogueSystem.Instance.OnDialogueChoiceEnded += ShowUI;
-    }
-    
-    private void UnRegisterEvents()
-    {
-        if (DialogueSystem.Instance != null)
-        {
-            DialogueSystem.Instance.OnDialogueStarted -=  ShowUI;
-            DialogueSystem.Instance.OnDialogueEnded -=  HideUI;
-            DialogueSystem.Instance.DialogueLineStarted -= handleDialogueLineStarted;
-
-            DialogueSystem.Instance.OnDialogueChoiceStarted -= HideUI;
-            DialogueSystem.Instance.OnDialogueChoiceEnded -= ShowUI;
-        }
-    }
-
- 
-    private void handleDialogueLineStarted(DialogueLineNodeBase dialogueLineNodeBase)
-    {
-        ShowDialogueTextAsync(dialogueLineNodeBase);
-    }
-    private async UniTask ShowDialogueTextAsync(DialogueLineNodeBase nodeBase)
-    {
-
-        // CharacterData characterData = CharacterTable.GetCharacterData(nodeBase.ID);
-        // string text = await TextLocalizer.LoadTextAndWait(nodeBase.DialogueLocalizedString);
-        // if (characterData != null)
-        // {
-        //     if (_config.EnableCharacterColor)
-        //     {
-        //         text = $"<color=#{characterData.DialogueColor.ToHexString()}>{characterData.CharacterName}</color>:{DialogueTMP.text}";
-        //     }
-        //     else
-        //     {
-        //         text = $"{characterData.CharacterName}:{DialogueTMP.text}";
-        //     }
-        // }
-        
-        // DialogueTMP.text = text;
-        await UniTask.Delay(TimeSpan.FromSeconds(5), ignoreTimeScale: false);//TODO Dynamic Wait time according to text length
-    }
-
-    private void HideUI(DialogueChoicesNode obj)
-    {
-        HideUI();
-    }
-    
-    private void ShowUI(DialogueChoicesNode obj)
-    {
-        ShowUI();
-    }
-
-    private void ShowUI(DialogueGraph graph)
-    {
-        ShowUI();
-    }
-
-    private void ShowUI()
+    public void ShowUI()
     {
         UIRoot.SetActive(true);
         BackgroundImage.gameObject.SetActive(true);
     }
 
-    private void HideUI(DialogueGraph graph)
-    {
-        HideUI();
-    }
 
-    private void HideUI()
+    public void HideUI()
     {
         UIRoot.SetActive(false);
         BackgroundImage.gameObject.SetActive(false);
@@ -128,6 +55,6 @@ public class DialogueBoxUI : MonoBehaviour
 
     public void handleDialogueAdvance()
     {
-        DialogueSystem.Instance.AdvanceDialogue();
+        OnDialogueAdvanced?.Invoke();
     }
 }

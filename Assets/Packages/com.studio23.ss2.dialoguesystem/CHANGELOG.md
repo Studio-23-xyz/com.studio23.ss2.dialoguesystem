@@ -1,4 +1,8 @@
 # Changelog
+## [v0.4.0]
+1. Timeline support added
+2. Sample timeline scene added
+
 ## [v0.3.15]
 1. Line Speaker Data added.
 
