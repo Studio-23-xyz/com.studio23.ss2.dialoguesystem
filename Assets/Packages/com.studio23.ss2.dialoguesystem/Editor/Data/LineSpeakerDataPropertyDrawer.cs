@@ -36,7 +36,9 @@ namespace Editor.Data
             if (lineSpeakerData.Character != null)
             {
                 position.y += EditorGUIUtility.singleLineHeight;
-                var expressions = lineSpeakerData.Character.Expressions.Select(ced => ced.ExpressionName).ToArray();
+                var expressions = lineSpeakerData.Character.Expressions
+                    .Where(ced => ced != null)
+                    .Select(ced => ced.ExpressionName).ToArray();
                 // EditorGUI.LabelField(position," :" + lineSpeakerData);
                 if (expressions.Length == 0)
                 {

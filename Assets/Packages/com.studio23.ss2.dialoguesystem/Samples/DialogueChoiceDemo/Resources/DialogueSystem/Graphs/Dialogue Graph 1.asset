@@ -814,8 +814,9 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  ID: 
-  Reaction: 
+  SpeakerData:
+    Character: {fileID: 11400000, guid: 0480fe1505a2908449d82e07dffcbca0, type: 2}
+    Expression: {fileID: 0}
   FMODEvent: 
   Exit: {fileID: 0}
   Events: {fileID: 0}
@@ -886,8 +887,9 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  ID: 
-  Reaction: 
+  SpeakerData:
+    Character: {fileID: 11400000, guid: f206f19a5eeee3b4282901b5353fd9ea, type: 2}
+    Expression: {fileID: 0}
   FMODEvent: 
   Exit: {fileID: 0}
   Events: {fileID: 0}
