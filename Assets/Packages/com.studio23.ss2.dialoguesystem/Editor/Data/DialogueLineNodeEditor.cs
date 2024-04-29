@@ -67,6 +67,7 @@ namespace Studio23.SS2.DialogueSystem.Data
                     {
                         CreateNewEntry(collection, defaultTable, dialogueLineNode);
                     }
+                    EditorGUILayout.HelpBox("CREATE A NEW LINE TO SAVE THIS", MessageType.Error);
                 }
             }
             else
@@ -79,7 +80,7 @@ namespace Studio23.SS2.DialogueSystem.Data
                 _text = EditorGUILayout.TextArea(_text);
                 if (_text != localizedText)
                 {
-                    EditorGUILayout.HelpBox("Localized string doesn't match. PLEASE SAVE", MessageType.Warning);
+                    EditorGUILayout.HelpBox("Localized string doesn't match. PLEASE SAVE", MessageType.Error);
                     if (GUILayout.Button("SAVE"))
                     {
                         Debug.Log($"{localizedText} -> {_text}");
@@ -103,7 +104,9 @@ namespace Studio23.SS2.DialogueSystem.Data
             DialogueLineNodeBase dialogueLineNode)
         {
             StringTableEntry entry;
-            var key = _text.Substring(0, Mathf.Min(10, _text.Length));
+            
+            var key = GetUniqueKey(collection);
+
             collection.SharedData.AddKey(key);
             entry = englishTable.AddEntry(key, _text);
                         
@@ -114,6 +117,28 @@ namespace Studio23.SS2.DialogueSystem.Data
             dialogueLineNode.DialogueLocalizedString =
                 new LocalizedString(collection.SharedData.TableCollectionNameGuid, entry.KeyId);
             EditorUtility.SetDirty(dialogueLineNode);
+        }
+
+        private string GetUniqueKey(StringTableCollection collection)
+        {
+            int curMaxLen = 10;
+            int maxLen = 25;
+            int suffixNumber = 1;
+            var key = _text.Substring(0, Mathf.Min(curMaxLen, _text.Length));
+            while (collection.SharedData.Contains(key))
+            {
+                if (key.Length >= _text.Length || key.Length >= maxLen)
+                {
+                    key = _text.Substring(0, Mathf.Min(curMaxLen, _text.Length)) + "_"+(suffixNumber++);
+                }
+                else
+                {
+                    curMaxLen++;
+                    key = _text.Substring(0, Mathf.Min(curMaxLen, _text.Length));
+                }
+            }
+
+            return key;
         }
     }
 }
