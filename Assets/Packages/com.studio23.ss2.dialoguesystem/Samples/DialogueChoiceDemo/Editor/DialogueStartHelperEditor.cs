@@ -73,7 +73,7 @@ namespace Samples.DialogueChoiceDemo.Editor
                             GUI.color = Color.yellow;
                             foreach (var dialogueChoiceNodeBase in choiceNodes)
                             {
-                                GUILayout.Label(dialogueChoiceNodeBase.DialogueLocalizedString.GetLocalizedStringInEditor());
+                                GUILayout.Label(dialogueChoiceNodeBase.DialogueLocalizedString. GetLocalizedStringInEditor());
                             }
                         }
                         else

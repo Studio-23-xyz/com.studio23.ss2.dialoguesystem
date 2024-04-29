@@ -1,7 +1,11 @@
-using UnityEditor;
 using UnityEditor.Localization;
+using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Tables;
+
+# if UNITY_EDITOR
+using UnityEditor;
+# endif
 
 namespace Studio23.SS2.DialogueSystem.Utility
 {
@@ -14,9 +18,13 @@ namespace Studio23.SS2.DialogueSystem.Utility
         
         public static void SaveChanges(this StringTable table)
         {
+# if UNITY_EDITOR
             EditorUtility.SetDirty(table.SharedData);
             EditorUtility.SetDirty(table);
+# endif
         }
+        
+# if UNITY_EDITOR
         /// <summary>
         /// Use this to get localized string value in editor
         /// for whatever reason notmal getString doesn't work
@@ -36,5 +44,6 @@ namespace Studio23.SS2.DialogueSystem.Utility
 
             return entry.Value;
         }
+# endif
     }
 }

@@ -12,7 +12,7 @@ namespace Samples
 
         public void StartDialogueFromNode()
         {
-            DialogueSystem.Instance.StartDialogue(_graph, StartNode);
+            DialogueSystem.Instance.StartDialogue(StartNode);
         }
         
         public void StartDialogueFromDefaultStartNode()
