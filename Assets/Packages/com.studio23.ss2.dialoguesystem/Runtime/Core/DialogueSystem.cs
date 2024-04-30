@@ -76,14 +76,14 @@ namespace Studio23.SS2.DialogueSystem.Core
 
         public async UniTask PlayDialogue(DialogueGraph graph)
         {
-            _currentGraph.Initialize();
+            graph.Initialize();
             await PlayDialogue(graph, graph.StartNode);
         }
         
         public async UniTask PlayDialogue(DialogueNodeBase startNode)
         {
-            _currentGraph.Initialize();
             var graph = startNode.graph as DialogueGraph;
+            graph.Initialize();
             await PlayDialogue(graph, startNode);
         }
         
