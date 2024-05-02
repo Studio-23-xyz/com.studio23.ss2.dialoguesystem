@@ -16,6 +16,16 @@ namespace Studio23.SS2.DialogueSystem.Core
         [Header("Execution Data")]
         [SerializeField] private DialogueNodeBase _curNode;
 
+        [Header("Skip")]
+        [SerializeField] private bool _resetSkipAfterChoice = true;
+        [SerializeField] private bool _isSkipActive = false;
+        [SerializeField] private bool _shouldShowLineWhenSkipped = true;
+        [SerializeField] private float _showLineDurationWhenSkipping = .32f;
+        public bool IsSkipActive => _isSkipActive;
+        public bool ShouldShowLineWhenSkipped => _shouldShowLineWhenSkipped;
+        public float ShowLineDurationWhenSkipping => _showLineDurationWhenSkipping;
+        public event Action<bool> OnSkipToggled; 
+        
         public event Action<DialogueGraph> OnDialogueStarted; 
         public event Action<DialogueGraph> OnDialogueEnded; 
         
@@ -92,6 +102,8 @@ namespace Studio23.SS2.DialogueSystem.Core
             _currentGraph = graph;
             _curNode = startNode;
             _currentGraph.HandleDialogueStarted();
+            _isSkipActive = false;
+            
             OnDialogueStarted?.Invoke(_currentGraph);
             while (_curNode != null)
             {
@@ -117,6 +129,10 @@ namespace Studio23.SS2.DialogueSystem.Core
         {
             if (_curNode != null)
             {
+                if (_resetSkipAfterChoice)
+                {
+                    ToggleSkip(false);
+                }
                 _curNode.HandleChoiceSelected(choiceIndex);
             }
         }
@@ -129,6 +145,12 @@ namespace Studio23.SS2.DialogueSystem.Core
         public void HandleDialogueChoiceEnded(DialogueChoicesNode dialogueChoicesNode)
         {
             OnDialogueChoiceEnded?.Invoke(dialogueChoicesNode);
+        }
+
+        public void ToggleSkip() => ToggleSkip(!_isSkipActive);
+        public void ToggleSkip(bool shouldSkipBeActive) {
+            _isSkipActive = shouldSkipBeActive;
+            OnSkipToggled?.Invoke(_isSkipActive);
         }
 
         private void OnDestroy()

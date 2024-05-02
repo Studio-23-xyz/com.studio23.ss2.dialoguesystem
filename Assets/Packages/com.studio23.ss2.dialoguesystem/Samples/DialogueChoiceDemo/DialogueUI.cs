@@ -9,6 +9,7 @@ namespace Samples
     {
         public DialogueBoxUI DialogueBox;
         public DialogueChoiceUI ChoiceUI;
+        
         void Start()
         {
             RegisterEvents();
@@ -30,6 +31,7 @@ namespace Samples
             DialogueSystem.Instance.OnDialogueChoiceStarted += HandleDialogueChoiceStarted;
             DialogueSystem.Instance.OnDialogueChoiceEnded += HandleDialogueChoiceEnded;
         }
+
         
         public override void ShowDialogueLineImmediate(DialogueLineNodeBase node)
         {

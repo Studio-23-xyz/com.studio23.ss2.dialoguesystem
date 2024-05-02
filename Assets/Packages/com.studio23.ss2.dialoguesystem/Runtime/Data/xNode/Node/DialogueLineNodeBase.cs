@@ -66,12 +66,24 @@ namespace Studio23.SS2.DialogueSystem.Data
         {
             _canAdvanceDialogue = false;
 
-            Core.DialogueSystem.Instance.DialogueLineStarted?.Invoke(this);
-            while (!_canAdvanceDialogue)
+            Debug.Log($"{Core.DialogueSystem.Instance.IsSkipActive} {Core.DialogueSystem.Instance.ShouldShowLineWhenSkipped}");
+            if (!Core.DialogueSystem.Instance.IsSkipActive || 
+                Core.DialogueSystem.Instance.ShouldShowLineWhenSkipped)
             {
-                await UniTask.Yield();
+                Core.DialogueSystem.Instance.DialogueLineStarted?.Invoke(this);
+                while (!_canAdvanceDialogue)
+                {
+                    if (Core.DialogueSystem.Instance.IsSkipActive)
+                    {
+                        await UniTask.Delay(TimeSpan.FromSeconds(Core.DialogueSystem.Instance.ShowLineDurationWhenSkipping));
+                        break;
+                    }
+
+                    await UniTask.Yield();
+                    await UniTask.NextFrame();
+                }
+                Core.DialogueSystem.Instance.DialogueLineCompleted?.Invoke(this);
             }
-            Core.DialogueSystem.Instance.DialogueLineCompleted?.Invoke(this);
             
             InvokePostPlayEvents();
         }

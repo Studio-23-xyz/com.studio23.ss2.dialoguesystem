@@ -124,8 +124,9 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  ID: 
-  Reaction: 
+  SpeakerData:
+    Character: {fileID: 0}
+    Expression: {fileID: 0}
   FMODEvent: 
   Exit: {fileID: 0}
   Events: {fileID: 0}
@@ -193,8 +194,91 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  ID: 
-  Reaction: 
+  SpeakerData:
+    Character: {fileID: 0}
+    Expression: {fileID: 0}
+  FMODEvent: 
+  Exit: {fileID: 0}
+  Events: {fileID: 0}
+  Entry: {fileID: 0}
+  references:
+    version: 2
+    RefIds: []
+--- !u!114 &-6474949720055141827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48d06dc387b74e7488469df7255a04c5, type: 3}
+  m_Name: Bi Way Dialogue
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -1944, y: -312}
+  ports:
+    keys:
+    - Entry
+    - Events
+    - Events 0
+    - Exit
+    values:
+    - _fieldName: Entry
+      _node: {fileID: -6474949720055141827}
+      _typeQualifiedName: Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase,
+        com.studio23.ss2.dialoguesystem, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Exit
+        node: {fileID: 3633946991284350163}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Events
+      _node: {fileID: -6474949720055141827}
+      _typeQualifiedName: Studio23.SS2.DialogueSystem.Data.EventNodeBase, com.studio23.ss2.dialoguesystem,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 3
+      _dynamic: 0
+    - _fieldName: Events 0
+      _node: {fileID: -6474949720055141827}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 1
+    - _fieldName: Exit
+      _node: {fileID: -6474949720055141827}
+      _typeQualifiedName: Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase,
+        com.studio23.ss2.dialoguesystem, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Entry
+        node: {fileID: -6227106332496004794}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 2
+      _dynamic: 0
+  DialogueLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: GUID:2fefaa175576a0e48bf5b28cb5260137
+    m_TableEntryReference:
+      m_KeyId: 162359848960
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  SpeakerData:
+    Character: {fileID: 0}
+    Expression: {fileID: 0}
   FMODEvent: 
   Exit: {fileID: 0}
   Events: {fileID: 0}
@@ -228,7 +312,7 @@ MonoBehaviour:
         com.studio23.ss2.dialoguesystem, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: Exit
-        node: {fileID: -2976715106930901999}
+        node: {fileID: -6474949720055141827}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -264,8 +348,9 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  ID: 
-  Reaction: 
+  SpeakerData:
+    Character: {fileID: 0}
+    Expression: {fileID: 0}
   FMODEvent: 
   Exit: {fileID: 0}
   Events: {fileID: 0}
@@ -329,8 +414,9 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  ID: 
-  Reaction: 
+  SpeakerData:
+    Character: {fileID: 0}
+    Expression: {fileID: 0}
   FMODEvent: 
   Exit: {fileID: 0}
   Events: {fileID: 0}
@@ -400,8 +486,9 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  ID: 
-  Reaction: 
+  SpeakerData:
+    Character: {fileID: 0}
+    Expression: {fileID: 0}
   FMODEvent: 
   Exit: {fileID: 0}
   Events: {fileID: 0}
@@ -423,7 +510,7 @@ MonoBehaviour:
   m_Name: Bi Way Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -1976, y: -248}
+  position: {x: -2744, y: -280}
   ports:
     keys:
     - Entry
@@ -470,7 +557,7 @@ MonoBehaviour:
         com.studio23.ss2.dialoguesystem, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: Entry
-        node: {fileID: -6227106332496004794}
+        node: {fileID: 3633946991284350163}
         reroutePoints: []
       _direction: 1
       _connectionType: 1
@@ -485,8 +572,9 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  ID: 
-  Reaction: 
+  SpeakerData:
+    Character: {fileID: 0}
+    Expression: {fileID: 0}
   FMODEvent: 
   Exit: {fileID: 0}
   Events: {fileID: 0}
@@ -507,22 +595,12 @@ MonoBehaviour:
   m_Name: Dialogue Start
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -2376, y: -216}
+  position: {x: -3240, y: -152}
   ports:
     keys:
-    - Events
     - Events 0
     - Exit
     values:
-    - _fieldName: Events
-      _node: {fileID: -1822135301059774123}
-      _typeQualifiedName: Studio23.SS2.DialogueSystem.Data.EventNodeBase, com.studio23.ss2.dialoguesystem,
-        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      connections: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 3
-      _dynamic: 0
     - _fieldName: Events 0
       _node: {fileID: -1822135301059774123}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
@@ -544,23 +622,7 @@ MonoBehaviour:
       _connectionType: 1
       _typeConstraint: 2
       _dynamic: 0
-  DialogueLocalizedString:
-    m_TableReference:
-      m_TableCollectionName: GUID:2fefaa175576a0e48bf5b28cb5260137
-    m_TableEntryReference:
-      m_KeyId: 57598717952
-      m_Key: 
-    m_FallbackState: 0
-    m_WaitForCompletion: 0
-    m_LocalVariables: []
-  ID: 
-  Reaction: 
-  FMODEvent: 
   Exit: {fileID: 0}
-  Events: {fileID: 0}
-  references:
-    version: 2
-    RefIds: []
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -587,11 +649,11 @@ MonoBehaviour:
   - {fileID: -7717196668193487428}
   - {fileID: 2612909593522295704}
   - {fileID: -5729608306176956038}
+  - {fileID: 3633946991284350163}
+  - {fileID: -6474949720055141827}
   SkippableDialogue: 0
   _startNode: {fileID: -1822135301059774123}
   _conditions: []
-  _defaultTable:
-    m_TableCollectionName: New Table
   references:
     version: 2
     RefIds: []
@@ -657,8 +719,9 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  ID: 
-  Reaction: 
+  SpeakerData:
+    Character: {fileID: 0}
+    Expression: {fileID: 0}
   FMODEvent: 
   Exit: {fileID: 0}
   Events: {fileID: 0}
@@ -680,7 +743,7 @@ MonoBehaviour:
   m_Name: Event
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -1575.1909, y: 81.857994}
+  position: {x: -2504, y: 408}
   ports:
     keys:
     - TriggeringNode
@@ -713,6 +776,88 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &3633946991284350163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48d06dc387b74e7488469df7255a04c5, type: 3}
+  m_Name: Bi Way Dialogue
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -2296, y: -280}
+  ports:
+    keys:
+    - Entry
+    - Events
+    - Events 0
+    - Exit
+    values:
+    - _fieldName: Entry
+      _node: {fileID: 3633946991284350163}
+      _typeQualifiedName: Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase,
+        com.studio23.ss2.dialoguesystem, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Exit
+        node: {fileID: -2976715106930901999}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Events
+      _node: {fileID: 3633946991284350163}
+      _typeQualifiedName: Studio23.SS2.DialogueSystem.Data.EventNodeBase, com.studio23.ss2.dialoguesystem,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 3
+      _dynamic: 0
+    - _fieldName: Events 0
+      _node: {fileID: 3633946991284350163}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 1
+    - _fieldName: Exit
+      _node: {fileID: 3633946991284350163}
+      _typeQualifiedName: Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase,
+        com.studio23.ss2.dialoguesystem, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Entry
+        node: {fileID: -6474949720055141827}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 2
+      _dynamic: 0
+  DialogueLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: GUID:2fefaa175576a0e48bf5b28cb5260137
+    m_TableEntryReference:
+      m_KeyId: 162359848960
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  SpeakerData:
+    Character: {fileID: 0}
+    Expression: {fileID: 0}
+  FMODEvent: 
+  Exit: {fileID: 0}
+  Events: {fileID: 0}
+  Entry: {fileID: 0}
+  references:
+    version: 2
+    RefIds: []
 --- !u!114 &5124243875242287576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -772,8 +917,9 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  ID: 
-  Reaction: 
+  SpeakerData:
+    Character: {fileID: 0}
+    Expression: {fileID: 0}
   FMODEvent: 
   Exit: {fileID: 0}
   Events: {fileID: 0}
@@ -843,8 +989,9 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  ID: 
-  Reaction: 
+  SpeakerData:
+    Character: {fileID: 0}
+    Expression: {fileID: 0}
   FMODEvent: 
   Exit: {fileID: 0}
   Events: {fileID: 0}
@@ -912,8 +1059,9 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  ID: 
-  Reaction: 
+  SpeakerData:
+    Character: {fileID: 0}
+    Expression: {fileID: 0}
   FMODEvent: 
   Exit: {fileID: 0}
   Events: {fileID: 0}
