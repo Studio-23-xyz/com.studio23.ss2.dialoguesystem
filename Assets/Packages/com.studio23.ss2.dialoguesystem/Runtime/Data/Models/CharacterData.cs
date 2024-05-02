@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.UIElements;
 
 namespace Studio23.SS2.DialogueSystem.Data
 {
@@ -11,6 +12,7 @@ namespace Studio23.SS2.DialogueSystem.Data
     public class CharacterData : ScriptableObject
     {
         public string CharacterName;
+        public Sprite DefaultSprite;
         public Color DialogueColor;
         public List<CharacterExpressionData> Expressions;
 
