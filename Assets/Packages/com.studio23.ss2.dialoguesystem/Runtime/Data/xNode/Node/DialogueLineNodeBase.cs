@@ -73,6 +73,7 @@ namespace Studio23.SS2.DialogueSystem.Data
                 Core.DialogueSystem.Instance.DialogueLineStarted?.Invoke(this);
                 while (!_canAdvanceDialogue)
                 {
+                    //at this point, we are showing dialogue with ShouldShowLineWhenSkipped = true
                     if (Core.DialogueSystem.Instance.IsSkipActive)
                     {
                         await UniTask.Delay(TimeSpan.FromSeconds(Core.DialogueSystem.Instance.ShowLineDurationWhenSkipping));

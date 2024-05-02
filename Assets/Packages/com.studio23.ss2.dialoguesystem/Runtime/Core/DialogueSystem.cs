@@ -42,7 +42,6 @@ namespace Studio23.SS2.DialogueSystem.Core
         /// Subscribe to this to know when dialogue completed
         /// </summary>
         public DialogueLineEvent DialogueLineCompleted;
-        
 
         void Awake()
         {
@@ -64,7 +63,6 @@ namespace Studio23.SS2.DialogueSystem.Core
         {
             _currentGraph = newGraph;
         }
-
 
         /// <summary>
         /// Start playing dialogue and it Fires the Start event
