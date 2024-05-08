@@ -1,6 +1,6 @@
 {
     "name": "com.studio23.ss2.dialoguesystem",
-    "version": "0.4.4",
+    "version": "0.4.5",
     "displayName": "Dialogue System",
     "description": "Dialogue system is an authoring tool for developers to integrate dialogue from scriptwriters inside unity.",
     "unity": "2022.3",
@@ -32,6 +32,11 @@
             "displayName": "Dialogue Choice Demo",
             "description": "A small sample to demonstrate how to use the library for showing Dialogue Choices",
             "path": "Samples~/DialogueChoiceDemo"
+        },
+        {
+            "displayName": "Timeline Demo",
+            "description": "A small sample to demonstrate how to use the library with timeline",
+            "path": "Samples~/TimeLineDemo"
         }
 
     ],
