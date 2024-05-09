@@ -1,4 +1,5 @@
 using System;
+using Cysharp.Threading.Tasks;
 using UnityEngine.Serialization;
 using XNode;
 
@@ -30,6 +31,12 @@ namespace Studio23.SS2.DialogueSystem.Data
             return LastConditionEvaluationStatus;
         }
         protected abstract bool CheckConditionsInternal();
+
+        public override UniTask Play()
+        {
+            InvokePostPlayEvents();
+            return UniTask.CompletedTask;
+        }
 
         public void HandleChoiceTaken()
         {

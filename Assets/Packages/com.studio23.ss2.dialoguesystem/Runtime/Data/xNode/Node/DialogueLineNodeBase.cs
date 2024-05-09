@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using Studio23.SS2.DialogueSystem.Utility;
 using UnityEngine;
@@ -64,9 +65,14 @@ namespace Studio23.SS2.DialogueSystem.Data
 
         public override async UniTask Play()
         {
+            await ShowLine();
+            InvokePostPlayEvents();
+        }
+
+        protected async UniTask ShowLine()
+        {
             _canAdvanceDialogue = false;
 
-            Debug.Log($"{Core.DialogueSystem.Instance.IsSkipActive} {Core.DialogueSystem.Instance.ShouldShowLineWhenSkipped}");
             if (!Core.DialogueSystem.Instance.IsSkipActive || 
                 Core.DialogueSystem.Instance.ShouldShowLineWhenSkipped)
             {
@@ -85,8 +91,6 @@ namespace Studio23.SS2.DialogueSystem.Data
                 }
                 Core.DialogueSystem.Instance.DialogueLineCompleted?.Invoke(this);
             }
-            
-            InvokePostPlayEvents();
         }
 
         public override DialogueNodeBase GetNextNode()
