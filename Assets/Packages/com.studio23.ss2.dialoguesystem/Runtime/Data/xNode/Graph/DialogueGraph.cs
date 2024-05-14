@@ -65,7 +65,7 @@ namespace Studio23.SS2.DialogueSystem.Data
             {
                 return;
             }
-
+            FindStartNode();
             _initialized = true;
             foreach (var node in nodes)
             {
