@@ -21,7 +21,12 @@ namespace Studio23.SS2.DialogueSystem.Data
 
             return true;
         }
-        
+                
+        public override UniTask Play()
+        {
+            InvokePostPlayEvents();
+            return UniTask.CompletedTask;
+        }
         
     }
 }
