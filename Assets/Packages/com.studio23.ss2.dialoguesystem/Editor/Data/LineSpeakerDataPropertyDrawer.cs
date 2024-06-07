@@ -69,6 +69,11 @@ namespace Editor.Data
                     EditorGUI.EndDisabledGroup();
                 }
             }
+            else
+            {
+                position.y += EditorGUIUtility.singleLineHeight;
+                EditorGUI.HelpBox(position, "NO CharacterData", MessageType.Error);    
+            }
 
             // Set indent back to what it was
             EditorGUI.indentLevel = indent;

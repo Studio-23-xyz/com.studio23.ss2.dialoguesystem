@@ -8,7 +8,8 @@ using XNode;
 
 namespace Studio23.SS2.DialogueSystem.Data
 {
-    [CreateAssetMenu(menuName = "Studio-23/Dialogue System/New Dialogue Graph", fileName ="Dialogue Graph")]
+    [CreateAssetMenu(menuName = "Studio-23/Dialogue System/New Dial" +
+                                "ogue Graph", fileName ="Dialogue Graph")]
     public class DialogueGraph : NodeGraph
     {
         public bool SkippableDialogue;
@@ -142,6 +143,25 @@ namespace Studio23.SS2.DialogueSystem.Data
             }
 
             return null;
+        }
+
+        [ContextMenu("FindNodesWithoutCharacterData")]
+        public void FindNodesWithoutCharacterData()
+        {
+            foreach (var node in nodes)
+            {
+                if (node is DialogueLineNodeBase lineNode)
+                {
+                    if (lineNode.SpeakerData?.Character == null)
+                    {
+                        Debug.LogWarning($"{lineNode} has no characterData", lineNode);
+                    }
+                    else
+                    {
+                        
+                    }
+                }
+            }
         }
 
     }

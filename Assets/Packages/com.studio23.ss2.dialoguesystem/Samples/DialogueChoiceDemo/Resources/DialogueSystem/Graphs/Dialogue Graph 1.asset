@@ -62,8 +62,9 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  ID: 
-  Reaction: 
+  SpeakerData:
+    Character: {fileID: 0}
+    Expression: {fileID: 0}
   FMODEvent: 
   Exit: {fileID: 0}
   Events: {fileID: 0}
@@ -142,8 +143,9 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  ID: 
-  Reaction: 
+  SpeakerData:
+    Character: {fileID: 0}
+    Expression: {fileID: 0}
   FMODEvent: 
   Exit: {fileID: 0}
   Events: {fileID: 0}
@@ -210,8 +212,9 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  ID: 
-  Reaction: 
+  SpeakerData:
+    Character: {fileID: 0}
+    Expression: {fileID: 0}
   FMODEvent: 
   Exit: {fileID: 0}
   Events: {fileID: 0}
@@ -347,8 +350,9 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  ID: 
-  Reaction: 
+  SpeakerData:
+    Character: {fileID: 0}
+    Expression: {fileID: 0}
   FMODEvent: 
   Exit: {fileID: 0}
   Events: {fileID: 0}
@@ -413,8 +417,9 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  ID: 
-  Reaction: 
+  SpeakerData:
+    Character: {fileID: 0}
+    Expression: {fileID: 0}
   FMODEvent: 
   Exit: {fileID: 0}
   Events: {fileID: 0}
@@ -481,8 +486,9 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  ID: 
-  Reaction: 
+  SpeakerData:
+    Character: {fileID: 0}
+    Expression: {fileID: 0}
   FMODEvent: 
   Exit: {fileID: 0}
   Events: {fileID: 0}
@@ -507,6 +513,7 @@ MonoBehaviour:
   ports:
     keys:
     - Exit
+    - Events
     values:
     - _fieldName: Exit
       _node: {fileID: -1822135301059774123}
@@ -520,7 +527,17 @@ MonoBehaviour:
       _connectionType: 1
       _typeConstraint: 2
       _dynamic: 0
+    - _fieldName: Events
+      _node: {fileID: -1822135301059774123}
+      _typeQualifiedName: Studio23.SS2.DialogueSystem.Data.EventNodeBase, com.studio23.ss2.dialoguesystem,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 3
+      _dynamic: 0
   Exit: {fileID: 0}
+  Events: {fileID: 0}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -637,8 +654,9 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  ID: 
-  Reaction: 
+  SpeakerData:
+    Character: {fileID: 0}
+    Expression: {fileID: 0}
   FMODEvent: 
   Exit: {fileID: 0}
   Events: {fileID: 0}
@@ -730,6 +748,7 @@ MonoBehaviour:
   ports:
     keys:
     - Exit
+    - Events
     values:
     - _fieldName: Exit
       _node: {fileID: 4547693736577939076}
@@ -743,7 +762,17 @@ MonoBehaviour:
       _connectionType: 1
       _typeConstraint: 2
       _dynamic: 0
+    - _fieldName: Events
+      _node: {fileID: 4547693736577939076}
+      _typeQualifiedName: Studio23.SS2.DialogueSystem.Data.EventNodeBase, com.studio23.ss2.dialoguesystem,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 3
+      _dynamic: 0
   Exit: {fileID: 0}
+  Events: {fileID: 0}
 --- !u!114 &5124243875242287576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -803,8 +832,9 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  ID: 
-  Reaction: 
+  SpeakerData:
+    Character: {fileID: 0}
+    Expression: {fileID: 0}
   FMODEvent: 
   Exit: {fileID: 0}
   Events: {fileID: 0}
@@ -877,8 +907,9 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  ID: 
-  Reaction: 
+  SpeakerData:
+    Character: {fileID: 0}
+    Expression: {fileID: 0}
   FMODEvent: 
   Exit: {fileID: 0}
   Events: {fileID: 0}
