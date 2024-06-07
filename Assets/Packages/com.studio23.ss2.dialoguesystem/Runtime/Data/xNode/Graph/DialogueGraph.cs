@@ -150,15 +150,12 @@ namespace Studio23.SS2.DialogueSystem.Data
         {
             foreach (var node in nodes)
             {
-                if (node is DialogueLineNodeBase lineNode)
+                if (node is DialogueLineNodeBase lineNode &&
+                    node is not DialogueChoiceNode choiceNode)
                 {
                     if (lineNode.SpeakerData?.Character == null)
                     {
-                        Debug.LogWarning($"{lineNode} has no characterData", lineNode);
-                    }
-                    else
-                    {
-                        
+                        Debug.LogWarning($"{this}:{lineNode} has no characterData", lineNode);
                     }
                 }
             }
