@@ -2,6 +2,18 @@
 ## [v0.4.16]
 1. Additional force exit choices button
 
+
+
+## [v0.4.4]
+1. Dialogue skip added
+1. Default sprites for character added
+
+## [v0.4.3]
+1. Fix dialogue node initialization when starting from graph
+
+## [v0.4.1]
+1. Fix dialogue line key generation
+
 ## [v0.4.0]
 1. Timeline support added
 2. Sample timeline scene added
