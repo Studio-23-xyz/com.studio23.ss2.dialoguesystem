@@ -90,6 +90,10 @@ MonoBehaviour:
     m_Localized: YAMETEKUDASTOP
     m_Metadata:
       m_Items: []
+  - m_Id: 60536405610639360
+    m_Localized: You know what nvm
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

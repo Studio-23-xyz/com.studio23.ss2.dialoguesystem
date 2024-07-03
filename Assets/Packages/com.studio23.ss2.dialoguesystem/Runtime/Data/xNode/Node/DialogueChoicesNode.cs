@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Cysharp.Threading.Tasks;
+using JetBrains.Annotations;
 using Studio23.SS2.DialogueSystem.Utility;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -20,10 +21,25 @@ namespace Studio23.SS2.DialogueSystem.Data
 
         protected List<DialogueChoiceNodeBase> _availableDialogueChoices;
         public List<DialogueChoiceNodeBase> AvailableDialogueChoices => _availableDialogueChoices;
+        [Output] public DialogueChoicesNode ForceExitChoice;
+
+        [CanBeNull] public DialogueChoiceNode GetForceExitNode()
+        {
+            NodePort outputPort = GetOutputPort("ForceExitChoice");
+            if (outputPort == null || outputPort.Connection == null)
+            {
+                return null;
+            }
+            return outputPort.Connection.node as DialogueChoiceNode;
+        }
 
         public override object GetValue(NodePort port)
         {
             if (port.fieldName == "Choices")
+            {
+                return this;
+            }
+            if (port.fieldName == "ForceExitPort")
             {
                 return this;
             }
@@ -63,7 +79,13 @@ namespace Studio23.SS2.DialogueSystem.Data
             for (int i = 0; i < _availableDialogueChoices.Count; i++)
             {
                 _availableDialogueChoices[i].DialogueChoiceIndex = i;
-            }   
+            }
+
+            var forceExitNode = GetForceExitNode();
+            if (forceExitNode != null)
+            {
+                forceExitNode.DialogueChoiceIndex = -1;
+            }
         }
 
         protected void RemoveUnavailableChoices()
@@ -85,6 +107,14 @@ namespace Studio23.SS2.DialogueSystem.Data
 
         public override DialogueNodeBase GetNextNode()
         {
+            if (_lastChoiceIndex == -1)
+            {
+                var forceExitNode = GetForceExitNode();
+                if (forceExitNode != null)
+                {
+                    return forceExitNode;
+                }
+            }
             if (_lastChoiceIndex < 0 || _lastChoiceIndex >= _availableDialogueChoices.Count)
             {
                 Debug.LogError($"INDEX {_lastChoiceIndex} OUT OF RANGE for dialogue choices {this}", this);
@@ -101,16 +131,23 @@ namespace Studio23.SS2.DialogueSystem.Data
             {
                 var pickedChoice = _availableDialogueChoices[_lastChoiceIndex];
                 pickedChoice.HandleChoiceTaken();
+            }else if (_lastChoiceIndex == -1)
+            {
+                var node = GetForceExitNode();
+                if (node != null)
+                {
+                    node.HandleChoiceTaken();
+                }
             }
         }
 
         public override async UniTask Play()
         {
-            _lastChoiceIndex = -1;
+            _lastChoiceIndex = -69;
             PrepareDialogueChoices();
             Core.DialogueSystem.Instance.HandleDialogueChoiceStarted(this);
             
-            while (_lastChoiceIndex < 0)
+            while (_lastChoiceIndex < 0 && _lastChoiceIndex != -1)
             {
                 await UniTask.Yield();
             }

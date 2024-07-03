@@ -385,7 +385,10 @@ MonoBehaviour:
       _node: {fileID: -2134849642463621259}
       _typeQualifiedName: Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase,
         com.studio23.ss2.dialoguesystem, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: Exit
+        node: {fileID: -1934156710639609602}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 0
@@ -440,7 +443,7 @@ MonoBehaviour:
   m_Name: Bi Way Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 344, y: 1656}
+  position: {x: 296, y: 1432}
   ports:
     keys:
     - Entry
@@ -463,7 +466,10 @@ MonoBehaviour:
       _node: {fileID: -1934156710639609602}
       _typeQualifiedName: Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase,
         com.studio23.ss2.dialoguesystem, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: Entry
+        node: {fileID: -2134849642463621259}
+        reroutePoints: []
       _direction: 1
       _connectionType: 1
       _typeConstraint: 2
@@ -568,6 +574,7 @@ MonoBehaviour:
   - {fileID: -6051422413199044520}
   - {fileID: -5885707281620676963}
   - {fileID: 2428574908935260580}
+  - {fileID: 805789522290095862}
   SkippableDialogue: 0
   _startNode: {fileID: -1822135301059774123}
   _conditions: []
@@ -592,6 +599,81 @@ MonoBehaviour:
     keys: []
     values: []
   IsTrue: 0
+--- !u!114 &805789522290095862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e5e901d523a4dce81016208dff46900, type: 3}
+  m_Name: Dialogue Choice
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -536, y: 1528}
+  ports:
+    keys:
+    - ParentChoice
+    - Exit
+    - Events
+    values:
+    - _fieldName: ParentChoice
+      _node: {fileID: 805789522290095862}
+      _typeQualifiedName: Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode, com.studio23.ss2.dialoguesystem,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: ForceExitChoice
+        node: {fileID: 8927815714544073783}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Exit
+      _node: {fileID: 805789522290095862}
+      _typeQualifiedName: Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase,
+        com.studio23.ss2.dialoguesystem, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: Events
+      _node: {fileID: 805789522290095862}
+      _typeQualifiedName: Studio23.SS2.DialogueSystem.Data.EventNodeBase, com.studio23.ss2.dialoguesystem,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 3
+      _dynamic: 0
+  DialogueLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: GUID:2fefaa175576a0e48bf5b28cb5260137
+    m_TableEntryReference:
+      m_KeyId: 60536405610639360
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  SpeakerData:
+    Character: {fileID: 0}
+    Expression: {fileID: 0}
+  FMODEvent: 
+  Exit: {fileID: 0}
+  Events: {fileID: 0}
+  ParentChoice: {fileID: 0}
+  _conditions:
+  - rid: 4806151239593623552
+  references:
+    version: 2
+    RefIds:
+    - rid: 4806151239593623552
+      type: {class: TestBoolNodeInteraction, ns: , asm: Assembly-CSharp}
+      data:
+        BoolNode: {fileID: 401710227361937087}
 --- !u!114 &1247732052999767825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1080,6 +1162,7 @@ MonoBehaviour:
     keys:
     - Entry
     - Choices
+    - ForceExitChoice
     values:
     - _fieldName: Entry
       _node: {fileID: 8927815714544073783}
@@ -1117,5 +1200,18 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
+    - _fieldName: ForceExitChoice
+      _node: {fileID: 8927815714544073783}
+      _typeQualifiedName: Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode, com.studio23.ss2.dialoguesystem,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: ParentChoice
+        node: {fileID: 805789522290095862}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
   Entry: {fileID: 0}
   Choices: {fileID: 0}
+  ForceExitChoice: {fileID: 0}

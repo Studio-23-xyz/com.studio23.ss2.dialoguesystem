@@ -7,11 +7,11 @@ using UnityEngine;
 
 public class DialogueChoiceUI:MonoBehaviour
 {
+    [SerializeField] private DialogueChoiceNode _forceExitChoice;
     [SerializeField] private List<DialogueChoiceNodeBase> _sortedChoices;
     [SerializeField] private Transform _buttonContainer;
     [SerializeField] private DialogueChoiceButton _buttonPrefab;
     [SerializeField] List<DialogueChoiceButton> _spawnedButtons;
-
     private void Awake()
     {
         _buttonContainer.gameObject.SetActive(false);
@@ -44,6 +44,7 @@ public class DialogueChoiceUI:MonoBehaviour
 
     public void ShowChoices(DialogueChoicesNode choicesNode)
     {
+        _forceExitChoice = choicesNode.GetForceExitNode();
         SortChoices(choicesNode);
         _buttonContainer.gameObject.SetActive(true);
         NukeButtons();
@@ -77,10 +78,21 @@ public class DialogueChoiceUI:MonoBehaviour
         for (int i = 0; i < _sortedChoices.Count; i++)
         {
             var choiceButton = Instantiate(_buttonPrefab, _buttonContainer);
-            choiceButton.SetChoiceData(_sortedChoices[i]);
-            choiceButton.ChoiceSelected += HandleDialogueChoiceSelected;
-            _spawnedButtons.Add(choiceButton);
+            InitializeChoiceButton(choiceButton, _sortedChoices[i]);
         }
+
+        if (_forceExitChoice != null)
+        {
+            var choiceButton = Instantiate(_buttonPrefab, _buttonContainer);
+            InitializeChoiceButton(choiceButton, _forceExitChoice);
+        }
+    }
+
+    private void InitializeChoiceButton(DialogueChoiceButton choiceButton, DialogueChoiceNodeBase choiceNode)
+    {
+        choiceButton.SetChoiceData(choiceNode);
+        choiceButton.ChoiceSelected += HandleDialogueChoiceSelected;
+        _spawnedButtons.Add(choiceButton);
     }
 
     public void HandleDialogueChoiceSelected(int index)

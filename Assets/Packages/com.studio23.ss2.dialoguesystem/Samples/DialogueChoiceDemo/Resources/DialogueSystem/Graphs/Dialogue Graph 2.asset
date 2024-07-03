@@ -19,6 +19,7 @@ MonoBehaviour:
     - FinalChoice
     - Entry
     - Choices
+    - ForceExitChoice
     values:
     - _fieldName: FinalChoice
       _node: {fileID: -7717196668193487428}
@@ -62,8 +63,18 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
+    - _fieldName: ForceExitChoice
+      _node: {fileID: -7717196668193487428}
+      _typeQualifiedName: Studio23.SS2.DialogueSystem.Data.DialogueChoicesNode, com.studio23.ss2.dialoguesystem,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
   Entry: {fileID: 0}
   Choices: {fileID: 0}
+  ForceExitChoice: {fileID: 0}
   FinalChoice: {fileID: 0}
 --- !u!114 &-7258830810515598621
 MonoBehaviour:
@@ -1013,7 +1024,7 @@ MonoBehaviour:
   m_Name: Bi Way Dialogue
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -40, y: 88}
+  position: {x: -72, y: 56}
   ports:
     keys:
     - Entry
