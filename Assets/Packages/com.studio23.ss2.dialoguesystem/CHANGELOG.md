@@ -1,4 +1,7 @@
 # Changelog
+## [v0.4.16]
+1. Additional force exit choices button
+
 ## [v0.4.0]
 1. Timeline support added
 2. Sample timeline scene added
