@@ -24,10 +24,10 @@ namespace Studio23.SS2.DialogueSystem.Core
         public bool IsSkipActive => _isSkipActive;
         public bool ShouldShowLineWhenSkipped => _shouldShowLineWhenSkipped;
         public float ShowLineDurationWhenSkipping => _showLineDurationWhenSkipping;
-        public event Action<bool> OnSkipToggled; 
-        
-        public event Action<DialogueGraph> OnDialogueStarted; 
-        public event Action<DialogueGraph> OnDialogueEnded; 
+        public event Action<bool> OnSkipToggled;
+        public delegate void DialoguePlayEvent(DialogueGraph graph, DialogueNodeBase startNode); 
+        public event DialoguePlayEvent OnDialogueStarted; 
+        public event DialoguePlayEvent OnDialogueEnded; 
         
         public event Action<DialogueChoicesNode> OnDialogueChoiceStarted; 
         public event Action<DialogueChoicesNode> OnDialogueChoiceEnded; 
@@ -102,7 +102,7 @@ namespace Studio23.SS2.DialogueSystem.Core
             _currentGraph.HandleDialogueStarted();
             _isSkipActive = false;
             
-            OnDialogueStarted?.Invoke(_currentGraph);
+            OnDialogueStarted?.Invoke(_currentGraph, startNode);
             while (_curNode != null)
             {
                 Debug.Log("Play = " + _curNode, _curNode);
@@ -112,7 +112,7 @@ namespace Studio23.SS2.DialogueSystem.Core
             }
 
             _currentGraph.HandleDialogueEnded();
-            OnDialogueEnded?.Invoke(_currentGraph);
+            OnDialogueEnded?.Invoke(_currentGraph, startNode);
         }
 
         public void AdvanceDialogue()

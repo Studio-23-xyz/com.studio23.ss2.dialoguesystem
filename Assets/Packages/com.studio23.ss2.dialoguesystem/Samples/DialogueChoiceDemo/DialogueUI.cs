@@ -64,7 +64,7 @@ namespace Samples
             }
         }
 
-        private void ShowUI(DialogueGraph obj) => ShowUI();
+        private void ShowUI(DialogueGraph obj, DialogueNodeBase startNode) => ShowUI();
         private void ShowUI(DialogueChoicesNode obj) => ShowUI();
 
         public override void ShowUI()
@@ -77,7 +77,7 @@ namespace Samples
             DialogueBox.HideUI();
         }
 
-        private void HideUI(DialogueGraph obj) => HideUI();
+        private void HideUI(DialogueGraph graph, DialogueNodeBase startnode) => HideUI();
 
         protected override void HandleDialogueLineStarted(DialogueLineNodeBase dialogueLineNodeBase)
         {
