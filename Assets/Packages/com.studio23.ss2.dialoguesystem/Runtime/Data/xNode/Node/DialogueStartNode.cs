@@ -1,5 +1,6 @@
 ﻿using Cysharp.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Events;
 using XNode;
 
 namespace Studio23.SS2.DialogueSystem.Data
@@ -12,6 +13,7 @@ namespace Studio23.SS2.DialogueSystem.Data
         
         [Output(typeConstraint =  TypeConstraint.InheritedInverse)] 
         public EventNodeBase Events;
+
         public override DialogueNodeBase GetNextNode()
         {
             NodePort outputPort = GetExitPort();

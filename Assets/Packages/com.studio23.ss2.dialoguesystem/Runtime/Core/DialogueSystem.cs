@@ -25,9 +25,9 @@ namespace Studio23.SS2.DialogueSystem.Core
         public bool ShouldShowLineWhenSkipped => _shouldShowLineWhenSkipped;
         public float ShowLineDurationWhenSkipping => _showLineDurationWhenSkipping;
         public event Action<bool> OnSkipToggled;
-        public delegate void DialoguePlayEvent(DialogueGraph graph, DialogueNodeBase startNode); 
-        public event DialoguePlayEvent OnDialogueStarted; 
-        public event DialoguePlayEvent OnDialogueEnded; 
+        public delegate void DialogueGraphPlayEvent(DialogueGraph graph, DialogueNodeBase startNode); 
+        public event DialogueGraphPlayEvent OnDialogueStarted; 
+        public event DialogueGraphPlayEvent OnDialogueEnded; 
         
         public event Action<DialogueChoicesNode> OnDialogueChoiceStarted; 
         public event Action<DialogueChoicesNode> OnDialogueChoiceEnded; 
