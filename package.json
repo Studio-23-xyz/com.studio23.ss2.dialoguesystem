@@ -1,0 +1,54 @@
+{
+    "name": "com.studio23.ss2.dialoguesystem",
+    "version": "0.4.18",
+    "displayName": "Dialogue System",
+    "description": "Dialogue system is an authoring tool for developers to integrate dialogue from scriptwriters inside unity.",
+    "unity": "2022.3",
+    "unityRelease": "10f1",
+    "documentationUrl": "https://studio-23-xyz.github.io/com.studio23.ss2.dialoguesystem/manual/",
+    "changelogUrl": "https://studio-23-xyz.github.io/com.studio23.ss2.dialoguesystem/changelog/CHANGELOG.html",
+    "licensesUrl": "https://studio-23-xyz.github.io/com.studio23.ss2.dialoguesystem/license/LICENSE.html",
+    "scopedRegistries": [
+        {
+            "name": "Studio 23",
+            "url": "https://package.openupm.com",
+            "scopes": [
+                "com.studio23.ss2"
+            ]
+        }
+    ],
+    "dependencies": {
+        "com.github.siccity.xnode": "1.8.0",
+        "com.cysharp.unitask": "2.4.1",
+        "com.unity.localization": "1.4.5",
+        "com.textus-games.serialized-reference-ui": "1.0.0"
+    },
+    "keywords": [
+        "Dialogue System"
+    ],
+
+    "samples": [
+        {
+            "displayName": "Dialogue Choice Demo",
+            "description": "A small sample to demonstrate how to use the library for showing Dialogue Choices",
+            "path": "Samples~/DialogueChoiceDemo"
+        },
+        {
+            "displayName": "Timeline Demo",
+            "description": "A small sample to demonstrate how to use the library with timeline",
+            "path": "Samples~/TimeLineDemo"
+        }
+
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Studio-23-xyz/com.studio23.ss2.dialoguesystem.git"
+    },
+    "license": "MIT",
+
+    "author": {
+        "name": "Studio 23",
+        "email": "contact@studio-23.xyz",
+        "url": "https://studio-23.xyz"
+    }
+}
