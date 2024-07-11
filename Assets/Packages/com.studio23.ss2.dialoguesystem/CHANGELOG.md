@@ -1,8 +1,9 @@
 # Changelog
 ## [v0.4.16]
+1. Startnode parameter to graph events
+
+## [v0.4.16]
 1. Additional force exit choices button
-
-
 
 ## [v0.4.4]
 1. Dialogue skip added
