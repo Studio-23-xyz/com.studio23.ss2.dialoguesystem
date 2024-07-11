@@ -1,6 +1,10 @@
 # Changelog
+
 ## [v0.4.16]
-1. Startnode parameter to graph events
+1. Startnode parameter to DialogeuGraph.events
+2. 
+## [v0.4.16]
+1. Startnode parameter to DialogueSystem.events
 
 ## [v0.4.16]
 1. Additional force exit choices button
