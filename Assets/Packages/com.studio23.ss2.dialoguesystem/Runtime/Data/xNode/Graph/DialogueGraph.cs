@@ -17,7 +17,7 @@ namespace Studio23.SS2.DialogueSystem.Data
         [SerializeField] private DialogueNodeBase _startNode;
         public DialogueNodeBase StartNode => _startNode;
         
-        private DialogueNodeBase _currentNode;
+        private DialogueNodeBase _currentStartNode;
         private DialogueNodeBase _lastAddedNode;
 
         //This is needed if we want to make even starting the conversation conditional
@@ -113,18 +113,18 @@ namespace Studio23.SS2.DialogueSystem.Data
             _lastAddedNode=node;
         }
 
-        public void HandleDialogueStarted()
+        public void HandleDialogueStarted(DialogueNodeBase startNode)
         {
             //this needs to be set manually 
             //otherwise we can't have repeating dialogue
             FindStartNode();
-            _currentNode = _startNode;
-            OnDialogueStarted?.Invoke(this, _startNode);
+            _currentStartNode = startNode;
+            OnDialogueStarted?.Invoke(this, _currentStartNode);
         }
 
         public void HandleDialogueEnded()
         {
-            OnDialogueEnded?.Invoke(this, _startNode);
+            OnDialogueEnded?.Invoke(this, _currentStartNode);
         }
 
         private DialogueStartNode FindStartNode()

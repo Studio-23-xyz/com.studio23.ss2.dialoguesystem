@@ -99,7 +99,7 @@ namespace Studio23.SS2.DialogueSystem.Core
         {
             _currentGraph = graph;
             _curNode = startNode;
-            _currentGraph.HandleDialogueStarted();
+            _currentGraph.HandleDialogueStarted(startNode);
             _isSkipActive = false;
             
             OnDialogueStarted?.Invoke(_currentGraph, startNode);
