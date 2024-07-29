@@ -1,4 +1,7 @@
 # Changelog
+## [0.4.19] 
+Added tool to export dialogue localization text in unity's format according to dialogue graph order 
+
 ## [0.3.10] 
 1. Start from choice nodes allowed
 2. Enhanced the dialogue system to support a more dynamic flow, including handling of dialogue advancement and choices.
