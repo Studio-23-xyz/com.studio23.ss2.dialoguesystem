@@ -1,8 +1,10 @@
 # Changelog
+## [0.4.19] 
+1. Added tool to export dialogue localization text in unity's format according to dialogue graph order 
 
 ## [v0.4.16]
 1. Startnode parameter to DialogeuGraph.events
-2. 
+ 
 ## [v0.4.16]
 1. Startnode parameter to DialogueSystem.events
 
