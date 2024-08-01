@@ -1,4 +1,6 @@
 # Changelog
+## [0.4.20]
+1. Also allow exporting speaker data for graph
 ## [0.4.19] 
 1. Added tool to export dialogue localization text in unity's format according to dialogue graph order 
 
