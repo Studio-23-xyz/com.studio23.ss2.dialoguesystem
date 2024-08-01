@@ -178,14 +178,19 @@ namespace Studio23.SS2.Editor.com.studio23.ss2.Editor
                 ExportStringTable(stream, collection, columnMappings, dialogueLinesInOrder, dialogueGraphLineIds);
             }   
         }
-
+        
+        /// <summary>
+        /// #TODO temporary measure till I figure out columnmapping
+        /// </summary>
+        /// <param name="dialogueLinesInOrder"></param>
+        /// <param name="path"></param>
         public void ExportSpeakerData(List<DialogueLineNodeBase> dialogueLinesInOrder, string path)
         {
             // StringBuilder to construct the CSV content
             StringBuilder csvContent = new StringBuilder();
 
             // Append the header
-            csvContent.AppendLine("Key,Id,Speaker, Expression");
+            csvContent.AppendLine("Id,Speaker, Expression");
 
             // Append each dialogue line
             foreach (var line in dialogueLinesInOrder)
@@ -195,11 +200,11 @@ namespace Studio23.SS2.Editor.com.studio23.ss2.Editor
                 {
                     if (line.SpeakerData.Character != null)
                     {
-                        csvContent.AppendLine($"{entry.Key},{entry.Id},{line.SpeakerData.Character.CharacterName}, {line.SpeakerData.Expression}");
+                        csvContent.AppendLine($"{entry.Id},{line.SpeakerData.Character.CharacterName}, {line.SpeakerData.Expression.name}");
                     }
                     else
                     {
-                        csvContent.AppendLine($"{entry.Key},{entry.Id},,");
+                        csvContent.AppendLine($"{entry.Id},,");
                     }
                 }
             }
@@ -299,32 +304,6 @@ namespace Studio23.SS2.Editor.com.studio23.ss2.Editor
                     throw;
                 }
             }
-        }
-
-        private static void WriteCSV(List<DialogueLineNodeBase> dialogueLines, string path)
-        {
-            StringBuilder csvContent = new StringBuilder();
-
-            // Append the header
-            csvContent.AppendLine("Key,Id,English(en),Japanese(ja),Russian(ru),Spanish(es),Bangla(bn)");
-
-            // Append each dialogue line
-            foreach (var line in dialogueLines)
-            {
-                var entry = GetTableEntry(line);
-                if (entry == null)
-                {
-                    Debug.LogError($"entry null for {line}", line);
-                }
-                else
-                {
-                    csvContent.AppendLine($"{entry.Key},{entry.Id},{line.DialogueLocalizedString.GetLocalizedStringInEditor()},,,,");
-                }
-                // csvContent.AppendLine($"{line.DialogueLocalizedString.Keys},{line.Key},{line.English},{line.Japanese},{line.Russian},{line.Spanish},{line.Bangla}");
-            }
-
-            // Write the content to the file
-            File.WriteAllText(path, csvContent.ToString());
         }
 
         public void HandleDialogueLineNodeTraversed(DialogueLineNodeBase node)
