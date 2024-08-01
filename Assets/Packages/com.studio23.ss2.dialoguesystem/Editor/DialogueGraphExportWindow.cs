@@ -24,6 +24,10 @@ namespace Studio23.SS2.Editor.com.studio23.ss2.Editor
     {
         private DialogueGraph dialogueGraph;
         private List<DialogueLineNodeBase> traversedLinesCache = new();
+
+        private bool ShouldExportGraphs = true;
+        private bool ShouldExportSpeakerData = false;
+        
         [MenuItem("Studio-23/Dialogue-System/Dialogue Graph Export")]
         public static void ShowWindow()
         {
@@ -36,6 +40,8 @@ namespace Studio23.SS2.Editor.com.studio23.ss2.Editor
             GUILayout.Label("Dialogue Graph Editor", EditorStyles.boldLabel);
 
             dialogueGraph = (DialogueGraph)EditorGUILayout.ObjectField("Dialogue Graph", dialogueGraph, typeof(DialogueGraph), false);
+            ShouldExportGraphs = EditorGUILayout.Toggle("Should Export Graphs", ShouldExportGraphs);
+            ShouldExportSpeakerData = EditorGUILayout.Toggle("Should Export Speaker Data", ShouldExportSpeakerData);
             if (GUILayout.Button("Export graph"))
             {
                 ExportSingleGraphToCSV(dialogueGraph);
@@ -95,19 +101,31 @@ namespace Studio23.SS2.Editor.com.studio23.ss2.Editor
             if (string.IsNullOrEmpty(filePath))
                 return;
             ExportToCSV(graph, filePath);
+
         }
 
         private void ExportToCSV(DialogueGraph graph, string filePath)
         {
-            if (File.Exists(filePath))
-            {
-                File.Delete(filePath);
-            }
-            
             TraverseNodes(graph, HandleDialogueLineNodeTraversed);
-            if (traversedLinesCache.Count > 0)
+            string folderPath = Path.GetDirectoryName(filePath);
+            if (ShouldExportGraphs)
             {
-                ExportToCSV(graph,filePath, traversedLinesCache);
+                if (File.Exists(filePath))
+                {
+                    File.Delete(filePath);
+                }
+            
+
+                if (traversedLinesCache.Count > 0)
+                {
+                    ExportToCSV(graph,filePath, traversedLinesCache);
+                }
+            }
+
+            if (ShouldExportSpeakerData)
+            {
+                var speakerPath = Path.Combine(folderPath, $"{graph.name}_SpeakerData.csv");
+                ExportSpeakerData(traversedLinesCache, speakerPath);
             }
         }
 
@@ -121,10 +139,10 @@ namespace Studio23.SS2.Editor.com.studio23.ss2.Editor
 
         public static void ExportToCSV(DialogueGraph graph, string filePath, List<DialogueLineNodeBase> dialogueLinesInOrder)
         {
-            Export(graph, filePath, dialogueLinesInOrder);
+            ExportStringTable(graph, filePath, dialogueLinesInOrder);
         }
 
-        private static void Export(DialogueGraph graph, string path, List<DialogueLineNodeBase> dialogueLinesInOrder)
+        private static void ExportStringTable(DialogueGraph graph, string path, List<DialogueLineNodeBase> dialogueLinesInOrder)
         {
             var dialogueGraphLineIds = dialogueLinesInOrder
                 .Where(l=> GetTableEntry(l) != null)
@@ -157,8 +175,37 @@ namespace Studio23.SS2.Editor.com.studio23.ss2.Editor
             var collection =  LocalizationEditorSettings.GetStringTableCollection(tableReference.TableCollectionName);
             using (var stream = new StreamWriter(path, false, new UTF8Encoding(false)))
             {
-                Export(stream, collection, columnMappings, dialogueLinesInOrder, dialogueGraphLineIds);
+                ExportStringTable(stream, collection, columnMappings, dialogueLinesInOrder, dialogueGraphLineIds);
             }   
+        }
+
+        public void ExportSpeakerData(List<DialogueLineNodeBase> dialogueLinesInOrder, string path)
+        {
+            // StringBuilder to construct the CSV content
+            StringBuilder csvContent = new StringBuilder();
+
+            // Append the header
+            csvContent.AppendLine("Key,Id,Speaker, Expression");
+
+            // Append each dialogue line
+            foreach (var line in dialogueLinesInOrder)
+            {
+                var entry = GetTableEntry(line);
+                if (entry != null)
+                {
+                    if (line.SpeakerData.Character != null)
+                    {
+                        csvContent.AppendLine($"{entry.Key},{entry.Id},{line.SpeakerData.Character.CharacterName}, {line.SpeakerData.Expression}");
+                    }
+                    else
+                    {
+                        csvContent.AppendLine($"{entry.Key},{entry.Id},,");
+                    }
+                }
+            }
+
+            // Write the content to the file
+            File.WriteAllText(path, csvContent.ToString());
         }
         
         /// <summary>
@@ -173,7 +220,7 @@ namespace Studio23.SS2.Editor.com.studio23.ss2.Editor
         /// <param name="collection"></param>
         /// <param name="columnMappings"></param>
         /// <exception cref="ArgumentNullException"></exception>
-        public static void Export(TextWriter writer, StringTableCollection collection, IList<CsvColumns> columnMappings, List<DialogueLineNodeBase> dialigueLinesInOrder, HashSet<long> allowedIds)
+        public static void ExportStringTable(TextWriter writer, StringTableCollection collection, IList<CsvColumns> columnMappings, List<DialogueLineNodeBase> dialigueLinesInOrder, HashSet<long> allowedIds)
         {
             if (writer == null)
                 throw new ArgumentNullException(nameof(writer));
@@ -321,6 +368,12 @@ namespace Studio23.SS2.Editor.com.studio23.ss2.Editor
                         //if we encounter a dialogue choices node, recursively call
                         // so that we traverse the entire chain before changing chains
                         TraverseNodes(node, encounteredNodes, handleLineNodeEncountered);
+                    }
+                    //#todo add THIS TO FetchAllConnectedChoiceNodes()
+                    var forceExitNode = choicesNode.GetForceExitNode();
+                    if (forceExitNode != null)
+                    {
+                        TraverseNodes(forceExitNode, encounteredNodes, handleLineNodeEncountered);
                     }
                 }
 
