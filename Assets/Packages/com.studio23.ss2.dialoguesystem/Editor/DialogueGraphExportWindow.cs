@@ -24,9 +24,7 @@ namespace Studio23.SS2.Editor.com.studio23.ss2.Editor
     {
         private DialogueGraph dialogueGraph;
         private List<DialogueLineNodeBase> traversedLinesCache = new();
-
-        private bool ShouldExportGraphs = true;
-        private bool ShouldExportSpeakerData = false;
+        private bool ExportNodeData = true;
         
         [MenuItem("Studio-23/Dialogue-System/Dialogue Graph Export")]
         public static void ShowWindow()
@@ -40,8 +38,8 @@ namespace Studio23.SS2.Editor.com.studio23.ss2.Editor
             GUILayout.Label("Dialogue Graph Editor", EditorStyles.boldLabel);
 
             dialogueGraph = (DialogueGraph)EditorGUILayout.ObjectField("Dialogue Graph", dialogueGraph, typeof(DialogueGraph), false);
-            ShouldExportGraphs = EditorGUILayout.Toggle("Should Export Graphs", ShouldExportGraphs);
-            ShouldExportSpeakerData = EditorGUILayout.Toggle("Should Export Speaker Data", ShouldExportSpeakerData);
+            ExportNodeData = EditorGUILayout.Toggle("Export  Node Data", ExportNodeData);
+
             if (GUILayout.Button("Export graph"))
             {
                 ExportSingleGraphToCSV(dialogueGraph);
@@ -65,10 +63,22 @@ namespace Studio23.SS2.Editor.com.studio23.ss2.Editor
             {
                 if (o is DialogueGraph graph)
                 {
-                    var filePath = Path.Combine(folderPath , $"{graph.name}.csv");
-                    ExportToCSV(graph, filePath);
+                    try
+                    {
+                        var filePath = Path.Combine(folderPath , GetGraphCSVName(graph));
+                        ExportToCSV(graph, filePath);
+                    }
+                    catch (Exception e)
+                    {
+                        Debug.LogError($"Error Exporting graph {graph} \n {e}", graph);
+                    }
                 }
             }
+        }
+
+        private static string GetGraphCSVName(DialogueGraph graph)
+        {
+            return $"{graph.name}.csv";
         }
 
         private void ExportAll()
@@ -78,8 +88,15 @@ namespace Studio23.SS2.Editor.com.studio23.ss2.Editor
                 return;
             foreach (var graph in GetAllGraphs())
             {
-                var filePath = Path.Combine(folderPath , $"{graph.name}.csv");
-                ExportToCSV(graph, filePath);
+                try
+                {
+                    var filePath = Path.Combine(folderPath , GetGraphCSVName(graph));
+                    ExportToCSV(graph, filePath);
+                }
+                catch (Exception e)
+                {
+                    Debug.LogError($"Error Exporting graph {graph} \n {e}", graph);
+                }
             }
         }
 
@@ -97,7 +114,7 @@ namespace Studio23.SS2.Editor.com.studio23.ss2.Editor
         }
         private void ExportSingleGraphToCSV(DialogueGraph graph)
         {
-            string filePath = EditorUtility.SaveFilePanel("Export graph", "", $"{graph.name}.csv", "csv");
+            string filePath = EditorUtility.SaveFilePanel("Export graph", "", GetGraphCSVName(graph), "csv");
             if (string.IsNullOrEmpty(filePath))
                 return;
             ExportToCSV(graph, filePath);
@@ -108,24 +125,13 @@ namespace Studio23.SS2.Editor.com.studio23.ss2.Editor
         {
             TraverseNodes(graph, HandleDialogueLineNodeTraversed);
             string folderPath = Path.GetDirectoryName(filePath);
-            if (ShouldExportGraphs)
+            if (File.Exists(filePath))
             {
-                if (File.Exists(filePath))
-                {
-                    File.Delete(filePath);
-                }
-            
-
-                if (traversedLinesCache.Count > 0)
-                {
-                    ExportToCSV(graph,filePath, traversedLinesCache);
-                }
+                File.Delete(filePath);
             }
-
-            if (ShouldExportSpeakerData)
+            if (traversedLinesCache.Count > 0)
             {
-                var speakerPath = Path.Combine(folderPath, $"{graph.name}_SpeakerData.csv");
-                ExportSpeakerData(traversedLinesCache, speakerPath);
+                ExportToCSV(graph,filePath, traversedLinesCache);
             }
         }
 
@@ -137,25 +143,45 @@ namespace Studio23.SS2.Editor.com.studio23.ss2.Editor
             return table.SharedData.GetEntryFromReference(dialogue.DialogueLocalizedString.TableEntryReference);
         }
 
-        public static void ExportToCSV(DialogueGraph graph, string filePath, List<DialogueLineNodeBase> dialogueLinesInOrder)
+        public void ExportToCSV(DialogueGraph graph, string filePath, List<DialogueLineNodeBase> dialogueLinesInOrder)
         {
             ExportStringTable(graph, filePath, dialogueLinesInOrder);
         }
 
-        private static void ExportStringTable(DialogueGraph graph, string path, List<DialogueLineNodeBase> dialogueLinesInOrder)
+        private void ExportStringTable(DialogueGraph graph, string path, List<DialogueLineNodeBase> dialogueLinesInOrder)
         {
-            var dialogueGraphLineIds = dialogueLinesInOrder
-                .Where(l=> GetTableEntry(l) != null)
-                .Select(l => GetTableEntry(l).Id)
-                .ToHashSet();
+            var dialogueGraphLineIds = new HashSet<long>(); 
+            foreach (var dialogueLineNodeBase in dialogueLinesInOrder)
+            {
+                var entry = GetTableEntry(dialogueLineNodeBase);
+                if (entry != null)
+                {
+                    dialogueGraphLineIds.Add(entry.Id);
+                }
+            }
             
             // var csvColumnsList = ColumnMapping.CreateDefaultMapping();
             var columnMappings = new List<CsvColumns>();
+            
             columnMappings.Add(new KeyIdColumns
             {
                 IncludeId = true, // Include the Id column field.
                 IncludeSharedComments = false, // Include Shared comments.
             });
+            
+            if (ExportNodeData)
+            {
+                var idToDialogueLineGraphMap = new Dictionary<long, DialogueLineNodeBase>();
+                foreach (var dialogueLineNodeBase in dialogueLinesInOrder)
+                {
+                    var entry = GetTableEntry(dialogueLineNodeBase);
+                    if (entry != null)
+                    {
+                        idToDialogueLineGraphMap.TryAdd(entry.Id, dialogueLineNodeBase);
+                    }
+                }
+                columnMappings.Add(new DialogueGraphCustomColumns(idToDialogueLineGraphMap));
+            }
 
             foreach (var locale in LocalizationSettings.AvailableLocales.Locales)
             {
@@ -175,42 +201,8 @@ namespace Studio23.SS2.Editor.com.studio23.ss2.Editor
             var collection =  LocalizationEditorSettings.GetStringTableCollection(tableReference.TableCollectionName);
             using (var stream = new StreamWriter(path, false, new UTF8Encoding(false)))
             {
-                ExportStringTable(stream, collection, columnMappings, dialogueLinesInOrder, dialogueGraphLineIds);
+                ExportStringTable(graph, stream, collection, columnMappings, dialogueLinesInOrder, dialogueGraphLineIds);
             }   
-        }
-        
-        /// <summary>
-        /// #TODO temporary measure till I figure out columnmapping
-        /// </summary>
-        /// <param name="dialogueLinesInOrder"></param>
-        /// <param name="path"></param>
-        public void ExportSpeakerData(List<DialogueLineNodeBase> dialogueLinesInOrder, string path)
-        {
-            // StringBuilder to construct the CSV content
-            StringBuilder csvContent = new StringBuilder();
-
-            // Append the header
-            csvContent.AppendLine("Id,Speaker, Expression");
-
-            // Append each dialogue line
-            foreach (var line in dialogueLinesInOrder)
-            {
-                var entry = GetTableEntry(line);
-                if (entry != null)
-                {
-                    if (line.SpeakerData.Character != null)
-                    {
-                        csvContent.AppendLine($"{entry.Id},{line.SpeakerData.Character.CharacterName}, {line.SpeakerData.Expression.name}");
-                    }
-                    else
-                    {
-                        csvContent.AppendLine($"{entry.Id},,");
-                    }
-                }
-            }
-
-            // Write the content to the file
-            File.WriteAllText(path, csvContent.ToString());
         }
         
         /// <summary>
@@ -225,7 +217,7 @@ namespace Studio23.SS2.Editor.com.studio23.ss2.Editor
         /// <param name="collection"></param>
         /// <param name="columnMappings"></param>
         /// <exception cref="ArgumentNullException"></exception>
-        public static void ExportStringTable(TextWriter writer, StringTableCollection collection, IList<CsvColumns> columnMappings, List<DialogueLineNodeBase> dialigueLinesInOrder, HashSet<long> allowedIds)
+        public static void ExportStringTable(DialogueGraph graph, TextWriter writer, StringTableCollection collection, IList<CsvColumns> columnMappings, List<DialogueLineNodeBase> dialigueLinesInOrder, HashSet<long> allowedIds)
         {
             if (writer == null)
                 throw new ArgumentNullException(nameof(writer));
@@ -236,7 +228,7 @@ namespace Studio23.SS2.Editor.com.studio23.ss2.Editor
             {
                 try
                 {
-                    Debug.Log("Writing Headers");
+                    Debug.Log($"Writing Headers: {graph}", graph);
                     foreach (var cell in columnMappings)
                     {
                         cell.WriteBegin(collection, csvWriter);
@@ -280,7 +272,7 @@ namespace Studio23.SS2.Editor.com.studio23.ss2.Editor
                     rows.Sort(
                         (r1, r2) => IdToOrderMap[r1.KeyEntry.Id].CompareTo(IdToOrderMap[r2.KeyEntry.Id])
                     );
-                    Debug.Log($"Writing Contents: {rows.Count()} lines");
+                    Debug.Log($"Writing Contents({rows.Count()} lines): {graph} ",  graph);
                     foreach (var row in rows)
                     {
                         csvWriter.NextRecord();
@@ -300,7 +292,7 @@ namespace Studio23.SS2.Editor.com.studio23.ss2.Editor
                 }
                 catch (Exception e)
                 {
-                    Debug.Log("Failed Exporting.\n" + e.Message);
+                    Debug.LogError($"Failed Exporting. {graph}\n" + e.Message, graph);
                     throw;
                 }
             }
