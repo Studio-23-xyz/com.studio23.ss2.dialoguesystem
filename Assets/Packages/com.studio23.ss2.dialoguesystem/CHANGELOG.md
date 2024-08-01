@@ -1,4 +1,7 @@
 # Changelog
+## [0.4.23]
+1. Speaker data is now exported as part of same CSV now.
+
 ## [0.4.20]
 1. Also allow exporting speaker data for graph
 ## [0.4.19] 
