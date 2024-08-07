@@ -41,6 +41,9 @@ MonoBehaviour:
       - fieldName: Exit
         node: {fileID: -6227106332496004794}
         reroutePoints: []
+      - fieldName: Exit
+        node: {fileID: -6489933969369151722}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 0
@@ -191,7 +194,10 @@ MonoBehaviour:
       _node: {fileID: -6489933969369151722}
       _typeQualifiedName: Studio23.SS2.DialogueSystem.Data.DialogueLineNodeBase,
         com.studio23.ss2.dialoguesystem, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: Entry
+        node: {fileID: -7717196668193487428}
+        reroutePoints: []
       _direction: 1
       _connectionType: 1
       _typeConstraint: 2

@@ -16,7 +16,9 @@ namespace Studio23.SS2.DialogueSystem.Core
         [Header("Execution Data")]
         [SerializeField] private DialogueNodeBase _curNode;
 
+        [FormerlySerializedAs("_skipDialogueLines")]
         [Header("Skip")]
+        [SerializeField] private bool _skipToEndOfDialogueChain = true;
         [SerializeField] private bool _resetSkipAfterChoice = true;
         [SerializeField] private bool _isSkipActive = false;
         [SerializeField] private bool _shouldShowLineWhenSkipped = true;
@@ -101,18 +103,39 @@ namespace Studio23.SS2.DialogueSystem.Core
             _curNode = startNode;
             _currentGraph.HandleDialogueStarted(startNode);
             _isSkipActive = false;
+            _skipToEndOfDialogueChain = false; 
             
             OnDialogueStarted?.Invoke(_currentGraph, startNode);
             while (_curNode != null)
             {
+                if(_skipToEndOfDialogueChain)
+                {
+                    if (_curNode is DialogueLineNodeBase dialogueLineNodeBase)
+                    {
+                        var nextNode = _curNode.GetNextNode();
+                        Debug.Log($"Skip {_curNode} -> {(nextNode == null?"null": nextNode)}");
+                        _curNode = nextNode;
+                        continue;
+                    }
+                    else
+                    {
+                        _skipToEndOfDialogueChain = false;
+                    }      
+                }
+                
                 Debug.Log("Play = " + _curNode, _curNode);
                 await _curNode.Play();
-                
                 _curNode = _curNode.GetNextNode();
             }
 
             _currentGraph.HandleDialogueEnded();
             OnDialogueEnded?.Invoke(_currentGraph, startNode);
+        }
+        [ContextMenu("SkipTOEnd")]
+        public void SkipToEndOfDialogueChain()
+        {
+            _skipToEndOfDialogueChain = true;
+            _curNode.HandleDialogueAdvance();
         }
 
         public void AdvanceDialogue()
