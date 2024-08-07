@@ -1,4 +1,11 @@
 # Changelog
+
+## [0.4.25]
+1. Dialogue line chain skip added
+
+## [0.4.24]
+1. Dialogue Conditional branch node added
+
 ## [0.4.23]
 1. Speaker data is now exported as part of same CSV now.
 

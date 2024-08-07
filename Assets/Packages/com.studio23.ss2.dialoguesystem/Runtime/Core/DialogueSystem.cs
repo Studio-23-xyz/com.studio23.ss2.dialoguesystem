@@ -131,7 +131,12 @@ namespace Studio23.SS2.DialogueSystem.Core
             _currentGraph.HandleDialogueEnded();
             OnDialogueEnded?.Invoke(_currentGraph, startNode);
         }
-        [ContextMenu("SkipTOEnd")]
+        /// <summary>
+        /// Traverses dialogueLineNodeBases as far as possible
+        /// Warning: If you made a loop of only dialoguelinesNodes, this will hang
+        /// But you shouldn't be doing that to begin with.
+        /// </summary>
+        [ContextMenu("Skip To End of chain")]
         public void SkipToEndOfDialogueChain()
         {
             _skipToEndOfDialogueChain = true;
