@@ -66,7 +66,6 @@ namespace Studio23.SS2.DialogueSystem.Data
         {
             _canAdvanceDialogue = false;
 
-            Debug.Log($"{Core.DialogueSystem.Instance.IsSkipActive} {Core.DialogueSystem.Instance.ShouldShowLineWhenSkipped}");
             if (!Core.DialogueSystem.Instance.IsSkipActive || 
                 Core.DialogueSystem.Instance.ShouldShowLineWhenSkipped)
             {

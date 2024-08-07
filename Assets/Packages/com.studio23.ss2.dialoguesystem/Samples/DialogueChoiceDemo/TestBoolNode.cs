@@ -7,6 +7,6 @@ public class TestBoolNode:Node
 
     public void DebugBool()
     {
-        UnityEngine.Debug.Log($"{IsTrue}");
+        UnityEngine.Debug.Log($"{this} bool: {IsTrue}", this);
     }
 }

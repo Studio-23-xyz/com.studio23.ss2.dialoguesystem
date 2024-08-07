@@ -331,28 +331,19 @@ namespace Studio23.SS2.Editor.com.studio23.ss2.Editor
                     //Note: this can be a dialoguechoiceNode. Doesn't matter as we want only the line from there.
                     // Debug.Log("dialogueLineNodeBase " + dialogueLineNodeBase.DialogueLocalizedString.GetLocalizedStringInEditor());
                     handleLineNodeEncountered(dialogueLineNodeBase);
-                }else if (curNode is DialogueChoicesNode choicesNode)
+                }else if (curNode is DialogueBranchingNode dialogueBranchingNode)
                 {
-                    var choiceNodes = choicesNode.FetchAllConnectedChoiceNodes();
-                    foreach (var node in choiceNodes)
+                    foreach (var node in dialogueBranchingNode.GetConnectedNodes())
                     {
                         //if we encounter a dialogue choices node, recursively call
                         // so that we traverse the entire chain before changing chains
                         TraverseNodes(node, encounteredNodes, handleLineNodeEncountered);
                     }
-                    //#todo add THIS TO FetchAllConnectedChoiceNodes()
-                    var forceExitNode = choicesNode.GetForceExitNode();
-                    if (forceExitNode != null)
-                    {
-                        TraverseNodes(forceExitNode, encounteredNodes, handleLineNodeEncountered);
-                    }
                 }
-
-                //for choices branches, we've already explored all branches at this point
+                //for branches, we've already explored all branches at this point
                 //so don't bother
-                if (curNode is not DialogueChoicesNode)
+                if (curNode is not DialogueBranchingNode)
                 {
-                    
                     curNode = curNode.GetNextNode();
                 }
             }

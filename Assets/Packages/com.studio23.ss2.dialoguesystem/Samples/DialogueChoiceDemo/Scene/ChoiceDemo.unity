@@ -429,11 +429,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4ea025ed7d24ba45bbd001f88df602b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentGraph: {fileID: 11400000, guid: 16881f750c7cfb14d9b348fc8b3008e6, type: 2}
+  _currentGraph: {fileID: 11400000, guid: b287ab71d45d90f4b9353d498fc89273, type: 2}
   _curNode: {fileID: 0}
   _resetSkipAfterChoice: 1
   _isSkipActive: 0
   _shouldShowLineWhenSkipped: 1
+  _showLineDurationWhenSkipping: 0.32
 --- !u!114 &956320142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1187,6 +1188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de5cbd887ed5dbc4781a4aaa98b90fe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _forceExitChoice: {fileID: 0}
   _sortedChoices: []
   _buttonContainer: {fileID: 1126433870}
   _buttonPrefab: {fileID: 8035196018851654212, guid: af9bf8cc40254224d85a2c9c750ce48a, type: 3}
@@ -1835,6 +1837,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b16661fa2d404afebc0acec2a3ee0c88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _graph: {fileID: 0}
+  StartNode: {fileID: 0}
 --- !u!4 &1984308715
 Transform:
   m_ObjectHideFlags: 0

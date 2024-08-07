@@ -26,4 +26,17 @@ namespace Studio23.SS2.DialogueSystem.Data
 
         public abstract DialogueNodeBase GetNextNode();
     }
+
+    public abstract class DialogueBranchingNode : DialogueNodeBase
+    {
+        /// <summary>
+        /// Get all connected nodes.
+        /// DialogueBranchingNodes can have multiple nodes connected to them
+        /// This returns all of them
+        /// Note: returns without checking conditions. Simply returns all connected nodes 
+        /// Note: May alloc GC
+        /// </summary>
+        /// <returns></returns>
+        public abstract IEnumerable<DialogueNodeBase> GetConnectedNodes();
+    }
 }

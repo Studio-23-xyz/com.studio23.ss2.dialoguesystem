@@ -102,6 +102,30 @@ MonoBehaviour:
     m_Localized: Bailing
     m_Metadata:
       m_Items: []
+  - m_Id: 73172941816946688
+    m_Localized: Random choice, I choose you!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 73193369012449280
+    m_Localized: next of next line
+    m_Metadata:
+      m_Items: []
+  - m_Id: 73196380740825088
+    m_Localized: Branch if bool 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 73196440392216576
+    m_Localized: Branch if bool 2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 73196870996242432
+    m_Localized: Default branch
+    m_Metadata:
+      m_Items: []
+  - m_Id: 73198860052639744
+    m_Localized: Conditional branch start
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

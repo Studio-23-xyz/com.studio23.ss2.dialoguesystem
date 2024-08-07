@@ -10,7 +10,7 @@ using XNode;
 namespace Studio23.SS2.DialogueSystem.Data
 {
     [NodeTint("#AAAA00"), CreateNodeMenu("Dialogue Choice Branch")]
-    public class DialogueChoicesNode : DialogueNodeBase
+    public class DialogueChoicesNode : DialogueBranchingNode
     {
         [Input]
         public DialogueLineNodeBase Entry;
@@ -120,6 +120,22 @@ namespace Studio23.SS2.DialogueSystem.Data
                 Debug.LogError($"INDEX {_lastChoiceIndex} OUT OF RANGE for dialogue choices {this}", this);
             }
             return _availableDialogueChoices[_lastChoiceIndex];
+        }
+
+        /// <inheritdoc />
+        public override IEnumerable<DialogueNodeBase> GetConnectedNodes()
+        {
+            //#TODO can be optimized
+            //not priority since only exporter uses this func
+            foreach (var choiceNode in FetchAllConnectedChoiceNodes())
+            {
+                yield return choiceNode;
+            }
+            var forceExitNode = GetForceExitNode();
+            if (forceExitNode != null)
+            {
+                yield return forceExitNode;
+            }
         }
 
         public override void HandleChoiceSelected(int choiceIndex)
