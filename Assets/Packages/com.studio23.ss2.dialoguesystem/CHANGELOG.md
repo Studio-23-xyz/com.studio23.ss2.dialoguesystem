@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.4.26]
+1. Character localization added
+
+
 ## [0.4.25]
 1. Dialogue line chain skip added
 
