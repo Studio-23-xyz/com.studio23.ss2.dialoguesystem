@@ -27,6 +27,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c9b81d87e51f0f4197c65dca5fe6aec, type: 3}
   m_Name: Narupo
   m_EditorClassIdentifier: 
-  CharacterName: Victor
+  CharacterName:
+    m_TableReference:
+      m_TableCollectionName: GUID:c0387080523ead24a90ff848732e7b85
+    m_TableEntryReference:
+      m_KeyId: 39221178368
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  DefaultSprite: {fileID: 0}
   DialogueColor: {r: 0, g: 0.4576635, b: 0.49056602, a: 1}
   Expressions: []
+  references:
+    version: 2
+    RefIds: []

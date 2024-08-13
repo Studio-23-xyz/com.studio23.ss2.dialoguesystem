@@ -2,8 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.Serialization;
-using UnityEngine.UIElements;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Settings;
+using UnityEngine.Localization.Tables;
 
 namespace Studio23.SS2.DialogueSystem.Data
 {
@@ -11,7 +12,7 @@ namespace Studio23.SS2.DialogueSystem.Data
     [Serializable]
     public class CharacterData : ScriptableObject
     {
-        public string CharacterName;
+        public LocalizedString CharacterName;
         public Sprite DefaultSprite;
         public Color DialogueColor;
         public List<CharacterExpressionData> Expressions;

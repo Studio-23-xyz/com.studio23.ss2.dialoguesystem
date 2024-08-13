@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using CsvHelper;
 using Studio23.SS2.DialogueSystem.Data;
+using Studio23.SS2.DialogueSystem.Utility;
 using UnityEditor.Localization;
 using UnityEditor.Localization.Plugins.CSV.Columns;
 using UnityEngine;
@@ -66,7 +67,7 @@ public class DialogueGraphCustomColumns : CsvColumns, ISerializationCallbackRece
         {
             if (dialogueLineNodeBase.SpeakerData.Character != null)
             {
-                writer.WriteField(dialogueLineNodeBase.SpeakerData.Character.CharacterName);
+                writer.WriteField(dialogueLineNodeBase.SpeakerData.Character.CharacterName.GetLocalizedStringInEditor());
             }
             else
             {
