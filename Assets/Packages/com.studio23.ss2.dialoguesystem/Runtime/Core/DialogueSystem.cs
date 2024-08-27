@@ -139,8 +139,10 @@ namespace Studio23.SS2.DialogueSystem.Core
         [ContextMenu("Skip To End of chain")]
         public void SkipToEndOfDialogueChain()
         {
-            _skipToEndOfDialogueChain = true;
-            _curNode.HandleDialogueAdvance();
+            if(_curNode != null){
+                _skipToEndOfDialogueChain = true;
+                _curNode.HandleDialogueAdvance();
+            }
         }
 
         public void AdvanceDialogue()
