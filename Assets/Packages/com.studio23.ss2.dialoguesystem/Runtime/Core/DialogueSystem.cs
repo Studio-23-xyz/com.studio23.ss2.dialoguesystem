@@ -1,4 +1,3 @@
-
 using System;
 using Cysharp.Threading.Tasks;
 using Studio23.SS2.DialogueSystem.Data;
@@ -112,6 +111,8 @@ namespace Studio23.SS2.DialogueSystem.Core
                 {
                     if (_curNode is DialogueLineNodeBase dialogueLineNodeBase)
                     {
+                        //#TODO add post play function to dialogueNodeBase
+                        dialogueLineNodeBase.InvokePostPlayEvents();
                         var nextNode = _curNode.GetNextNode();
                         Debug.Log($"Skip {_curNode} -> {(nextNode == null?"null": nextNode)}");
                         _curNode = nextNode;
