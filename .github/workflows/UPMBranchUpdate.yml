@@ -51,39 +51,3 @@ jobs:
         git checkout upm
         git push -f -u origin upm
         git push --tags
-  
-  SelfHosted-Publish:
-    needs: update-and-tag
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: upm  
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '20.x'
-          registry-url: ${{ secrets.NPM_SERVER }}
-      - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-    
-  GitHub-Publish:
-    needs: update-and-tag
-    runs-on: ubuntu-latest
-    permissions:
-      packages: write
-      
-      
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: upm  
-      
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '20.x'
-      
-      - uses: FrontEndDev-org/publish-node-package-action@v1
-        with:
-          target: github
