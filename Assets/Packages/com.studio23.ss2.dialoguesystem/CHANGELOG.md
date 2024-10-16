@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.4.29]
+1. Character expression fixed for localization
+
+
 ## [0.4.26]
 1. Character localization added
 

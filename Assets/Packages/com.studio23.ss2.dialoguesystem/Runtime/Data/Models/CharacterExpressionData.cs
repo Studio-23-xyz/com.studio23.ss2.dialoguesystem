@@ -12,7 +12,7 @@ namespace Studio23.SS2.DialogueSystem.Data
 
         public string GetAssetName()
         {
-            return $"{Character.CharacterName}_{ExpressionName}" ;
+            return $"{Character.name}_{ExpressionName}" ;
         }
     }
 }
