@@ -8,5 +8,6 @@ namespace Studio23.SS2.DialogueSystem.Data
     {
         public CharacterData Character;
         public CharacterExpressionData Expression;
+        public CharacterBodyExpression BodyData;
     }
 }

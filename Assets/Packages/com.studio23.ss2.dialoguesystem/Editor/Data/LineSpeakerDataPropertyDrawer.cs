@@ -10,7 +10,7 @@ namespace Editor.Data
     {
         public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
         {
-            return base.GetPropertyHeight(property, label) * 3;
+            return base.GetPropertyHeight(property, label) * 4;
         }
 
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
@@ -33,8 +33,19 @@ namespace Editor.Data
             var charFieldRect = position;
             charFieldRect.height = EditorGUIUtility.singleLineHeight;
             EditorGUI.PropertyField(charFieldRect, property.FindPropertyRelative("Character"), new GUIContent("Character"));
+
+
+            position.y += EditorGUIUtility.singleLineHeight;
+            var expressionRect = position;
+            expressionRect.height = EditorGUIUtility.singleLineHeight;
+
+            EditorGUI.LabelField(expressionRect, new GUIContent("ExpressionData"));
+
+
+
             if (lineSpeakerData.Character != null)
             {
+
                 position.y += EditorGUIUtility.singleLineHeight;
                 var expressions = lineSpeakerData.Character.Expressions
                     .Where(ced => ced != null)
@@ -74,6 +85,14 @@ namespace Editor.Data
                 position.y += EditorGUIUtility.singleLineHeight;
                 EditorGUI.HelpBox(position, "NO CharacterData", MessageType.Error);    
             }
+
+            position.y += EditorGUIUtility.singleLineHeight;
+            var bodyRect = position;
+            bodyRect.height = EditorGUIUtility.singleLineHeight;
+
+            EditorGUI.PropertyField(bodyRect, property.FindPropertyRelative("BodyData"), new GUIContent("BodyData"));
+
+
 
             // Set indent back to what it was
             EditorGUI.indentLevel = indent;
