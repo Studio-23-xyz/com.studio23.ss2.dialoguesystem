@@ -14,6 +14,7 @@ namespace Studio23.SS2.DialogueSystem.Core
         [SerializeField] private DialogueGraph _currentGraph;
         [Header("Execution Data")]
         [SerializeField] private DialogueNodeBase _curNode;
+        public DialogueNodeBase CurNode => _curNode;
 
         [FormerlySerializedAs("_skipDialogueLines")]
         [Header("Skip")]
@@ -105,16 +106,16 @@ namespace Studio23.SS2.DialogueSystem.Core
             _skipToEndOfDialogueChain = false; 
             
             OnDialogueStarted?.Invoke(_currentGraph, startNode);
-            while (_curNode != null)
+            while (CurNode != null)
             {
                 if(_skipToEndOfDialogueChain)
                 {
-                    if (_curNode is DialogueLineNodeBase dialogueLineNodeBase)
+                    if (CurNode is DialogueLineNodeBase dialogueLineNodeBase)
                     {
                         //#TODO add post play function to dialogueNodeBase
                         dialogueLineNodeBase.InvokePostPlayEvents();
-                        var nextNode = _curNode.GetNextNode();
-                        Debug.Log($"Skip {_curNode} -> {(nextNode == null?"null": nextNode)}");
+                        var nextNode = CurNode.GetNextNode();
+                        Debug.Log($"Skip {CurNode} -> {(nextNode == null?"null": nextNode)}");
                         _curNode = nextNode;
                         continue;
                     }
@@ -124,9 +125,9 @@ namespace Studio23.SS2.DialogueSystem.Core
                     }      
                 }
                 
-                Debug.Log("Play = " + _curNode, _curNode);
-                await _curNode.Play();
-                _curNode = _curNode.GetNextNode();
+                Debug.Log("Play = " + CurNode, CurNode);
+                await CurNode.Play();
+                _curNode = CurNode.GetNextNode();
             }
 
             _currentGraph.HandleDialogueEnded();
@@ -140,29 +141,29 @@ namespace Studio23.SS2.DialogueSystem.Core
         [ContextMenu("Skip To End of chain")]
         public void SkipToEndOfDialogueChain()
         {
-            if(_curNode != null){
+            if(CurNode != null){
                 _skipToEndOfDialogueChain = true;
-                _curNode.HandleDialogueAdvance();
+                CurNode.HandleDialogueAdvance();
             }
         }
 
         public void AdvanceDialogue()
         {
-            if (_curNode != null)
+            if (CurNode != null)
             {
-                _curNode.HandleDialogueAdvance();
+                CurNode.HandleDialogueAdvance();
             }
         }
 
         public void PickChoice(int choiceIndex)
         {
-            if (_curNode != null)
+            if (CurNode != null)
             {
                 if (_resetSkipAfterChoice)
                 {
                     ToggleSkip(false);
                 }
-                _curNode.HandleChoiceSelected(choiceIndex);
+                CurNode.HandleChoiceSelected(choiceIndex);
             }
         }
         
