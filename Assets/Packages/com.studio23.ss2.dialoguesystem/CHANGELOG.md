@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.4.33]
+1. Added functionality for cancelling full graph or single line
+
 ## [0.4.32]
 1. Add boolean for dialgue start and complete
 

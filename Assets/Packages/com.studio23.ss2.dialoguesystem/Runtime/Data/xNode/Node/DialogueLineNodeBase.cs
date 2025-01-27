@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using Cysharp.Threading.Tasks;
 using Studio23.SS2.DialogueSystem.Utility;
 using UnityEngine;
@@ -30,9 +31,17 @@ namespace Studio23.SS2.DialogueSystem.Data
         [Output(typeConstraint =  TypeConstraint.InheritedInverse)] 
         public EventNodeBase Events;
 
+        private CancellationTokenSource _cancelDialogueLine;
+
         public override void HandleDialogueAdvance()
         {
             _canAdvanceDialogue = true;
+        }
+
+        public void CancelDialogueLine()
+        {
+            if(_cancelDialogueLine != null)
+                _cancelDialogueLine.Cancel();
         }
         
         public virtual void InvokePostPlayEvents()
@@ -67,23 +76,25 @@ namespace Studio23.SS2.DialogueSystem.Data
 
         public override async UniTask Play()
         {
+            CancelDialogueLine();
+            _cancelDialogueLine = new CancellationTokenSource();
             _canAdvanceDialogue = false;
             HandleDialogueCompleted(true);
             if (!Core.DialogueSystem.Instance.IsSkipActive || 
                 Core.DialogueSystem.Instance.ShouldShowLineWhenSkipped)
             {
                 Core.DialogueSystem.Instance.DialogueLineStarted?.Invoke(this);
-                while (!_canAdvanceDialogue)
+                while (!_canAdvanceDialogue && !_cancelDialogueLine.IsCancellationRequested)
                 {
                     //at this point, we are showing dialogue with ShouldShowLineWhenSkipped = true
                     if (Core.DialogueSystem.Instance.IsSkipActive)
                     {
-                        await UniTask.Delay(TimeSpan.FromSeconds(Core.DialogueSystem.Instance.ShowLineDurationWhenSkipping));
+                        await UniTask.Delay(TimeSpan.FromSeconds(Core.DialogueSystem.Instance.ShowLineDurationWhenSkipping), cancellationToken: _cancelDialogueLine.Token).SuppressCancellationThrow();
                         break;
                     }
 
-                    await UniTask.Yield();
-                    await UniTask.NextFrame();
+                    await UniTask.Yield(cancellationToken: _cancelDialogueLine.Token).SuppressCancellationThrow();
+                    await UniTask.NextFrame(cancellationToken: _cancelDialogueLine.Token).SuppressCancellationThrow();
                 }
                 Core.DialogueSystem.Instance.DialogueLineCompleted?.Invoke(this);
             }

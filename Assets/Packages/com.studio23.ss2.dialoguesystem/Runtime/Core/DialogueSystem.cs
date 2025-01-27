@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 using Cysharp.Threading.Tasks;
 using Studio23.SS2.DialogueSystem.Data;
 using UnityEngine;
@@ -29,7 +30,8 @@ namespace Studio23.SS2.DialogueSystem.Core
         public event Action<bool> OnSkipToggled;
         public delegate void DialogueGraphPlayEvent(DialogueGraph graph, DialogueNodeBase startNode); 
         public event DialogueGraphPlayEvent OnDialogueStarted; 
-        public event DialogueGraphPlayEvent OnDialogueEnded; 
+        public event DialogueGraphPlayEvent OnDialogueEnded;
+        public event DialogueGraphPlayEvent OnDialogueCancelledEvent;
         
         public event Action<DialogueChoicesNode> OnDialogueChoiceStarted; 
         public event Action<DialogueChoicesNode> OnDialogueChoiceEnded; 
@@ -44,6 +46,8 @@ namespace Studio23.SS2.DialogueSystem.Core
         /// Subscribe to this to know when dialogue completed
         /// </summary>
         public DialogueLineEvent DialogueLineCompleted;
+
+        private CancellationTokenSource _dialogueCancelTokenSource;
 
         void Awake()
         {
@@ -86,12 +90,18 @@ namespace Studio23.SS2.DialogueSystem.Core
 
         public async UniTask PlayDialogue(DialogueGraph graph)
         {
+            if(_dialogueCancelTokenSource !=null)
+                _dialogueCancelTokenSource.Cancel();
+            _dialogueCancelTokenSource = new CancellationTokenSource();
             graph.Initialize();
             await PlayDialogue(graph, graph.StartNode);
         }
         
         public async UniTask PlayDialogue(DialogueNodeBase startNode)
         {
+            if (_dialogueCancelTokenSource != null)
+                _dialogueCancelTokenSource.Cancel();
+            _dialogueCancelTokenSource = new CancellationTokenSource();
             var graph = startNode.graph as DialogueGraph;
             graph.Initialize();
             await PlayDialogue(graph, startNode);
@@ -106,7 +116,7 @@ namespace Studio23.SS2.DialogueSystem.Core
             _skipToEndOfDialogueChain = false; 
             
             OnDialogueStarted?.Invoke(_currentGraph, startNode);
-            while (CurNode != null)
+            while (CurNode != null && !_dialogueCancelTokenSource.IsCancellationRequested)
             {
                 if(_skipToEndOfDialogueChain)
                 {
@@ -181,6 +191,31 @@ namespace Studio23.SS2.DialogueSystem.Core
         public void ToggleSkip(bool shouldSkipBeActive) {
             _isSkipActive = shouldSkipBeActive;
             OnSkipToggled?.Invoke(_isSkipActive);
+        }
+
+        public void InitializeGraph(DialogueGraph graph)
+        {
+            var targetNode = graph.StartNode;
+            if(targetNode == null)
+                Debug.LogError("Can not find start node for " + graph.name);
+            while (targetNode != null)
+            {
+                if (targetNode is DialogueLineNodeBase dialogueLineNodeBase)
+                {
+                    dialogueLineNodeBase.Initialize();
+                    var nextNode = targetNode.GetNextNode();
+                    targetNode = nextNode;
+                }
+            }
+        }
+
+        public void OnDialogueCancelled()
+        {
+            if(_dialogueCancelTokenSource != null)
+                _dialogueCancelTokenSource.Cancel();
+            if(CurNode != null &&  (CurNode is DialogueLineNodeBase dialogueLineNodeBase))
+                dialogueLineNodeBase.CancelDialogueLine();
+            OnDialogueCancelledEvent?.Invoke(_currentGraph, CurNode);
         }
 
         private void OnDestroy()
