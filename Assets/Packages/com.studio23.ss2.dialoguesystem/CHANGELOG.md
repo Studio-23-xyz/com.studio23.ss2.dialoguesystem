@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.4.32]
+1. Add boolean for dialgue start and complete
+
 ## [0.4.30]
 1. Character body expression added
 

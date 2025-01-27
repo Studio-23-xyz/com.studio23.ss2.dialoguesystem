@@ -16,8 +16,11 @@ namespace Studio23.SS2.DialogueSystem.Data
         [Header("Character Data")] 
         public LineSpeakerData SpeakerData;
 
-        [Header("Sound")]
-        public string FMODEvent;
+        private bool _hasStarted = false;
+        private bool _hasCompleted = false;
+
+        public bool HasStarted=> _hasStarted;
+        public bool HasCompleted => _hasCompleted;
         
         private bool _canAdvanceDialogue;
         
@@ -65,7 +68,7 @@ namespace Studio23.SS2.DialogueSystem.Data
         public override async UniTask Play()
         {
             _canAdvanceDialogue = false;
-
+            HandleDialogueCompleted(true);
             if (!Core.DialogueSystem.Instance.IsSkipActive || 
                 Core.DialogueSystem.Instance.ShouldShowLineWhenSkipped)
             {
@@ -90,6 +93,7 @@ namespace Studio23.SS2.DialogueSystem.Data
 
         public override DialogueNodeBase GetNextNode()
         {
+            HandleDialogueStarted(true);
             NodePort outputPort = GetExitPort();
             if (outputPort == null || outputPort.Connection == null)
             {
@@ -128,7 +132,18 @@ namespace Studio23.SS2.DialogueSystem.Data
         public string GetLocalizedLineTextInstant() => DialogueLocalizedString.GetLocalizedString();
         public override void Initialize()
         {
-            
+            HandleDialogueCompleted(false);
+            HandleDialogueStarted(false);
+        }
+
+        public void HandleDialogueCompleted(bool hasCompleted)
+        {
+            _hasCompleted = hasCompleted;
+        }
+
+        public void HandleDialogueStarted(bool hasStarted)
+        {
+            _hasStarted = hasStarted;
         }
     }
 
