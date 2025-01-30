@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using Studio23.SS2.DialogueSystem.Data;
@@ -49,6 +50,8 @@ namespace Studio23.SS2.DialogueSystem.Core
 
         private CancellationTokenSource _dialogueCancelTokenSource;
 
+        private List<DialogueGraph> _playedGraphs;
+
         void Awake()
         {
             if (Instance != null)
@@ -58,6 +61,7 @@ namespace Studio23.SS2.DialogueSystem.Core
             else
             {
                 Instance = this;
+                _playedGraphs = new List<DialogueGraph>();
             }
         }
 
@@ -109,6 +113,7 @@ namespace Studio23.SS2.DialogueSystem.Core
         
         public async UniTask PlayDialogue(DialogueGraph graph, DialogueNodeBase startNode)
         {
+            _playedGraphs.Add(graph);
             _currentGraph = graph;
             _curNode = startNode;
             _currentGraph.HandleDialogueStarted(startNode);
@@ -220,10 +225,8 @@ namespace Studio23.SS2.DialogueSystem.Core
 
         private void OnDestroy()
         {
-            if (_currentGraph != null)
-            {
-                _currentGraph.Cleanup();
-            }
+            foreach(var graph in _playedGraphs)
+                graph.Cleanup();
         }
     }
 }

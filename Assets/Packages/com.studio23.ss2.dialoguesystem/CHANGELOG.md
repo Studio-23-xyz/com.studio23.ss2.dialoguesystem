@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.4.34]
+1. Added functionality for clearning all graphs when game quits
+
 ## [0.4.33]
 1. Added functionality for cancelling full graph or single line
 
