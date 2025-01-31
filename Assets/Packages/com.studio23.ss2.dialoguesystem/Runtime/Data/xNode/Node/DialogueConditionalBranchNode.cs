@@ -116,5 +116,10 @@ namespace Studio23.SS2.DialogueSystem.Data
         {
             //do nothing
         }
+
+        public override void HandleDialogueCancel()
+        {
+            
+        }
     }
 }

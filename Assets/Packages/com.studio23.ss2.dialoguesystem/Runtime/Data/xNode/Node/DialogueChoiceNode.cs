@@ -28,6 +28,10 @@ namespace Studio23.SS2.DialogueSystem.Data
             InvokePostPlayEvents();
             return UniTask.CompletedTask;
         }
-        
+
+        public override void HandleDialogueCancel()
+        {
+            
+        }
     }
 }

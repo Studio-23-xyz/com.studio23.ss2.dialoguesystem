@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.4.35]
+1. Added functionality handling dialogue node base class
+
 ## [0.4.34]
 1. Added functionality for clearning all graphs when game quits
 

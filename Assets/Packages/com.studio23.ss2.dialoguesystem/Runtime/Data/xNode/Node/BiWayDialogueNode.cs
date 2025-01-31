@@ -12,7 +12,9 @@ namespace Studio23.SS2.DialogueSystem.Data
         [Node.Input]
         public DialogueLineNodeBase Entry;
 
-
-
+        public override void HandleDialogueCancel()
+        {
+            
+        }
     }
 }

@@ -22,6 +22,7 @@ namespace Studio23.SS2.DialogueSystem.Data
         public abstract void HandleDialogueAdvance();
         public abstract void HandleChoiceSelected(int choiceIndex);
 
+        public abstract void HandleDialogueCancel();
 
         public abstract UniTask Play();
 

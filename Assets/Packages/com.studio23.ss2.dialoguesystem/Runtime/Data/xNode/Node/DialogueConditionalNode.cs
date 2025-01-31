@@ -10,6 +10,11 @@ namespace Studio23.SS2.DialogueSystem.Data
         [SerializeReference, SerializeReferenceButton]
         private List<IDialogueNodeCondition> _conditions = new List<IDialogueNodeCondition>();
 
+        public override void HandleDialogueCancel()
+        {
+            
+        }
+
         protected override bool CheckConditionsInternal()
         {
             foreach (var condition in _conditions)
