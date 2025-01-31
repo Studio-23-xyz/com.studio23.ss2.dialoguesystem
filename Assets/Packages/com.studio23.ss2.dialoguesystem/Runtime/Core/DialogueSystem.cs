@@ -218,8 +218,8 @@ namespace Studio23.SS2.DialogueSystem.Core
         {
             if(_dialogueCancelTokenSource != null)
                 _dialogueCancelTokenSource.Cancel();
-            if(CurNode != null &&  (CurNode is DialogueLineNodeBase dialogueLineNodeBase))
-                dialogueLineNodeBase.CancelDialogueLine();
+            if(CurNode != null &&  (CurNode is DialogueNodeBase dialogueNodeBase))
+                dialogueNodeBase.HandleDialogueCancel();
             OnDialogueCancelledEvent?.Invoke(_currentGraph, CurNode);
         }
 

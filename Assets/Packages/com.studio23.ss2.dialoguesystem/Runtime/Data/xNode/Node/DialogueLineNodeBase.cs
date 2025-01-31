@@ -38,7 +38,7 @@ namespace Studio23.SS2.DialogueSystem.Data
             _canAdvanceDialogue = true;
         }
 
-        public void CancelDialogueLine()
+        public override void HandleDialogueCancel()
         {
             if(_cancelDialogueLine != null)
                 _cancelDialogueLine.Cancel();
@@ -76,7 +76,7 @@ namespace Studio23.SS2.DialogueSystem.Data
 
         public override async UniTask Play()
         {
-            CancelDialogueLine();
+            HandleDialogueCancel();
             _cancelDialogueLine = new CancellationTokenSource();
             _canAdvanceDialogue = false;
             HandleDialogueCompleted(true);
@@ -104,12 +104,13 @@ namespace Studio23.SS2.DialogueSystem.Data
 
         public override DialogueNodeBase GetNextNode()
         {
-            HandleDialogueStarted(true);
             NodePort outputPort = GetExitPort();
             if (outputPort == null || outputPort.Connection == null)
             {
                 return null;
             }
+            if (outputPort.Connection.node is DialogueLineNodeBase nextDialogueLine)
+                nextDialogueLine.HandleDialogueStarted(true);
             return outputPort.Connection.node as DialogueNodeBase;
         }
         
