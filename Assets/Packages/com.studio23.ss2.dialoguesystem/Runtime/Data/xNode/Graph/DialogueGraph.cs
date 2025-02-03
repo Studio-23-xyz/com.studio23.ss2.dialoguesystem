@@ -82,6 +82,13 @@ namespace Studio23.SS2.DialogueSystem.Data
             {
                 _initialized = false;
             }
+            foreach (var node in nodes)
+            {
+                if (node is DialogueGraphNodeBase dialogueGraphNode)
+                {
+                    dialogueGraphNode.Initialize();
+                }
+            }
         }
         
         public bool ConditionsValid()
