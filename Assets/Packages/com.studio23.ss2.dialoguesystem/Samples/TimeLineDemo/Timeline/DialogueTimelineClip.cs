@@ -7,7 +7,6 @@ using UnityEngine.Timeline;
 namespace Samples
 {
     [Serializable]
-    [TrackBindingType(typeof(DialogueBoxUI))]
     public class DialogueTimelineClip: PlayableAsset, ITimelineClipAsset
     {
         public DialogueLineNodeBase Node;
