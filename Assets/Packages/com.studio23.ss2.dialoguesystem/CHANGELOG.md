@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.4.38]
+1. Fixed Dialogue Sample Issues
+2. Fixed Dialogue not properly cancelled
+
 ## [0.4.35]
 1. Added functionality handling dialogue node base class
 

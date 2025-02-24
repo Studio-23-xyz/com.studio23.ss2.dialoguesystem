@@ -141,12 +141,21 @@ namespace Studio23.SS2.DialogueSystem.Core
                 }
                 
                 Debug.Log("Play = " + CurNode, CurNode);
-                await CurNode.Play();
+                if(await CurNode.Play().AttachExternalCancellation(_dialogueCancelTokenSource.Token).SuppressCancellationThrow())
+                {
+                    Debug.Log($"CT10 Dialogue System Cancelled : {graph.name}");
+                    break;
+                }
+                else
+                {
+                    Debug.Log($"CT10 Dialogue System OnGoing : {graph.name}");
+                }
                 _curNode = CurNode.GetNextNode();
             }
 
             _currentGraph.HandleDialogueEnded();
             OnDialogueEnded?.Invoke(_currentGraph, startNode);
+            await UniTask.Yield();
         }
         /// <summary>
         /// Traverses dialogueLineNodeBases as far as possible
@@ -213,7 +222,10 @@ namespace Studio23.SS2.DialogueSystem.Core
                 }
             }
         }
-
+        /// <summary>
+        /// Function to cancel ongoing dialogue
+        /// Sends a OnDialogueCancelledEvent event
+        /// </summary>
         public void OnDialogueCancelled()
         {
             if(_dialogueCancelTokenSource != null)

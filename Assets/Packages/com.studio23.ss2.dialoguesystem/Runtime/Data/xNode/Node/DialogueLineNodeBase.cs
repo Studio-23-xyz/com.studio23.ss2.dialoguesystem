@@ -87,14 +87,22 @@ namespace Studio23.SS2.DialogueSystem.Data
                 while (!_canAdvanceDialogue && !_cancelDialogueLine.IsCancellationRequested)
                 {
                     //at this point, we are showing dialogue with ShouldShowLineWhenSkipped = true
-                    if (Core.DialogueSystem.Instance.IsSkipActive)
+                    //if (Core.DialogueSystem.Instance.IsSkipActive)
+                    //{
+                    //    await UniTask.Delay(TimeSpan.FromSeconds(Core.DialogueSystem.Instance.ShowLineDurationWhenSkipping), cancellationToken: _cancelDialogueLine.Token).SuppressCancellationThrow();
+                    //    break;
+                    //}
+
+                    if(await UniTask.Yield(cancellationToken: _cancelDialogueLine.Token).SuppressCancellationThrow())
                     {
-                        await UniTask.Delay(TimeSpan.FromSeconds(Core.DialogueSystem.Instance.ShowLineDurationWhenSkipping), cancellationToken: _cancelDialogueLine.Token).SuppressCancellationThrow();
+                        Debug.Log($"CT10 Dialogue Line Cancelled {graph.name}");
                         break;
                     }
-
-                    await UniTask.Yield(cancellationToken: _cancelDialogueLine.Token).SuppressCancellationThrow();
-                    await UniTask.NextFrame(cancellationToken: _cancelDialogueLine.Token).SuppressCancellationThrow();
+                    if(await UniTask.NextFrame(cancellationToken: _cancelDialogueLine.Token).SuppressCancellationThrow())
+                    {
+                        Debug.Log($"CT10 Dialogue Line Cancelled {graph.name}");
+                        break;
+                    }
                 }
                 Core.DialogueSystem.Instance.DialogueLineCompleted?.Invoke(this);
             }
