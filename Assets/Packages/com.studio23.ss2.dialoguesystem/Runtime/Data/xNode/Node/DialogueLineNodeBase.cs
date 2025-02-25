@@ -83,6 +83,7 @@ namespace Studio23.SS2.DialogueSystem.Data
             if (!Core.DialogueSystem.Instance.IsSkipActive || 
                 Core.DialogueSystem.Instance.ShouldShowLineWhenSkipped)
             {
+                Debug.Log($"CT10 Dialogue Line {graph.name} L1");
                 Core.DialogueSystem.Instance.DialogueLineStarted?.Invoke(this);
                 while (!_canAdvanceDialogue && !_cancelDialogueLine.IsCancellationRequested)
                 {
@@ -95,15 +96,19 @@ namespace Studio23.SS2.DialogueSystem.Data
 
                     if(await UniTask.Yield(cancellationToken: _cancelDialogueLine.Token).SuppressCancellationThrow())
                     {
-                        Debug.Log($"CT10 Dialogue Line Cancelled {graph.name}");
+                        //Debug.Log($"CT10 Dialogue Line Cancelled {graph.name}");
                         break;
                     }
                     if(await UniTask.NextFrame(cancellationToken: _cancelDialogueLine.Token).SuppressCancellationThrow())
                     {
-                        Debug.Log($"CT10 Dialogue Line Cancelled {graph.name}");
+                        //Debug.Log($"CT10 Dialogue Line Cancelled {graph.name}");
                         break;
                     }
                 }
+                if(_cancelDialogueLine.IsCancellationRequested)
+                    Debug.Log($"CT10 Dialogue Line {graph.name} L6-A");
+                else
+                    Debug.Log($"CT10 Dialogue Line {graph.name} L6-B");
                 Core.DialogueSystem.Instance.DialogueLineCompleted?.Invoke(this);
             }
             

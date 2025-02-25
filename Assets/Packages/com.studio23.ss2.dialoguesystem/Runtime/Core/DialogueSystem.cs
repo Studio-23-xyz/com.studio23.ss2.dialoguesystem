@@ -141,16 +141,18 @@ namespace Studio23.SS2.DialogueSystem.Core
                 }
                 
                 Debug.Log("Play = " + CurNode, CurNode);
-                if(await CurNode.Play().AttachExternalCancellation(_dialogueCancelTokenSource.Token).SuppressCancellationThrow())
+                Debug.Log($"CT10 Dialogue System : {graph.name} G2");
+                if (await CurNode.Play().AttachExternalCancellation(_dialogueCancelTokenSource.Token).SuppressCancellationThrow())
                 {
-                    Debug.Log($"CT10 Dialogue System Cancelled : {graph.name}");
+                    Debug.Log($"CT10 Dialogue System : {graph.name} G3-A");
                     break;
                 }
                 else
                 {
-                    Debug.Log($"CT10 Dialogue System OnGoing : {graph.name}");
+                    Debug.Log($"CT10 Dialogue System : {graph.name} G3-B");
                 }
                 _curNode = CurNode.GetNextNode();
+                await UniTask.Yield();
             }
 
             _currentGraph.HandleDialogueEnded();
@@ -228,10 +230,10 @@ namespace Studio23.SS2.DialogueSystem.Core
         /// </summary>
         public void OnDialogueCancelled()
         {
-            if(_dialogueCancelTokenSource != null)
-                _dialogueCancelTokenSource.Cancel();
-            if(CurNode != null &&  (CurNode is DialogueNodeBase dialogueNodeBase))
+            if (CurNode != null && (CurNode is DialogueNodeBase dialogueNodeBase))
                 dialogueNodeBase.HandleDialogueCancel();
+            if (_dialogueCancelTokenSource != null)
+                _dialogueCancelTokenSource.Cancel();
             OnDialogueCancelledEvent?.Invoke(_currentGraph, CurNode);
         }
 
